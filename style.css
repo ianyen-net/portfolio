@@ -2495,8 +2495,8 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
 }
 
 /* ==========================================================================
-   9. FOOTER WRAP — "Let's build something good." (Pinterest Pin 865465253415587845 Palette)
-      Colors: #FFFFFF, #E5E5E5, #FCA311 (Gold), #14213D (Oxford Navy), #000000 (Black)
+   9. FOOTER WRAP — "Let's build something good." (Pinterest Pin 968344357402585770 Palette)
+      Colors: #121212, #1F2937, #334155, #64748B, #F1F5F9, #EC4899 (Rose Pink)
    ========================================================================== */
 .leo-footer-outer {
   width: 100%;
@@ -2510,11 +2510,11 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 82% 18%, rgba(252, 163, 17, 0.18) 0%, transparent 50%),
-    radial-gradient(circle at 18% 82%, rgba(20, 33, 61, 0.85) 0%, transparent 60%),
-    linear-gradient(160deg, #000000 0%, #0A1120 46%, #14213D 100%);
-  border: 1px solid rgba(229, 229, 229, 0.18);
-  box-shadow: 0 24px 56px -18px rgba(0, 0, 0, 0.68);
+    radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.20) 0%, transparent 52%),
+    radial-gradient(circle at 18% 82%, rgba(100, 116, 139, 0.34) 0%, transparent 62%),
+    linear-gradient(155deg, #121212 0%, #1F2937 50%, #334155 100%);
+  border: 1px solid rgba(100, 116, 139, 0.36);
+  box-shadow: 0 24px 56px -18px rgba(18, 18, 18, 0.68);
   padding: 96px 24px 0;
   display: flex;
   flex-direction: column;
@@ -2522,7 +2522,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   text-align: center;
   gap: 40px;
   overflow: hidden;
-  color: #FFFFFF;
+  color: #F1F5F9;
 }
 
 .leo-footer-invite {
@@ -2540,12 +2540,12 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   gap: 8px;
   padding: 7px 14px 7px 12px;
   border-radius: 100px;
-  background: rgba(20, 33, 61, 0.78);
-  border: 1px solid rgba(229, 229, 229, 0.24);
+  background: rgba(31, 41, 55, 0.84);
+  border: 1px solid rgba(100, 116, 139, 0.42);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: #E5E5E5;
+  color: #F1F5F9;
 }
 
 .leo-footer-heading {
@@ -2555,14 +2555,14 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   line-height: 0.96;
   letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #F1F5F9;
 }
 
 .leo-footer-heading .text-accent {
   font-family: var(--font-script);
   text-transform: none;
   font-size: 1.04em;
-  color: #FCA311;
+  color: #EC4899;
 }
 
 .leo-footer-actions {
@@ -2574,40 +2574,40 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
 }
 
-/* Balanced Equal-Width Primary (Gold #FCA311) & Secondary (#14213D / #E5E5E5) Buttons inside Footer Card */
+/* Balanced Equal-Width Primary (#EC4899) & Secondary (#334155 / #64748B) Buttons inside Footer Card */
 .leo-footer-actions .leo-magnetic-btn {
   min-width: 214px;
 }
 
 .leo-footer-wrap .leo-magnetic-btn {
-  background: #FCA311;
-  color: #000000;
-  border: 1px solid #FCA311;
+  background: #EC4899;
+  color: #F1F5F9;
+  border: 1px solid #EC4899;
   font-weight: 600;
 }
 
 .leo-footer-wrap .leo-magnetic-btn:hover {
   transform: translateY(-2px);
-  background: #FFB52E;
-  color: #000000;
-  border-color: #FFFFFF;
-  box-shadow: 0 12px 26px -8px rgba(252, 163, 17, 0.48);
+  background: #F472B6;
+  color: #121212;
+  border-color: #F1F5F9;
+  box-shadow: 0 12px 26px -8px rgba(236, 72, 153, 0.52);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-secondary {
-  background: rgba(20, 33, 61, 0.65);
-  color: #FFFFFF;
-  border: 1px solid rgba(229, 229, 229, 0.32);
+  background: rgba(51, 65, 85, 0.72);
+  color: #F1F5F9;
+  border: 1px solid rgba(100, 116, 139, 0.48);
   font-weight: 500;
   backdrop-filter: blur(10px);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-secondary:hover {
   transform: translateY(-2px);
-  background: rgba(20, 33, 61, 0.92);
-  color: #FCA311;
-  border-color: rgba(252, 163, 17, 0.65);
-  box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.55);
+  background: #334155;
+  color: #EC4899;
+  border-color: rgba(236, 72, 153, 0.72);
+  box-shadow: 0 12px 26px -8px rgba(18, 18, 18, 0.55);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon {
@@ -2615,17 +2615,17 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 42px;
   height: 42px;
   padding: 0;
-  background: rgba(225, 203, 215, 0.11);
-  color: #FFFFFF;
-  border: 1px solid rgba(225, 203, 215, 0.28);
+  background: rgba(51, 65, 85, 0.55);
+  color: #F1F5F9;
+  border: 1px solid rgba(100, 116, 139, 0.42);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon:hover {
   transform: translateY(-2px);
-  background: rgba(225, 203, 215, 0.22);
-  color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 8px 20px -6px rgba(8, 16, 26, 0.4);
+  background: #334155;
+  color: #EC4899;
+  border-color: #EC4899;
+  box-shadow: 0 8px 20px -6px rgba(18, 18, 18, 0.4);
 }
 
 .leo-footer-socials {
@@ -2640,7 +2640,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
   max-width: 1040px;
   padding: 16px 0;
-  border-top: 1px solid rgba(225, 203, 215, 0.18);
+  border-top: 1px solid rgba(100, 116, 139, 0.30);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2650,7 +2650,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #B2C3D6;
+  color: #94A3B8;
 }
 
 .leo-footer-meta-right {
@@ -2665,20 +2665,21 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(14, 31, 47, 0.65);
-  border: 1px solid rgba(225, 203, 215, 0.28);
+  background: rgba(31, 41, 55, 0.78);
+  border: 1px solid rgba(100, 116, 139, 0.42);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-transform: none;
-  color: #FFFFFF;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  color: #F1F5F9;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .leo-back-top-link:hover {
-  background: #FFFFFF;
-  color: #0E1F2F;
+  background: #F1F5F9;
+  color: #121212;
+  border-color: #F1F5F9;
 }
 
 /* Giant Full-Width Tanker Wordmark (`owen-gray.framer.website` style) */
@@ -2694,8 +2695,8 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   line-height: 0.82;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #E1CBD7;
-  opacity: 0.16;
+  color: #64748B;
+  opacity: 0.22;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -4218,10 +4219,10 @@ body[data-theme="light"] .case-hero-stage.is-aurora-ecosystem {
   border-radius: 24px;
   padding: 28px 24px 32px;
   background:
-    radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.26) 0%, rgba(195, 142, 180, 0.14) 36%, transparent 74%),
-    linear-gradient(165deg, #0E1F2F 0%, #1F374D 58%, #5B7D9E 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 22px 48px -18px rgba(8, 16, 26, 0.5);
+    radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.24) 0%, rgba(195, 142, 180, 0.14) 36%, transparent 74%),
+    linear-gradient(160deg, #0D1B2A 0%, #1C324A 56%, #416182 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 22px 48px -18px rgba(8, 16, 26, 0.45);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4230,19 +4231,24 @@ body[data-theme="light"] .case-hero-stage.is-aurora-ecosystem {
 
 .editor-ba-card.is-after {
   background:
-    radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.38) 0%, rgba(195, 142, 180, 0.22) 36%, transparent 74%),
-    linear-gradient(165deg, #102336 0%, #26425A 55%, #86A8CF 100%);
-  border-color: rgba(138, 180, 248, 0.2);
+    radial-gradient(110% 70% at 50% 100%, rgba(196, 181, 253, 0.35) 0%, rgba(244, 180, 212, 0.24) 40%, transparent 76%),
+    linear-gradient(155deg, #EEF4FF 0%, #E5ECFF 52%, #F6E7F5 100%);
+  border: 1px solid rgba(138, 180, 248, 0.32);
+  box-shadow: 0 22px 48px -18px rgba(15, 23, 42, 0.22);
 }
 
 body[data-theme="light"] .editor-ba-card {
-  background: #F8F9FA;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 18px 40px -16px rgba(15, 23, 42, 0.08);
+  background:
+    radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.24) 0%, rgba(195, 142, 180, 0.14) 36%, transparent 74%),
+    linear-gradient(160deg, #0D1B2A 0%, #1C324A 56%, #416182 100%);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 20px 44px -16px rgba(15, 23, 42, 0.22);
 }
 
 body[data-theme="light"] .editor-ba-card.is-after {
-  background: #FFFFFF;
+  background:
+    radial-gradient(110% 70% at 50% 100%, rgba(196, 181, 253, 0.38) 0%, rgba(244, 180, 212, 0.26) 40%, transparent 76%),
+    linear-gradient(155deg, #EAF2FF 0%, #E2EAFF 52%, #F5E4F3 100%);
   border: 1px solid rgba(15, 23, 42, 0.1);
   box-shadow: 0 20px 44px -16px rgba(15, 23, 42, 0.12);
 }
@@ -4253,13 +4259,18 @@ body[data-theme="light"] .editor-ba-card.is-after {
   font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 400;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
   margin-bottom: 14px;
   line-height: 1.1;
 }
 
-body[data-theme="light"] .editor-ba-label {
-  color: #1E293B;
+.editor-ba-card.is-after .editor-ba-label,
+body[data-theme="light"] .editor-ba-card.is-after .editor-ba-label {
+  color: #0F172A;
+}
+
+body[data-theme="light"] .editor-ba-card:not(.is-after) .editor-ba-label {
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .editor-ba-card .device-frame.is-ba-phone {
@@ -4269,6 +4280,10 @@ body[data-theme="light"] .editor-ba-label {
   margin: 0 auto !important;
   transform: none !important;
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.45);
+}
+
+.editor-ba-card.is-after .device-frame.is-ba-phone {
+  box-shadow: 0 20px 42px -14px rgba(15, 23, 42, 0.28);
 }
 
 .editor-ba-card .device-frame.is-ba-phone video {
@@ -4281,6 +4296,59 @@ body[data-theme="light"] .editor-ba-label {
 @media (max-width: 720px) {
   .case-hero-stage.is-editor-before-after {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   FINAL PRODUCT STAGES — DISTINCT GRADIENT CONTAINERS (ANDROID, DESKTOP, WEAR)
+   ========================================================================== */
+.final-product-stage {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  margin: 24px 0;
+}
+
+.final-product-stage.is-android {
+  padding: 36px 32px 44px;
+  background:
+    radial-gradient(90% 80% at 82% 18%, rgba(244, 194, 224, 0.45) 0%, transparent 65%),
+    linear-gradient(135deg, #DCEBFF 0%, #E8E4FF 52%, #F5E3F2 100%) !important;
+}
+
+.final-product-stage.is-android .mock-grid-2 {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.final-product-stage.is-android .case-caption {
+  color: #334155;
+  font-weight: 600;
+}
+
+.final-product-stage.is-android .case-caption.is-after-caption {
+  color: #1A73E8;
+}
+
+.final-product-stage.is-android .device-frame {
+  box-shadow: 0 20px 42px -14px rgba(15, 23, 42, 0.26);
+}
+
+.final-product-stage.is-desktop {
+  background:
+    radial-gradient(85% 75% at 18% 82%, rgba(165, 216, 255, 0.42) 0%, transparent 65%),
+    linear-gradient(135deg, #E8EEFF 0%, #DCE9FF 50%, #D4F1FA 100%) !important;
+}
+
+.final-product-stage.is-wear {
+  background:
+    radial-gradient(85% 75% at 80% 80%, rgba(199, 210, 254, 0.42) 0%, transparent 65%),
+    linear-gradient(135deg, #DFF4EC 0%, #DCEFF8 52%, #E7E9FF 100%) !important;
+}
+
+@media (max-width: 640px) {
+  .final-product-stage.is-android {
+    padding: 24px 16px 30px;
   }
 }
 

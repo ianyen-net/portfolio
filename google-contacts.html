@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -420,36 +420,6 @@
             </div>
           </div>
         </div>
-
-        <p class="case-eyebrow" style="margin-top: 56px;">FINAL PRODUCT – ANDROID</p>
-        <div class="mock-grid-2 framer-reveal">
-          <div class="mock-col">
-            <p class="case-caption">BEFORE</p>
-            <div class="device-frame">
-              <video autoplay muted loop playsinline poster="assets/mocks/ce_hero_before_poster.jpg?v=29">
-                <source src="assets/mocks/ce_hero_before.mp4?v=29" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="mock-col">
-            <p class="case-caption" style="color: var(--accent);">AFTER</p>
-            <div class="device-frame">
-              <video autoplay muted loop playsinline poster="assets/mocks/ce_hero_after_poster.jpg?v=29">
-                <source src="assets/mocks/ce_hero_after.mp4?v=29" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <p class="case-eyebrow" style="margin-top: 48px;">DESKTOP</p>
-        <div class="case-figure framer-reveal">
-          <img src="https://static.wixstatic.com/media/e3505c_f73c6e9cf1a848509934c945d09afb31~mv2.png/v1/crop/x_0,y_52,w_2922,h_1537/fill/w_1706,h_864,al_c,q_90/Screenshot%202026-02-19%20at%201_10_17%E2%80%AFPM.png" alt="Desktop Final Product" loading="lazy">
-        </div>
-
-        <p class="case-eyebrow" style="margin-top: 48px;">WEAR OS</p>
-        <div class="case-figure framer-reveal">
-          <img src="https://static.wixstatic.com/media/e3505c_e770a639671e4e33bc192a45a2225d88~mv2.png/v1/crop/x_0,y_80,w_2932,h_1483/fill/w_1706,h_864,al_c,q_90/Screenshot%202026-02-19%20at%201_06_28%E2%80%AFPM.png" alt="Wear OS Final Product" loading="lazy">
-        </div>
       </div>
     </section>
 
@@ -470,6 +440,43 @@
         </div>
 
         <p class="case-body">The component system was later adopted by Google Wallet and Magic Cue for their editing interfaces, validating the upfront investment in scalable architecture. What made adoption possible wasn't just good components; it was that each component had defined scalable properties and behaviors, making adaptation for new data types straightforward without redesign from scratch.</p>
+      </div>
+    </section>
+
+    <!-- Section: Final Product Visuals -->
+    <section class="case-section framer-reveal">
+      <div class="case-container">
+        <p class="case-eyebrow">FINAL PRODUCT – ANDROID</p>
+        <div class="final-product-stage is-android framer-reveal">
+          <div class="mock-grid-2">
+            <div class="mock-col">
+              <p class="case-caption">BEFORE</p>
+              <div class="device-frame">
+                <video autoplay muted loop playsinline poster="assets/mocks/ce_hero_before_poster.jpg?v=29">
+                  <source src="assets/mocks/ce_hero_before.mp4?v=29" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="mock-col">
+              <p class="case-caption is-after-caption">AFTER</p>
+              <div class="device-frame">
+                <video autoplay muted loop playsinline poster="assets/mocks/ce_hero_after_poster.jpg?v=29">
+                  <source src="assets/mocks/ce_hero_after.mp4?v=29" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="case-eyebrow" style="margin-top: 48px;">DESKTOP</p>
+        <div class="case-figure final-product-stage is-desktop framer-reveal">
+          <img src="assets/mocks/ce_final_desktop.png?v=30" alt="Desktop Final Product" loading="lazy">
+        </div>
+
+        <p class="case-eyebrow" style="margin-top: 48px;">WEAR OS</p>
+        <div class="case-figure final-product-stage is-wear framer-reveal">
+          <img src="assets/mocks/ce_final_wear.png?v=30" alt="Wear OS Final Product" loading="lazy">
+        </div>
       </div>
     </section>
 
