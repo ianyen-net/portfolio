@@ -509,10 +509,20 @@ document.addEventListener('DOMContentLoaded', () => {
               !rocketTorchScheduled
             ) {
               rocketTorchScheduled = true;
-              // Rocket lifts off at 1.7s and reaches the top border of the hero section at ~3.75s
+              // Rocket lifts off at 1.2s and reaches the top of the hero section at ~2.9s
               setTimeout(() => {
-                heroTorchFlash.classList.add('is-flashing');
-              }, 3720);
+                const heroSection = document.querySelector('.hero-viewport-wrap');
+                const processSection = document.getElementById('process');
+                const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
+                const procRect = processSection ? processSection.getBoundingClientRect() : null;
+                // Show the 1/3-height top torch explosion as long as the user is still viewing the hero/process area
+                if (
+                  (heroRect && heroRect.bottom > 80) ||
+                  (procRect && procRect.bottom > 0)
+                ) {
+                  heroTorchFlash.classList.add('is-flashing');
+                }
+              }, 2880);
             }
             revealObs.unobserve(entry.target);
           }

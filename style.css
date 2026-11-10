@@ -719,70 +719,73 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   display: none;
 }
 
-/* Torch-Like Gradient Top Border Flash when the Ship rocket reaches the top of the hero section */
+/* Torch-Like Gradient Top Border Explosion Flash (fixed at top of viewport so it is always visible & spans 1/3 of the hero section while the user is in the hero area) */
 .hero-top-torch-flash {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 34vh;
+  min-height: 280px;
   pointer-events: none;
-  z-index: 25;
+  z-index: 95;
   opacity: 0;
   transform-origin: 50% 0%;
   background:
     /* Crisp glowing gradient border line right along the top edge */
     linear-gradient(
       90deg,
-      transparent 4%,
-      rgba(107, 155, 255, 0.78) 22%,
-      rgba(168, 85, 247, 0.96) 38%,
-      rgba(249, 190, 51, 1) 50%,
-      rgba(236, 72, 153, 0.96) 62%,
-      rgba(129, 140, 248, 0.78) 78%,
-      transparent 96%
-    ) top center / 100% 3px no-repeat,
-    /* Intense central torch core glow */
+      transparent 2%,
+      rgba(107, 155, 255, 0.95) 18%,
+      rgba(168, 85, 247, 1) 34%,
+      rgba(253, 224, 71, 1) 50%,
+      rgba(236, 72, 153, 1) 66%,
+      rgba(129, 140, 248, 0.95) 82%,
+      transparent 98%
+    ) top center / 100% 4px no-repeat,
+    /* Bright central impact burst at the rocket strike point */
     radial-gradient(
-      24% 62px at 50% 0%,
-      rgba(249, 190, 51, 0.52) 0%,
-      rgba(236, 72, 153, 0.34) 42%,
-      rgba(168, 85, 247, 0.16) 72%,
+      38% 190px at 50% 0%,
+      rgba(253, 224, 71, 0.76) 0%,
+      rgba(249, 115, 22, 0.54) 28%,
+      rgba(236, 72, 153, 0.40) 56%,
+      rgba(168, 85, 247, 0.20) 80%,
       transparent 100%
     ),
-    /* Wide ambient aurora torch beam spreading across the top border */
+    /* Expansive aurora torch bloom reaching 1/3 down the hero section */
     radial-gradient(
-      58% 120px at 50% 0%,
-      rgba(129, 140, 248, 0.34) 0%,
-      rgba(107, 155, 255, 0.16) 52%,
+      78% 100% at 50% 0%,
+      rgba(168, 85, 247, 0.46) 0%,
+      rgba(129, 140, 248, 0.32) 44%,
+      rgba(107, 155, 255, 0.16) 74%,
       transparent 100%
     );
 }
 
 .hero-top-torch-flash.is-flashing {
-  animation: heroTopTorchPulse 1.35s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+  animation: heroTopTorchPulse 1.85s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
 }
 
 @keyframes heroTopTorchPulse {
   0% {
     opacity: 0;
-    transform: scaleX(0.28);
+    transform: scaleX(0.32) scaleY(0.45);
     filter: blur(2px);
   }
-  18% {
+  16% {
     opacity: 1;
-    transform: scaleX(1.02);
+    transform: scaleX(1.02) scaleY(1.04);
     filter: blur(0px);
   }
-  42% {
-    opacity: 0.92;
-    transform: scaleX(1.08);
-    filter: blur(0.5px);
+  46% {
+    opacity: 0.95;
+    transform: scaleX(1.08) scaleY(1);
+    filter: blur(1px);
   }
   100% {
     opacity: 0;
-    transform: scaleX(1.16);
-    filter: blur(4px);
+    transform: scaleX(1.16) scaleY(0.92);
+    filter: blur(6px);
   }
 }
 
@@ -2070,20 +2073,20 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 0.85s !important;
+  animation-delay: 0.6s !important;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 1.7s !important;
+  animation-delay: 1.2s !important;
 }
 
 /* Cute Retro Rocket Vector perched above "Ship" from the start:
    1. Appears immediately together with "Design -> Prototype -> Ship"
-   2. Thruster fire & smoke simmer and boil underneath while Design & Prototype flash (0s -> 1.7s)
-   3. At 1.7s when the flash hits "Ship", the rocket sets off in a steady linear motion to the top and triggers the hero top border torch flash */
+   2. Thruster fire & smoke simmer and boil underneath while Design & Prototype flash (0s -> 1.2s)
+   3. At 1.2s when the flash hits "Ship", the rocket sets off in a steady linear motion to the top and triggers the 1/3-height hero top border torch explosion */
 .ship-rocket-stage {
   position: absolute;
   left: 50%;
@@ -2129,22 +2132,22 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .framer-reveal.is-visible .ship-launch-smoke {
-  animation: shipLaunchpadSmoke 4.1s linear 0s 1 forwards;
+  animation: shipLaunchpadSmoke 3.2s linear 0s 1 forwards;
 }
 
 @keyframes shipLaunchpadSmoke {
-  /* Simmering & boiling underneath the perched rocket until "Ship" flashes at 1.7s (41.5%) */
-  0%, 41.5% {
+  /* Simmering & boiling underneath the perched rocket until "Ship" flashes at 1.2s (37.5%) */
+  0%, 37.5% {
     opacity: 0.92;
     transform: translate3d(-50%, 0px, 0) scale(0.9);
   }
-  /* Billows outward as the rocket lifts off at 1.7s */
-  50% {
+  /* Billows outward as the rocket lifts off at 1.2s */
+  48% {
     opacity: 1;
     transform: translate3d(-50%, -2px, 0) scale(1.22);
   }
   /* Dissipates after the rocket leaves the pad */
-  72%, 100% {
+  70%, 100% {
     opacity: 0;
     transform: translate3d(-50%, -8px, 0) scale(1.5);
   }
@@ -2164,7 +2167,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .framer-reveal.is-visible .ship-rocket-launch {
-  animation: shipRocketLiftoff 4.1s linear 0s 1 forwards;
+  animation: shipRocketLiftoff 3.2s linear 0s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2199,17 +2202,17 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachLeft 4.1s linear 0s 1 forwards;
+  animation: boosterDetachLeft 3.2s linear 0s 1 forwards;
 }
 
 .framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachRight 4.1s linear 0s 1 forwards;
+  animation: boosterDetachRight 3.2s linear 0s 1 forwards;
 }
 
 @keyframes boosterDetachLeft {
-  0%, 68% {
+  0%, 66% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
@@ -2224,7 +2227,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 @keyframes boosterDetachRight {
-  0%, 68% {
+  0%, 66% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
@@ -2259,17 +2262,17 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 @keyframes shipRocketLiftoff {
-  /* 0s -> 1.7s (0% -> 41.5%): Visible on the pad above "Ship" while fire & smoke simmer underneath */
-  0%, 41.5% {
+  /* 0s -> 1.2s (0% -> 37.5%): Visible on the pad above "Ship" while fire & smoke simmer underneath */
+  0%, 37.5% {
     opacity: 1;
     transform: translate3d(-50%, 0px, 0) scale(1);
   }
-  /* 1.7s -> 3.8s (41.5% -> 92.5%): Steady linear ascent all the way up the homepage */
-  92.5% {
+  /* 1.2s -> 2.95s (37.5% -> 92%): Steady linear ascent all the way up the homepage */
+  92% {
     opacity: 1;
     transform: translate3d(-50%, -680px, 0) scale(1);
   }
-  /* 3.8s -> 4.1s (92.5% -> 100%): Reaches top border of hero section and fades out permanently */
+  /* 2.95s -> 3.2s (92% -> 100%): Reaches top border of hero section and fades out permanently */
   100% {
     opacity: 0;
     transform: translate3d(-50%, -760px, 0) scale(0.96);
@@ -2302,30 +2305,22 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Each word flashes ONCE on initial appearance, then only flashes when hovered */
 .framer-reveal.is-visible .leo-process-title {
-  animation: processTitleLoop 2.55s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: processTitleFlashOnce 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   animation-delay: inherit;
 }
 
 body[data-theme="light"] .framer-reveal.is-visible .leo-process-title {
-  animation-name: processTitleLoopLight;
+  animation-name: processTitleFlashOnceLight;
 }
 
-@keyframes processCardLoop {
-  0%, 28%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  12% {
-    transform: translateY(-4px) scale(1.05);
-  }
-}
-
-@keyframes processTitleLoop {
-  0%, 28%, 100% {
+@keyframes processTitleFlashOnce {
+  0%, 100% {
     color: var(--text-primary);
     text-shadow: 0 0 0 transparent;
   }
-  12% {
+  38% {
     color: var(--loop-color);
     text-shadow:
       0 0 18px var(--loop-glow),
@@ -2333,12 +2328,12 @@ body[data-theme="light"] .framer-reveal.is-visible .leo-process-title {
   }
 }
 
-@keyframes processTitleLoopLight {
-  0%, 28%, 100% {
+@keyframes processTitleFlashOnceLight {
+  0%, 100% {
     color: var(--text-primary);
     text-shadow: 0 0 0 transparent;
   }
-  12% {
+  38% {
     color: var(--loop-color-light);
     text-shadow: 0 6px 22px rgba(124, 58, 237, 0.28);
   }
