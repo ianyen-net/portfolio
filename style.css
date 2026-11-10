@@ -1872,6 +1872,15 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
   gap: 20px;
 }
 
+.hero-dock-area.is-below-process {
+  margin-top: 4px;
+  padding-top: 8px;
+}
+
+.hero-dock-area.is-below-process .hero-dock-label {
+  color: var(--text-secondary);
+}
+
 .leo-process-card {
   position: relative;
   border-radius: 999px;
@@ -2061,6 +2070,85 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   gap: 10px;
 }
 
+/* Personal Geographic & Career Timeline Spine (`🇺🇸 US -> 🇬🇧 UK -> 🇭🇰 Hong Kong`) */
+.leo-exp-timeline.is-personal-timeline {
+  position: relative;
+  gap: 28px;
+  padding-left: 34px;
+}
+
+.leo-exp-timeline.is-personal-timeline::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  bottom: 24px;
+  left: 13px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(223, 182, 178, 0.55) 0%,
+    rgba(133, 79, 108, 0.45) 55%,
+    rgba(134, 168, 207, 0.25) 100%
+  );
+  border-radius: 2px;
+}
+
+.exp-timeline-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.exp-timeline-era {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.exp-timeline-flag {
+  position: absolute;
+  left: -34px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--bg-page);
+  z-index: 2;
+}
+
+.exp-timeline-flag svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.exp-timeline-era-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.exp-timeline-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
 .leo-exp-role-card {
   position: relative;
   width: 100%;
@@ -2075,7 +2163,6 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   transition:
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.35s ease,
-    border-color 0.35s ease,
     box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -2083,7 +2170,7 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(43, 18, 76, 0.45) 0%, rgba(82, 43, 91, 0.42) 48%, rgba(133, 79, 108, 0.34) 100%);
+  background: linear-gradient(135deg, rgba(43, 18, 76, 0.34) 0%, rgba(82, 43, 91, 0.28) 48%, rgba(133, 79, 108, 0.22) 100%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.38s ease;
@@ -2092,17 +2179,15 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
 .leo-exp-role-card:hover {
   transform: translateY(-4px);
   background: var(--bg-elevated);
-  border-color: #DFB6B2;
-  box-shadow:
-    0 20px 42px -16px rgba(25, 0, 25, 0.68),
-    inset 0 1px 0 rgba(251, 228, 216, 0.28);
+  border-color: var(--border-subtle);
+  box-shadow: 0 20px 42px -16px rgba(25, 0, 25, 0.55);
 }
 
 .leo-exp-role-card:hover::before {
   opacity: 1;
 }
 
-/* 46x46px Tinted Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
+/* 46x46px Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
 .leo-exp-mark {
   position: relative;
   z-index: 1;
@@ -2110,8 +2195,7 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   height: 46px;
   border-radius: 13px;
   background: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
-  border: 1px solid rgba(134, 168, 207, 0.32);
-  box-shadow: inset 0 1px 0 rgba(225, 203, 215, 0.18);
+  border: 1px solid rgba(134, 168, 207, 0.24);
   color: #E1CBD7;
   display: flex;
   align-items: center;
@@ -2124,17 +2208,51 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   transition:
     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
     background 0.35s ease,
-    border-color 0.35s ease,
     box-shadow 0.35s ease,
     color 0.35s ease;
 }
 
+/* Untinted Official Company & Flag Logos (Google, Philips, Hong Kong) */
+.leo-exp-mark.is-untinted-logo {
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+body[data-theme="light"] .leo-exp-mark.is-untinted-logo {
+  background: #FFFFFF;
+  border: 1px solid rgba(14, 31, 47, 0.12);
+  box-shadow: 0 4px 12px rgba(14, 31, 47, 0.08);
+}
+
+.leo-exp-mark.is-untinted-logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+.leo-exp-mark.is-flag-mark svg {
+  width: 28px;
+  height: 19px;
+  border-radius: 3px;
+}
+
+.exp-real-logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+
 .leo-exp-role-card:hover .leo-exp-mark {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.08) rotate(-4deg);
   background: linear-gradient(145deg, #854F6C 0%, #522B5B 100%);
-  border-color: #DFB6B2;
-  box-shadow: 0 8px 20px rgba(133, 79, 108, 0.48);
+  box-shadow: 0 8px 20px rgba(133, 79, 108, 0.38);
   color: #FBE4D8;
+}
+
+.leo-exp-role-card:hover .leo-exp-mark.is-untinted-logo {
+  background: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .leo-exp-mark svg {
@@ -2224,7 +2342,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 
 .leo-exp-role-card:hover .leo-exp-period {
   background: rgba(133, 79, 108, 0.28);
-  border-color: #DFB6B2;
+  border-color: var(--border-subtle);
   color: #FBE4D8;
 }
 
@@ -2706,12 +2824,41 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
   display: block;
 }
 
-/* Frameless ShareKit Annotated Mock (No black outer container; annotations adapt to Light/Dark theme) */
+/* Frameless ShareKit Annotated Mock (Full-width & Enlarged so labels are super readable) */
+.feature-row.is-annotated-principle {
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 34px 36px;
+}
+
+.annotated-principle-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+.annotated-principle-copy.is-single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
+.annotated-principle-copy .case-body {
+  margin-bottom: 0;
+}
+
+.annotated-principle-visual {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sk-annotated-mock {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  margin: 10px auto 0;
+  max-width: 820px;
+  margin: 12px auto 0;
   background: transparent;
   border: none;
 }
@@ -3333,16 +3480,17 @@ body[data-theme="light"] .device-frame {
   border-radius: 24px;
 }
 
-/* HITL Confirmation Card Explorations Masonry (2 balanced vertical columns matching Slide 194, frameless UI cards with soft drop-shadow) */
+/* HITL Confirmation Card Explorations Masonry (Frameless — no black container, compact 2-column cards) */
 .hitl-card-masonry {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  margin: 18px 0 38px;
-  padding: 32px;
-  border-radius: 26px;
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
+  gap: 22px;
+  max-width: 620px;
+  margin: 18px auto 38px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   align-items: stretch;
 }
 
@@ -3350,14 +3498,14 @@ body[data-theme="light"] .device-frame {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 .hitl-card-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
 }
 
@@ -3368,11 +3516,12 @@ body[data-theme="light"] .device-frame {
 
 .hitl-card-img {
   width: 100%;
+  max-width: 295px;
   height: auto;
   display: block;
   background: transparent;
   border: none;
-  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.42));
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.38));
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
 }
 
@@ -3512,9 +3661,13 @@ body[data-theme="light"] .desktop-window-frame {
 .mock-group-split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-  max-width: 920px;
+  gap: 28px;
+  max-width: 960px;
   margin: 28px auto;
+}
+
+.mock-group-split.is-mvp-ideal-split .device-frame {
+  max-width: 230px;
 }
 
 /* Clean Frameless Half-Group so `.device-frame` phones don't sit inside a second container box! */

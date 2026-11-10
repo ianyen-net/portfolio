@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=24">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -344,15 +344,15 @@
         <p class="case-body">Our research made one thing clear: users treat contact data as personal, curated and high-stake data. So I designed a confirmation layer into every Gemini <em>inferred</em> action that touches a contact record, having user evaluation instead of passive rubber-stamping. Any mutation, such as saving a relationship, updating a field, creating a contact, surfaces an <strong>HITL (human-in-the-loop) confirmation card</strong> before anything is written. One tap to approve, and nothing changes without it. Dismissal got the same design attention as approval. This is the design principle that made the feature trustworthy at scale.</p>
 
         <h4 class="case-h4">Getting a Rough MVP In Front of Users Fast</h4>
-        <div class="mock-group-split framer-reveal">
+        <div class="mock-group-split is-mvp-ideal-split framer-reveal">
           <div class="mock-group-half">
             <p class="case-caption">MVP (SHIPPED FIRST)</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/ai_mvp_1.png" alt="MVP Step 1" loading="lazy">
+                <img src="assets/mocks/ai_mvp_1.png?v=24" alt="MVP Step 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/ai_mvp_2.png" alt="MVP Step 2" loading="lazy">
+                <img src="assets/mocks/ai_mvp_2.png?v=24" alt="MVP Step 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -360,10 +360,10 @@
             <p class="case-caption" style="color: var(--accent);">IDEAL (NORTH STAR)</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/ai_ideal_1.png" alt="Ideal Step 1" loading="lazy">
+                <img src="assets/mocks/ai_ideal_1.png?v=24" alt="Ideal Step 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/ai_ideal_2.png" alt="Ideal Step 2" loading="lazy">
+                <img src="assets/mocks/ai_ideal_2.png?v=24" alt="Ideal Step 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -602,30 +602,32 @@
 
         <h4 class="case-h4">Introducing Friction Modulation</h4>
         <p class="case-body">The UX also drew a careful line between different actions. <strong>Magic Cue</strong> keeps the interaction to a single tap: the suggested information is surfaced, the user taps on it, it's done. <strong>Magic Save</strong> takes two: tap to select, then a confirmation sheet that shows exactly what will be written and lets users correct it before committing. The extra step exists because the stakes are different.</p>
-        <p class="case-body">For the confirmation sheet, I explored several patterns but chose the one that optimized for scalability: it needed only a minor modification to an existing component, not a brand-new build. In a launch-and-learn motion, that meant faster, lower-risk implementation of a feature Pixel needed to scale quickly.</p>
+        <p class="case-body">Even though we shipped Exploration 4 for MVP, the ideal was Exploration 2 and we have it as a fast follow. The reason we shipped Exploration 4 was to optimize for editability for the names, as we weren't confident how accurate the model was for MVP. We shipped Exploration 4 and tracked the edit rate for the name and the added data.</p>
 
         <div style="display: flex; justify-content: center; margin: 28px auto;">
           <div class="device-frame framer-reveal" style="max-width: 245px;">
-            <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_3_magic_poster.jpg">
-              <source src="assets/mocks/ai_proto_3_magic.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_3_magic_poster.jpg?v=24">
+              <source src="assets/mocks/ai_proto_3_magic.mp4?v=24" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section: Reflection -->
+    <!-- Section: Reflection (Slide 102 Content & Speaker Notes) -->
     <section class="case-section framer-reveal">
       <div class="case-container">
         <p class="case-eyebrow">REFLECTION</p>
-        <h2 class="case-h2">What I'd Do Next</h2>
-        <h4 class="case-h4" style="margin-top: 16px;">Turning the HITL framework into an "Agent-Ready" Design System</h4>
-        <p class="case-body">Looking ahead, I want to evolve the HITL framework into a truly "agent-ready" design system — one where autonomous code and generative agents can programmatically read, assemble, and render the card without visual or functional drift. That means enforcing strict 1:1 schema alignment between Figma component variants and code props, so MCP servers and AI agents build production-grade UI without generating rogue CSS.</p>
-        <p class="case-body">Additionally, it requires formalizing rigorous state machines across all tokens, from empty and loading states to focused and active states, while embedding semantic constraints directly into design tokens. By pairing HITL oversight with machine-readable design constraints, we ensure that as AI agents become more autonomous, every dynamic interface they assemble strictly complies with Google's design and accessibility standards.</p>
+        <h2 class="case-h2">Learnings</h2>
 
-        <h2 class="case-h2" style="margin-top: 48px;">What I'd Do Differently</h2>
-        <p class="case-body" style="margin-top: 16px;">If I could do this all over again, I'd run the sprint earlier on during OKR planning, and not at the beginning of the quarter. Its value was in giving the team shared evaluation criteria, and having it earlier would have saved two to three weeks in the planning phase. The sprint landed late enough in the quarter that we needed re-alignment conversations we could have skipped.</p>
-        <p class="case-body">The most useful finding from the whole project was about data sensitivity. User trust isn't one thing — it is contextual, relational, and depends on the type of data involved. That understanding shaped how we handled privacy UX across the roadmap, not just in the features I designed directly.</p>
+        <h4 class="case-h4" style="margin-top: 20px;">Ship fast and learn from real world users</h4>
+        <p class="case-body">In the world of AI, ship the rough version and iterate. When designing for interaction patterns that don't already have a precedent yet, always try to gather real behavioral signal from real users, which no amount of internal prototyping could replicate — because a live feature with rough edges teaches you more than a perfect prototype that never ships.</p>
+
+        <h4 class="case-h4">When business strategy is the starting point</h4>
+        <p class="case-body">Not all projects begin with a user problem. Sometimes we need to look for problems to solve, instead of solutions to have. When the starting point is a business strategy, the designer's role is figuring out the right user-centric approach to make that strategy successful. Our task was to translate that high-level business goal into a valuable and well-received user experience, which required deeply understanding user expectations to find the right solution.</p>
+
+        <h4 class="case-h4">User trust isn't one thing</h4>
+        <p class="case-body">User trust isn't one thing — it is contextual, relational, and depends on the type of data involved. That understanding shaped how we handled privacy UX across the roadmap, not just in the features I designed directly.</p>
       </div>
     </section>
 
@@ -724,6 +726,6 @@
 </footer>
 
 
-  <script src="script.js?v=23"></script>
+  <script src="script.js?v=24"></script>
 </body>
 </html>

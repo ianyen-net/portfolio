@@ -202,23 +202,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
 
-    // Default avatar is always the navy victory sign variant; only changes while the user hovers over it
-    const defaultAvatarSrc = 'assets/avatar_var_3_navy_victory.gif?v=20';
-    const hoverAvatarVariants = [
-      'assets/avatar_var_1_blue_blink.gif?v=20',
-      'assets/avatar_var_2_orange_funny.gif?v=20',
+    // Default avatar starts on the navy victory sign variant; each hover advances to the next variant and stays changed
+    const avatarVariants = [
+      'assets/avatar_var_3_navy_victory.gif?v=21',
+      'assets/avatar_var_1_blue_blink.gif?v=21',
+      'assets/avatar_var_2_orange_funny.gif?v=21',
     ];
     // Preload all variants so hover switching is instant with zero flicker
-    [defaultAvatarSrc, ...hoverAvatarVariants].forEach((src) => {
+    avatarVariants.forEach((src) => {
       const preload = new Image();
       preload.src = src;
     });
-    let hoverVariantIdx = 0;
+    let avatarVariantIdx = 0;
 
-    const showHoverAvatarVariant = () => {
+    const advanceAvatarVariant = () => {
       if (!avatarImg) return;
-      avatarImg.src = hoverAvatarVariants[hoverVariantIdx];
-      hoverVariantIdx = (hoverVariantIdx + 1) % hoverAvatarVariants.length;
+      avatarVariantIdx = (avatarVariantIdx + 1) % avatarVariants.length;
+      avatarImg.src = avatarVariants[avatarVariantIdx];
       if (tiltCard) {
         tiltCard.animate(
           [
@@ -231,10 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const restoreDefaultAvatar = () => {
-      if (avatarImg) {
-        avatarImg.src = defaultAvatarSrc;
-      }
+    const resetAvatarTilt = () => {
       if (tiltCard) {
         tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
@@ -250,11 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tiltCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
     });
 
-    avatarStage.addEventListener('mouseenter', showHoverAvatarVariant);
-    avatarStage.addEventListener('mouseleave', restoreDefaultAvatar);
+    avatarStage.addEventListener('mouseenter', advanceAvatarVariant);
+    avatarStage.addEventListener('mouseleave', resetAvatarTilt);
     avatarStage.addEventListener('click', (e) => {
       e.stopPropagation();
-      showHoverAvatarVariant();
+      advanceAvatarVariant();
     });
   }
 
