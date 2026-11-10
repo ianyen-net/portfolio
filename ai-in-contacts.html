@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -170,17 +170,29 @@
               </linearGradient>
 
               <radialGradient id="s92CenterGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#0057CC" stop-opacity="0.28"/>
-                <stop offset="60%" stop-color="#0057CC" stop-opacity="0.06"/>
+                <stop offset="0%" stop-color="#0057CC" stop-opacity="0.22"/>
+                <stop offset="60%" stop-color="#0057CC" stop-opacity="0.05"/>
                 <stop offset="100%" stop-color="#0057CC" stop-opacity="0"/>
               </radialGradient>
+
+              <!-- Mask so connecting lines stop cleanly around the icons without needing any background fill -->
+              <mask id="s92HubMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="420">
+                <rect x="0" y="0" width="1000" height="420" fill="white"/>
+                <circle cx="500" cy="210" r="68" fill="black"/>
+                <circle cx="210" cy="100" r="44" fill="black"/>
+                <circle cx="155" cy="210" r="44" fill="black"/>
+                <circle cx="210" cy="320" r="44" fill="black"/>
+                <circle cx="790" cy="100" r="44" fill="black"/>
+                <circle cx="845" cy="210" r="44" fill="black"/>
+                <circle cx="790" cy="320" r="44" fill="black"/>
+              </mask>
             </defs>
 
             <!-- Subtle Ambient Halo Behind Central Google Contacts Logo -->
             <circle cx="500" cy="210" r="115" fill="url(#s92CenterGlow)" class="aurora-core-pulse"/>
 
             <!-- Clean Minimal Connecting Curves -->
-            <g opacity="0.24">
+            <g opacity="0.28" mask="url(#s92HubMask)">
               <path d="M210 100 C 330 100, 385 195, 500 210" stroke="url(#s92LineLT)" stroke-width="1.5"/>
               <path d="M155 210 L 500 210" stroke="url(#s92LineLM)" stroke-width="1.5"/>
               <path d="M210 320 C 330 320, 385 225, 500 210" stroke="url(#s92LineLB)" stroke-width="1.5"/>
@@ -190,7 +202,7 @@
             </g>
 
             <!-- Gentle Aurora Pulse Along Each Line -->
-            <g opacity="0.65">
+            <g opacity="0.7" mask="url(#s92HubMask)">
               <path d="M210 100 C 330 100, 385 195, 500 210" stroke="url(#s92LineLT)" stroke-width="2" stroke-linecap="round" class="aurora-energy-stream is-s1"/>
               <path d="M155 210 L 500 210" stroke="url(#s92LineLM)" stroke-width="2" stroke-linecap="round" class="aurora-energy-stream is-s2"/>
               <path d="M210 320 C 330 320, 385 225, 500 210" stroke="url(#s92LineLB)" stroke-width="2" stroke-linecap="round" class="aurora-energy-stream is-s3"/>
@@ -199,7 +211,7 @@
               <path d="M790 320 C 670 320, 615 225, 500 210" stroke="url(#s92LineRB)" stroke-width="2" stroke-linecap="round" class="aurora-energy-stream is-s6"/>
             </g>
 
-            <!-- Slide 92 Aurora Energy Icons (Frameless on Pitch-Black Canvas) -->
+            <!-- Slide 92 Aurora Energy Icons (Frameless) -->
             <!-- Top-Left: Google Meet -->
             <g class="aurora-app-node is-float-1">
               <image href="assets/mocks/ai_s92_meet.png?v=27" x="-34" y="-34" width="68" height="68"/>
@@ -232,7 +244,6 @@
 
             <!-- Center Hub: Slide 92 Google Contacts Logo -->
             <g class="aurora-central-hub" transform="translate(500, 210)">
-              <circle cx="0" cy="0" r="64" fill="#000000"/>
               <image href="assets/mocks/ai_s92_contacts.png?v=27" x="-52" y="-52" width="104" height="104"/>
             </g>
           </svg>

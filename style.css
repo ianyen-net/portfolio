@@ -4117,22 +4117,22 @@ body[data-theme="light"] .case-password-card {
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 32px;
-  padding: 24px 32px;
-  border-radius: 28px;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 56px -20px rgba(0, 0, 0, 0.65);
-  overflow: hidden;
+  margin-top: 24px;
+  padding: 12px 0;
+  border-radius: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 body[data-theme="light"] .case-hero-stage.is-aurora-ecosystem {
-  background: #000000;
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 24px 52px -18px rgba(15, 23, 42, 0.22);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .aurora-ecosystem-svg {
