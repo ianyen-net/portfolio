@@ -2188,7 +2188,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   gap: 10px;
 }
 
-/* Personal Geographic & Career Timeline Spine (`🇺🇸 -> 🇬🇧`) */
+/* Personal Geographic & Career Timeline Spine (`🇺🇸 -> 🇬🇧 -> 🇭🇰`) */
 .leo-exp-timeline.is-personal-timeline {
   position: relative;
   gap: 22px;
@@ -2199,14 +2199,14 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   content: '';
   position: absolute;
   top: 32px;
-  bottom: 32px;
+  bottom: 10px;
   left: 14px;
   width: 2px;
   background: linear-gradient(
     180deg,
     rgba(223, 182, 178, 0.55) 0%,
     rgba(133, 79, 108, 0.45) 55%,
-    rgba(134, 168, 207, 0.28) 100%
+    rgba(134, 168, 207, 0.38) 100%
   );
   border-radius: 2px;
 }
@@ -2217,6 +2217,15 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   flex-direction: column;
   gap: 10px;
   width: 100%;
+}
+
+.exp-timeline-group.is-origin-only {
+  height: 20px;
+  margin-top: -4px;
+}
+
+.exp-timeline-group.is-origin-only .exp-timeline-flag {
+  top: 10px;
 }
 
 .exp-timeline-flag {
@@ -2274,7 +2283,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
 }
 
 /* 4 Distinct Cohesive Variations from the Twilight-Aurora Family (Pin 2181499817012571) */
-.exp-timeline-group:nth-of-type(1) .leo-exp-role-card {
+.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(1) {
   --exp-grad: linear-gradient(132deg, rgba(14, 31, 47, 0.90) 0%, rgba(38, 66, 90, 0.84) 52%, rgba(134, 168, 207, 0.38) 100%);
   --exp-grad-light: linear-gradient(132deg, rgba(232, 241, 252, 0.95) 0%, rgba(134, 168, 207, 0.32) 55%, rgba(195, 142, 180, 0.22) 100%);
   --exp-accent: #A5C6EC;
@@ -2282,7 +2291,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   --exp-mark-bg: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
 }
 
-.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(1) {
+.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(2) {
   --exp-grad: linear-gradient(132deg, rgba(24, 24, 48, 0.90) 0%, rgba(72, 52, 96, 0.82) 52%, rgba(195, 142, 180, 0.38) 100%);
   --exp-grad-light: linear-gradient(132deg, rgba(246, 235, 244, 0.95) 0%, rgba(195, 142, 180, 0.30) 55%, rgba(134, 168, 207, 0.24) 100%);
   --exp-accent: #E2A9D2;
@@ -2290,7 +2299,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   --exp-mark-bg: linear-gradient(145deg, #4D3664 0%, #191932 100%);
 }
 
-.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(2) {
+.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(3) {
   --exp-grad: linear-gradient(132deg, rgba(18, 30, 52, 0.90) 0%, rgba(56, 68, 106, 0.82) 52%, rgba(225, 203, 215, 0.36) 100%);
   --exp-grad-light: linear-gradient(132deg, rgba(238, 236, 250, 0.95) 0%, rgba(164, 158, 208, 0.28) 55%, rgba(225, 203, 215, 0.36) 100%);
   --exp-accent: #E8CEDB;
@@ -2298,7 +2307,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   --exp-mark-bg: linear-gradient(145deg, #38446A 0%, #121E34 100%);
 }
 
-.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(3) {
+.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(1) {
   --exp-grad: linear-gradient(132deg, rgba(15, 34, 48, 0.90) 0%, rgba(36, 76, 98, 0.82) 52%, rgba(142, 188, 218, 0.36) 100%);
   --exp-grad-light: linear-gradient(132deg, rgba(230, 244, 250, 0.95) 0%, rgba(134, 178, 208, 0.30) 55%, rgba(225, 203, 215, 0.26) 100%);
   --exp-accent: #9FD0EE;
