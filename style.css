@@ -763,24 +763,24 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
 }
 
 .hero-top-torch-flash.is-flashing {
-  animation: heroTopTorchPulse 1.85s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+  animation: heroTopTorchPulse 3.2s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
 }
 
 @keyframes heroTopTorchPulse {
   0% {
     opacity: 0;
-    transform: scaleX(0.32) scaleY(0.45);
+    transform: scaleX(0.45) scaleY(0.55);
     filter: blur(2px);
   }
-  16% {
+  8% {
     opacity: 1;
     transform: scaleX(1.02) scaleY(1.04);
     filter: blur(0px);
   }
-  46% {
-    opacity: 0.95;
-    transform: scaleX(1.08) scaleY(1);
-    filter: blur(1px);
+  58% {
+    opacity: 0.96;
+    transform: scaleX(1.08) scaleY(1.02);
+    filter: blur(0.5px);
   }
   100% {
     opacity: 0;
@@ -2267,15 +2267,15 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     opacity: 1;
     transform: translate3d(-50%, 0px, 0) scale(1);
   }
-  /* 1.2s -> 2.95s (37.5% -> 92%): Steady linear ascent all the way up the homepage */
+  /* 1.2s -> 2.95s (37.5% -> 92%): Steady linear ascent all the way past the top border of the viewport */
   92% {
     opacity: 1;
-    transform: translate3d(-50%, -680px, 0) scale(1);
+    transform: translate3d(-50%, -920px, 0) scale(1);
   }
-  /* 2.95s -> 3.2s (92% -> 100%): Reaches top border of hero section and fades out permanently */
+  /* 2.95s -> 3.2s (92% -> 100%): Continues past the top edge and fades out permanently */
   100% {
     opacity: 0;
-    transform: translate3d(-50%, -760px, 0) scale(0.96);
+    transform: translate3d(-50%, -1020px, 0) scale(0.96);
   }
 }
 

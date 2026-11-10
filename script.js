@@ -509,20 +509,43 @@ document.addEventListener('DOMContentLoaded', () => {
               !rocketTorchScheduled
             ) {
               rocketTorchScheduled = true;
-              // Rocket lifts off at 1.2s and reaches the top of the hero section at ~2.9s
-              setTimeout(() => {
+              const rocketEl = entry.target.querySelector('.ship-rocket-launch');
+              let torchFired = false;
+
+              const triggerHeroTorch = () => {
+                if (torchFired) return;
+                torchFired = true;
                 const heroSection = document.querySelector('.hero-viewport-wrap');
                 const processSection = document.getElementById('process');
                 const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
                 const procRect = processSection ? processSection.getBoundingClientRect() : null;
-                // Show the 1/3-height top torch explosion as long as the user is still viewing the hero/process area
                 if (
                   (heroRect && heroRect.bottom > 80) ||
                   (procRect && procRect.bottom > 0)
                 ) {
                   heroTorchFlash.classList.add('is-flashing');
                 }
-              }, 2880);
+              };
+
+              // Monitor the rocket's live viewport position so the top-border torch explosion fires
+              // the exact instant the rocket nose reaches the top of the viewport (with zero gap)
+              const startTrack = performance.now();
+              const trackRocketArrival = () => {
+                if (torchFired) return;
+                if (rocketEl) {
+                  const rRect = rocketEl.getBoundingClientRect();
+                  if (rRect.top <= 28 && performance.now() - startTrack > 1250) {
+                    triggerHeroTorch();
+                    return;
+                  }
+                }
+                if (performance.now() - startTrack < 3300) {
+                  requestAnimationFrame(trackRocketArrival);
+                } else {
+                  triggerHeroTorch();
+                }
+              };
+              requestAnimationFrame(trackRocketArrival);
             }
             revealObs.unobserve(entry.target);
           }
