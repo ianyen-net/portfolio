@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -142,7 +142,7 @@
 
         <!-- Slide 98 Hero Visual: Modular Components (Desktop & Mobile) -->
         <div class="case-hero-stage is-wide-slide framer-reveal">
-          <img src="assets/mocks/sk_hero_slide_98.png?v=16" alt="ShareKit Modular Components — Desktop and Mobile" class="single-border-mock" loading="eager">
+          <img src="assets/mocks/sk_hero_slide_98.png?v=21" alt="ShareKit Modular Components — Desktop and Mobile" class="single-border-mock" loading="eager">
         </div>
       </div>
     </section>
@@ -229,7 +229,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_2_share.png?v=14" alt="Share stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_2_share.png?v=21" alt="Share stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -243,7 +243,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_3_receive.png?v=14" alt="Receive stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_3_receive.png?v=21" alt="Receive stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_4_reengage.png?v=14" alt="Re-engage stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_4_reengage.png?v=21" alt="Re-engage stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -285,7 +285,10 @@
           </div>
           <div>
             <p class="case-caption">PROFILE ATTRIBUTION &amp; IDENTITY</p>
-            <img src="assets/mocks/sk_slide_218.png?v=14" alt="ShareKit Profile Attribution Proposal" class="single-border-mock" loading="lazy">
+            <div class="sk-annotated-mock">
+              <img src="assets/mocks/sk_slide_218.png?v=21" alt="ShareKit Profile Attribution Proposal" class="sk-base-layer" loading="lazy">
+              <img src="assets/mocks/sk_slide_218_annot.png?v=21" alt="" aria-hidden="true" class="sk-annot-layer" loading="lazy">
+            </div>
           </div>
         </div>
 
@@ -298,7 +301,10 @@
           </div>
           <div>
             <p class="case-caption">PREVIEW, CONTENT DESCRIPTION &amp; ACTION</p>
-            <img src="assets/mocks/sk_slide_219.png?v=14" alt="ShareKit Preview, Content Description and Content Action Proposal" class="single-border-mock" loading="lazy">
+            <div class="sk-annotated-mock">
+              <img src="assets/mocks/sk_slide_219.png?v=21" alt="ShareKit Preview, Content Description and Content Action Proposal" class="sk-base-layer" loading="lazy">
+              <img src="assets/mocks/sk_slide_219_annot.png?v=21" alt="" aria-hidden="true" class="sk-annot-layer" loading="lazy">
+            </div>
           </div>
         </div>
 
@@ -309,7 +315,10 @@
           </div>
           <div>
             <p class="case-caption">STANDARD &amp; APP-SPECIFIC ACTIONS</p>
-            <img src="assets/mocks/sk_slide_220.png?v=14" alt="ShareKit Standard and App-Specific Actions Proposal" class="single-border-mock" loading="lazy">
+            <div class="sk-annotated-mock">
+              <img src="assets/mocks/sk_slide_220.png?v=21" alt="ShareKit Standard and App-Specific Actions Proposal" class="sk-base-layer" loading="lazy">
+              <img src="assets/mocks/sk_slide_220_annot.png?v=21" alt="" aria-hidden="true" class="sk-annot-layer" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
@@ -585,18 +594,12 @@
           <li>Third-party targets, including WhatsApp and Instagram, surfaced based on the user's device usage, so the sheet ends where that person actually shares.</li>
         </ul>
 
-        <div class="mock-grid-2 framer-reveal">
-          <div class="mock-col">
-            <p class="case-caption">EXTENDED HALF SHEET</p>
-            <div class="device-frame">
-              <img src="assets/mocks/sk_ext_1.png?v=14" alt="Extended Tier Half Sheet 1" loading="lazy">
-            </div>
-          </div>
-          <div class="mock-col">
-            <p class="case-caption">PROMPT EDITING STATE</p>
-            <div class="device-frame">
-              <img src="assets/mocks/sk_ext_2.png?v=14" alt="Extended Tier Half Sheet 2" loading="lazy">
-            </div>
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 28px auto;">
+          <p class="case-caption">EXTENDED HALF SHEET WALKTHROUGH</p>
+          <div class="device-frame framer-reveal" style="max-width: 248px; margin-top: 10px;">
+            <video autoplay muted loop playsinline poster="assets/mocks/sk_extended_demo_poster.jpg?v=21">
+              <source src="assets/mocks/sk_extended_demo.mp4?v=21" type="video/mp4">
+            </video>
           </div>
         </div>
 
@@ -713,6 +716,6 @@
 </footer>
 
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=21"></script>
 </body>
 </html>

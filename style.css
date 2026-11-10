@@ -1371,7 +1371,88 @@ body[data-theme="light"] .leo-work-cover {
   object-position: center center;
   display: block;
   transform: none !important;
-  transition: none !important;
+  transition: filter 0.38s ease !important;
+}
+
+/* Soft Tint Overlay on Cover Hover */
+.leo-work-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 12, 26, 0.22) 0%,
+    rgba(6, 12, 26, 0.42) 55%,
+    rgba(6, 12, 26, 0.72) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-work-cover:hover::after {
+  opacity: 1;
+}
+
+.leo-work-cover:hover .leo-work-media-inner > img.wix-static-card-img {
+  filter: brightness(0.84) saturate(0.95);
+}
+
+/* Hover Chips from Wix Portfolio on Case Study Cover Images */
+.work-card-hover-chips {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.work-card-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(14, 31, 47, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(225, 203, 215, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 10px 24px -8px rgba(0, 0, 0, 0.55);
+  color: #F7F3F6;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px) scale(0.94);
+  transition:
+    opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-card-chip:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.work-card-chip:nth-child(2) {
+  transition-delay: 45ms;
+}
+
+.work-card-chip:nth-child(3) {
+  transition-delay: 90ms;
+}
+
+.leo-work-cover:hover .work-card-chip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* Top-Right Google "G" & Philips Brand Logo on Case Study Cards */
@@ -1508,17 +1589,56 @@ body[data-theme="light"] .leo-work-cover {
   color: #ffffff;
 }
 
-/* Centered Title + Centered Category/Metric Below Cover (Exact `Ot` layout) */
+/* Centered Title + Centered Category/Metric Below Cover (Hover effect matching "Let's build something good" pill buttons) */
 .leo-work-caption {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   width: 100%;
+  padding: 14px 24px;
+  border-radius: 22px;
+  background: transparent;
+  border: 1px solid transparent;
   text-align: center;
+  overflow: hidden;
+  transition:
+    transform 0.42s var(--ease-out-expo),
+    background-color 0.42s var(--ease-out-expo),
+    border-color 0.42s var(--ease-out-expo),
+    box-shadow 0.42s var(--ease-out-expo);
+}
+
+.leo-work-caption::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(225, 203, 215, 0.22) 0%, rgba(134, 168, 207, 0.14) 55%, rgba(38, 66, 90, 0.18) 100%);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.leo-work-card:hover .leo-work-caption {
+  transform: translateY(-3px);
+  background: var(--bg-surface);
+  border-color: rgba(225, 203, 215, 0.32);
+  box-shadow: 0 16px 36px -14px rgba(4, 8, 20, 0.55);
+}
+
+.leo-work-card:hover .leo-work-caption::before {
+  transform: translate(-50%, -50%) scale(22);
 }
 
 .leo-work-title {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
@@ -1529,9 +1649,18 @@ body[data-theme="light"] .leo-work-cover {
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
+  transition: color 0.35s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
 }
 
-/* Character-by-character slot machine spans */
+.leo-work-card:hover .leo-work-title {
+  color: var(--accent-blush);
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-title {
+  color: var(--accent);
+}
+
+/* Character-by-character slot machine spans (fast, crisp synchronized roll like footer buttons) */
 .char-slot {
   display: inline-block;
   position: relative;
@@ -1544,8 +1673,8 @@ body[data-theme="light"] .leo-work-cover {
 .char-slot-track {
   display: flex;
   flex-direction: column;
-  transition: transform 0.6s var(--ease-out-expo);
-  transition-delay: calc(var(--char-index, 0) * 18ms);
+  transition: transform 0.48s var(--ease-out-expo);
+  transition-delay: calc(var(--char-index, 0) * 6ms);
 }
 
 .leo-work-card:hover .char-slot-track {
@@ -1553,20 +1682,34 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .leo-work-meta-line {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(225, 203, 215, 0.06);
+  border: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
   color: var(--text-secondary);
-  transition: color 0.45s var(--ease-out-expo), gap 0.5s var(--ease-out-expo);
+  overflow: hidden;
+  transition:
+    color 0.38s var(--ease-out-expo),
+    background-color 0.42s var(--ease-out-expo),
+    border-color 0.42s var(--ease-out-expo),
+    transform 0.42s var(--ease-out-expo),
+    gap 0.45s var(--ease-out-expo);
 }
 
 .leo-work-card:hover .leo-work-meta-line {
-  color: var(--text-primary);
+  background: #E1CBD7;
+  border-color: #E1CBD7;
+  color: #0E1F2F;
   gap: 10px;
 }
 
@@ -1585,27 +1728,29 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 /* ==========================================================================
-   6. ABOUT SECTION (`.framer-1fy50qp` -> `.framer-rcpi2f` & `.framer-1354vyu`)
+   6. ABOUT SECTION (Image Stacked Above Paragraph & Balanced Proportions)
    ========================================================================== */
 .about-editorial-split {
   width: 100%;
-  max-width: 940px;
-  margin: 8px auto 0;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 44px;
+  max-width: 760px;
+  margin: 18px auto 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  gap: 32px;
 }
 
 .about-bio-copy {
+  width: 100%;
+  max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  font-size: 17.5px;
-  line-height: 1.68;
+  font-size: 18px;
+  line-height: 1.72;
   letter-spacing: -0.01em;
   color: var(--text-secondary);
+  text-align: left;
 }
 
 .about-bio-copy strong {
@@ -1655,11 +1800,11 @@ body[data-theme="light"] .leo-work-cover {
   object-fit: cover;
 }
 
-/* Parents Photo Card — Clean Frameless Presentation (Zero Frame-Within-Frame!) */
+/* Parents Photo Card — Enlarged & Stacked Above Bio Paragraph for Balanced Proportions */
 .about-photo-tray,
 .about-photo-card {
   width: 100%;
-  max-width: 356px;
+  max-width: 580px;
   margin: 0 auto;
   padding: 0;
   border-radius: 0;
@@ -1670,10 +1815,11 @@ body[data-theme="light"] .leo-work-cover {
 
 .about-photo-img {
   width: 100%;
-  height: 184px;
-  border-radius: 16px;
+  height: 320px;
+  border-radius: 22px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.48);
 }
 
 .about-photo-img img {
@@ -1902,19 +2048,50 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .leo-exp-role-card {
+  position: relative;
   width: 100%;
-  padding: 16px 20px 16px 16px;
+  padding: 18px 22px 18px 18px;
   border-radius: 20px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   gap: 16px;
-  transition: transform 0.3s var(--ease-out-expo);
+  overflow: hidden;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-exp-role-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 120% at 15% 50%, rgba(195, 142, 180, 0.14) 0%, rgba(134, 168, 207, 0.10) 45%, transparent 80%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+
+.leo-exp-role-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-elevated);
+  border-color: var(--accent-saffron);
+  box-shadow:
+    0 20px 42px -16px rgba(4, 8, 20, 0.65),
+    inset 0 1px 0 rgba(225, 203, 215, 0.22);
+}
+
+.leo-exp-role-card:hover::before {
+  opacity: 1;
 }
 
 /* 46x46px Tinted Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
 .leo-exp-mark {
+  position: relative;
+  z-index: 1;
   width: 46px;
   height: 46px;
   border-radius: 13px;
@@ -1930,6 +2107,18 @@ body[data-theme="light"] .leo-work-cover {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.03em;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    color 0.35s ease;
+}
+
+.leo-exp-role-card:hover .leo-exp-mark {
+  transform: scale(1.1) rotate(-5deg);
+  border-color: rgba(225, 203, 215, 0.65);
+  box-shadow: 0 8px 20px rgba(195, 142, 180, 0.32);
+  color: #FFFFFF;
 }
 
 .leo-exp-mark svg {
@@ -1939,6 +2128,8 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .leo-exp-text {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -1961,6 +2152,15 @@ body[data-theme="light"] .leo-work-cover {
   text-transform: uppercase;
   line-height: 1.1;
   color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.leo-exp-role-card:hover .leo-exp-company {
+  color: var(--accent-blush);
+}
+
+body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
+  color: var(--accent);
 }
 
 /* Pulsing Terracotta `Now` Badge (`.framer-hfkl8u`) */
@@ -1988,6 +2188,8 @@ body[data-theme="light"] .leo-work-cover {
 
 /* Right Period Pill (`.framer-f1qw7t`) */
 .leo-exp-period {
+  position: relative;
+  z-index: 1;
   padding: 7px 12px;
   border-radius: 100px;
   border: 1px solid var(--border-subtle);
@@ -1998,6 +2200,16 @@ body[data-theme="light"] .leo-work-cover {
   color: var(--text-secondary);
   white-space: nowrap;
   flex-shrink: 0;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.leo-exp-role-card:hover .leo-exp-period {
+  background: rgba(225, 203, 215, 0.14);
+  border-color: rgba(225, 203, 215, 0.42);
+  color: var(--text-primary);
 }
 
 /* ==========================================================================
@@ -2339,7 +2551,7 @@ body[data-theme="light"] .leo-work-cover {
   max-width: 800px;
 }
 
-/* Soft Atmospheric Case Study Hero Stage (Pinterest Palette 1037798307866505042 — Zero Hover Shift & Centered Device!) */
+/* Soft Atmospheric Case Study Hero Stage (Zero Top White Border & Distinct Compatible Gradients!) */
 .case-hero-stage {
   position: relative;
   width: 100%;
@@ -2351,10 +2563,8 @@ body[data-theme="light"] .leo-work-cover {
   background:
     radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.44) 0%, rgba(195, 142, 180, 0.24) 34%, transparent 74%),
     linear-gradient(165deg, #0E1F2F 0%, #26425A 55%, #86A8CF 100%);
-  border: 1px solid var(--border-subtle);
-  box-shadow:
-    inset 0 1px 0 rgba(225, 203, 215, 0.18),
-    0 24px 56px -20px rgba(8, 16, 26, 0.55);
+  border: none;
+  box-shadow: 0 24px 56px -20px rgba(8, 16, 26, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2390,9 +2600,30 @@ body[data-theme="light"] .leo-work-cover {
   height: 480px;
   margin: 0;
   padding: 28px;
+  border: none;
+  box-shadow: 0 24px 56px -20px rgba(8, 16, 26, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Distinct Website-Palette Gradients for Each of the 3 Brief Video Containers */
+.brief-stack-item:nth-child(1) .case-hero-stage.is-brief-equal-stage {
+  background:
+    radial-gradient(110% 70% at 82% 100%, rgba(134, 168, 207, 0.46) 0%, rgba(38, 66, 90, 0.28) 45%, transparent 78%),
+    linear-gradient(145deg, #071322 0%, #1C3752 52%, #6E95C2 100%);
+}
+
+.brief-stack-item:nth-child(2) .case-hero-stage.is-brief-equal-stage {
+  background:
+    radial-gradient(110% 70% at 18% 100%, rgba(225, 203, 215, 0.44) 0%, rgba(195, 142, 180, 0.28) 45%, transparent 78%),
+    linear-gradient(150deg, #0D122A 0%, #34294E 54%, #9E739B 100%);
+}
+
+.brief-stack-item:nth-child(3) .case-hero-stage.is-brief-equal-stage {
+  background:
+    radial-gradient(110% 70% at 50% 100%, rgba(225, 203, 215, 0.36) 0%, rgba(134, 168, 207, 0.32) 48%, transparent 80%),
+    linear-gradient(160deg, #0C1D36 0%, #2B4564 50%, #8CA4C8 100%);
 }
 
 .case-hero-stage.is-brief-equal-stage > .device-frame {
@@ -2400,7 +2631,12 @@ body[data-theme="light"] .leo-work-cover {
   width: auto;
   max-width: none;
   aspect-ratio: 640 / 1400;
+  border-radius: 28px;
   margin: 0 auto !important;
+}
+
+.case-hero-stage.is-brief-equal-stage > .device-frame video {
+  border-radius: 28px;
 }
 
 .case-hero-stage.is-brief-equal-stage > .desktop-window-frame {
@@ -2429,9 +2665,8 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .case-hero-stage.is-wide-slide {
-  width: min(1260px, calc(100vw - 48px));
-  margin-left: calc(50% - min(630px, 50vw - 24px));
-  margin-right: calc(50% - min(630px, 50vw - 24px));
+  width: 100%;
+  margin: 28px 0 8px;
   height: auto;
   padding: 0;
   background: transparent;
@@ -2447,6 +2682,41 @@ body[data-theme="light"] .leo-work-cover {
   border: none;
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
   display: block;
+}
+
+/* Frameless ShareKit Annotated Mock (No black outer container; annotations adapt to Light/Dark theme) */
+.sk-annotated-mock {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 10px auto 0;
+  background: transparent;
+  border: none;
+}
+
+.sk-annotated-mock .sk-base-layer {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.48));
+}
+
+body[data-theme="light"] .sk-annotated-mock .sk-base-layer {
+  filter: drop-shadow(0 18px 36px rgba(14, 31, 47, 0.22));
+}
+
+.sk-annotated-mock .sk-annot-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: filter 0.35s ease;
+}
+
+body[data-theme="light"] .sk-annotated-mock .sk-annot-layer {
+  filter: brightness(0.12);
 }
 
 /* Frameless Share Icons for "Inconsistent entry points" (White in Dark Mode, Dark in Light Mode) */

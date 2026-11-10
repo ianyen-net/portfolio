@@ -202,26 +202,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
 
-    // 3 Sweater + Expression GIF Variants (rotates to the next variant on every hover or click):
-    // 0: Blue sweater eyes blinking & smiling
-    // 1: Orange sweater making funny faces
-    // 2: Navy sweater doing a victory sign & smiling
-    const avatarVariants = [
-      'assets/avatar_var_1_blue_blink.gif?v=14',
-      'assets/avatar_var_2_orange_funny.gif?v=14',
-      'assets/avatar_var_3_navy_victory.gif?v=14',
+    // Default avatar is always the navy victory sign variant; only changes while the user hovers over it
+    const defaultAvatarSrc = 'assets/avatar_var_3_navy_victory.gif?v=20';
+    const hoverAvatarVariants = [
+      'assets/avatar_var_1_blue_blink.gif?v=20',
+      'assets/avatar_var_2_orange_funny.gif?v=20',
     ];
     // Preload all variants so hover switching is instant with zero flicker
-    avatarVariants.forEach((src) => {
+    [defaultAvatarSrc, ...hoverAvatarVariants].forEach((src) => {
       const preload = new Image();
       preload.src = src;
     });
-    let variantIdx = 0;
+    let hoverVariantIdx = 0;
 
-    const cycleAvatarVariant = () => {
+    const showHoverAvatarVariant = () => {
       if (!avatarImg) return;
-      variantIdx = (variantIdx + 1) % avatarVariants.length;
-      avatarImg.src = avatarVariants[variantIdx];
+      avatarImg.src = hoverAvatarVariants[hoverVariantIdx];
+      hoverVariantIdx = (hoverVariantIdx + 1) % hoverAvatarVariants.length;
       if (tiltCard) {
         tiltCard.animate(
           [
@@ -231,6 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
           ],
           { duration: 340, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
         );
+      }
+    };
+
+    const restoreDefaultAvatar = () => {
+      if (avatarImg) {
+        avatarImg.src = defaultAvatarSrc;
+      }
+      if (tiltCard) {
+        tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
     };
 
@@ -244,16 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tiltCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
     });
 
-    avatarStage.addEventListener('mouseleave', () => {
-      if (tiltCard) {
-        tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-      }
-    });
-
-    avatarStage.addEventListener('mouseenter', cycleAvatarVariant);
+    avatarStage.addEventListener('mouseenter', showHoverAvatarVariant);
+    avatarStage.addEventListener('mouseleave', restoreDefaultAvatar);
     avatarStage.addEventListener('click', (e) => {
       e.stopPropagation();
-      cycleAvatarVariant();
+      showHoverAvatarVariant();
     });
   }
 
