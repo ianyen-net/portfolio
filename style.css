@@ -2070,25 +2070,25 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   gap: 10px;
 }
 
-/* Personal Geographic & Career Timeline Spine (`🇺🇸 US -> 🇬🇧 UK -> 🇭🇰 Hong Kong`) */
+/* Personal Geographic & Career Timeline Spine (`🇺🇸 -> 🇬🇧`) */
 .leo-exp-timeline.is-personal-timeline {
   position: relative;
-  gap: 28px;
-  padding-left: 34px;
+  gap: 22px;
+  padding-left: 38px;
 }
 
 .leo-exp-timeline.is-personal-timeline::before {
   content: '';
   position: absolute;
-  top: 16px;
-  bottom: 24px;
-  left: 13px;
+  top: 32px;
+  bottom: 32px;
+  left: 14px;
   width: 2px;
   background: linear-gradient(
     180deg,
     rgba(223, 182, 178, 0.55) 0%,
     rgba(133, 79, 108, 0.45) 55%,
-    rgba(134, 168, 207, 0.25) 100%
+    rgba(134, 168, 207, 0.28) 100%
   );
   border-radius: 2px;
 }
@@ -2097,24 +2097,16 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.exp-timeline-era {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
   gap: 10px;
-  margin-bottom: 2px;
+  width: 100%;
 }
 
 .exp-timeline-flag {
   position: absolute;
-  left: -34px;
-  top: 50%;
+  left: -38px;
+  top: 41px;
   transform: translateY(-50%);
-  width: 28px;
+  width: 30px;
   height: 20px;
   border-radius: 5px;
   overflow: hidden;
@@ -2122,7 +2114,7 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   align-items: center;
   justify-content: center;
   background: var(--bg-surface);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--bg-page);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 4px var(--bg-page);
   z-index: 2;
 }
 
@@ -2131,15 +2123,6 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   height: 100%;
   display: block;
   object-fit: cover;
-}
-
-.exp-timeline-era-label {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
 }
 
 .exp-timeline-cards {
@@ -2187,16 +2170,17 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   opacity: 1;
 }
 
-/* 46x46px Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
-.leo-exp-mark {
+/* 46x46px Theme-Adaptive Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
+.leo-exp-mark,
+.leo-exp-mark.is-theme-logo {
   position: relative;
   z-index: 1;
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
-  border: 1px solid rgba(134, 168, 207, 0.24);
-  color: #E1CBD7;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2212,35 +2196,24 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
     color 0.35s ease;
 }
 
-/* Untinted Official Company & Flag Logos (Google, Philips, Hong Kong) */
-.leo-exp-mark.is-untinted-logo {
-  background: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+body[data-theme="light"] .leo-exp-mark,
+body[data-theme="light"] .leo-exp-mark.is-theme-logo {
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
 }
 
-body[data-theme="light"] .leo-exp-mark.is-untinted-logo {
-  background: #FFFFFF;
-  border: 1px solid rgba(14, 31, 47, 0.12);
-  box-shadow: 0 4px 12px rgba(14, 31, 47, 0.08);
-}
-
-.leo-exp-mark.is-untinted-logo svg {
+.exp-theme-logo-img {
   width: 24px;
   height: 24px;
-}
-
-.leo-exp-mark.is-flag-mark svg {
-  width: 28px;
-  height: 19px;
-  border-radius: 3px;
-}
-
-.exp-real-logo-img {
-  width: 26px;
-  height: 26px;
   object-fit: contain;
   display: block;
+  opacity: 0.94;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+body[data-theme="light"] .exp-theme-logo-img {
+  filter: invert(1) brightness(0.08);
 }
 
 .leo-exp-role-card:hover .leo-exp-mark {
@@ -2250,9 +2223,8 @@ body[data-theme="light"] .leo-exp-mark.is-untinted-logo {
   color: #FBE4D8;
 }
 
-.leo-exp-role-card:hover .leo-exp-mark.is-untinted-logo {
-  background: #FFFFFF;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
+  filter: none;
 }
 
 .leo-exp-mark svg {
