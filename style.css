@@ -2373,21 +2373,51 @@ body[data-theme="light"] .leo-work-cover {
   transform: none !important;
 }
 
-.case-hero-stage.is-brief-phone-stage {
-  height: 460px;
-  margin: 10px 0 0;
-  padding: 20px;
+.brief-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 28px 0;
 }
 
-.case-hero-stage.is-brief-desktop-stage {
-  height: auto;
-  margin: 12px 0 28px;
-  padding: 34px 28px;
+.brief-stack-item .case-caption {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
-.case-hero-stage.is-brief-desktop-stage > .desktop-window-frame {
-  max-width: 720px;
-  margin: 0 auto;
+.case-hero-stage.is-brief-equal-stage {
+  width: 100%;
+  height: 480px;
+  margin: 0;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-hero-stage.is-brief-equal-stage > .device-frame {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  aspect-ratio: 640 / 1400;
+  margin: 0 auto !important;
+}
+
+.case-hero-stage.is-brief-equal-stage > .desktop-window-frame {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-hero-stage.is-brief-equal-stage > .desktop-window-frame video {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .case-hero-stage > img.clean-cutout-visual {
