@@ -491,8 +491,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     9. SCROLL REVEAL OBSERVER (`.framer-reveal`)
+     9. SCROLL REVEAL OBSERVER (`.framer-reveal`) & ROCKET TOP-BORDER TORCH FLASH
      ========================================================================== */
+  const heroTorchFlash = document.querySelector('.hero-top-torch-flash');
+  let rocketTorchScheduled = false;
+
   const revealElements = document.querySelectorAll('.framer-reveal');
   if (revealElements.length) {
     const revealObs = new IntersectionObserver(
@@ -500,6 +503,17 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            if (
+              entry.target.id === 'process' &&
+              heroTorchFlash &&
+              !rocketTorchScheduled
+            ) {
+              rocketTorchScheduled = true;
+              // Rocket lifts off at 1.7s and reaches the top border of the hero section at ~3.75s
+              setTimeout(() => {
+                heroTorchFlash.classList.add('is-flashing');
+              }, 3720);
+            }
             revealObs.unobserve(entry.target);
           }
         });
