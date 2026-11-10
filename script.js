@@ -497,6 +497,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let rocketTorchScheduled = false;
   let activeRocketTrackRaf = null;
 
+  // True only while the user is still inside the hero section (not scrolled past it)
+  const isUserInHeroSection = () => {
+    const heroSection = document.querySelector('.hero-viewport-wrap');
+    if (!heroSection) return false;
+    const heroRect = heroSection.getBoundingClientRect();
+    // Consider the user in the hero section only while at least the lower portion of the hero is still in view
+    return heroRect.bottom > 180;
+  };
+
   const startRocketTorchTracker = (processSectionEl) => {
     if (!heroTorchFlash || !processSectionEl) return;
     if (activeRocketTrackRaf) {
@@ -511,13 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const triggerHeroTorch = () => {
       if (torchFired) return;
       torchFired = true;
-      const heroSection = document.querySelector('.hero-viewport-wrap');
-      const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
-      const procRect = processSectionEl.getBoundingClientRect();
-      if (
-        (heroRect && heroRect.bottom > 80) ||
-        procRect.bottom > 0
-      ) {
+      // Only show the explosion effect if the user has NOT scrolled past the hero section
+      if (isUserInHeroSection()) {
         heroTorchFlash.classList.remove('is-flashing');
         void heroTorchFlash.offsetWidth;
         heroTorchFlash.classList.add('is-flashing');
@@ -527,6 +531,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const startTrack = performance.now();
     const trackRocketArrival = () => {
       if (torchFired) return;
+      if (!isUserInHeroSection()) {
+        torchFired = true;
+        heroTorchFlash.classList.remove('is-flashing');
+        return;
+      }
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
         if (rRect.top <= 28 && performance.now() - startTrack > 1750) {
@@ -595,6 +604,10 @@ document.addEventListener('DOMContentLoaded', () => {
       rocketRelaunchBtns.forEach((btn) => {
         btn.classList.toggle('is-hidden', isPastHero);
       });
+      // Immediately hide the top torch explosion if the user scrolls past the hero section
+      if (heroTorchFlash && !isUserInHeroSection()) {
+        heroTorchFlash.classList.remove('is-flashing');
+      }
     };
     window.addEventListener('scroll', updateRocketBtnVisibility, { passive: true });
     window.addEventListener('resize', updateRocketBtnVisibility, { passive: true });
