@@ -497,14 +497,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let rocketTorchScheduled = false;
   let activeRocketTrackRaf = null;
 
-  // True only while the user is still inside the hero section (not scrolled past it)
+  // True only while the user is still in the hero section (the 1/3-height top torch explosion stays inside the hero section and never bleeds into the work section below)
   const isUserInHeroSection = () => {
     const heroSection = document.querySelector('.hero-viewport-wrap');
     if (!heroSection) return false;
     const heroRect = heroSection.getBoundingClientRect();
-    // Consider the user in the hero section only while at least the lower portion of the hero is still in view
-    return heroRect.bottom > 180;
+    const minHeroRemaining = Math.max(280, window.innerHeight * 0.36);
+    return heroRect.bottom > minHeroRemaining;
   };
+
+  const syncHeroTorchBounds = () => {
+    if (!heroTorchFlash) return;
+    if (!isUserInHeroSection()) {
+      heroTorchFlash.classList.remove('is-flashing');
+      heroTorchFlash.classList.add('is-outside-hero');
+    } else {
+      heroTorchFlash.classList.remove('is-outside-hero');
+    }
+  };
+  window.addEventListener('scroll', syncHeroTorchBounds, { passive: true });
+  window.addEventListener('resize', syncHeroTorchBounds, { passive: true });
+  syncHeroTorchBounds();
 
   const startRocketTorchTracker = (processSectionEl) => {
     if (!heroTorchFlash || !processSectionEl) return;
@@ -513,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
       activeRocketTrackRaf = null;
     }
     heroTorchFlash.classList.remove('is-flashing');
+    syncHeroTorchBounds();
 
     const rocketEl = processSectionEl.querySelector('.ship-rocket-launch');
     let torchFired = false;
@@ -522,9 +536,13 @@ document.addEventListener('DOMContentLoaded', () => {
       torchFired = true;
       // Only show the explosion effect if the user has NOT scrolled past the hero section
       if (isUserInHeroSection()) {
+        heroTorchFlash.classList.remove('is-outside-hero');
         heroTorchFlash.classList.remove('is-flashing');
         void heroTorchFlash.offsetWidth;
         heroTorchFlash.classList.add('is-flashing');
+      } else {
+        heroTorchFlash.classList.remove('is-flashing');
+        heroTorchFlash.classList.add('is-outside-hero');
       }
     };
 
