@@ -1990,35 +1990,37 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 0.35s ease;
-  animation: processCardLoop 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.framer-reveal.is-visible .leo-process-card {
+  animation: processCardLoop 3.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .leo-process-card:nth-of-type(1) {
   --loop-color: #6B9BFF;
   --loop-color-light: #2563EB;
   --loop-glow: rgba(99, 102, 241, 0.55);
-  animation-delay: 0s;
+  animation-delay: 0s !important;
 }
 
 .leo-process-card:nth-of-type(2) {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 0.8s;
+  animation-delay: 1.1s !important;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 1.6s;
+  animation-delay: 2.2s !important;
 }
 
-/* Cute Retro Rocket Vector launching ONCE from "Ship" mimicking the reference launch video:
-   1. Launchpad smoke cloud billows at the base of "Ship"
-   2. Rocket rises into position & ignites main thruster + trailing smoke plume
-   3. Accelerates smoothly upward while side boosters peel away mid-flight
-   4. Continues all the way to the top of the homepage and disappears */
+/* Cute Retro Rocket Vector perched above "Ship" from the start:
+   1. Appears immediately together with "Design -> Prototype -> Ship"
+   2. Thruster fire & smoke simmer and boil underneath while Design & Prototype flash (0s -> 2.2s)
+   3. At 2.2s when the flash hits "Ship", the rocket sets off in a steady, slow linear motion to the top and never launches again */
 .ship-rocket-stage {
   position: absolute;
   left: 50%;
@@ -2033,53 +2035,73 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .ship-launch-smoke {
   position: absolute;
   left: 0;
-  top: 6px;
+  top: -6px;
   width: 96px;
   height: 36px;
-  transform: translate3d(-50%, 6px, 0) scale(0.4);
-  opacity: 0;
+  transform: translate3d(-50%, 0px, 0) scale(0.88);
+  opacity: 0.9;
   pointer-events: none;
   overflow: visible;
 }
 
+.ship-launch-smoke .smoke-puff {
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: smokePuffBoil 0.24s ease-in-out infinite alternate;
+}
+.ship-launch-smoke .smoke-puff.p2 { animation-delay: -0.08s; animation-duration: 0.28s; }
+.ship-launch-smoke .smoke-puff.p3 { animation-delay: -0.15s; animation-duration: 0.26s; }
+.ship-launch-smoke .smoke-puff.p4 { animation-delay: -0.05s; animation-duration: 0.3s; }
+.ship-launch-smoke .smoke-puff.p5 { animation-delay: -0.19s; animation-duration: 0.25s; }
+
+@keyframes smokePuffBoil {
+  0% {
+    transform: translateY(1px) scale(0.88);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(-2.5px) scale(1.18);
+    opacity: 1;
+  }
+}
+
 .framer-reveal.is-visible .ship-launch-smoke {
-  animation: shipLaunchpadSmoke 1.75s cubic-bezier(0.22, 1, 0.36, 1) 1.55s 1 forwards;
+  animation: shipLaunchpadSmoke 6.4s linear 0s 1 forwards;
 }
 
 @keyframes shipLaunchpadSmoke {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, 8px, 0) scale(0.35);
+  /* Simmering & boiling underneath the perched rocket until "Ship" flashes at 2.2s (34.4%) */
+  0%, 34.4% {
+    opacity: 0.92;
+    transform: translate3d(-50%, 0px, 0) scale(0.9);
   }
-  16% {
-    opacity: 0.96;
-    transform: translate3d(-50%, 0px, 0) scale(0.95);
-  }
+  /* Billows outward as the rocket lifts off at 2.2s */
   42% {
-    opacity: 0.88;
-    transform: translate3d(-50%, -2px, 0) scale(1.18);
+    opacity: 1;
+    transform: translate3d(-50%, -2px, 0) scale(1.22);
   }
-  100% {
+  /* Dissipates after the rocket leaves the pad */
+  64%, 100% {
     opacity: 0;
-    transform: translate3d(-50%, -8px, 0) scale(1.45);
+    transform: translate3d(-50%, -8px, 0) scale(1.5);
   }
 }
 
 .ship-rocket-launch {
   position: absolute;
   left: 0;
-  top: -36px;
+  top: -54px;
   width: 44px;
   height: 82px;
-  transform: translate3d(-50%, 14px, 0) scale(0.5);
-  opacity: 0;
+  transform: translate3d(-50%, 0px, 0) scale(1);
+  opacity: 1;
   pointer-events: none;
   will-change: transform, opacity;
   filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.35));
 }
 
 .framer-reveal.is-visible .ship-rocket-launch {
-  animation: shipRocketLiftoff 1.85s linear 1.55s 1 forwards;
+  animation: shipRocketLiftoff 6.4s linear 0s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2087,12 +2109,22 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   height: 100%;
   display: block;
   overflow: visible;
+  animation: rocketSimmerRumble 0.14s ease-in-out infinite alternate;
+}
+
+@keyframes rocketSimmerRumble {
+  0% {
+    transform: translate3d(-0.6px, 0.5px, 0);
+  }
+  100% {
+    transform: translate3d(0.6px, -0.5px, 0);
+  }
 }
 
 .ship-rocket-svg .rocket-flame-outer,
 .ship-rocket-svg .rocket-flame-core {
   transform-origin: 40px 88px;
-  animation: rocketFlameFlicker 0.1s ease-in-out infinite alternate;
+  animation: rocketFlameFlicker 0.11s ease-in-out infinite alternate;
 }
 
 .ship-rocket-svg .rocket-exhaust-plume {
@@ -2100,96 +2132,84 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   animation: rocketPlumePulse 0.16s ease-in-out infinite alternate;
 }
 
-/* Side booster pods peel outward and drop away mid-flight like the reference video */
+/* Side booster pods stay attached during simmer, then peel outward mid-flight */
 .framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachLeft 1.85s cubic-bezier(0.32, 0, 0.67, 0) 1.55s 1 forwards;
+  animation: boosterDetachLeft 6.4s linear 0s 1 forwards;
 }
 
 .framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachRight 1.85s cubic-bezier(0.32, 0, 0.67, 0) 1.55s 1 forwards;
+  animation: boosterDetachRight 6.4s linear 0s 1 forwards;
 }
 
 @keyframes boosterDetachLeft {
-  0%, 46% {
+  0%, 66% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  78% {
+  84% {
     opacity: 0.85;
-    transform: translate3d(-24px, 42px, 0) rotate(-26deg);
+    transform: translate3d(-22px, 38px, 0) rotate(-24deg);
   }
-  92%, 100% {
+  95%, 100% {
     opacity: 0;
-    transform: translate3d(-38px, 84px, 0) rotate(-42deg);
+    transform: translate3d(-36px, 76px, 0) rotate(-38deg);
   }
 }
 
 @keyframes boosterDetachRight {
-  0%, 46% {
+  0%, 66% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  78% {
+  84% {
     opacity: 0.85;
-    transform: translate3d(24px, 42px, 0) rotate(26deg);
+    transform: translate3d(22px, 38px, 0) rotate(24deg);
   }
-  92%, 100% {
+  95%, 100% {
     opacity: 0;
-    transform: translate3d(38px, 84px, 0) rotate(42deg);
+    transform: translate3d(36px, 76px, 0) rotate(38deg);
   }
 }
 
 @keyframes rocketFlameFlicker {
   0% {
-    transform: scaleY(0.9) scaleX(0.94);
+    transform: scaleY(0.86) scaleX(0.92);
   }
   100% {
-    transform: scaleY(1.24) scaleX(1.06);
+    transform: scaleY(1.26) scaleX(1.08);
   }
 }
 
 @keyframes rocketPlumePulse {
   0% {
-    transform: translateY(0) scale(0.92);
-    opacity: 0.78;
+    transform: translateY(-1px) scale(0.88);
+    opacity: 0.72;
   }
   100% {
-    transform: translateY(5px) scale(1.12);
-    opacity: 0.96;
+    transform: translateY(5px) scale(1.16);
+    opacity: 0.98;
   }
 }
 
 @keyframes shipRocketLiftoff {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, 16px, 0) scale(0.45);
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  /* 1. Rises onto the launchpad above "Ship" as smoke billows */
-  12% {
+  /* 0s -> 2.2s (0% -> 34.4%): Visible on the pad above "Ship" while fire & smoke simmer underneath */
+  0%, 34.4% {
     opacity: 1;
-    transform: translate3d(-50%, -4px, 0) scale(0.98);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    transform: translate3d(-50%, 0px, 0) scale(1);
   }
-  /* 2. Brief ignition poise with subtle thrust buildup */
-  22% {
+  /* 2.2s -> 5.95s (34.4% -> 93%): Slow, steady, purely linear ascent all the way up the homepage */
+  93% {
     opacity: 1;
-    transform: translate3d(-50%, -14px, 0) scale(1.02);
-    animation-timing-function: cubic-bezier(0.32, 0.04, 0.2, 1);
+    transform: translate3d(-50%, -680px, 0) scale(1);
   }
-  /* 3. Smooth, continuous liftoff & acceleration all the way to the top of the homepage */
-  82% {
-    opacity: 0.96;
-    transform: translate3d(-50%, -520px, 0) scale(0.96);
-    animation-timing-function: ease-out;
-  }
+  /* 5.95s -> 6.4s (93% -> 100%): Continues linear ascent off the top and fades out permanently */
   100% {
     opacity: 0;
-    transform: translate3d(-50%, -760px, 0) scale(0.82);
+    transform: translate3d(-50%, -760px, 0) scale(0.96);
   }
 }
 
@@ -2218,11 +2238,14 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     color 0.35s ease,
     text-shadow 0.35s ease,
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: processTitleLoop 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.framer-reveal.is-visible .leo-process-title {
+  animation: processTitleLoop 3.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation-delay: inherit;
 }
 
-body[data-theme="light"] .leo-process-title {
+body[data-theme="light"] .framer-reveal.is-visible .leo-process-title {
   animation-name: processTitleLoopLight;
 }
 
