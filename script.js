@@ -202,11 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
 
-    // Default avatar starts on the navy victory sign variant; each hover advances to the next variant and stays changed
+    // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
     const avatarVariants = [
-      'assets/avatar_var_3_navy_victory.gif?v=21',
-      'assets/avatar_var_1_blue_blink.gif?v=21',
-      'assets/avatar_var_2_orange_funny.gif?v=21',
+      'assets/avatar_var_1_blue_blink.gif?v=26',
+      'assets/avatar_var_4_navy_hoodie.gif?v=26',
+      'assets/avatar_var_5_green_laptop.gif?v=26',
+      'assets/avatar_var_3_navy_victory.gif?v=26',
+      'assets/avatar_var_2_orange_funny.gif?v=26',
     ];
     // Preload all variants so hover switching is instant with zero flicker
     avatarVariants.forEach((src) => {
@@ -396,41 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     7. MAGNETIC RIPPLE BUTTONS (`g(e)` in `leo_shared-lib.LhBNiVDH.mjs`)
+     7. ACTION & FOOTER BUTTONS (Clean CSS Hover Sheen & Subtle Lift)
      ========================================================================== */
-  document.querySelectorAll('.leo-magnetic-btn').forEach((btn) => {
-    const ripple = btn.querySelector('.leo-btn-ripple');
-    const magnetStrength = 0.25;
-
-    const positionRipple = (e) => {
-      if (!ripple) return;
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const maxDist = Math.hypot(
-        Math.max(x, rect.width - x),
-        Math.max(y, rect.height - y)
-      );
-      const scale = (maxDist * 2.15) / 20;
-      ripple.style.left = `${x}px`;
-      ripple.style.top = `${y}px`;
-      btn.style.setProperty('--ripple-scale', scale.toFixed(2));
-    };
-
-    btn.addEventListener('mouseenter', positionRipple);
-
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const dx = (e.clientX - (rect.left + rect.width / 2)) * magnetStrength;
-      const dy = (e.clientY - (rect.top + rect.height / 2)) * magnetStrength;
-      btn.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
-    });
-
-    btn.addEventListener('mouseleave', (e) => {
-      positionRipple(e);
-      btn.style.transform = 'translate3d(0, 0, 0)';
-    });
-  });
+  // Buttons use pure CSS hover transitions (`.leo-magnetic-btn:hover`) for centered, refined motion.
 
   /* ==========================================================================
      8. INTERACTIVE HOVER-REVEAL PHOTO LENS (About Section)

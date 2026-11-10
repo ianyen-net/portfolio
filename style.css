@@ -1603,6 +1603,52 @@ body[data-theme="light"] .leo-work-cover {
   text-align: center;
 }
 
+/* Per-card palette variables matching each case study cover image */
+.leo-work-card {
+  --case-hue-1: #F9DADA;
+  --case-hue-2: #E99E9F;
+  --case-hue-3: #D06B6E;
+  --case-hue-light-1: #9E3E42;
+  --case-hue-light-2: #C45E62;
+  --case-hue-light-3: #DF8486;
+}
+
+#project-ai-contacts {
+  --case-hue-1: #FADEDE;
+  --case-hue-2: #E99E9F;
+  --case-hue-3: #D06B6E;
+  --case-hue-light-1: #9E3E42;
+  --case-hue-light-2: #C45E62;
+  --case-hue-light-3: #DF8486;
+}
+
+#project-sharekit {
+  --case-hue-1: #E6F1FC;
+  --case-hue-2: #9FC3E4;
+  --case-hue-3: #6996C2;
+  --case-hue-light-1: #244F7A;
+  --case-hue-light-2: #4878A8;
+  --case-hue-light-3: #76A5D1;
+}
+
+#project-contacts-editor {
+  --case-hue-1: #F4F5F7;
+  --case-hue-2: #C5C6CC;
+  --case-hue-3: #8D9098;
+  --case-hue-light-1: #34373D;
+  --case-hue-light-2: #585C65;
+  --case-hue-light-3: #828690;
+}
+
+#project-sonicare {
+  --case-hue-1: #F5F8FA;
+  --case-hue-2: #C2D2DE;
+  --case-hue-3: #6B8EA8;
+  --case-hue-light-1: #2B485E;
+  --case-hue-light-2: #4B6E87;
+  --case-hue-light-3: #7899B2;
+}
+
 .leo-work-title {
   position: relative;
   font-family: var(--font-display);
@@ -1616,9 +1662,9 @@ body[data-theme="light"] .leo-work-cover {
   padding-bottom: 4px;
   background-image: linear-gradient(
     90deg,
-    #FBE4D8 0%,
-    #DFB6B2 26%,
-    #854F6C 50%,
+    var(--case-hue-1) 0%,
+    var(--case-hue-2) 26%,
+    var(--case-hue-3) 50%,
     var(--text-primary) 54%,
     var(--text-primary) 100%
   );
@@ -1641,7 +1687,14 @@ body[data-theme="light"] .leo-work-cover {
   bottom: 0;
   height: 1.5px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent 0%, #854F6C 20%, #DFB6B2 50%, #FBE4D8 80%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--case-hue-3) 20%,
+    var(--case-hue-2) 50%,
+    var(--case-hue-1) 80%,
+    transparent 100%
+  );
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1660,11 +1713,22 @@ body[data-theme="light"] .leo-work-cover {
 body[data-theme="light"] .leo-work-title {
   background-image: linear-gradient(
     90deg,
-    #2B124C 0%,
-    #522B5B 26%,
-    #854F6C 50%,
+    var(--case-hue-light-1) 0%,
+    var(--case-hue-light-2) 26%,
+    var(--case-hue-light-3) 50%,
     var(--text-primary) 54%,
     var(--text-primary) 100%
+  );
+}
+
+body[data-theme="light"] .leo-work-title::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--case-hue-light-3) 20%,
+    var(--case-hue-light-2) 50%,
+    var(--case-hue-light-1) 80%,
+    transparent 100%
   );
 }
 
@@ -1711,11 +1775,11 @@ body[data-theme="light"] .leo-work-title {
 }
 
 .leo-work-card:hover .leo-work-metric {
-  color: #DFB6B2;
+  color: var(--case-hue-2);
 }
 
 body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
-  color: #854F6C;
+  color: var(--case-hue-light-2);
 }
 
 .leo-work-meta-dot {
@@ -1730,7 +1794,11 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
 .leo-work-card:hover .leo-work-meta-dot {
   width: 18px;
   height: 1.5px;
-  background: #DFB6B2;
+  background: var(--case-hue-2);
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
+  background: var(--case-hue-light-2);
 }
 
 /* ==========================================================================
@@ -2153,17 +2221,35 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(43, 18, 76, 0.34) 0%, rgba(82, 43, 91, 0.28) 48%, rgba(133, 79, 108, 0.22) 100%);
+  /* Pinterest Pin 534943262004789470 Palette: #1D1A39, #451952, #662549, #AF445A, #F59F59, #E8BCB9 */
+  background: linear-gradient(
+    132deg,
+    rgba(29, 26, 57, 0.46) 0%,
+    rgba(69, 25, 82, 0.38) 30%,
+    rgba(102, 37, 73, 0.34) 60%,
+    rgba(175, 68, 90, 0.28) 84%,
+    rgba(245, 159, 89, 0.20) 100%
+  );
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.38s ease;
+}
+
+body[data-theme="light"] .leo-exp-role-card::before {
+  background: linear-gradient(
+    132deg,
+    rgba(232, 188, 185, 0.34) 0%,
+    rgba(245, 159, 89, 0.22) 45%,
+    rgba(175, 68, 90, 0.16) 78%,
+    rgba(102, 37, 73, 0.12) 100%
+  );
 }
 
 .leo-exp-role-card:hover {
   transform: translateY(-4px);
   background: var(--bg-elevated);
   border-color: var(--border-subtle);
-  box-shadow: 0 20px 42px -16px rgba(25, 0, 25, 0.55);
+  box-shadow: 0 20px 42px -16px rgba(29, 26, 57, 0.58);
 }
 
 .leo-exp-role-card:hover::before {
@@ -2217,10 +2303,10 @@ body[data-theme="light"] .exp-theme-logo-img {
 }
 
 .leo-exp-role-card:hover .leo-exp-mark {
-  transform: scale(1.08) rotate(-4deg);
-  background: linear-gradient(145deg, #854F6C 0%, #522B5B 100%);
-  box-shadow: 0 8px 20px rgba(133, 79, 108, 0.38);
-  color: #FBE4D8;
+  transform: scale(1.06) rotate(-3deg);
+  background: linear-gradient(145deg, #AF445A 0%, #662549 52%, #451952 100%);
+  box-shadow: 0 8px 20px rgba(175, 68, 90, 0.36);
+  color: #E8BCB9;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
@@ -2262,11 +2348,11 @@ body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
 }
 
 .leo-exp-role-card:hover .leo-exp-company {
-  color: #FBE4D8;
+  color: #E8BCB9;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
-  color: #522B5B;
+  color: #662549;
 }
 
 /* Pulsing Terracotta `Now` Badge (`.framer-hfkl8u`) */
@@ -2313,21 +2399,26 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 }
 
 .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(133, 79, 108, 0.28);
+  background: rgba(175, 68, 90, 0.24);
   border-color: var(--border-subtle);
-  color: #FBE4D8;
+  color: #F59F59;
+}
+
+body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
+  background: rgba(175, 68, 90, 0.14);
+  color: #662549;
 }
 
 /* ==========================================================================
-   8. MAGNETIC RIPPLE BUTTONS (`H` / `g(e)` in `leo_shared-lib.LhBNiVDH.mjs`)
+   8. REFINED ACTION & FOOTER BUTTONS (Centered + Subtle Stylistic Hover)
    ========================================================================== */
 .leo-magnetic-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 13px 22px;
+  padding: 0 24px;
+  height: 46px;
   border-radius: 999px;
   background: var(--text-primary);
   color: var(--bg-page);
@@ -2335,17 +2426,44 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1;
   letter-spacing: -0.01em;
+  text-align: center;
   cursor: pointer;
   overflow: hidden;
-  will-change: transform;
-  transition: color 0.35s ease, border-color 0.35s ease;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.32s ease,
+    border-color 0.32s ease,
+    color 0.32s ease,
+    box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-magnetic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.16) 50%, transparent 80%);
+  transform: translateX(-110%);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.leo-magnetic-btn:hover::before {
+  transform: translateX(110%);
 }
 
 .leo-magnetic-btn.is-secondary {
-  background: var(--bg-page);
+  background: var(--bg-surface);
   color: var(--text-primary);
   border-color: var(--border-subtle);
+}
+
+.leo-magnetic-btn.is-secondary:hover {
+  transform: translateY(-2px);
+  background: var(--bg-elevated);
+  border-color: rgba(232, 188, 185, 0.42);
+  box-shadow: 0 10px 24px -10px rgba(29, 26, 57, 0.45);
 }
 
 .leo-magnetic-btn.is-icon {
@@ -2357,48 +2475,36 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
   border-color: var(--border-subtle);
 }
 
-.leo-btn-ripple {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 999px;
-  background: var(--accent);
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform 0.55s var(--ease-out-expo);
-}
-
-.leo-magnetic-btn.is-secondary .leo-btn-ripple,
-.leo-magnetic-btn.is-icon .leo-btn-ripple {
-  background: var(--text-primary);
-}
-
-.leo-magnetic-btn:hover .leo-btn-ripple {
-  transform: translate(-50%, -50%) scale(var(--ripple-scale, 16));
-}
-
-.leo-magnetic-btn:hover {
-  color: #121110;
-}
-
-.leo-magnetic-btn.is-secondary:hover,
-.leo-magnetic-btn.is-icon:hover {
-  color: var(--bg-page);
-}
-
 .leo-btn-label {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  line-height: 1;
 }
 
-.leo-magnetic-btn:hover .char-slot-track {
-  transform: translateY(-50%);
+.leo-btn-label svg {
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-magnetic-btn:hover .leo-btn-arrow {
+  transform: translate(1.5px, -1.5px);
+}
+
+.leo-magnetic-btn.is-icon:hover .leo-btn-label svg {
+  transform: scale(1.07);
 }
 
 /* ==========================================================================
@@ -2477,51 +2583,60 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
 }
 
-/* Explicit High-Contrast Buttons inside Footer Card in Both Dark & Light Modes */
+/* Balanced Equal-Width Primary & Secondary Buttons inside Footer Card */
+.leo-footer-actions .leo-magnetic-btn {
+  min-width: 214px;
+}
+
 .leo-footer-wrap .leo-magnetic-btn {
   background: #F7F3F6;
   color: #0E1F2F;
-  border-color: rgba(255, 255, 255, 0.9);
-}
-
-.leo-footer-wrap .leo-magnetic-btn .leo-btn-ripple {
-  background: #E1CBD7;
+  border: 1px solid rgba(255, 255, 255, 0.92);
 }
 
 .leo-footer-wrap .leo-magnetic-btn:hover {
+  transform: translateY(-2px);
+  background: #FFFFFF;
   color: #0E1F2F;
+  border-color: #FFFFFF;
+  box-shadow: 0 10px 24px -8px rgba(225, 203, 215, 0.38);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-secondary {
-  background: rgba(225, 203, 215, 0.14);
+  background: rgba(225, 203, 215, 0.13);
   color: #FFFFFF;
-  border: 1px solid rgba(225, 203, 215, 0.34);
+  border: 1px solid rgba(225, 203, 215, 0.32);
   backdrop-filter: blur(10px);
 }
 
-.leo-footer-wrap .leo-magnetic-btn.is-secondary .leo-btn-ripple {
-  background: #FFFFFF;
-}
-
 .leo-footer-wrap .leo-magnetic-btn.is-secondary:hover {
-  color: #0E1F2F;
+  transform: translateY(-2px);
+  background: rgba(225, 203, 215, 0.22);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.56);
+  box-shadow: 0 10px 24px -8px rgba(8, 16, 26, 0.42);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon {
-  background: rgba(225, 203, 215, 0.12);
+  min-width: 42px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: rgba(225, 203, 215, 0.11);
   color: #FFFFFF;
-  border: 1px solid rgba(225, 203, 215, 0.30);
-}
-
-.leo-footer-wrap .leo-magnetic-btn.is-icon .leo-btn-ripple {
-  background: #FFFFFF;
+  border: 1px solid rgba(225, 203, 215, 0.28);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon:hover {
-  color: #0E1F2F;
+  transform: translateY(-2px);
+  background: rgba(225, 203, 215, 0.22);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 20px -6px rgba(8, 16, 26, 0.4);
 }
 
 .leo-footer-socials {
