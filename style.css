@@ -1992,10 +1992,6 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     text-shadow 0.35s ease;
 }
 
-.framer-reveal.is-visible .leo-process-card {
-  animation: processCardLoop 3.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
 .leo-process-card:nth-of-type(1) {
   --loop-color: #6B9BFF;
   --loop-color-light: #2563EB;
@@ -2218,7 +2214,6 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:hover {
-  transform: translateY(-4px) scale(1.06);
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
