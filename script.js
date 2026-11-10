@@ -1,0 +1,541 @@
+/**
+ * IAN YEN PORTFOLIO — Interactive Motion & Physics Engine
+ * Exact recreation of https://leomarlowe.framer.website/ custom Framer components:
+ * 1. Theme Manager (Defaults to Dark Mode `#121110` with Light/Dark Toggle)
+ * 2. Top Pill Nav Bar (`U(e)`): Scroll-Progress SVG Ring, Spring Hover Pill, Live NYC Clock
+ * 3. Interactive GIF Avatar Stage (`wd`): 3D Cursor Tilt, Cycling Speech Bubble, 360° Spin + GIF Cycle
+ * 4. Hero Project Dock (`Kt`): Spring Magnification Physics (`translateY` + `scale`) + Preview Popovers
+ * 5. Work Cards (`Ot`): Clip-Path Unveil, Scroll Parallax + Cursor Opposition Pan,
+ *    Centered-to-Cursor-Following Glass `"View case ↗"` Badge, Character Slot-Machine Titles
+ * 6. Tool Dock (`Yt`): macOS-Style Spring Magnification Physics
+ * 7. Magnetic Ripple Buttons (`g(e)`): Cursor Pull + Entry-Point Radial Fill + Slot Text
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  /* ==========================================================================
+     1. THEME MANAGER (Default to Dark Mode as requested) & ON-LOAD REVEAL
+     ========================================================================== */
+  const savedTheme = localStorage.getItem('ian-leo-theme') || 'dark';
+  document.body.setAttribute('data-theme', savedTheme);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.body.classList.add('is-loaded');
+    });
+  });
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const current = document.body.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', next);
+      localStorage.setItem('ian-leo-theme', next);
+    });
+  });
+
+  /* ==========================================================================
+     2. CHARACTER-BY-CHARACTER SLOT MACHINE TEXT (`[data-slot-chars]`)
+     ========================================================================== */
+  document.querySelectorAll('[data-slot-chars]').forEach((el) => {
+    if (el.dataset.slotInitialized) return;
+    el.dataset.slotInitialized = 'true';
+    const text = el.textContent.trim();
+    el.setAttribute('aria-label', text);
+    el.innerHTML = '';
+
+    [...text].forEach((ch, idx) => {
+      const slot = document.createElement('span');
+      slot.className = 'char-slot';
+      slot.setAttribute('aria-hidden', 'true');
+
+      const track = document.createElement('span');
+      track.className = 'char-slot-track';
+      track.style.setProperty('--char-index', idx);
+
+      const topChar = document.createElement('span');
+      topChar.textContent = ch === ' ' ? '\u00A0' : ch;
+
+      const bottomChar = document.createElement('span');
+      bottomChar.textContent = ch === ' ' ? '\u00A0' : ch;
+
+      track.appendChild(topChar);
+      track.appendChild(bottomChar);
+      slot.appendChild(track);
+      el.appendChild(slot);
+    });
+  });
+
+  /* ==========================================================================
+     3. TOP PILL NAV BAR (`U(e)`): SCROLL-PROGRESS RING, SPRING HIGHLIGHT & NYC CLOCK
+     ========================================================================== */
+  const progressCircle = document.querySelector('.ring-progress');
+  const circumference = 2 * Math.PI * 15; // r = 15 => 94.2477
+
+  const updateScrollRing = () => {
+    if (!progressCircle) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = Math.max(
+      1,
+      document.documentElement.scrollHeight - window.innerHeight
+    );
+    const progress = Math.min(1, Math.max(0, scrollTop / docHeight));
+    const offset = circumference * (1 - progress);
+    progressCircle.style.strokeDasharray = `${circumference}`;
+    progressCircle.style.strokeDashoffset = `${offset}`;
+  };
+
+  window.addEventListener('scroll', updateScrollRing, { passive: true });
+  updateScrollRing();
+
+  // Spring Sliding Nav Highlight Pill
+  const nav = document.querySelector('.leo-nav');
+  const navHighlight = document.querySelector('.leo-nav-highlight');
+  if (nav && navHighlight) {
+    let curX = 0;
+    let curW = 0;
+    let targetX = 0;
+    let targetW = 0;
+    let velX = 0;
+    let velW = 0;
+    let isHovered = false;
+    let rafId = null;
+
+    const animateNavPill = () => {
+      const dt = 0.016;
+      const stiffness = 380;
+      const damping = 34;
+
+      const forceX = (targetX - curX) * stiffness - velX * damping;
+      const forceW = (targetW - curW) * stiffness - velW * damping;
+      velX += forceX * dt;
+      velW += forceW * dt;
+      curX += velX * dt;
+      curW += velW * dt;
+
+      navHighlight.style.transform = `translate3d(${curX}px, 0, 0)`;
+      navHighlight.style.width = `${Math.max(0, curW)}px`;
+
+      if (
+        Math.abs(targetX - curX) > 0.2 ||
+        Math.abs(targetW - curW) > 0.2 ||
+        Math.abs(velX) > 0.2
+      ) {
+        rafId = requestAnimationFrame(animateNavPill);
+      } else {
+        rafId = null;
+      }
+    };
+
+    const hoverTargets = nav.querySelectorAll('[data-nav-hover]');
+    hoverTargets.forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        const navRect = nav.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        targetX = itemRect.left - navRect.left;
+        targetW = itemRect.width;
+
+        if (!isHovered) {
+          curX = targetX;
+          curW = targetW;
+          velX = 0;
+          velW = 0;
+          isHovered = true;
+        }
+        navHighlight.style.opacity = '1';
+        if (!rafId) rafId = requestAnimationFrame(animateNavPill);
+      });
+    });
+
+    nav.addEventListener('mouseleave', () => {
+      isHovered = false;
+      navHighlight.style.opacity = '0';
+    });
+  }
+
+  // Live NYC Time Clock (`America/New_York`)
+  const clockEl = document.querySelector('[data-nyc-time]');
+  const updateClock = () => {
+    if (!clockEl) return;
+    try {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      });
+      clockEl.textContent = formatter.format(now);
+    } catch (e) {
+      const now = new Date();
+      clockEl.textContent = now.toTimeString().slice(0, 5);
+    }
+  };
+  updateClock();
+  setInterval(updateClock, 15000);
+
+  /* ==========================================================================
+     4. ABOUTDEAN HERO AVATAR (`[data-dean-avatar]`) & LEGACY AVATAR STAGE
+     ========================================================================== */
+  const deanAvatarCard = document.querySelector('[data-dean-avatar]');
+  if (deanAvatarCard) {
+    const deanAvatarImg = deanAvatarCard.querySelector('.dean-avatar-img');
+    const deanAvatars = ['ian-dean-avatar.jpg', 'ian-dean-avatar-alt.jpg'];
+    let deanIdx = 0;
+
+    deanAvatarCard.addEventListener('click', () => {
+      if (!deanAvatarImg) return;
+      deanIdx = (deanIdx + 1) % deanAvatars.length;
+      deanAvatarImg.src = deanAvatars[deanIdx];
+      deanAvatarCard.animate(
+        [
+          { transform: 'translateY(-3px) scale(0.92) rotate(-4deg)' },
+          { transform: 'translateY(-5px) scale(1.08) rotate(3deg)' },
+          { transform: 'translateY(-3px) scale(1.04) rotate(-1.5deg)' },
+        ],
+        { duration: 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+    });
+  }
+
+  const avatarStage = document.querySelector('.avatar-stage');
+  if (avatarStage) {
+    const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
+    const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
+
+    // 3 Natural Dean-Style Facial Expression GIF Variants (rotates to the next expression on every hover or click!)
+    const avatarVariants = [
+      'assets/avatar_expr_1_smile.gif?v=1',  // 0: Warm open-mouth smile + natural blink & sway
+      'assets/avatar_expr_2_glance.gif?v=1', // 1: Playful side-glance & raised eyebrow + blink
+      'assets/avatar_expr_3_grin.gif?v=1',   // 2: Confident closed-mouth grin & friendly nod + blink
+    ];
+    // Preload all variants so hover switching is instant with zero flicker
+    avatarVariants.forEach((src) => {
+      const preload = new Image();
+      preload.src = src;
+    });
+    let variantIdx = 0;
+
+    const cycleAvatarVariant = () => {
+      if (!avatarImg) return;
+      variantIdx = (variantIdx + 1) % avatarVariants.length;
+      avatarImg.src = avatarVariants[variantIdx];
+      if (tiltCard) {
+        tiltCard.animate(
+          [
+            { transform: 'scale(0.92) rotate(-3deg)' },
+            { transform: 'scale(1.06) rotate(2deg)' },
+            { transform: 'scale(1.02) rotate(0deg)' },
+          ],
+          { duration: 340, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
+      }
+    };
+
+    avatarStage.addEventListener('mousemove', (e) => {
+      if (!tiltCard) return;
+      const rect = avatarStage.getBoundingClientRect();
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotY = nx * 14;
+      const rotX = -ny * 14;
+      tiltCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+    });
+
+    avatarStage.addEventListener('mouseleave', () => {
+      if (tiltCard) {
+        tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      }
+    });
+
+    avatarStage.addEventListener('mouseenter', cycleAvatarVariant);
+    avatarStage.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cycleAvatarVariant();
+    });
+  }
+
+  /* ==========================================================================
+     5. SPRING MAGNIFICATION DOCKS (`Kt` Hero Project Dock & `Yt` Tool Dock)
+        Exact physics from `Kt`: `vel += ((target - v) * 260 - vel * 30) * dt`,
+        `translateY(-(v - 1) * 26px) scale(v)`
+     ========================================================================== */
+  const setupSpringDock = (dockSelector, itemSelector, maxScale = 1.22, liftPx = 26) => {
+    const dock = document.querySelector(dockSelector);
+    if (!dock) return;
+    const items = Array.from(dock.querySelectorAll(itemSelector));
+    if (!items.length) return;
+
+    const state = items.map(() => ({ v: 1, target: 1, vel: 0 }));
+    let raf = null;
+
+    const step = () => {
+      let moving = false;
+      const dt = 0.016;
+      state.forEach((s, i) => {
+        const force = (s.target - s.v) * 260 - s.vel * 30;
+        s.vel += force * dt;
+        s.v += s.vel * dt;
+        const lift = -(s.v - 1) * liftPx;
+        items[i].style.transform = `translateY(${lift.toFixed(2)}px) scale(${s.v.toFixed(4)})`;
+        if (Math.abs(s.target - s.v) + Math.abs(s.vel) > 0.0005) {
+          moving = true;
+        }
+      });
+      if (moving) {
+        raf = requestAnimationFrame(step);
+      } else {
+        raf = null;
+      }
+    };
+
+    dock.addEventListener('mousemove', (e) => {
+      items.forEach((item, i) => {
+        const rect = item.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        const dist = Math.abs(e.clientX - center);
+        const radius = rect.width * 2.3;
+        const raw = Math.max(0, 1 - dist / radius);
+        const smooth = raw * raw * (3 - 2 * raw); // smoothstep exact match to Kt
+        state[i].target = 1 + (maxScale - 1) * smooth;
+      });
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+
+    dock.addEventListener('mouseleave', () => {
+      state.forEach((s) => {
+        s.target = 1;
+      });
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+  };
+
+  setupSpringDock('.hero-project-dock', '.dock-tile', 1.2, 26);
+  setupSpringDock('.leo-tool-dock', '.tool-dock-item', 1.32, 20);
+
+  /* ==========================================================================
+     6. INTERACTIVE WORK CARDS (`Ot` in leomarlowe.framer.website)
+        - Scroll-triggered clip-path unveil (`inset(14% 7% 0% 7% round 24px)`)
+        - Vertical scroll parallax (`±22px`) + Magnetic cursor opposition image pan
+        - Centered-at-rest (`50% / 50%`) to Cursor-following (`lerp 0.14`) Glass Badge
+     ========================================================================== */
+  const workCards = Array.from(document.querySelectorAll('.leo-work-card'));
+
+  if (workCards.length) {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = workCards.indexOf(entry.target);
+            const delay = idx % 2 === 1 ? 140 : 0;
+            setTimeout(() => {
+              entry.target.classList.add('is-revealed');
+            }, delay);
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    workCards.forEach((card) => {
+      cardObserver.observe(card);
+
+      const cover = card.querySelector('.leo-work-cover');
+      const mediaInner = card.querySelector('.leo-work-media-inner');
+      const badge = card.querySelector('.leo-work-cursor-badge');
+      if (!cover || !mediaInner) return;
+
+      let hovered = false;
+      // Normalized badge coordinates (0.5, 0.5 at rest, exact match to Ot)
+      let bx = 0.5;
+      let by = 0.5;
+      let tbx = 0.5;
+      let tby = 0.5;
+
+      const isContain = cover.classList.contains('is-contain-cover');
+      const restZoom = isContain ? 1.0 : 1.04;
+      const hoverZoom = isContain ? 1.04 : 1.13;
+      const parallaxAmp = isContain ? 8 : 22;
+      const panAmpX = isContain ? 10 : 22;
+      const panAmpY = isContain ? 8 : 16;
+
+      // Opposition pan & zoom state
+      let ix = 0;
+      let iy = 0;
+      let tix = 0;
+      let tiy = 0;
+      let z = restZoom;
+      let tz = restZoom;
+      let parallaxY = 0;
+      let cardRaf = null;
+
+      const updateParallax = () => {
+        const rect = cover.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        const s = Math.max(
+          -1,
+          Math.min(1, 1 - ((rect.top + rect.height / 2) / (vh + rect.height)) * 2)
+        );
+        parallaxY = Math.round(s * parallaxAmp * 10) / 10;
+      };
+
+      const renderCardMotion = () => {
+        bx += (tbx - bx) * 0.14;
+        by += (tby - by) * 0.14;
+        ix += (tix - ix) * 0.08;
+        iy += (tiy - iy) * 0.08;
+        z += (tz - z) * 0.06;
+
+        mediaInner.style.transform = `translate3d(${ix.toFixed(2)}px, ${(iy + parallaxY).toFixed(2)}px, 0) scale(${z.toFixed(4)})`;
+
+        if (badge) {
+          badge.style.left = `${(bx * 100).toFixed(2)}%`;
+          badge.style.top = `${(by * 100).toFixed(2)}%`;
+          badge.style.transform = `translate(-50%, -50%) scale(${hovered ? 1 : 0.96})`;
+        }
+
+        const stillMoving =
+          Math.abs(tbx - bx) * 300 +
+            Math.abs(tby - by) * 300 +
+            Math.abs(tix - ix) +
+            Math.abs(tiy - iy) +
+            Math.abs(tz - z) * 400 >
+          0.1;
+
+        if (hovered || stillMoving) {
+          cardRaf = requestAnimationFrame(renderCardMotion);
+        } else {
+          cardRaf = null;
+        }
+      };
+
+      cover.addEventListener('mouseenter', () => {
+        hovered = true;
+        tz = hoverZoom;
+        if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
+      });
+
+      cover.addEventListener('mousemove', (e) => {
+        const rect = cover.getBoundingClientRect();
+        const nx = (e.clientX - rect.left) / rect.width;
+        const ny = (e.clientY - rect.top) / rect.height;
+
+        tbx = nx;
+        tby = ny;
+        tix = -(nx - 0.5) * panAmpX;
+        tiy = -(ny - 0.5) * panAmpY;
+
+        if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
+      });
+
+      cover.addEventListener('mouseleave', () => {
+        hovered = false;
+        tbx = 0.5;
+        tby = 0.5;
+        tix = 0;
+        tiy = 0;
+        tz = restZoom;
+        if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
+      });
+
+      window.addEventListener(
+        'scroll',
+        () => {
+          updateParallax();
+          if (!cardRaf) {
+            mediaInner.style.transform = `translate3d(${ix.toFixed(2)}px, ${(iy + parallaxY).toFixed(2)}px, 0) scale(${z.toFixed(4)})`;
+          }
+        },
+        { passive: true }
+      );
+      updateParallax();
+    });
+  }
+
+  /* ==========================================================================
+     7. MAGNETIC RIPPLE BUTTONS (`g(e)` in `leo_shared-lib.LhBNiVDH.mjs`)
+     ========================================================================== */
+  document.querySelectorAll('.leo-magnetic-btn').forEach((btn) => {
+    const ripple = btn.querySelector('.leo-btn-ripple');
+    const magnetStrength = 0.25;
+
+    const positionRipple = (e) => {
+      if (!ripple) return;
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const maxDist = Math.hypot(
+        Math.max(x, rect.width - x),
+        Math.max(y, rect.height - y)
+      );
+      const scale = (maxDist * 2.15) / 20;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      btn.style.setProperty('--ripple-scale', scale.toFixed(2));
+    };
+
+    btn.addEventListener('mouseenter', positionRipple);
+
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * magnetStrength;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * magnetStrength;
+      btn.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
+    });
+
+    btn.addEventListener('mouseleave', (e) => {
+      positionRipple(e);
+      btn.style.transform = 'translate3d(0, 0, 0)';
+    });
+  });
+
+  /* ==========================================================================
+     8. INTERACTIVE HOVER-REVEAL PHOTO LENS (About Section)
+     ========================================================================== */
+  const revealWords = document.querySelectorAll('.hover-reveal-word[data-reveal-img]');
+  if (revealWords.length) {
+    const lens = document.createElement('div');
+    lens.className = 'hover-reveal-lens';
+    const lensImg = document.createElement('img');
+    lens.appendChild(lensImg);
+    document.body.appendChild(lens);
+
+    revealWords.forEach((word) => {
+      word.addEventListener('mouseenter', () => {
+        const src = word.getAttribute('data-reveal-img');
+        if (src) {
+          lensImg.src = src;
+          lens.classList.add('active');
+        }
+      });
+
+      word.addEventListener('mousemove', (e) => {
+        lens.style.left = `${e.clientX}px`;
+        lens.style.top = `${e.clientY - 145}px`;
+      });
+
+      word.addEventListener('mouseleave', () => {
+        lens.classList.remove('active');
+      });
+    });
+  }
+
+  /* ==========================================================================
+     9. SCROLL REVEAL OBSERVER (`.framer-reveal`)
+     ========================================================================== */
+  const revealElements = document.querySelectorAll('.framer-reveal');
+  if (revealElements.length) {
+    const revealObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    revealElements.forEach((el) => revealObs.observe(el));
+  }
+});
