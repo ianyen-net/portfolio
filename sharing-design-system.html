@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -140,11 +140,9 @@
           </div>
         </div>
 
-        <!-- Premium Tidepool-Style Hero Device Stage -->
-        <div class="case-hero-stage framer-reveal">
-          <div class="device-frame">
-            <img src="assets/mocks/proto_splitti.gif" alt="ShareKit / Splitti Design System Prototype" loading="eager">
-          </div>
+        <!-- Slide 98 Hero Visual: Modular Components (Desktop & Mobile) -->
+        <div class="case-hero-stage is-wide-slide framer-reveal">
+          <img src="assets/mocks/sk_hero_slide_98.png?v=16" alt="ShareKit Modular Components — Desktop and Mobile" class="single-border-mock" loading="eager">
         </div>
       </div>
     </section>
@@ -163,25 +161,25 @@
           <div class="mock-col">
             <p class="case-caption">MAPS</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ov_1_maps.png" alt="Maps Sharing UI" loading="lazy">
+              <img src="assets/mocks/sk_ov_1_maps.png?v=14" alt="Maps Sharing UI" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">YOUTUBE</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ov_2_youtube.png" alt="YouTube Sharing UI" loading="lazy">
+              <img src="assets/mocks/sk_ov_2_youtube.png?v=14" alt="YouTube Sharing UI" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">GEMINI</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ov_3_gemini.png" alt="Gemini Sharing UI" loading="lazy">
+              <img src="assets/mocks/sk_ov_3_gemini.png?v=14" alt="Gemini Sharing UI" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">PHOTOS</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ov_4_photos.png" alt="Photos Sharing UI" loading="lazy">
+              <img src="assets/mocks/sk_ov_4_photos.png?v=14" alt="Photos Sharing UI" loading="lazy">
             </div>
           </div>
         </div>
@@ -218,7 +216,7 @@
             <p class="case-body">Sharing started from different places, with different affordances, depending on the app.</p>
           </div>
           <div style="display: flex; justify-content: center; align-items: center;">
-            <img src="https://static.wixstatic.com/media/e3505c_3172340017fa4684b10dfaeb2acdca86~mv2.jpg" alt="Discover stage share icons" class="share-icon-card" loading="lazy">
+            <img src="assets/mocks/sk_prob_1_icons.png?v=2" alt="Discover stage share icons" class="share-icons-direct" loading="lazy">
           </div>
         </div>
 
@@ -231,7 +229,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_2_share.png" alt="Share stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_2_share.png?v=14" alt="Share stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -245,7 +243,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_3_receive.png" alt="Receive stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_3_receive.png?v=14" alt="Receive stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -259,7 +257,7 @@
           </div>
           <div style="display: flex; justify-content: center;">
             <div class="device-frame framer-reveal" style="max-width: 195px;">
-              <img src="assets/mocks/sk_prob_4_reengage.png" alt="Re-engage stage" loading="lazy">
+              <img src="assets/mocks/sk_prob_4_reengage.png?v=14" alt="Re-engage stage" loading="lazy">
             </div>
           </div>
         </div>
@@ -276,91 +274,42 @@
         <h3 class="case-h3-italic">And Its Design Principles</h3>
         <p class="case-body">ShareKit is a suite of offerings that includes a UX interaction framework, front-end library, and back-end infrastructure across mobile and web. Specifically, the UX framework for mobile is called <strong>"Splitti"</strong>, because it visually splits the interface in half. Instead of replacing the system ShareSheet, it layers a preview and action row on top of it.</p>
         <p class="case-body">That layering is the key architectural decision. The system sheet still handles distribution, ranking, and destinations. Splitti owns what the system sheet does not: a consistent preview, clear attribution, and a small set of actions that mean the same thing in every app.</p>
-        <p class="case-body">It was built tokens first, then components, with accessibility built in. Before diving into the principles, here is how Splitti layers on top of the Android system ShareSheet and adapts previews across content types:</p>
+        <p class="case-body">It was built tokens first, then components, with accessibility built in, following the design principles below:</p>
 
-        <div class="mock-grid-2 framer-reveal" style="margin: 28px 0 44px; align-items: stretch;">
-          <div class="case-figure" style="margin: 0; display: flex; flex-direction: column; justify-content: space-between; background: #0B1926; padding: 20px; border-radius: 20px;">
-            <p class="case-caption" style="color: #94A3B8; margin-bottom: 12px;">SPLITTI ANATOMY · LAYERED ON SYSTEM SHARESHEET</p>
-            <img src="assets/mocks/sk_anatomy_splitti.png" alt="ShareSheet + Splitti Anatomy vs Android System ShareSheet" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
+        <div class="feature-row framer-reveal">
+          <div>
+            <h4 class="case-h4" style="margin-top: 0;">Clear entry points</h4>
+            <p class="case-body">Elevate clear CTAs in context to shareable content and avoid hiding behind an overflow menu.</p>
+            <h4 class="case-h4">Big previews</h4>
+            <p class="case-body">Provide previews that accurately reflect what is being sent and what the recipient will see in their messaging app.</p>
           </div>
-          <div class="case-figure" style="margin: 0; display: flex; flex-direction: column; justify-content: space-between; background: #FFFFFF; padding: 20px; border-radius: 20px; border: 1px solid var(--border-subtle);">
-            <p class="case-caption" style="color: #52525B; margin-bottom: 12px;">DYNAMIC PREVIEWS · URL, MAPS, NOTEBOOKLM &amp; GEMINI</p>
-            <img src="assets/mocks/sk_content_types.png" alt="ShareKit Previews based on content type" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
+          <div>
+            <p class="case-caption">PROFILE ATTRIBUTION &amp; IDENTITY</p>
+            <img src="assets/mocks/sk_slide_218.png?v=14" alt="ShareKit Profile Attribution Proposal" class="single-border-mock" loading="lazy">
           </div>
         </div>
 
         <div class="feature-row framer-reveal">
           <div>
-            <div class="feature-num" style="color: var(--accent);">01</div>
-            <span class="feature-tag">DISCOVER &amp; ENTRY</span>
-            <h4 class="case-h4" style="margin-top: 8px;">Clear entry points</h4>
-            <p class="case-body">Elevate clear CTAs in context to shareable content and avoid hiding the share action behind an overflow menu during high-intent sharing moments.</p>
+            <h4 class="case-h4" style="margin-top: 0;">Control</h4>
+            <p class="case-body">Provide tools that enable self-expression and customization of what is being shared to give users more control.</p>
+            <h4 class="case-h4">Display metadata</h4>
+            <p class="case-body">Display accurate metadata for in-chat previews to increase understanding of what has been shared with you.</p>
           </div>
           <div>
-            <p class="case-caption">ELEVATED ENTRY POINTS VS. OVERFLOW MENU</p>
-            <div class="case-figure framer-reveal" style="max-width: 480px; margin: 10px auto 0; background: #F4FEFD; padding: 14px; border-radius: 20px;">
-              <img src="assets/mocks/sk_prin_1_entry.png" alt="Clear entry points in ShareKit" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
-            </div>
+            <p class="case-caption">PREVIEW, CONTENT DESCRIPTION &amp; ACTION</p>
+            <img src="assets/mocks/sk_slide_219.png?v=14" alt="ShareKit Preview, Content Description and Content Action Proposal" class="single-border-mock" loading="lazy">
           </div>
         </div>
 
         <div class="feature-row framer-reveal">
           <div>
-            <div class="feature-num" style="color: var(--accent);">02</div>
-            <span class="feature-tag">REPRESENTATION</span>
-            <h4 class="case-h4" style="margin-top: 8px;">Big previews</h4>
-            <p class="case-body">Provide large, high-confidence previews that accurately reflect what is being sent and what the recipient will see in their messaging app.</p>
+            <h4 class="case-h4" style="margin-top: 0;">Personal not universal</h4>
+            <p class="case-body">The final list of app targets and actions to include in the ShareSheet should be based on individual user's usage and context, rather than universal defaults.</p>
           </div>
           <div>
-            <p class="case-caption">LARGE CONTEXTUAL PREVIEW VS. NO PREVIEW</p>
-            <div class="case-figure framer-reveal" style="max-width: 480px; margin: 10px auto 0; background: #F4FEFD; padding: 14px; border-radius: 20px;">
-              <img src="assets/mocks/sk_prin_2_preview.png" alt="Big previews in ShareKit" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-row framer-reveal">
-          <div>
-            <div class="feature-num" style="color: var(--accent);">03</div>
-            <span class="feature-tag">CUSTOMIZATION</span>
-            <h4 class="case-h4" style="margin-top: 8px;">Control</h4>
-            <p class="case-body">Provide tools that enable self-expression and inline customization of what is being shared so products can build their own editing tools directly into ShareKit.</p>
-          </div>
-          <div>
-            <p class="case-caption">INLINE EDITING &amp; CUSTOMIZATION IN SHAREKIT</p>
-            <div class="case-figure framer-reveal" style="max-width: 480px; margin: 10px auto 0; background: #F4FEFD; padding: 14px; border-radius: 20px;">
-              <img src="assets/mocks/sk_prin_3_control.png" alt="Control and inline editing in ShareKit" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-row framer-reveal">
-          <div>
-            <div class="feature-num" style="color: var(--accent);">04</div>
-            <span class="feature-tag">RECEIVE CONFIDENCE</span>
-            <h4 class="case-h4" style="margin-top: 8px;">Display metadata</h4>
-            <p class="case-body">Display accurate metadata baked into in-chat previews rather than raw, ambiguous URLs—increasing recipient trust and understanding of what was shared.</p>
-          </div>
-          <div>
-            <p class="case-caption">RICH METADATA PREVIEW VS. RAW LINK URL</p>
-            <div class="case-figure framer-reveal" style="max-width: 480px; margin: 10px auto 0; background: #F4FEFD; padding: 14px; border-radius: 20px;">
-              <img src="assets/mocks/sk_prin_4_metadata.png" alt="Display metadata in ShareKit" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-row framer-reveal">
-          <div>
-            <div class="feature-num" style="color: var(--accent);">05</div>
-            <span class="feature-tag">CONSISTENCY &amp; RELEVANCE</span>
-            <h4 class="case-h4" style="margin-top: 8px;">Personal not universal</h4>
-            <p class="case-body">Use consistent UI across secondary actions, app targets, and Google account targets—ranking destinations based on each individual user's personal sharing habits rather than universal defaults.</p>
-          </div>
-          <div>
-            <p class="case-caption">CONSISTENT SECONDARY ACTIONS, APP &amp; GAIA TARGETS</p>
-            <div class="case-figure framer-reveal" style="max-width: 480px; margin: 10px auto 0; background: #F4FEFD; padding: 14px; border-radius: 20px;">
-              <img src="assets/mocks/sk_prin_5_targets.png" alt="Personal not universal and consistent targets in ShareKit" style="width: 100%; height: auto; border-radius: 12px;" loading="lazy">
-            </div>
+            <p class="case-caption">STANDARD &amp; APP-SPECIFIC ACTIONS</p>
+            <img src="assets/mocks/sk_slide_220.png?v=14" alt="ShareKit Standard and App-Specific Actions Proposal" class="single-border-mock" loading="lazy">
           </div>
         </div>
       </div>
@@ -419,10 +368,10 @@
             <p class="case-caption">BEFORE</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/sk_nlm_1.png" alt="NotebookLM Before 1" loading="lazy">
+                <img src="assets/mocks/sk_nlm_1.png?v=14" alt="NotebookLM Before 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/sk_nlm_2.png" alt="NotebookLM Before 2" loading="lazy">
+                <img src="assets/mocks/sk_nlm_2.png?v=14" alt="NotebookLM Before 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -430,10 +379,10 @@
             <p class="case-caption" style="color: var(--accent);">AFTER</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/sk_nlm_3.png" alt="NotebookLM After 1" loading="lazy">
+                <img src="assets/mocks/sk_nlm_3.png?v=14" alt="NotebookLM After 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/sk_nlm_4.png" alt="NotebookLM After 2" loading="lazy">
+                <img src="assets/mocks/sk_nlm_4.png?v=14" alt="NotebookLM After 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -456,12 +405,19 @@
         <h4 class="case-h4" style="margin-top: 64px;">Google Maps</h4>
         <p class="case-body">With Google Maps, it was an improvement to an existing flow. Using ShareKit's turnkey approach, we improved the sharing flow and the UI behind the Share icon on location listings. Maps started with a web experiment before expanding to mobile, and the results made the case on their own. Not only is the UI a lot cleaner and clearer, it resulted in increases in shares across different channels.</p>
 
-        <div class="case-grid-2" style="margin-bottom: 8px;">
-          <p class="case-caption">BEFORE</p>
-          <p class="case-caption">AFTER</p>
-        </div>
-        <div class="case-figure framer-reveal" style="margin-top: 0;">
-          <img src="https://static.wixstatic.com/media/e3505c_b213dd7769ab4189a6c26eb4dae5bd8b~mv2.png" alt="Google Maps Before & After" loading="lazy">
+        <div class="case-grid-2 framer-reveal" style="align-items: start; gap: 28px; margin-top: 20px;">
+          <div>
+            <p class="case-caption">BEFORE</p>
+            <div class="frameless-mock" style="margin-top: 8px;">
+              <img src="assets/mocks/sk_maps_before.png?v=15" alt="Google Maps Share Web Dialog — Before" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <p class="case-caption" style="color: var(--accent);">AFTER</p>
+            <div class="frameless-mock" style="margin-top: 8px;">
+              <img src="assets/mocks/sk_maps_after.png?v=15" alt="Google Maps ShareKit Web Dialog — After" loading="lazy">
+            </div>
+          </div>
         </div>
 
         <div class="metrics-block">
@@ -494,10 +450,10 @@
             <p class="case-caption">BEFORE</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/sk_gem_1.png" alt="Gemini Before 1" loading="lazy">
+                <img src="assets/mocks/sk_gem_1.png?v=14" alt="Gemini Before 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/sk_gem_2.png" alt="Gemini Before 2" loading="lazy">
+                <img src="assets/mocks/sk_gem_2.png?v=14" alt="Gemini Before 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -505,10 +461,10 @@
             <p class="case-caption" style="color: var(--accent);">AFTER</p>
             <div class="mock-pair">
               <div class="device-frame">
-                <img src="assets/mocks/sk_gem_3.png" alt="Gemini After 1" loading="lazy">
+                <img src="assets/mocks/sk_gem_3.png?v=14" alt="Gemini After 1" loading="lazy">
               </div>
               <div class="device-frame">
-                <img src="assets/mocks/sk_gem_4.png" alt="Gemini After 2" loading="lazy">
+                <img src="assets/mocks/sk_gem_4.png?v=14" alt="Gemini After 2" loading="lazy">
               </div>
             </div>
           </div>
@@ -543,13 +499,13 @@
           <div class="mock-col">
             <p class="case-caption">CURRENTLY SUPPORTED</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_prompt_1_curr.png" alt="Currently Supported Media Share" loading="lazy">
+              <img src="assets/mocks/sk_prompt_1_curr.png?v=14" alt="Currently Supported Media Share" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption" style="color: var(--accent);">WHAT GEMINI WANTED TO SUPPORT</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_prompt_2_want.png" alt="What Gemini Wanted to Support" loading="lazy">
+              <img src="assets/mocks/sk_prompt_2_want.png?v=14" alt="What Gemini Wanted to Support" loading="lazy">
             </div>
           </div>
         </div>
@@ -562,19 +518,19 @@
           <div class="mock-col">
             <p class="case-caption">STEP 1</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_turnkey_1.png" alt="Turnkey Exploration Step 1" loading="lazy">
+              <img src="assets/mocks/sk_turnkey_1.png?v=14" alt="Turnkey Exploration Step 1" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">STEP 2</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_turnkey_2.png" alt="Turnkey Exploration Step 2" loading="lazy">
+              <img src="assets/mocks/sk_turnkey_2.png?v=14" alt="Turnkey Exploration Step 2" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">STEP 3</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_turnkey_3.png" alt="Turnkey Exploration Step 3" loading="lazy">
+              <img src="assets/mocks/sk_turnkey_3.png?v=14" alt="Turnkey Exploration Step 3" loading="lazy">
             </div>
           </div>
         </div>
@@ -584,19 +540,19 @@
           <div class="mock-col">
             <p class="case-caption">VARIANT A</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_config_1.png" alt="Configured Exploration 1" loading="lazy">
+              <img src="assets/mocks/sk_config_1.png?v=14" alt="Configured Exploration 1" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">VARIANT B</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_config_2.png" alt="Configured Exploration 2" loading="lazy">
+              <img src="assets/mocks/sk_config_2.png?v=14" alt="Configured Exploration 2" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">VARIANT C</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_config_3.png" alt="Configured Exploration 3" loading="lazy">
+              <img src="assets/mocks/sk_config_3.png?v=14" alt="Configured Exploration 3" loading="lazy">
             </div>
           </div>
         </div>
@@ -633,13 +589,13 @@
           <div class="mock-col">
             <p class="case-caption">EXTENDED HALF SHEET</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ext_1.png" alt="Extended Tier Half Sheet 1" loading="lazy">
+              <img src="assets/mocks/sk_ext_1.png?v=14" alt="Extended Tier Half Sheet 1" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">PROMPT EDITING STATE</p>
             <div class="device-frame">
-              <img src="assets/mocks/sk_ext_2.png" alt="Extended Tier Half Sheet 2" loading="lazy">
+              <img src="assets/mocks/sk_ext_2.png?v=14" alt="Extended Tier Half Sheet 2" loading="lazy">
             </div>
           </div>
         </div>
@@ -757,6 +713,6 @@
 </footer>
 
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -158,11 +158,19 @@
         <p class="case-body">The effectiveness of Google's connected experiences (Maps, Calendar, Assistant) depends entirely on the richness of contact data stored by users. Without an address, Maps can't surface a contact's location. Without a birthday, Calendar can't trigger a reminder. Contacts is the backbone of many features across Google.</p>
         <p class="case-body">The gap between what Contacts was designed to do and what users actually did with it had become a strategic problem for the product. Improving contact data quality required understanding and removing the barriers to editing.</p>
 
-        <div class="case-figure framer-reveal">
-          <img src="https://static.wixstatic.com/media/e3505c_1c8f81ee902249848a7a431072c6235c~mv2.png" alt="Contacts Completeness Challenge 1" loading="lazy">
+        <div class="frameless-mock framer-reveal" style="margin: 36px 0 32px;">
+          <div class="exp-reality-label-row" style="position: relative; height: 28px; margin-bottom: 10px;">
+            <span class="case-caption" style="position: absolute; left: 37%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
+            <span class="case-caption" style="position: absolute; left: 88%; transform: translateX(-50%); margin: 0;">REALITY</span>
+          </div>
+          <img src="assets/mocks/ce_expectation_1.png?v=16" alt="Contacts Completeness — Expectation vs Reality" loading="lazy">
         </div>
-        <div class="case-figure framer-reveal">
-          <img src="https://static.wixstatic.com/media/e3505c_e5fb94924fd34ae6a1c0d649975b69b4~mv2.png" alt="Contacts Completeness Challenge 2" loading="lazy">
+        <div class="frameless-mock framer-reveal" style="margin: 36px 0 32px;">
+          <div class="exp-reality-label-row" style="position: relative; height: 28px; margin-bottom: 10px;">
+            <span class="case-caption" style="position: absolute; left: 13%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
+            <span class="case-caption" style="position: absolute; left: 87%; transform: translateX(-50%); margin: 0;">REALITY</span>
+          </div>
+          <img src="assets/mocks/ce_expectation_2.png?v=16" alt="Android Homepage Widgets — Expectation vs Reality" loading="lazy">
         </div>
 
         <p class="case-body">To address this gap, I led the redesign of the "Rich Info" initiative, focused on identifying the root causes of the lack of contact info saved by users. The solution involved making it significantly easier for users to add contact information with a complete overhaul of the Contacts Editor across Android, Wear OS, and desktop, transforming a dense, form-based workflow into a streamlined, progressive editing experience.</p>
@@ -333,25 +341,25 @@
           <div class="mock-col">
             <p class="case-caption">A</p>
             <div class="device-frame">
-              <img src="assets/mocks/ce_exp_a.png" alt="Option A" loading="lazy">
+              <img src="assets/mocks/ce_exp_a.png?v=2" alt="Option A" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">B</p>
             <div class="device-frame">
-              <img src="assets/mocks/ce_exp_b.png" alt="Option B" loading="lazy">
+              <img src="assets/mocks/ce_exp_b.png?v=2" alt="Option B" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">C</p>
             <div class="device-frame">
-              <img src="assets/mocks/ce_exp_c.png" alt="Option C" loading="lazy">
+              <img src="assets/mocks/ce_exp_c.png?v=2" alt="Option C" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption" style="color: var(--accent);">D (CHOSEN)</p>
             <div class="device-frame">
-              <img src="assets/mocks/ce_exp_d.png" alt="Option D" loading="lazy">
+              <img src="assets/mocks/ce_exp_d.png?v=2" alt="Option D" loading="lazy">
             </div>
           </div>
         </div>
@@ -623,6 +631,6 @@
 </footer>
 
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>

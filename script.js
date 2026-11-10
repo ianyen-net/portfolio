@@ -202,11 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
 
-    // 3 Natural Dean-Style Facial Expression GIF Variants (rotates to the next expression on every hover or click!)
+    // 3 Sweater + Expression GIF Variants (rotates to the next variant on every hover or click):
+    // 0: Blue sweater eyes blinking & smiling
+    // 1: Orange sweater making funny faces
+    // 2: Navy sweater doing a victory sign & smiling
     const avatarVariants = [
-      'assets/avatar_expr_1_smile.gif?v=1',  // 0: Warm open-mouth smile + natural blink & sway
-      'assets/avatar_expr_2_glance.gif?v=1', // 1: Playful side-glance & raised eyebrow + blink
-      'assets/avatar_expr_3_grin.gif?v=1',   // 2: Confident closed-mouth grin & friendly nod + blink
+      'assets/avatar_var_1_blue_blink.gif?v=14',
+      'assets/avatar_var_2_orange_funny.gif?v=14',
+      'assets/avatar_var_3_navy_victory.gif?v=14',
     ];
     // Preload all variants so hover switching is instant with zero flicker
     avatarVariants.forEach((src) => {
@@ -351,42 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let by = 0.5;
       let tbx = 0.5;
       let tby = 0.5;
-
-      const isContain = cover.classList.contains('is-contain-cover');
-      const restZoom = isContain ? 1.0 : 1.04;
-      const hoverZoom = isContain ? 1.04 : 1.13;
-      const parallaxAmp = isContain ? 8 : 22;
-      const panAmpX = isContain ? 10 : 22;
-      const panAmpY = isContain ? 8 : 16;
-
-      // Opposition pan & zoom state
-      let ix = 0;
-      let iy = 0;
-      let tix = 0;
-      let tiy = 0;
-      let z = restZoom;
-      let tz = restZoom;
-      let parallaxY = 0;
       let cardRaf = null;
-
-      const updateParallax = () => {
-        const rect = cover.getBoundingClientRect();
-        const vh = window.innerHeight || 800;
-        const s = Math.max(
-          -1,
-          Math.min(1, 1 - ((rect.top + rect.height / 2) / (vh + rect.height)) * 2)
-        );
-        parallaxY = Math.round(s * parallaxAmp * 10) / 10;
-      };
 
       const renderCardMotion = () => {
         bx += (tbx - bx) * 0.14;
         by += (tby - by) * 0.14;
-        ix += (tix - ix) * 0.08;
-        iy += (tiy - iy) * 0.08;
-        z += (tz - z) * 0.06;
-
-        mediaInner.style.transform = `translate3d(${ix.toFixed(2)}px, ${(iy + parallaxY).toFixed(2)}px, 0) scale(${z.toFixed(4)})`;
 
         if (badge) {
           badge.style.left = `${(bx * 100).toFixed(2)}%`;
@@ -395,12 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const stillMoving =
-          Math.abs(tbx - bx) * 300 +
-            Math.abs(tby - by) * 300 +
-            Math.abs(tix - ix) +
-            Math.abs(tiy - iy) +
-            Math.abs(tz - z) * 400 >
-          0.1;
+          Math.abs(tbx - bx) * 300 + Math.abs(tby - by) * 300 > 0.1;
 
         if (hovered || stillMoving) {
           cardRaf = requestAnimationFrame(renderCardMotion);
@@ -411,20 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cover.addEventListener('mouseenter', () => {
         hovered = true;
-        tz = hoverZoom;
         if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
       });
 
       cover.addEventListener('mousemove', (e) => {
         const rect = cover.getBoundingClientRect();
-        const nx = (e.clientX - rect.left) / rect.width;
-        const ny = (e.clientY - rect.top) / rect.height;
-
-        tbx = nx;
-        tby = ny;
-        tix = -(nx - 0.5) * panAmpX;
-        tiy = -(ny - 0.5) * panAmpY;
-
+        tbx = (e.clientX - rect.left) / rect.width;
+        tby = (e.clientY - rect.top) / rect.height;
         if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
       });
 
@@ -432,23 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hovered = false;
         tbx = 0.5;
         tby = 0.5;
-        tix = 0;
-        tiy = 0;
-        tz = restZoom;
         if (!cardRaf) cardRaf = requestAnimationFrame(renderCardMotion);
       });
-
-      window.addEventListener(
-        'scroll',
-        () => {
-          updateParallax();
-          if (!cardRaf) {
-            mediaInner.style.transform = `translate3d(${ix.toFixed(2)}px, ${(iy + parallaxY).toFixed(2)}px, 0) scale(${z.toFixed(4)})`;
-          }
-        },
-        { passive: true }
-      );
-      updateParallax();
     });
   }
 

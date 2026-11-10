@@ -10,25 +10,29 @@
 :root,
 body,
 body[data-theme="dark"] {
-  /* Pinterest Palette (https://www.pinterest.com/pin/221943087882359950/) — Apple-Like Restrained Dark Mode */
-  --bg-page: #000000;
-  --bg-surface: #161618;
-  --bg-elevated: #262626;
-  --text-primary: #FFFFFF;
-  --text-secondary: #999999;
-  --border-subtle: rgba(255, 255, 255, 0.11);
-  --border-strong: rgba(255, 255, 255, 0.22);
-  --accent: #FF6200;
-  --accent-saffron: #FF7D00;
-  --accent-navy: #001FBD;
-  --accent-blue: #0131FF;
-  --accent-soft: rgba(255, 98, 0, 0.15);
-  --nav-bg: rgba(22, 22, 24, 0.84);
-  --nav-hover-pill: rgba(255, 255, 255, 0.1);
-  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --dot-grid-color: rgba(255, 255, 255, 0.07);
-  --tooltip-bg: #FFFFFF;
-  --tooltip-text: #000000;
+  /* Pinterest Palette (https://www.pinterest.com/pin/1037798307866505042/)
+     with Super Dark Midnight Blue Background in Dark Mode */
+  --bg-page: #030712;
+  --bg-surface: #071022;
+  --bg-elevated: #0D1B36;
+  --bg-card: #071022;
+  --text-primary: #F7F3F6;
+  --text-secondary: #B2C3D6;
+  --text-muted: #86A8CF;
+  --border-subtle: rgba(134, 168, 207, 0.16);
+  --border-strong: rgba(134, 168, 207, 0.30);
+  --accent: #86A8CF;
+  --accent-saffron: #C38EB4;
+  --accent-blush: #E1CBD7;
+  --accent-navy: #0C1D4B;
+  --accent-blue: #26425A;
+  --accent-soft: rgba(134, 168, 207, 0.16);
+  --nav-bg: rgba(3, 7, 18, 0.86);
+  --nav-hover-pill: rgba(134, 168, 207, 0.14);
+  --card-inner-shadow: inset 0 1px 0 rgba(225, 203, 215, 0.08);
+  --dot-grid-color: rgba(134, 168, 207, 0.09);
+  --tooltip-bg: #F7F3F6;
+  --tooltip-text: #030712;
 
   /* Owen Gray Bold Display + Expressive Script + Geist Typography */
   --font-display: 'Tanker', 'Big Shoulders Display', 'Anton', sans-serif;
@@ -43,25 +47,28 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
-  /* Pinterest Palette (https://www.pinterest.com/pin/221943087882359950/) — Apple-Like Restrained Light Mode */
-  --bg-page: #FFFFFF;
-  --bg-surface: #F1F2F4;
-  --bg-elevated: #E3E5E8;
-  --text-primary: #000000;
-  --text-secondary: #6E6E6E;
-  --border-subtle: rgba(0, 0, 0, 0.09);
-  --border-strong: rgba(0, 0, 0, 0.18);
-  --accent: #FF6200;
-  --accent-saffron: #FF7D00;
-  --accent-navy: #001FBD;
-  --accent-blue: #0131FF;
-  --accent-soft: rgba(255, 98, 0, 0.12);
-  --nav-bg: rgba(241, 242, 244, 0.86);
-  --nav-hover-pill: rgba(0, 0, 0, 0.06);
-  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  --dot-grid-color: rgba(0, 0, 0, 0.06);
-  --tooltip-bg: #000000;
-  --tooltip-text: #FFFFFF;
+  /* Pinterest Palette (https://www.pinterest.com/pin/1037798307866505042/) — Soft Blush & Slate Light Mode */
+  --bg-page: #F8F4F7;
+  --bg-surface: #EFE6EC;
+  --bg-elevated: #E1CBD7;
+  --bg-card: #FFFFFF;
+  --text-primary: #0E1F2F;
+  --text-secondary: #26425A;
+  --text-muted: #5B7896;
+  --border-subtle: rgba(14, 31, 47, 0.11);
+  --border-strong: rgba(14, 31, 47, 0.22);
+  --accent: #26425A;
+  --accent-saffron: #C38EB4;
+  --accent-blush: #E1CBD7;
+  --accent-navy: #0C1D4B;
+  --accent-blue: #86A8CF;
+  --accent-soft: rgba(134, 168, 207, 0.22);
+  --nav-bg: rgba(248, 244, 247, 0.86);
+  --nav-hover-pill: rgba(38, 66, 90, 0.08);
+  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --dot-grid-color: rgba(38, 66, 90, 0.08);
+  --tooltip-bg: #0E1F2F;
+  --tooltip-text: #F7F3F6;
 }
 
 *, *::before, *::after {
@@ -744,8 +751,8 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   height: 172px;
   border-radius: 50%;
   overflow: hidden;
-  background: #1C1C1E;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: #15283B;
+  border: 1.5px solid rgba(134, 168, 207, 0.24);
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.65);
   transform-style: preserve-3d;
   transition: transform 0.22s var(--ease-slot), box-shadow 0.3s ease, background-color 0.35s ease, border-color 0.35s ease;
@@ -789,8 +796,8 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   height: 176px;
   border-radius: 50%;
   overflow: hidden;
-  background: #1C1C1E;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: #15283B;
+  border: 1.5px solid rgba(134, 168, 207, 0.24);
   box-shadow: 0 22px 48px -14px rgba(0, 0, 0, 0.65);
 }
 
@@ -932,6 +939,29 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
 
 .hero-fraunces-title .text-accent {
   color: var(--accent);
+}
+
+/* Interactive On-Hover Effect on Hero Headline Words ("Designing AI products people trust.") */
+.hero-hover-word {
+  display: inline-block;
+  cursor: default;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.28s ease,
+    text-shadow 0.35s ease;
+  will-change: transform, color;
+}
+
+.hero-hover-word:hover {
+  transform: translateY(-7px) scale(1.06) rotate(-1.5deg);
+  color: var(--accent-saffron);
+  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.42);
+}
+
+.hero-hover-word.is-accent:hover {
+  transform: translateY(-7px) scale(1.06) rotate(1.5deg);
+  color: var(--accent-blush);
+  text-shadow: 0 12px 28px rgba(225, 203, 215, 0.45);
 }
 
 /* Clean Subtitle Line (`.framer-xasqps` — NO cluttered chips underneath!) */
@@ -1237,7 +1267,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   font-size: 1.05em;
   text-transform: none;
   letter-spacing: 0em;
-  color: var(--accent);
+  color: var(--accent-saffron);
   font-weight: 600;
 }
 
@@ -1276,36 +1306,40 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
 .leo-work-cover {
   position: relative;
   width: 100%;
-  height: 452px;
+  height: 468px;
   border-radius: 26px;
   overflow: hidden;
   isolation: isolate;
-  /* Static solid surface color (NO gradient noise!) */
-  background: #161618;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 20px 44px -18px rgba(0, 0, 0, 0.38);
+  background: transparent;
+  border: none;
+  box-shadow: 0 22px 48px -18px rgba(4, 8, 20, 0.62);
   clip-path: inset(14% 7% 0% 7% round 26px);
   transform: translateY(56px);
   opacity: 0;
   transition:
     clip-path 1.3s var(--ease-out-expo),
     transform 1.3s var(--ease-out-expo),
-    opacity 0.5s ease,
-    background-color 0.35s ease,
-    border-color 0.35s ease;
+    opacity 0.5s ease;
+}
+
+#project-sharekit .leo-work-cover {
+  background: #142B47;
+  border: none;
+}
+
+#project-contacts-editor .leo-work-cover {
+  background: transparent;
+  border: none;
+}
+
+#project-sonicare .leo-work-cover {
+  background: transparent !important;
+  border: none;
 }
 
 body[data-theme="light"] .leo-work-cover {
-  background: #F1F2F4;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 18px 38px -16px rgba(0, 0, 0, 0.08);
-}
-
-/* Philips Sonicare Case Study Card — Clean Solid White Background in Both Modes */
-#project-sonicare .leo-work-cover,
-.leo-work-cover.is-white-cover {
-  background: #FFFFFF !important;
-  border-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: 0 20px 44px -16px rgba(14, 31, 47, 0.16);
 }
 
 .leo-work-card.is-revealed .leo-work-cover {
@@ -1320,44 +1354,95 @@ body[data-theme="light"] .leo-work-cover {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Equal top and bottom padding (36px top, 36px bottom) so device is dead-center! */
-  padding: 36px 28px;
-  will-change: transform;
-  transform: scale(1);
-  transition: transform 0.65s var(--ease-out-expo);
+  padding: 0;
+  perspective: 1200px;
+  transform: none !important;
 }
 
 .leo-work-card:hover .leo-work-media-inner {
-  transform: scale(1.03) translateY(-3px);
+  /* No shift or zoom on hover per user request */
+  transform: none !important;
 }
 
-.leo-work-media-inner > .device-frame {
+.leo-work-media-inner > img.wix-static-card-img {
+  width: 100%;
   height: 100%;
-  max-height: 376px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Top-Right Google "G" & Philips Brand Logo on Case Study Cards */
+.work-card-brand-logo {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+}
+
+.work-card-brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 3D-Angled Studio Titanium iPhone Frame (referencing uploaded iPhone Pro studio image) */
+.leo-work-media-inner > .device-frame {
+  position: relative;
+  height: 100%;
+  max-height: 392px;
   width: auto;
-  max-width: 180px;
+  max-width: 192px;
   aspect-ratio: 416 / 896;
   margin: auto;
-  padding: 7px;
-  border-radius: 32px;
-  background: linear-gradient(160deg, #323236 0%, #18181B 45%, #0E0E10 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.26);
-  outline: 1px solid rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  border-radius: 36px;
+  background: linear-gradient(155deg, #2B3542 0%, #121820 48%, #090D12 100%);
+  border: 1.5px solid rgba(225, 203, 215, 0.34);
+  transform: rotateY(18deg) rotateX(6deg) rotateZ(-5deg);
+  transform-style: preserve-3d;
   box-shadow:
-    0 32px 64px -12px rgba(0, 0, 0, 0.68),
-    0 18px 32px -8px rgba(0, 0, 0, 0.48),
-    0 4px 10px rgba(0, 0, 0, 0.32),
-    inset 0 1px 1px rgba(255, 255, 255, 0.32),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6);
+    /* 3D Brushed Titanium Left Chassis Rail */
+    -4px 2px 0 0 #626E7E,
+    -8px 5px 0 0 #3E4856,
+    -11px 7px 0 0 #242B35,
+    -12px 8px 0 0 rgba(255, 255, 255, 0.18),
+    /* Deep studio drop shadow */
+    -26px 34px 58px -10px rgba(5, 10, 18, 0.78),
+    0 20px 38px -10px rgba(5, 10, 18, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.38),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.75);
+  transition: none !important;
 }
 
-body[data-theme="light"] .leo-work-media-inner > .device-frame {
-  box-shadow:
-    0 28px 56px -12px rgba(0, 13, 60, 0.28),
-    0 14px 28px -8px rgba(0, 0, 0, 0.22),
-    0 4px 10px rgba(0, 0, 0, 0.14),
-    inset 0 1px 1px rgba(255, 255, 255, 0.35),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6);
+.leo-work-media-inner > .device-frame:hover {
+  transform: rotateY(18deg) rotateX(6deg) rotateZ(-5deg) !important;
+}
+
+/* Dynamic Island Pill on Homepage 3D Studio iPhone Frame */
+.leo-work-media-inner > .device-frame::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28%;
+  height: 13px;
+  border-radius: 999px;
+  background: #07090C;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  z-index: 4;
+  pointer-events: none;
 }
 
 .leo-work-media-inner > .device-frame img,
@@ -1365,7 +1450,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 25px;
+  border-radius: 28px;
   display: block;
 }
 
@@ -1570,46 +1655,41 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   object-fit: cover;
 }
 
-/* Parents Photo Card inside nested tray — Centered & Balanced */
-.about-photo-tray {
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  padding: 6px;
-  border-radius: 26px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-}
-
+/* Parents Photo Card — Clean Frameless Presentation (Zero Frame-Within-Frame!) */
+.about-photo-tray,
 .about-photo-card {
-  border-radius: 20px;
-  background: var(--bg-page);
-  padding: 12px;
-  overflow: hidden;
+  width: 100%;
+  max-width: 356px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   text-align: center;
 }
 
 .about-photo-img {
   width: 100%;
-  height: 300px;
-  border-radius: 14px;
+  height: 184px;
+  border-radius: 16px;
   overflow: hidden;
+  border: 1px solid var(--border-subtle);
 }
 
 .about-photo-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   transition: transform 0.65s var(--ease-out-expo);
 }
 
 .about-photo-card:hover .about-photo-img img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .about-photo-caption {
-  padding: 12px 6px 4px;
+  padding: 12px 4px 0;
   font-size: 12.5px;
   line-height: 1.45;
   color: var(--text-secondary);
@@ -1625,54 +1705,114 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   margin-bottom: 2px;
 }
 
-/* 3-Step Process Tray (`.framer-rcpi2f` -> `.framer-jant0s`) */
+/* 3-Step Process Grid — Single Clean Container per Card (No Outer Tray Frame!) */
 .leo-process-tray {
   width: 100%;
-  padding: 6px;
-  border-radius: 26px;
-  background: var(--bg-surface);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
+  gap: 16px;
 }
 
 .leo-process-card {
+  position: relative;
   border-radius: 20px;
-  background: var(--bg-page);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 24px;
+  overflow: hidden;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-process-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(195, 142, 180, 0.16) 0%, rgba(134, 168, 207, 0.10) 48%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.38s ease;
+  pointer-events: none;
+}
+
+.leo-process-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent-saffron);
+  background: var(--bg-elevated);
+  box-shadow:
+    0 22px 44px -16px rgba(4, 8, 20, 0.68),
+    inset 0 1px 0 rgba(225, 203, 215, 0.22);
+}
+
+.leo-process-card:hover::before {
+  opacity: 1;
 }
 
 .leo-process-icon {
+  position: relative;
+  z-index: 1;
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: var(--bg-surface);
+  background: var(--bg-elevated);
   color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.leo-process-card:hover .leo-process-icon {
+  transform: scale(1.14) rotate(-6deg);
+  background: var(--accent-saffron);
+  color: #030712;
+  box-shadow: 0 8px 20px rgba(195, 142, 180, 0.38);
 }
 
 .leo-process-card.is-accent .leo-process-icon {
   background: var(--accent);
-  color: #121110;
+  color: #030712;
+}
+
+.leo-process-card.is-accent:hover .leo-process-icon {
+  background: var(--accent-blush);
+  color: #030712;
+  box-shadow: 0 8px 20px rgba(225, 203, 215, 0.42);
 }
 
 .leo-process-title {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.leo-process-card:hover .leo-process-title {
+  color: var(--accent-blush);
 }
 
 .leo-process-desc {
+  position: relative;
+  z-index: 1;
   font-size: 14.5px;
   line-height: 1.5;
   color: var(--text-secondary);
@@ -1753,19 +1893,20 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
 
 .leo-exp-timeline {
   width: 100%;
-  padding: 6px;
-  border-radius: 26px;
-  background: var(--bg-surface);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 .leo-exp-role-card {
   width: 100%;
   padding: 16px 20px 16px 16px;
   border-radius: 20px;
-  background: var(--bg-page);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1777,10 +1918,10 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: linear-gradient(145deg, #0E3655 0%, #162432 100%);
-  border: 1px solid rgba(254, 117, 34, 0.35);
-  box-shadow: inset 0 1px 0 rgba(232, 213, 191, 0.16);
-  color: var(--accent);
+  background: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
+  border: 1px solid rgba(134, 168, 207, 0.32);
+  box-shadow: inset 0 1px 0 rgba(225, 203, 215, 0.18);
+  color: #E1CBD7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1956,10 +2097,13 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   position: relative;
   width: 100%;
   border-radius: 28px;
+  /* Soft Twilight Gradient from Pinterest Pin 1037798307866505042 (#0E1F2F -> #26425A -> #86A8CF -> #E1CBD7 -> #C38EB4) */
   background:
-    radial-gradient(circle at 80% 15%, rgba(254, 117, 34, 0.34) 0%, transparent 50%),
-    linear-gradient(160deg, #0E3655 0%, #16222E 58%, #1F1F1F 100%);
-  border: 1px solid var(--border-subtle);
+    radial-gradient(circle at 82% 18%, rgba(195, 142, 180, 0.28) 0%, transparent 52%),
+    radial-gradient(circle at 18% 82%, rgba(134, 168, 207, 0.25) 0%, transparent 55%),
+    linear-gradient(160deg, #0E1F2F 0%, #182E44 52%, #26425A 100%);
+  border: 1px solid rgba(134, 168, 207, 0.26);
+  box-shadow: 0 24px 56px -18px rgba(8, 16, 26, 0.55);
   padding: 96px 24px 0;
   display: flex;
   flex-direction: column;
@@ -1967,6 +2111,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   text-align: center;
   gap: 40px;
   overflow: hidden;
+  color: #F7F3F6;
 }
 
 .leo-footer-invite {
@@ -1984,12 +2129,12 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   gap: 8px;
   padding: 7px 14px 7px 12px;
   border-radius: 100px;
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
+  background: rgba(14, 31, 47, 0.72);
+  border: 1px solid rgba(225, 203, 215, 0.28);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-primary);
+  color: #F7F3F6;
 }
 
 .leo-footer-heading {
@@ -1999,14 +2144,14 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   line-height: 0.96;
   letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #FFFFFF;
 }
 
 .leo-footer-heading .text-accent {
   font-family: var(--font-script);
   text-transform: none;
   font-size: 1.04em;
-  color: var(--accent);
+  color: #E1CBD7;
 }
 
 .leo-footer-actions {
@@ -2015,6 +2160,50 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+/* Explicit High-Contrast Buttons inside Footer Card in Both Dark & Light Modes */
+.leo-footer-wrap .leo-magnetic-btn {
+  background: #F7F3F6;
+  color: #0E1F2F;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.leo-footer-wrap .leo-magnetic-btn .leo-btn-ripple {
+  background: #E1CBD7;
+}
+
+.leo-footer-wrap .leo-magnetic-btn:hover {
+  color: #0E1F2F;
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-secondary {
+  background: rgba(225, 203, 215, 0.14);
+  color: #FFFFFF;
+  border: 1px solid rgba(225, 203, 215, 0.34);
+  backdrop-filter: blur(10px);
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-secondary .leo-btn-ripple {
+  background: #FFFFFF;
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-secondary:hover {
+  color: #0E1F2F;
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-icon {
+  background: rgba(225, 203, 215, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(225, 203, 215, 0.30);
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-icon .leo-btn-ripple {
+  background: #FFFFFF;
+}
+
+.leo-footer-wrap .leo-magnetic-btn.is-icon:hover {
+  color: #0E1F2F;
 }
 
 .leo-footer-socials {
@@ -2029,7 +2218,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   width: 100%;
   max-width: 1040px;
   padding: 16px 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(225, 203, 215, 0.18);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2039,7 +2228,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: #B2C3D6;
 }
 
 .leo-footer-meta-right {
@@ -2054,20 +2243,20 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
+  background: rgba(14, 31, 47, 0.65);
+  border: 1px solid rgba(225, 203, 215, 0.28);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-transform: none;
-  color: var(--text-primary);
+  color: #FFFFFF;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .leo-back-top-link:hover {
-  background: var(--text-primary);
-  color: var(--bg-page);
+  background: #FFFFFF;
+  color: #0E1F2F;
 }
 
 /* Giant Full-Width Tanker Wordmark (`owen-gray.framer.website` style) */
@@ -2083,8 +2272,8 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   line-height: 0.82;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--text-primary);
-  opacity: 0.14;
+  color: #E1CBD7;
+  opacity: 0.16;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -2150,7 +2339,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   max-width: 800px;
 }
 
-/* Premium Tidepool-Style Case Study Hero Stage (`https://leomarlowe.framer.website/work/tidepool`) */
+/* Soft Atmospheric Case Study Hero Stage (Pinterest Palette 1037798307866505042 — Zero Hover Shift & Centered Device!) */
 .case-hero-stage {
   position: relative;
   width: 100%;
@@ -2160,24 +2349,45 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 78% 88%, rgba(255, 153, 50, 0.75) 0%, rgba(255, 200, 1, 0.35) 36%, transparent 68%),
-    linear-gradient(160deg, #172B36 0%, #114C5A 62%, #172B36 100%);
-  border: 1px solid var(--border-strong);
+    radial-gradient(110% 65% at 50% 100%, rgba(225, 203, 215, 0.44) 0%, rgba(195, 142, 180, 0.24) 34%, transparent 74%),
+    linear-gradient(165deg, #0E1F2F 0%, #26425A 55%, #86A8CF 100%);
+  border: 1px solid var(--border-subtle);
   box-shadow:
-    inset 0 1px 0 rgba(241, 246, 244, 0.2),
-    0 28px 64px -20px rgba(0, 0, 0, 0.65);
+    inset 0 1px 0 rgba(225, 203, 215, 0.18),
+    0 24px 56px -20px rgba(8, 16, 26, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 24px 0;
+  padding: 24px;
 }
 
 .case-hero-stage > .device-frame {
-  max-width: 215px;
-  transform: translateY(16px);
-  box-shadow:
-    0 34px 72px -12px rgba(0, 0, 0, 0.8),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  max-width: 205px;
+  margin: auto !important;
+  transform: none !important;
+  transition: none !important;
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
+}
+
+.case-hero-stage > .device-frame:hover {
+  transform: none !important;
+}
+
+.case-hero-stage.is-brief-phone-stage {
+  height: 460px;
+  margin: 10px 0 0;
+  padding: 20px;
+}
+
+.case-hero-stage.is-brief-desktop-stage {
+  height: auto;
+  margin: 12px 0 28px;
+  padding: 34px 28px;
+}
+
+.case-hero-stage.is-brief-desktop-stage > .desktop-window-frame {
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .case-hero-stage > img.clean-cutout-visual {
@@ -2188,22 +2398,62 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   filter: drop-shadow(0 30px 54px rgba(0, 0, 0, 0.65));
 }
 
+.case-hero-stage.is-wide-slide {
+  width: min(1260px, calc(100vw - 48px));
+  margin-left: calc(50% - min(630px, 50vw - 24px));
+  margin-right: calc(50% - min(630px, 50vw - 24px));
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.case-hero-stage.is-wide-slide > img.single-border-mock {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
+  display: block;
+}
+
+/* Frameless Share Icons for "Inconsistent entry points" (White in Dark Mode, Dark in Light Mode) */
+.share-icons-direct {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  display: block;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  transition: filter 0.35s ease;
+}
+
+body[data-theme="light"] .share-icons-direct {
+  filter: none;
+  opacity: 0.9;
+}
+
 .case-meta-grid,
 .case-meta-bar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 6px;
-  padding: 6px;
-  border-radius: 22px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  gap: 12px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   margin: 32px 0 40px;
 }
 
 .case-meta-item {
   padding: 18px 20px;
-  border-radius: 16px;
-  background: var(--bg-page);
+  border-radius: 18px;
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
 }
 
@@ -2223,19 +2473,20 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   color: var(--text-primary);
 }
 
+/* Single Clean Container for Figures (No Padded Frame-Within-Frame Mat!) */
 .case-hero-media,
 .case-figure {
-  border-radius: 22px;
+  border-radius: 18px;
   overflow: hidden;
-  background: var(--bg-surface);
+  background: transparent;
   border: 1px solid var(--border-subtle);
-  padding: 6px;
+  padding: 0;
   margin: 24px 0;
 }
 
 .alt-bg .case-figure,
 .case-section-alt .case-figure {
-  background: var(--bg-page);
+  background: transparent;
 }
 
 .case-hero-media img,
@@ -2246,7 +2497,7 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
   max-height: 600px;
   height: auto;
   object-fit: contain;
-  border-radius: 16px;
+  border-radius: 17px;
   display: block;
   margin: 0 auto;
 }
@@ -2489,8 +2740,13 @@ body[data-theme="light"] .leo-work-media-inner > .device-frame {
 }
 
 .hmw-box.revised {
-  background: linear-gradient(145deg, rgba(224, 138, 102, 0.14), rgba(28, 27, 25, 0.95));
-  border-color: rgba(224, 138, 102, 0.35);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--card-inner-shadow);
+}
+
+.alt-bg .hmw-box.revised {
+  background: var(--bg-page);
 }
 
 .hmw-text {
@@ -2639,52 +2895,95 @@ body.is-loaded .load-reveal {
 }
 
 /* ==========================================================================
+   10B-2. JULIAN DAVID (`https://juliandavid.framer.website/`) FIRST-LOAD HERO CHOREOGRAPHY
+          - `1ejl7m2` (Avatar): scale(1.3) -> scale(1) over 1.0s cubic-bezier(0.75, 0.25, 1, 1) @ 0s delay
+          - `bi5zts` (Bottom Dock): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 0.5s delay
+          - `1rt5431` (Top Nav): opacity 0.001, y: -90px -> 0 spring(300, 60, 1) @ 1.0s delay
+          - `hkuxeh` / `1guwwyf` (Pill & Title): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 1.0s delay
+          - `ymsdf6` (Subtitle): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 1.1s delay
+   ========================================================================== */
+@keyframes jdAvatarZoom {
+  0% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes jdNavDrop {
+  0% {
+    opacity: 0.001;
+    transform: translateY(-90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jdRiseUp90 {
+  0% {
+    opacity: 0.001;
+    transform: translateY(90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jd-appear-avatar {
+  will-change: transform;
+  animation: jdAvatarZoom 1s cubic-bezier(0.75, 0.25, 1, 1) 0s both;
+}
+
+.jd-appear-dock {
+  will-change: transform, opacity;
+  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.jd-appear-nav {
+  will-change: transform, opacity;
+  animation: jdNavDrop 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both;
+}
+
+.jd-appear-title {
+  will-change: transform, opacity;
+  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both;
+}
+
+.jd-appear-subtitle {
+  will-change: transform, opacity;
+  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
+}
+
+/* ==========================================================================
    10C. CONSISTENT HARDWARE DEVICE FRAME (`.device-frame`) & MOCK GRIDS
-        - Natural aspect ratio (no forced stretching or distortion!)
+        - Single clean hardware bezel (NO top bar, NO hover shift, NO double frame)
    ========================================================================== */
 .device-frame {
   position: relative;
   width: 100%;
   max-width: 218px;
   margin: 0 auto;
-  padding: 7px;
-  border-radius: 30px;
-  background: linear-gradient(145deg, #2b2a28 0%, #161514 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 22px 48px -14px rgba(0, 0, 0, 0.62),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  padding: 0;
+  border-radius: 24px;
+  background: transparent;
+  border: none;
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s var(--ease-out-expo);
 }
 
 body[data-theme="light"] .device-frame {
-  background: linear-gradient(145deg, #282726 0%, #141312 100%);
-  border-color: rgba(18, 17, 16, 0.22);
-  box-shadow:
-    0 18px 38px -12px rgba(18, 17, 16, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
-
-.device-frame:hover {
-  transform: translateY(-4px);
-}
-
-.device-frame::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22%;
-  height: 4px;
-  border-radius: 99px;
-  background: rgba(18, 17, 16, 0.35);
-  z-index: 3;
-  pointer-events: none;
+  background: transparent;
+  border: none;
+  box-shadow: 0 20px 44px -14px rgba(14, 31, 47, 0.26);
 }
 
 .device-frame img,
@@ -2692,9 +2991,50 @@ body[data-theme="light"] .device-frame {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 23px;
+  border-radius: 24px;
   display: block;
-  background: #ffffff;
+  background: transparent;
+}
+
+/* Equal-dimension phone mock for side-by-side video + static mock in "The Brief No One Could Define" */
+.device-frame.is-equal-phone,
+.mock-grid-4 .device-frame {
+  aspect-ratio: 640 / 1400;
+}
+
+.device-frame.is-equal-phone img,
+.device-frame.is-equal-phone video,
+.mock-grid-4 .device-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* HITL Confirmation Card Explorations Grid (Natural card proportions with soft drop shadow) */
+.hitl-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin: 20px 0 36px;
+  align-items: start;
+}
+
+.hitl-card-mock {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
+}
+
+.hitl-card-mock img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
 }
 
 /* Desktop Side Panel Card (for Gmail Desktop side-panel explorations — uniform height & corner radius!) */
@@ -2709,11 +3049,6 @@ body[data-theme="light"] .device-frame {
   background: #ffffff;
   border: 1.5px solid var(--border-strong);
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
-  transition: transform 0.45s var(--ease-out-expo);
-}
-
-.desktop-panel-card:hover {
-  transform: translateY(-4px);
 }
 
 .desktop-panel-card img {
@@ -2724,17 +3059,22 @@ body[data-theme="light"] .device-frame {
   display: block;
 }
 
-/* Desktop Window Frame (sits directly on website background with zero white padding) */
+/* Desktop Window Mock (Frameless with soft drop shadow matching "Choosing the Pattern that Matches User Intent") */
 .desktop-window-frame {
   position: relative;
   width: 100%;
-  max-width: 860px;
+  max-width: 720px;
   margin: 24px auto;
-  border-radius: 18px;
+  padding: 0;
+  border-radius: 22px;
   overflow: hidden;
-  border: 1.5px solid var(--border-strong);
-  box-shadow: 0 26px 58px -16px rgba(0, 0, 0, 0.65);
   background: transparent;
+  border: none;
+  box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
+}
+
+body[data-theme="light"] .desktop-window-frame {
+  box-shadow: 0 20px 44px -14px rgba(14, 31, 47, 0.26);
 }
 
 .desktop-window-frame img,
@@ -2742,7 +3082,37 @@ body[data-theme="light"] .device-frame {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 16px;
+  border-radius: 22px;
+}
+
+/* Frameless Mock (Zero outer frame or background box — used for Model Is Wrong & Google Maps Web Dialog) */
+.frameless-mock {
+  width: 100%;
+  max-width: 900px;
+  margin: 28px auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.frameless-mock img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Single-Border Mock (Strictly 1 border, zero nested container — used for ShareKit Design Principles slides) */
+.single-border-mock {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
 }
 
 .mock-col {
@@ -2787,16 +3157,17 @@ body[data-theme="light"] .device-frame {
 .mock-group-split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
+  gap: 32px;
   max-width: 920px;
   margin: 28px auto;
 }
 
+/* Clean Frameless Half-Group so `.device-frame` phones don't sit inside a second container box! */
 .mock-group-half {
-  padding: 20px 18px 24px;
-  border-radius: 24px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2804,7 +3175,7 @@ body[data-theme="light"] .device-frame {
 }
 
 .alt-bg .mock-group-half {
-  background: var(--bg-page);
+  background: transparent;
 }
 
 .mock-group-half .case-caption {
@@ -2987,7 +3358,7 @@ body[data-theme="light"] .case-password-card {
   justify-content: center;
   background: var(--accent-soft);
   color: var(--accent);
-  border: 1px solid rgba(255, 86, 48, 0.25);
+  border: 1px solid rgba(134, 168, 207, 0.30);
 }
 
 .case-password-kicker {

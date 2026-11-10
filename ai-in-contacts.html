@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -139,15 +139,6 @@
             <div class="case-meta-value">Google Pixel &middot; Gmail &middot; Gemini &middot; Google Contacts</div>
           </div>
         </div>
-
-        <!-- Premium Tidepool-Style Hero Device Stage -->
-        <div class="case-hero-stage framer-reveal">
-          <div class="device-frame">
-            <video autoplay muted loop playsinline poster="assets/mocks/proto_contact_intel_poster.png">
-              <source src="assets/mocks/proto_contact_intel.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -160,28 +151,36 @@
         <p class="case-body">Google Contacts had always been a passive repository. In 2025, a company-wide AI push landed on the team with a deceptively simple brief: <strong>automatically capture the people users interact with across Google</strong>. My job wasn't to design features but to lead the team out of ambiguity by defining the problem.</p>
         <p class="case-body">As lead product designer, I ran the research that reframed the brief, led the sprint that aligned Engineering and PM around it, and turned it into <em><u>3 features</u></em> that shipped to production.</p>
 
-        <div class="case-grid-2" style="grid-template-columns: 2.35fr 1fr; align-items: center; max-width: 860px; margin: 28px auto;">
-          <div>
+        <div class="mock-grid-2 framer-reveal">
+          <div class="mock-col">
             <p class="case-caption">1 &middot; MAGIC CUE &amp; SAVE</p>
-            <div class="case-figure framer-reveal" style="margin: 0;">
-              <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/e3505c_f55cc3069d1c412783ec1a58f45472fdf000.jpg">
-                <source src="https://video.wixstatic.com/video/e3505c_f55cc3069d1c412783ec1a58f45472fd/1080p/mp4/file.mp4" type="video/mp4">
-              </video>
+            <div class="case-hero-stage is-brief-phone-stage">
+              <div class="device-frame is-equal-phone">
+                <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=16">
+                  <source src="assets/mocks/ai_brief_1_magic.mp4?v=16" type="video/mp4">
+                </video>
+              </div>
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">2 &middot; GEMINI x CONTACTS SYNC</p>
-            <div class="device-frame framer-reveal">
-              <img src="assets/mocks/ai_hero_2_gemini_sync.png" alt="Gemini x Contacts Sync" loading="lazy">
+            <div class="case-hero-stage is-brief-phone-stage">
+              <div class="device-frame is-equal-phone">
+                <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_2_gemini_sync_poster.jpg?v=16">
+                  <source src="assets/mocks/ai_brief_2_gemini_sync.mp4?v=16" type="video/mp4">
+                </video>
+              </div>
             </div>
           </div>
         </div>
 
         <p class="case-caption" style="margin-top: 28px;">3 &middot; GMAIL CONTACT INFO EXTRACTION</p>
-        <div class="desktop-window-frame framer-reveal" style="max-width: 860px; margin: 12px auto 28px;">
-          <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg">
-            <source src="assets/mocks/ai_proto_2_gmail.mp4" type="video/mp4">
-          </video>
+        <div class="case-hero-stage is-brief-desktop-stage framer-reveal">
+          <div class="desktop-window-frame">
+            <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=16">
+              <source src="assets/mocks/ai_proto_2_gmail.mp4?v=16" type="video/mp4">
+            </video>
+          </div>
         </div>
 
         <div style="text-align: center; margin: 32px 0;">
@@ -312,7 +311,7 @@
           </div>
           <div class="hmw-box revised">
             <p class="case-eyebrow">REVISED</p>
-            <p class="hmw-text">HMW use AI to provide <span style="color: #6EACE6;">contextual & timely</span> contact info suggestions so users can curate their contacts with <span style="color: #CEA7F1;">trust & control</span></p>
+            <p class="hmw-text">HMW use AI to provide <span style="color: var(--accent);">contextual &amp; timely</span> contact info suggestions so users can curate their contacts with <span style="color: var(--accent-saffron);">trust &amp; control</span></p>
           </div>
         </div>
       </div>
@@ -369,29 +368,29 @@
         <p class="case-body">Since we were one of the first Google apps building on Gemini's HITL approval framework, which meant there was no established pattern to follow, and the ideal version of our confirmation UX couldn't ship on our extremely tight timeline.</p>
         <p class="case-body">The call I made: ship the rough version and iterate. I designed the full ideal experience first, establishing what "great" looked like for users, then worked backward with engineering to scope what could ship within the constraints. The MVP wasn't a compromise. It was a deliberate starting point for gathering real behavioral signal from real users, which no amount of internal prototyping could replicate, because a live feature with rough edges teaches you more than a perfect prototype that never ships.</p>
         <p class="case-caption" style="text-align: left; margin-top: 28px;">HITL CONFIRMATION CARD EXPLORATIONS</p>
-        <div class="mock-grid-4 framer-reveal">
+        <div class="hitl-card-grid framer-reveal">
           <div class="mock-col">
             <p class="case-caption">OPTION A</p>
-            <div class="device-frame">
-              <img src="assets/mocks/ai_hitl_1.png" alt="HITL Exploration 1" loading="lazy">
+            <div class="hitl-card-mock">
+              <img src="assets/mocks/ai_hitl_1.png?v=16" alt="HITL Exploration Option A" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">OPTION B</p>
-            <div class="device-frame">
-              <img src="assets/mocks/ai_hitl_2.png" alt="HITL Exploration 2" loading="lazy">
+            <div class="hitl-card-mock">
+              <img src="assets/mocks/ai_hitl_2.png?v=16" alt="HITL Exploration Option B" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">OPTION C</p>
-            <div class="device-frame">
-              <img src="assets/mocks/ai_hitl_3.png" alt="HITL Exploration 3" loading="lazy">
+            <div class="hitl-card-mock">
+              <img src="assets/mocks/ai_hitl_3.png?v=16" alt="HITL Exploration Option C" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
             <p class="case-caption">OPTION D</p>
-            <div class="device-frame">
-              <img src="assets/mocks/ai_hitl_4.png" alt="HITL Exploration 4" loading="lazy">
+            <div class="hitl-card-mock">
+              <img src="assets/mocks/ai_hitl_4.png?v=16" alt="HITL Exploration Option D" loading="lazy">
             </div>
           </div>
         </div>
@@ -486,17 +485,19 @@
           <a href="https://serve-dot-zipline.appspot.com/asset/2fe52ce4-ca19-58ec-b725-2a76bfbe635f/zpc/r5k99xwq9a8/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try the prototype ↗</a>
         </div>
 
-        <div class="desktop-window-frame framer-reveal" style="max-width: 820px; margin-left: auto; margin-right: auto;">
-          <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg">
-            <source src="assets/mocks/ai_proto_2_gmail.mp4" type="video/mp4">
+        <div class="desktop-window-frame framer-reveal" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+          <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=16">
+            <source src="assets/mocks/ai_proto_2_gmail.mp4?v=16" type="video/mp4">
           </video>
         </div>
 
         <h4 class="case-h4">Designing for When the Model is Wrong</h4>
         <p class="case-body">To diagnose why users dismiss suggestions, we implemented an in-context feedback micro-survey that triggers immediately upon a dismissal event. Designed with lightweight interaction constraints to minimize cognitive load, the modal presents predefined categorical chips representing our core failure hypotheses, such as <em>"Confusing," "Inaccurate Data," and "Annoying",</em> paired with an optional open-text field for qualitative context. By aggregating the selected categories, we converted ambiguous drop-off points into quantifiable failure distributions, allowing our product and engineering teams to isolate whether friction stemmed from UI affordances, algorithmic accuracy, or intrusive cadence. We then paired these aggregated volume metrics with the open-text verbatims to systematically prioritize model prompt refinements and adjust user-prompting thresholds.</p>
 
-        <div class="case-figure framer-reveal">
-          <img src="https://static.wixstatic.com/media/e3505c_a4e70e823e564fb494af57d08ac2ef9e~mv2.png/v1/crop/x_76,y_143,w_2780,h_1243/fill/w_1834,h_820,al_c,q_90/e3505c_a4e70e823e564fb494af57d08ac2ef9e~mv2.png" alt="Feedback Micro-Survey" loading="lazy">
+        <div class="desktop-window-frame framer-reveal" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+          <video autoplay muted loop playsinline poster="assets/mocks/ai_model_wrong_poster.jpg?v=16">
+            <source src="assets/mocks/ai_model_wrong.mp4?v=16" type="video/mp4">
+          </video>
         </div>
 
         <div class="metrics-block">
@@ -718,6 +719,6 @@
 </footer>
 
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
