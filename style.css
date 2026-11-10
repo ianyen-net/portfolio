@@ -1990,7 +1990,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 0.35s ease;
-  animation: processCardLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: processCardLoop 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .leo-process-card:nth-of-type(1) {
@@ -2004,14 +2004,81 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 2.2s;
+  animation-delay: 1.2s;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 4.4s;
+  animation-delay: 2.4s;
+}
+
+/* Cute Rocket Vector launching from "Ship" all the way to the top of the homepage during Ship's flash */
+.ship-rocket-launch {
+  position: absolute;
+  left: 50%;
+  top: -16px;
+  width: 36px;
+  height: 52px;
+  transform: translate3d(-50%, 6px, 0) scale(0.75);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 60;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 6px 16px rgba(129, 140, 248, 0.58));
+  animation: shipRocketLiftoff 3.6s linear infinite;
+  animation-delay: 2.4s;
+}
+
+.ship-rocket-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.ship-rocket-svg .rocket-flame-outer,
+.ship-rocket-svg .rocket-flame-core {
+  transform-origin: 18px 34px;
+  animation: rocketFlameFlicker 0.14s ease-in-out infinite alternate;
+}
+
+@keyframes rocketFlameFlicker {
+  0% {
+    transform: scaleY(0.88) scaleX(0.95);
+  }
+  100% {
+    transform: scaleY(1.22) scaleX(1.06);
+  }
+}
+
+@keyframes shipRocketLiftoff {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 6px, 0) scale(0.72);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* Smoothly emerges and begins continuous upward ascent right as "Ship" flashes */
+  7% {
+    opacity: 1;
+    transform: translate3d(-50%, -18px, 0) scale(1);
+    animation-timing-function: cubic-bezier(0.32, 0.08, 0.24, 1);
+  }
+  /* Continuous, silky-smooth glide all the way to the top of the homepage */
+  34% {
+    opacity: 0.92;
+    transform: translate3d(-50%, -440px, 0) scale(0.96);
+    animation-timing-function: ease-out;
+  }
+  44% {
+    opacity: 0;
+    transform: translate3d(-50%, -680px, 0) scale(0.84);
+  }
+  44.01%, 100% {
+    opacity: 0;
+    transform: translate3d(-50%, 6px, 0) scale(0.72);
+  }
 }
 
 .leo-process-card::before {
@@ -2039,7 +2106,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     color 0.35s ease,
     text-shadow 0.35s ease,
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: processTitleLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: processTitleLoop 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation-delay: inherit;
 }
 

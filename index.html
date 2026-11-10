@@ -15,7 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=36">
+  <link rel="preload" as="image" href="assets/avatar_var_1_blue_blink.gif?v=26" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/avatar_var_4_navy_hoodie.gif?v=26" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=26" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=26" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=26" fetchpriority="high">
+  <link rel="stylesheet" href="style.css?v=38">
 </head>
 <body data-theme="dark">
 
@@ -115,7 +120,14 @@
             <div class="avatar-stage is-transparent-gif jd-appear-avatar" role="button" tabindex="0" aria-label="Ian Yen interactive animated avatar — hover to change gesture">
               <div class="avatar-tilt-card">
                 <div class="avatar-img-circle">
-                  <img src="assets/avatar_var_1_blue_blink.gif?v=26" alt="Ian Yen animated 3D avatar" class="hero-transparent-gif" data-avatar-img>
+                  <img src="assets/avatar_var_1_blue_blink.gif?v=26" alt="Ian Yen animated 3D avatar" class="hero-transparent-gif" fetchpriority="high" decoding="sync" data-avatar-img>
+                  <!-- Pre-decoded avatar variants in DOM so first-load and hover transitions are instant -->
+                  <div aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;">
+                    <img src="assets/avatar_var_4_navy_hoodie.gif?v=26" alt="" fetchpriority="high" decoding="sync">
+                    <img src="assets/avatar_var_5_green_laptop.gif?v=26" alt="" fetchpriority="high" decoding="sync">
+                    <img src="assets/avatar_var_3_navy_victory.gif?v=26" alt="" fetchpriority="high" decoding="sync">
+                    <img src="assets/avatar_var_2_orange_funny.gif?v=26" alt="" fetchpriority="high" decoding="sync">
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,8 +182,40 @@
           <path d="M95 12 C 102 14, 107 15, 111 16 C 107 21, 103 26, 99 30" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-        <div class="leo-process-card is-accent">
+        <div class="leo-process-card is-accent is-ship-card">
           <h3 class="leo-process-title">Ship</h3>
+          <!-- Cute Rocket Vector that launches straight up to the top of the homepage when "Ship" flashes -->
+          <span class="ship-rocket-launch" aria-hidden="true">
+            <svg class="ship-rocket-svg" viewBox="0 0 36 52" fill="none">
+              <!-- Thruster Flame -->
+              <path class="rocket-flame-outer" d="M13.5 34 C13.5 41, 18 49, 18 50 C18 49, 22.5 41, 22.5 34 Z" fill="url(#shipFlameGrad)"/>
+              <path class="rocket-flame-core" d="M15.5 34 C15.5 38.5, 18 43.5, 18 44.5 C18 43.5, 20.5 38.5, 20.5 34 Z" fill="#FDE68A"/>
+              <!-- Side Fins -->
+              <path d="M12 24 L5.5 31.5 C5 32.2, 5.6 33.2, 6.5 33 L12.5 31.2 Z" fill="#A855F7"/>
+              <path d="M24 24 L30.5 31.5 C31 32.2, 30.4 33.2, 29.5 33 L23.5 31.2 Z" fill="#A855F7"/>
+              <!-- Rocket Body -->
+              <path d="M18 3 C11.5 10.5, 10.5 21, 11.8 31.5 C11.9 32.4, 12.7 33, 13.6 33 H22.4 C23.3 33, 24.1 32.4, 24.2 31.5 C25.5 21, 24.5 10.5, 18 3 Z" fill="url(#shipBodyGrad)" stroke="rgba(255,255,255,0.45)" stroke-width="1"/>
+              <!-- Nose Cone Highlight -->
+              <path d="M18 3 C14.8 6.8, 13.2 11, 12.6 14.8 H23.4 C22.8 11, 21.2 6.8, 18 3 Z" fill="#6B9BFF"/>
+              <!-- Porthole Window -->
+              <circle cx="18" cy="19.5" r="3.6" fill="#0F172A" stroke="#E0E7FF" stroke-width="1.5"/>
+              <circle cx="16.9" cy="18.4" r="1.1" fill="#93C5FD"/>
+              <!-- Exhaust Nozzle -->
+              <rect x="14.5" y="32.5" width="7" height="2.2" rx="1.1" fill="#475569"/>
+              <defs>
+                <linearGradient id="shipBodyGrad" x1="11" y1="4" x2="25" y2="33" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#F8FAFC"/>
+                  <stop offset="55%" stop-color="#E0E7FF"/>
+                  <stop offset="100%" stop-color="#C7D2FE"/>
+                </linearGradient>
+                <linearGradient id="shipFlameGrad" x1="18" y1="34" x2="18" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#F59E0B"/>
+                  <stop offset="55%" stop-color="#EC4899"/>
+                  <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
         </div>
       </div>
 
@@ -650,6 +694,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=37"></script>
+  <script src="script.js?v=38"></script>
 </body>
 </html>

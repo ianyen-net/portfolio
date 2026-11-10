@@ -11,6 +11,22 @@
  * 7. Magnetic Ripple Buttons (`g(e)`): Cursor Pull + Entry-Point Radial Fill + Slot Text
  */
 
+// Immediately preload and decode all 5 avatar GIF variants before DOMContentLoaded
+const AVATAR_GIF_VARIANTS = [
+  'assets/avatar_var_1_blue_blink.gif?v=26',
+  'assets/avatar_var_4_navy_hoodie.gif?v=26',
+  'assets/avatar_var_5_green_laptop.gif?v=26',
+  'assets/avatar_var_3_navy_victory.gif?v=26',
+  'assets/avatar_var_2_orange_funny.gif?v=26',
+];
+const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
+  const img = new Image();
+  img.decoding = 'sync';
+  img.fetchPriority = 'high';
+  img.src = src;
+  return img;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      1. THEME MANAGER (Default to Dark Mode as requested) & ON-LOAD REVEAL
