@@ -2208,9 +2208,9 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .ship-rocket-launch {
   position: absolute;
   left: 0;
-  top: -54px;
-  width: 44px;
-  height: 82px;
+  top: -62px;
+  width: 50px;
+  height: 94px;
   transform: translate3d(-50%, 0px, 0) scale(1);
   opacity: 1;
   pointer-events: none;
