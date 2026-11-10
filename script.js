@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('is-loaded');
 
       // Sequential first-load hover-flash wave across the hero headline words ("Designing AI products people trust.")
-      // Fires at 2050ms, right after .jd-appear-avatar (1.0s), .jd-appear-title (1.85s), and .jd-appear-subtitle (1.95s) have settled
+      // Fires at 1480ms so it flows seamlessly right as the exponential ease-out entrance settles
       const heroWords = document.querySelectorAll('.hero-hover-word');
       if (heroWords.length > 0) {
-        const startDelay = 2050;
-        const stepDelay = 125;
-        const holdDuration = 320;
+        const startDelay = 1480;
+        const stepDelay = 115;
+        const holdDuration = 300;
         heroWords.forEach((word, idx) => {
           setTimeout(() => {
             word.classList.add('is-flash');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Flash the Daily Toolbox icon labels in order on first appearance (right after the hero headline wave settles)
+      // Flash the Daily Toolbox icon labels in order on first appearance (flowing right after the hero headline wave)
       const toolboxDock = document.querySelector('.hero-dock-area.is-below-process');
       if (toolboxDock) {
         const dockItems = toolboxDock.querySelectorAll('.dock-item-wrap');
@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
           if (toolboxFlashed) return;
           toolboxFlashed = true;
           const elapsed = performance.now() - loadTimestamp;
-          // Wait until after the hero headline flash finishes (~2750ms after load), or 220ms if scrolled into view later
-          const waitMs = Math.max(220, 2780 - elapsed);
-          const itemStep = 140;
-          const itemHold = 380;
+          // Start at ~2100ms right as the hero headline wave finishes, or 180ms if scrolled into view later
+          const waitMs = Math.max(180, 2100 - elapsed);
+          const itemStep = 240;
+          const itemHold = 520;
           dockItems.forEach((item, idx) => {
             setTimeout(() => {
               item.classList.add('is-flash');

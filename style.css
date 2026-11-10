@@ -1241,6 +1241,21 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
+/* Position Daily Toolbox labels below the icons so they never overlap the "Daily toolbox" heading above */
+.hero-dock-area.is-below-process .dock-contact-tooltip {
+  bottom: auto;
+  top: 100%;
+  margin-bottom: 0;
+  margin-top: 12px;
+  transform: translateX(-50%) translateY(-6px) scale(0.95);
+}
+
+.hero-dock-area.is-below-process .dock-item-wrap:hover .dock-contact-tooltip,
+.hero-dock-area.is-below-process .dock-item-wrap.is-flash .dock-contact-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
 /* ==========================================================================
    4. SECTIONS (`.framer-1fy50qp`, `.framer-1dksjnv`, `.framer-i6feiq`)
       - Centered minimalist layout with `max-width: 1120px` and top 1px border
