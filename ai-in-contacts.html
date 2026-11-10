@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -368,29 +368,25 @@
         <p class="case-body">Since we were one of the first Google apps building on Gemini's HITL approval framework, which meant there was no established pattern to follow, and the ideal version of our confirmation UX couldn't ship on our extremely tight timeline.</p>
         <p class="case-body">The call I made: ship the rough version and iterate. I designed the full ideal experience first, establishing what "great" looked like for users, then worked backward with engineering to scope what could ship within the constraints. The MVP wasn't a compromise. It was a deliberate starting point for gathering real behavioral signal from real users, which no amount of internal prototyping could replicate, because a live feature with rough edges teaches you more than a perfect prototype that never ships.</p>
         <p class="case-caption" style="text-align: left; margin-top: 28px;">HITL CONFIRMATION CARD EXPLORATIONS</p>
-        <div class="hitl-card-grid framer-reveal">
-          <div class="mock-col">
-            <p class="case-caption">OPTION A</p>
-            <div class="hitl-card-mock">
-              <img src="assets/mocks/ai_hitl_1.png?v=16" alt="HITL Exploration Option A" loading="lazy">
+        <div class="hitl-card-masonry framer-reveal">
+          <div class="hitl-card-column">
+            <div class="hitl-card-item">
+              <p class="case-caption">OPTION A &middot; EXPANDED DETAILS</p>
+              <img src="assets/mocks/ai_hitl_1.png?v=17" alt="HITL Exploration Option A — Expanded Details" class="hitl-card-img" loading="lazy">
+            </div>
+            <div class="hitl-card-item">
+              <p class="case-caption">OPTION B &middot; STACKED ACTIONS</p>
+              <img src="assets/mocks/ai_hitl_2.png?v=17" alt="HITL Exploration Option B — Stacked Actions" class="hitl-card-img" loading="lazy">
             </div>
           </div>
-          <div class="mock-col">
-            <p class="case-caption">OPTION B</p>
-            <div class="hitl-card-mock">
-              <img src="assets/mocks/ai_hitl_2.png?v=16" alt="HITL Exploration Option B" loading="lazy">
+          <div class="hitl-card-column">
+            <div class="hitl-card-item">
+              <p class="case-caption">OPTION C &middot; MULTI-CONTACT BATCH</p>
+              <img src="assets/mocks/ai_hitl_3.png?v=17" alt="HITL Exploration Option C — Multi-Contact Batch" class="hitl-card-img" loading="lazy">
             </div>
-          </div>
-          <div class="mock-col">
-            <p class="case-caption">OPTION C</p>
-            <div class="hitl-card-mock">
-              <img src="assets/mocks/ai_hitl_3.png?v=16" alt="HITL Exploration Option C" loading="lazy">
-            </div>
-          </div>
-          <div class="mock-col">
-            <p class="case-caption">OPTION D</p>
-            <div class="hitl-card-mock">
-              <img src="assets/mocks/ai_hitl_4.png?v=16" alt="HITL Exploration Option D" loading="lazy">
+            <div class="hitl-card-item">
+              <p class="case-caption">OPTION D &middot; COLLAPSED INLINE</p>
+              <img src="assets/mocks/ai_hitl_4.png?v=17" alt="HITL Exploration Option D — Collapsed Inline" class="hitl-card-img" loading="lazy">
             </div>
           </div>
         </div>
