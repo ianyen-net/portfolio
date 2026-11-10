@@ -1589,56 +1589,21 @@ body[data-theme="light"] .leo-work-cover {
   color: #ffffff;
 }
 
-/* Centered Title + Centered Category/Metric Below Cover (Hover effect matching "Let's build something good" pill buttons) */
+/* Centered Title + Centered Category/Metric Below Cover (Frameless text — zero container around text or meta line) */
 .leo-work-caption {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   width: 100%;
-  padding: 14px 24px;
-  border-radius: 22px;
+  padding: 0;
   background: transparent;
-  border: 1px solid transparent;
+  border: none;
+  box-shadow: none;
   text-align: center;
-  overflow: hidden;
-  transition:
-    transform 0.42s var(--ease-out-expo),
-    background-color 0.42s var(--ease-out-expo),
-    border-color 0.42s var(--ease-out-expo),
-    box-shadow 0.42s var(--ease-out-expo);
-}
-
-.leo-work-caption::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(225, 203, 215, 0.22) 0%, rgba(134, 168, 207, 0.14) 55%, rgba(38, 66, 90, 0.18) 100%);
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform 0.6s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .leo-work-caption {
-  transform: translateY(-3px);
-  background: var(--bg-surface);
-  border-color: rgba(225, 203, 215, 0.32);
-  box-shadow: 0 16px 36px -14px rgba(4, 8, 20, 0.55);
-}
-
-.leo-work-card:hover .leo-work-caption::before {
-  transform: translate(-50%, -50%) scale(22);
 }
 
 .leo-work-title {
-  position: relative;
-  z-index: 1;
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
@@ -1649,18 +1614,19 @@ body[data-theme="light"] .leo-work-cover {
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
-  transition: color 0.35s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
+  transition: color 0.35s var(--ease-out-expo), transform 0.38s var(--ease-out-expo);
 }
 
 .leo-work-card:hover .leo-work-title {
   color: var(--accent-blush);
+  transform: translateY(-2px);
 }
 
 body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   color: var(--accent);
 }
 
-/* Character-by-character slot machine spans (fast, crisp synchronized roll like footer buttons) */
+/* Character-by-character slot machine spans (clean, fast synchronized slide like footer buttons) */
 .char-slot {
   display: inline-block;
   position: relative;
@@ -1673,8 +1639,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
 .char-slot-track {
   display: flex;
   flex-direction: column;
-  transition: transform 0.48s var(--ease-out-expo);
-  transition-delay: calc(var(--char-index, 0) * 6ms);
+  transition: transform 0.45s var(--ease-out-expo);
+  transition-delay: calc(var(--char-index, 0) * 5ms);
 }
 
 .leo-work-card:hover .char-slot-track {
@@ -1682,34 +1648,23 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
 }
 
 .leo-work-meta-line {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px;
-  border-radius: 999px;
-  background: rgba(225, 203, 215, 0.06);
-  border: 1px solid var(--border-subtle);
+  padding: 0;
+  background: transparent;
+  border: none;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
   color: var(--text-secondary);
-  overflow: hidden;
-  transition:
-    color 0.38s var(--ease-out-expo),
-    background-color 0.42s var(--ease-out-expo),
-    border-color 0.42s var(--ease-out-expo),
-    transform 0.42s var(--ease-out-expo),
-    gap 0.45s var(--ease-out-expo);
+  transition: color 0.38s var(--ease-out-expo), gap 0.45s var(--ease-out-expo);
 }
 
 .leo-work-card:hover .leo-work-meta-line {
-  background: #E1CBD7;
-  border-color: #E1CBD7;
-  color: #0E1F2F;
+  color: var(--text-primary);
   gap: 10px;
 }
 
