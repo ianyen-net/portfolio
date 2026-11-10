@@ -173,6 +173,44 @@ img, video {
   transition: background 0.35s ease, border-color 0.35s ease;
 }
 
+/* Rocket Relaunch Icon Button (Next to Theme Toggle Switch) */
+.rocket-relaunch-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-strong);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
+}
+
+body[data-theme="light"] .rocket-relaunch-btn {
+  background: rgba(18, 17, 16, 0.09);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.rocket-relaunch-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+  transform: translateY(-1px) scale(1.06);
+}
+
+.rocket-relaunch-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
 /* Tactile Sun & Moon Toggle Switch */
 .theme-toggle-switch {
   position: relative;

@@ -495,6 +495,91 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const heroTorchFlash = document.querySelector('.hero-top-torch-flash');
   let rocketTorchScheduled = false;
+  let activeRocketTrackRaf = null;
+
+  const startRocketTorchTracker = (processSectionEl) => {
+    if (!heroTorchFlash || !processSectionEl) return;
+    if (activeRocketTrackRaf) {
+      cancelAnimationFrame(activeRocketTrackRaf);
+      activeRocketTrackRaf = null;
+    }
+    heroTorchFlash.classList.remove('is-flashing');
+
+    const rocketEl = processSectionEl.querySelector('.ship-rocket-launch');
+    let torchFired = false;
+
+    const triggerHeroTorch = () => {
+      if (torchFired) return;
+      torchFired = true;
+      const heroSection = document.querySelector('.hero-viewport-wrap');
+      const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
+      const procRect = processSectionEl.getBoundingClientRect();
+      if (
+        (heroRect && heroRect.bottom > 80) ||
+        procRect.bottom > 0
+      ) {
+        heroTorchFlash.classList.remove('is-flashing');
+        void heroTorchFlash.offsetWidth;
+        heroTorchFlash.classList.add('is-flashing');
+      }
+    };
+
+    const startTrack = performance.now();
+    const trackRocketArrival = () => {
+      if (torchFired) return;
+      if (rocketEl) {
+        const rRect = rocketEl.getBoundingClientRect();
+        if (rRect.top <= 28 && performance.now() - startTrack > 1750) {
+          triggerHeroTorch();
+          return;
+        }
+      }
+      if (performance.now() - startTrack < 3800) {
+        activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
+      } else {
+        triggerHeroTorch();
+      }
+    };
+    activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
+  };
+
+  // Relaunch the Ship rocket & flash sequence every time the user switches the theme or clicks the rocket icon button
+  const relaunchProcessRocket = () => {
+    const processSection = document.getElementById('process');
+    if (!processSection) return;
+    processSection.classList.add('is-visible');
+
+    const animatedSelectors = [
+      '.leo-process-title',
+      '.ship-launch-smoke',
+      '.ship-rocket-launch',
+      '.rocket-side-booster-left',
+      '.rocket-side-booster-right',
+    ];
+    const animatedEls = processSection.querySelectorAll(animatedSelectors.join(','));
+    animatedEls.forEach((el) => {
+      el.style.animation = 'none';
+    });
+    // Force reflow so the browser cleanly restarts all CSS keyframe animations
+    void processSection.offsetWidth;
+    animatedEls.forEach((el) => {
+      el.style.animation = '';
+    });
+
+    startRocketTorchTracker(processSection);
+  };
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      relaunchProcessRocket();
+    });
+  });
+
+  document.querySelectorAll('[data-rocket-relaunch]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      relaunchProcessRocket();
+    });
+  });
 
   const revealElements = document.querySelectorAll('.framer-reveal');
   if (revealElements.length) {
@@ -505,47 +590,10 @@ document.addEventListener('DOMContentLoaded', () => {
             entry.target.classList.add('is-visible');
             if (
               entry.target.id === 'process' &&
-              heroTorchFlash &&
               !rocketTorchScheduled
             ) {
               rocketTorchScheduled = true;
-              const rocketEl = entry.target.querySelector('.ship-rocket-launch');
-              let torchFired = false;
-
-              const triggerHeroTorch = () => {
-                if (torchFired) return;
-                torchFired = true;
-                const heroSection = document.querySelector('.hero-viewport-wrap');
-                const processSection = document.getElementById('process');
-                const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
-                const procRect = processSection ? processSection.getBoundingClientRect() : null;
-                if (
-                  (heroRect && heroRect.bottom > 80) ||
-                  (procRect && procRect.bottom > 0)
-                ) {
-                  heroTorchFlash.classList.add('is-flashing');
-                }
-              };
-
-              // Monitor the rocket's live viewport position so the top-border torch explosion fires
-              // the exact instant the rocket nose reaches the top of the viewport (with zero gap)
-              const startTrack = performance.now();
-              const trackRocketArrival = () => {
-                if (torchFired) return;
-                if (rocketEl) {
-                  const rRect = rocketEl.getBoundingClientRect();
-                  if (rRect.top <= 28 && performance.now() - startTrack > 1750) {
-                    triggerHeroTorch();
-                    return;
-                  }
-                }
-                if (performance.now() - startTrack < 3800) {
-                  requestAnimationFrame(trackRocketArrival);
-                } else {
-                  triggerHeroTorch();
-                }
-              };
-              requestAnimationFrame(trackRocketArrival);
+              startRocketTorchTracker(entry.target);
             }
             revealObs.unobserve(entry.target);
           }
