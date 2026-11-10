@@ -538,4 +538,120 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     revealElements.forEach((el) => revealObs.observe(el));
   }
+
+  /* ==========================================================================
+     10. CASE STUDY PASSWORD PROTECTION (`uxian12`)
+     ========================================================================== */
+  const CASE_PASSWORD = 'uxian12';
+  const AUTH_STORAGE_KEY = 'ian-case-auth';
+  const isCaseStudyPage =
+    document.body.classList.contains('case-study-body') ||
+    Boolean(document.querySelector('.case-page'));
+
+  if (isCaseStudyPage) {
+    document.body.classList.add('case-study-body');
+    let gate = document.getElementById('case-password-gate');
+
+    if (!gate) {
+      gate = document.createElement('div');
+      gate.id = 'case-password-gate';
+      gate.className = 'case-password-gate';
+      gate.innerHTML = `
+        <div class="case-password-card" role="dialog" aria-modal="true" aria-labelledby="case-gate-title">
+          <div class="case-password-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="case-password-kicker">Protected Case Study</div>
+          <h2 class="case-password-title" id="case-gate-title">Enter Password</h2>
+          <p class="case-password-desc">This case study is password-protected. Please enter the password to continue.</p>
+          <form class="case-password-form" id="case-password-form" autocomplete="off">
+            <div class="case-password-input-wrap">
+              <input
+                type="password"
+                id="case-password-input"
+                class="case-password-input"
+                placeholder="Enter password"
+                aria-label="Case study password"
+                required
+              />
+              <button type="button" class="case-password-toggle" id="case-password-toggle" aria-label="Show password">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <button type="submit" class="case-password-submit">
+              <span>Unlock Case Study</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <div class="case-password-error" id="case-password-error" role="alert">Incorrect password. Please try again.</div>
+          </form>
+          <a href="index.html" class="case-password-back">← Back to Home</a>
+        </div>
+      `;
+      document.body.appendChild(gate);
+    }
+
+    const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD;
+
+    if (isUnlocked) {
+      document.body.classList.remove('is-locked');
+      gate.classList.add('is-hidden');
+    } else {
+      document.body.classList.add('is-locked');
+      gate.classList.remove('is-hidden');
+
+      const form = document.getElementById('case-password-form');
+      const input = document.getElementById('case-password-input');
+      const toggleBtn = document.getElementById('case-password-toggle');
+      const errorEl = document.getElementById('case-password-error');
+      const card = gate.querySelector('.case-password-card');
+
+      setTimeout(() => {
+        if (input) input.focus();
+      }, 80);
+
+      if (toggleBtn && input) {
+        toggleBtn.addEventListener('click', () => {
+          const isPwd = input.type === 'password';
+          input.type = isPwd ? 'text' : 'password';
+          toggleBtn.setAttribute('aria-label', isPwd ? 'Hide password' : 'Show password');
+          input.focus();
+        });
+      }
+
+      if (input && errorEl) {
+        input.addEventListener('input', () => {
+          input.classList.remove('is-error');
+          errorEl.classList.remove('is-visible');
+        });
+      }
+
+      if (form && input) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const val = input.value.trim();
+          if (val === CASE_PASSWORD) {
+            sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD);
+            document.body.classList.remove('is-locked');
+            gate.classList.add('is-hidden');
+            input.blur();
+          } else {
+            input.classList.add('is-error');
+            if (errorEl) errorEl.classList.add('is-visible');
+            if (card) {
+              card.classList.remove('is-shaking');
+              void card.offsetWidth;
+              card.classList.add('is-shaking');
+            }
+            input.select();
+          }
+        });
+      }
+    }
+  }
 });

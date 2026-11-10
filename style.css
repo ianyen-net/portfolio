@@ -2896,3 +2896,262 @@ body[data-theme="light"] .device-frame {
     height: 68px;
   }
 }
+
+/* ==========================================================================
+   CASE STUDY PASSWORD GATE (`uxian12`)
+   ========================================================================== */
+body.case-study-body.is-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+body.case-study-body .case-page,
+body.case-study-body .leo-footer {
+  transition:
+    filter 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.case-study-body.is-locked .case-page,
+body.case-study-body.is-locked .leo-footer {
+  filter: blur(32px) saturate(0.7);
+  opacity: 0.14;
+  pointer-events: none;
+  user-select: none;
+  transform: scale(0.985);
+}
+
+.case-password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(18, 17, 16, 0.72);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="light"] .case-password-gate {
+  background: rgba(249, 248, 246, 0.76);
+}
+
+.case-password-gate.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.case-password-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 28px;
+  padding: 38px 34px 32px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.48),
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="light"] .case-password-card {
+  box-shadow:
+    0 28px 70px rgba(18, 17, 16, 0.12),
+    0 4px 16px rgba(18, 17, 16, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.case-password-gate.is-hidden .case-password-card {
+  transform: translateY(12px) scale(0.96);
+}
+
+.case-password-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(255, 86, 48, 0.25);
+}
+
+.case-password-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.case-password-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.case-password-desc {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.case-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.case-password-input {
+  width: 100%;
+  height: 50px;
+  padding: 0 46px 0 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-password-input::placeholder {
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+.case-password-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.case-password-input.is-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18);
+}
+
+.case-password-toggle {
+  position: absolute;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.case-password-toggle:hover {
+  color: var(--text-primary);
+  background: rgba(128, 128, 128, 0.12);
+}
+
+.case-password-submit {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 14px;
+  background: var(--text-primary);
+  color: var(--bg-page);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.18s ease, opacity 0.18s ease, background 0.2s ease;
+}
+
+.case-password-submit:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.case-password-submit:active {
+  transform: translateY(0);
+}
+
+.case-password-error {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: #ef4444;
+  min-height: 18px;
+  margin-top: 2px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.case-password-error.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-password-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.case-password-back:hover {
+  color: var(--text-primary);
+}
+
+@keyframes caseGateShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.case-password-card.is-shaking {
+  animation: caseGateShake 0.38s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
