@@ -1955,15 +1955,16 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 
 .leo-process-card {
   position: relative;
-  border-radius: 999px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 8px 18px;
+  border-radius: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: default;
+  overflow: visible;
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 0.35s ease;
@@ -1971,54 +1972,35 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:nth-of-type(1) {
-  --loop-color: #86A8CF;
-  --loop-color-light: #26425A;
-  --loop-glow: rgba(134, 168, 207, 0.48);
-  --loop-aura: radial-gradient(circle, rgba(134, 168, 207, 0.28) 0%, rgba(38, 66, 90, 0.14) 55%, transparent 78%);
+  --loop-color: #6B9BFF;
+  --loop-color-light: #2563EB;
+  --loop-glow: rgba(99, 102, 241, 0.55);
   animation-delay: 0s;
 }
 
 .leo-process-card:nth-of-type(2) {
-  --loop-color: #C38EB4;
-  --loop-color-light: #8E4F7D;
-  --loop-glow: rgba(195, 142, 180, 0.52);
-  --loop-aura: radial-gradient(circle, rgba(195, 142, 180, 0.28) 0%, rgba(134, 168, 207, 0.14) 55%, transparent 78%);
+  --loop-color: #A855F7;
+  --loop-color-light: #7C3AED;
+  --loop-glow: rgba(168, 85, 247, 0.58);
   animation-delay: 2.2s;
 }
 
 .leo-process-card:nth-of-type(3) {
-  --loop-color: #E1CBD7;
-  --loop-color-light: #5C436B;
-  --loop-glow: rgba(225, 203, 215, 0.52);
-  --loop-aura: radial-gradient(circle, rgba(225, 203, 215, 0.28) 0%, rgba(195, 142, 180, 0.14) 55%, transparent 78%);
+  --loop-color: #818CF8;
+  --loop-color-light: #4F46E5;
+  --loop-glow: rgba(129, 140, 248, 0.56);
   animation-delay: 4.4s;
 }
 
 .leo-process-card::before {
-  content: '';
-  position: absolute;
-  inset: -4px -10px;
-  border-radius: 999px;
-  background: var(--loop-aura, radial-gradient(circle, rgba(195, 142, 180, 0.28) 0%, rgba(38, 66, 90, 0.14) 55%, transparent 78%));
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.38s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-  z-index: 0;
-  animation: processAuraLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation-delay: inherit;
+  display: none !important;
 }
 
 .leo-process-card:hover {
   transform: translateY(-4px) scale(1.06);
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.leo-process-card:hover::before {
-  opacity: 1;
-  transform: scale(1.08);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .leo-process-title {
@@ -2048,18 +2030,7 @@ body[data-theme="light"] .leo-process-title {
     transform: translateY(0) scale(1);
   }
   12% {
-    transform: translateY(-3px) scale(1.045);
-  }
-}
-
-@keyframes processAuraLoop {
-  0%, 28%, 100% {
-    opacity: 0;
-    transform: scale(0.88);
-  }
-  12% {
-    opacity: 1;
-    transform: scale(1.05);
+    transform: translateY(-4px) scale(1.05);
   }
 }
 
@@ -2070,7 +2041,9 @@ body[data-theme="light"] .leo-process-title {
   }
   12% {
     color: var(--loop-color);
-    text-shadow: 0 6px 24px var(--loop-glow);
+    text-shadow:
+      0 0 18px var(--loop-glow),
+      0 8px 28px var(--loop-glow);
   }
 }
 
@@ -2081,34 +2054,44 @@ body[data-theme="light"] .leo-process-title {
   }
   12% {
     color: var(--loop-color-light);
-    text-shadow: 0 6px 20px rgba(134, 168, 207, 0.32);
+    text-shadow: 0 6px 22px rgba(124, 58, 237, 0.28);
   }
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #86A8CF;
-  text-shadow: 0 6px 24px rgba(134, 168, 207, 0.65);
+  color: #6B9BFF;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 0 8px 28px rgba(59, 130, 246, 0.48);
 }
 
 .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #C38EB4;
-  text-shadow: 0 6px 26px rgba(195, 142, 180, 0.62);
+  color: #A855F7;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.62), 0 8px 28px rgba(147, 51, 234, 0.48);
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #E1CBD7;
-  text-shadow: 0 6px 28px rgba(225, 203, 215, 0.68);
+  color: #818CF8;
+  text-shadow: 0 0 20px rgba(129, 140, 248, 0.62), 0 8px 28px rgba(99, 102, 241, 0.48);
 }
 
-body[data-theme="light"] .leo-process-card:hover .leo-process-title {
-  color: #26425A;
-  text-shadow: 0 6px 20px rgba(134, 168, 207, 0.32);
+body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
+  color: #2563EB;
+  text-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+}
+
+body[data-theme="light"] .leo-process-card:nth-of-type(2):hover .leo-process-title {
+  color: #7C3AED;
+  text-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
+}
+
+body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-title {
+  color: #4F46E5;
+  text-shadow: 0 6px 20px rgba(79, 70, 229, 0.28);
 }
 
 .process-hand-arrow {
   width: 96px;
   height: 36px;
-  color: #86A8CF;
+  color: #6366F1;
   opacity: 0.72;
   flex-shrink: 0;
   transition:
@@ -2125,23 +2108,23 @@ body[data-theme="light"] .leo-process-card:hover .leo-process-title {
 
 @keyframes processArrowLoop {
   0%, 26%, 100% {
-    color: #86A8CF;
+    color: #6366F1;
     opacity: 0.68;
     transform: translateX(0) scale(1);
     filter: none;
   }
   12% {
-    color: #C38EB4;
+    color: #A855F7;
     opacity: 1;
     transform: translateX(3px) scale(1.04);
-    filter: drop-shadow(0 4px 12px rgba(195, 142, 180, 0.42));
+    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.48));
   }
 }
 
 .leo-process-card:hover + .process-hand-arrow,
 .leo-process-tray:hover .process-hand-arrow {
-  color: #C38EB4;
-  filter: drop-shadow(0 4px 12px rgba(195, 142, 180, 0.42));
+  color: #A855F7;
+  filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.48));
 }
 
 .leo-process-card:hover + .process-hand-arrow {
@@ -2149,11 +2132,11 @@ body[data-theme="light"] .leo-process-card:hover .leo-process-title {
 }
 
 body[data-theme="light"] .process-hand-arrow {
-  color: #5B7EA3;
+  color: #4F46E5;
 }
 
 body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
-  color: #26425A;
+  color: #7C3AED;
 }
 
 /* Daily Toolbox (`.framer-1354vyu` & `Yt` Tool Dock) */
