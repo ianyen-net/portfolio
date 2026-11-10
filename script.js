@@ -38,6 +38,49 @@ document.addEventListener('DOMContentLoaded', () => {
           }, startDelay + idx * stepDelay);
         });
       }
+
+      // Flash the Daily Toolbox icon labels in order on first appearance (right after the hero headline wave settles)
+      const toolboxDock = document.querySelector('.hero-dock-area.is-below-process');
+      if (toolboxDock) {
+        const dockItems = toolboxDock.querySelectorAll('.dock-item-wrap');
+        let toolboxFlashed = false;
+        const loadTimestamp = performance.now();
+
+        const triggerToolboxFlash = () => {
+          if (toolboxFlashed) return;
+          toolboxFlashed = true;
+          const elapsed = performance.now() - loadTimestamp;
+          // Wait until after the hero headline flash finishes (~2750ms after load), or 220ms if scrolled into view later
+          const waitMs = Math.max(220, 2780 - elapsed);
+          const itemStep = 140;
+          const itemHold = 380;
+          dockItems.forEach((item, idx) => {
+            setTimeout(() => {
+              item.classList.add('is-flash');
+              setTimeout(() => {
+                item.classList.remove('is-flash');
+              }, itemHold);
+            }, waitMs + idx * itemStep);
+          });
+        };
+
+        if ('IntersectionObserver' in window) {
+          const dockObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  triggerToolboxFlash();
+                  dockObserver.disconnect();
+                }
+              });
+            },
+            { threshold: 0.35 }
+          );
+          dockObserver.observe(toolboxDock);
+        } else {
+          triggerToolboxFlash();
+        }
+      }
     });
   });
 
