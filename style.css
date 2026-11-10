@@ -1967,6 +1967,31 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 0.35s ease;
+  animation: processCardLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.leo-process-card:nth-of-type(1) {
+  --loop-color: #86A8CF;
+  --loop-color-light: #26425A;
+  --loop-glow: rgba(134, 168, 207, 0.48);
+  --loop-aura: radial-gradient(circle, rgba(134, 168, 207, 0.28) 0%, rgba(38, 66, 90, 0.14) 55%, transparent 78%);
+  animation-delay: 0s;
+}
+
+.leo-process-card:nth-of-type(2) {
+  --loop-color: #C38EB4;
+  --loop-color-light: #8E4F7D;
+  --loop-glow: rgba(195, 142, 180, 0.52);
+  --loop-aura: radial-gradient(circle, rgba(195, 142, 180, 0.28) 0%, rgba(134, 168, 207, 0.14) 55%, transparent 78%);
+  animation-delay: 2.2s;
+}
+
+.leo-process-card:nth-of-type(3) {
+  --loop-color: #E1CBD7;
+  --loop-color-light: #5C436B;
+  --loop-glow: rgba(225, 203, 215, 0.52);
+  --loop-aura: radial-gradient(circle, rgba(225, 203, 215, 0.28) 0%, rgba(195, 142, 180, 0.14) 55%, transparent 78%);
+  animation-delay: 4.4s;
 }
 
 .leo-process-card::before {
@@ -1974,12 +1999,14 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   position: absolute;
   inset: -4px -10px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(133, 79, 108, 0.34) 0%, rgba(82, 43, 91, 0.18) 55%, transparent 78%);
+  background: var(--loop-aura, radial-gradient(circle, rgba(195, 142, 180, 0.28) 0%, rgba(38, 66, 90, 0.14) 55%, transparent 78%));
   opacity: 0;
   transform: scale(0.85);
   transition: opacity 0.38s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
   z-index: 0;
+  animation: processAuraLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: inherit;
 }
 
 .leo-process-card:hover {
@@ -2008,44 +2035,113 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     color 0.35s ease,
     text-shadow 0.35s ease,
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: processTitleLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: inherit;
+}
+
+body[data-theme="light"] .leo-process-title {
+  animation-name: processTitleLoopLight;
+}
+
+@keyframes processCardLoop {
+  0%, 28%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  12% {
+    transform: translateY(-3px) scale(1.045);
+  }
+}
+
+@keyframes processAuraLoop {
+  0%, 28%, 100% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes processTitleLoop {
+  0%, 28%, 100% {
+    color: var(--text-primary);
+    text-shadow: 0 0 0 transparent;
+  }
+  12% {
+    color: var(--loop-color);
+    text-shadow: 0 6px 24px var(--loop-glow);
+  }
+}
+
+@keyframes processTitleLoopLight {
+  0%, 28%, 100% {
+    color: var(--text-primary);
+    text-shadow: 0 0 0 transparent;
+  }
+  12% {
+    color: var(--loop-color-light);
+    text-shadow: 0 6px 20px rgba(134, 168, 207, 0.32);
+  }
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #DFB6B2;
-  text-shadow: 0 6px 24px rgba(133, 79, 108, 0.65);
+  color: #86A8CF;
+  text-shadow: 0 6px 24px rgba(134, 168, 207, 0.65);
 }
 
 .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #FBE4D8;
-  text-shadow: 0 6px 26px rgba(223, 182, 178, 0.58);
+  color: #C38EB4;
+  text-shadow: 0 6px 26px rgba(195, 142, 180, 0.62);
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #DFB6B2;
-  text-shadow: 0 6px 28px rgba(133, 79, 108, 0.72);
+  color: #E1CBD7;
+  text-shadow: 0 6px 28px rgba(225, 203, 215, 0.68);
 }
 
 body[data-theme="light"] .leo-process-card:hover .leo-process-title {
-  color: #522B5B;
-  text-shadow: 0 6px 20px rgba(133, 79, 108, 0.28);
+  color: #26425A;
+  text-shadow: 0 6px 20px rgba(134, 168, 207, 0.32);
 }
 
 .process-hand-arrow {
   width: 96px;
   height: 36px;
-  color: #854F6C;
-  opacity: 0.88;
+  color: #86A8CF;
+  opacity: 0.72;
   flex-shrink: 0;
   transition:
     color 0.38s ease,
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.38s ease;
+  animation: processArrowLoop 6.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 1.1s;
+}
+
+.process-hand-arrow.is-second {
+  animation-delay: 3.3s;
+}
+
+@keyframes processArrowLoop {
+  0%, 26%, 100% {
+    color: #86A8CF;
+    opacity: 0.68;
+    transform: translateX(0) scale(1);
+    filter: none;
+  }
+  12% {
+    color: #C38EB4;
+    opacity: 1;
+    transform: translateX(3px) scale(1.04);
+    filter: drop-shadow(0 4px 12px rgba(195, 142, 180, 0.42));
+  }
 }
 
 .leo-process-card:hover + .process-hand-arrow,
 .leo-process-tray:hover .process-hand-arrow {
-  color: #DFB6B2;
-  filter: drop-shadow(0 4px 12px rgba(223, 182, 178, 0.35));
+  color: #C38EB4;
+  filter: drop-shadow(0 4px 12px rgba(195, 142, 180, 0.42));
 }
 
 .leo-process-card:hover + .process-hand-arrow {
@@ -2053,11 +2149,11 @@ body[data-theme="light"] .leo-process-card:hover .leo-process-title {
 }
 
 body[data-theme="light"] .process-hand-arrow {
-  color: #854F6C;
+  color: #5B7EA3;
 }
 
 body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
-  color: #522B5B;
+  color: #26425A;
 }
 
 /* Daily Toolbox (`.framer-1354vyu` & `Yt` Tool Dock) */
