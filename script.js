@@ -38,49 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }, startDelay + idx * stepDelay);
         });
       }
-
-      // Flash the Daily Toolbox icon labels in order on first appearance (flowing right after the hero headline wave)
-      const toolboxDock = document.querySelector('.hero-dock-area.is-below-process');
-      if (toolboxDock) {
-        const dockItems = toolboxDock.querySelectorAll('.dock-item-wrap');
-        let toolboxFlashed = false;
-        const loadTimestamp = performance.now();
-
-        const triggerToolboxFlash = () => {
-          if (toolboxFlashed) return;
-          toolboxFlashed = true;
-          const elapsed = performance.now() - loadTimestamp;
-          // Start at ~2100ms right as the hero headline wave finishes, or 180ms if scrolled into view later
-          const waitMs = Math.max(180, 2100 - elapsed);
-          const itemStep = 240;
-          const itemHold = 520;
-          dockItems.forEach((item, idx) => {
-            setTimeout(() => {
-              item.classList.add('is-flash');
-              setTimeout(() => {
-                item.classList.remove('is-flash');
-              }, itemHold);
-            }, waitMs + idx * itemStep);
-          });
-        };
-
-        if ('IntersectionObserver' in window) {
-          const dockObserver = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  triggerToolboxFlash();
-                  dockObserver.disconnect();
-                }
-              });
-            },
-            { threshold: 0.35 }
-          );
-          dockObserver.observe(toolboxDock);
-        } else {
-          triggerToolboxFlash();
-        }
-      }
     });
   });
 
