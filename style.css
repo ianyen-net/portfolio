@@ -4111,21 +4111,18 @@ body[data-theme="light"] .case-password-card {
 }
 
 /* ==========================================================================
-   GOOGLE CONTACTS CASE STUDY — MATERIAL AURORA ENERGY ECOSYSTEM HERO STAGE
+   GOOGLE CONTACTS CASE STUDY — SLIDE 92 MINIMAL AURORA ENERGY HERO STAGE
    ========================================================================== */
 .case-hero-stage.is-aurora-ecosystem {
   position: relative;
   width: 100%;
+  height: auto;
   margin-top: 32px;
-  padding: 20px;
+  padding: 24px 32px;
   border-radius: 28px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.16) 0%, rgba(155, 114, 203, 0.10) 40%, rgba(11, 15, 26, 0.96) 100%),
-    #0B0F1A;
-  border: 1px solid rgba(138, 180, 248, 0.22);
-  box-shadow:
-    0 28px 64px -20px rgba(4, 8, 20, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 56px -20px rgba(0, 0, 0, 0.65);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -4133,237 +4130,72 @@ body[data-theme="light"] .case-password-card {
 }
 
 body[data-theme="light"] .case-hero-stage.is-aurora-ecosystem {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.14) 0%, rgba(155, 114, 203, 0.10) 42%, rgba(244, 247, 253, 0.98) 100%),
-    #F4F7FD;
-  border-color: rgba(66, 133, 244, 0.22);
-  box-shadow:
-    0 24px 52px -18px rgba(26, 54, 93, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.aurora-mesh-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  filter: blur(54px);
-  opacity: 0.72;
-}
-
-body[data-theme="light"] .aurora-mesh-bg {
-  opacity: 0.42;
-}
-
-.aurora-blob {
-  position: absolute;
-  border-radius: 999px;
-  mix-blend-mode: screen;
-  animation: auroraDrift 11s ease-in-out infinite alternate;
-}
-
-body[data-theme="light"] .aurora-blob {
-  mix-blend-mode: multiply;
-}
-
-.aurora-blob.is-cobalt {
-  width: 340px;
-  height: 340px;
-  left: 16%;
-  top: 8%;
-  background: radial-gradient(circle, rgba(66, 133, 244, 0.58) 0%, transparent 70%);
-  animation-duration: 10s;
-}
-
-.aurora-blob.is-violet {
-  width: 380px;
-  height: 380px;
-  left: 36%;
-  top: 14%;
-  background: radial-gradient(circle, rgba(155, 114, 203, 0.56) 0%, transparent 70%);
-  animation-duration: 13s;
-  animation-delay: -3s;
-}
-
-.aurora-blob.is-coral {
-  width: 320px;
-  height: 320px;
-  right: 14%;
-  bottom: 6%;
-  background: radial-gradient(circle, rgba(217, 101, 112, 0.52) 0%, transparent 70%);
-  animation-duration: 12s;
-  animation-delay: -5s;
-}
-
-.aurora-blob.is-amber {
-  width: 260px;
-  height: 260px;
-  right: 22%;
-  top: 10%;
-  background: radial-gradient(circle, rgba(251, 188, 4, 0.36) 0%, transparent 70%);
-  animation-duration: 14s;
-  animation-delay: -2s;
-}
-
-.aurora-blob.is-mint {
-  width: 280px;
-  height: 280px;
-  left: 20%;
-  bottom: 8%;
-  background: radial-gradient(circle, rgba(52, 168, 83, 0.36) 0%, transparent 70%);
-  animation-duration: 11.5s;
-  animation-delay: -6s;
-}
-
-@keyframes auroraDrift {
-  0% {
-    transform: translate3d(-18px, -12px, 0) scale(0.94) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(16px, 14px, 0) scale(1.08) rotate(8deg);
-  }
-  100% {
-    transform: translate3d(-10px, 18px, 0) scale(1.02) rotate(-6deg);
-  }
+  background: #000000;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 24px 52px -18px rgba(15, 23, 42, 0.22);
 }
 
 .aurora-ecosystem-svg {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 960px;
+  max-width: 920px;
   height: auto;
   display: block;
 }
 
-.aurora-node-tile {
-  fill: rgba(20, 25, 40, 0.84);
-  stroke: rgba(138, 180, 248, 0.28);
-  stroke-width: 1.4px;
-  transition: fill 0.35s ease, stroke 0.35s ease;
-}
-
-body[data-theme="light"] .aurora-node-tile {
-  fill: rgba(255, 255, 255, 0.94);
-  stroke: rgba(66, 133, 244, 0.26);
-}
-
-.aurora-hub-tile {
-  fill: rgba(17, 23, 38, 0.92);
-}
-
-body[data-theme="light"] .aurora-hub-tile {
-  fill: rgba(255, 255, 255, 0.97);
-}
-
-.aurora-node-label {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  fill: #DCE6F7;
-}
-
-body[data-theme="light"] .aurora-node-label {
-  fill: #1E293B;
-}
-
-.aurora-hub-title {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  fill: #FFFFFF;
-}
-
-body[data-theme="light"] .aurora-hub-title {
-  fill: #0F172A;
-}
-
-.aurora-hub-subtitle {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  fill: #8AB4F8;
-}
-
-body[data-theme="light"] .aurora-hub-subtitle {
-  fill: #1A73E8;
-}
-
 /* Flowing Aurora Stream Dash Animation */
 .aurora-energy-stream {
-  stroke-dasharray: 42 150;
-  animation: auroraStreamFlow 3.2s linear infinite;
+  stroke-dasharray: 44 180;
+  animation: auroraStreamFlow 3.8s linear infinite;
 }
 
-.aurora-energy-stream.is-s2 { animation-duration: 2.8s; animation-delay: -0.6s; }
-.aurora-energy-stream.is-s3 { animation-duration: 3.4s; animation-delay: -1.3s; }
-.aurora-energy-stream.is-s4 { animation-duration: 3.0s; animation-delay: -0.4s; }
-.aurora-energy-stream.is-s5 { animation-duration: 2.9s; animation-delay: -1.1s; }
-.aurora-energy-stream.is-s6 { animation-duration: 3.3s; animation-delay: -1.8s; }
+.aurora-energy-stream.is-s2 { animation-duration: 3.4s; animation-delay: -0.7s; }
+.aurora-energy-stream.is-s3 { animation-duration: 4.0s; animation-delay: -1.5s; }
+.aurora-energy-stream.is-s4 { animation-duration: 3.6s; animation-delay: -0.5s; }
+.aurora-energy-stream.is-s5 { animation-duration: 3.5s; animation-delay: -1.2s; }
+.aurora-energy-stream.is-s6 { animation-duration: 3.9s; animation-delay: -2.0s; }
 
 @keyframes auroraStreamFlow {
   from {
-    stroke-dashoffset: 192;
+    stroke-dashoffset: 224;
   }
   to {
     stroke-dashoffset: 0;
   }
 }
 
-.aurora-orbit-ring.is-outer {
-  transform-origin: 500px 250px;
-  animation: auroraRingSpin 36s linear infinite;
-}
-
-.aurora-orbit-ring.is-mid {
-  transform-origin: 500px 250px;
-  animation: auroraRingSpin 26s linear infinite reverse;
-}
-
-@keyframes auroraRingSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.aurora-core-pulse,
-.aurora-hub-halo {
-  transform-origin: 500px 250px;
-  animation: auroraCoreBreathe 4.2s ease-in-out infinite alternate;
-}
-
-.aurora-hub-halo {
-  transform-origin: 0px 0px;
+.aurora-core-pulse {
+  transform-origin: 500px 210px;
+  animation: auroraCoreBreathe 4.8s ease-in-out infinite alternate;
 }
 
 @keyframes auroraCoreBreathe {
-  0% { transform: scale(0.95); opacity: 0.72; }
+  0% { transform: scale(0.94); opacity: 0.75; }
   100% { transform: scale(1.06); opacity: 1; }
 }
 
 .aurora-app-node {
-  animation: auroraNodeFloat 4.8s ease-in-out infinite alternate;
+  animation: auroraNodeFloat 5.2s ease-in-out infinite alternate;
 }
 
-.aurora-app-node.is-float-2 { animation-delay: -0.8s; }
-.aurora-app-node.is-float-3 { animation-delay: -1.6s; }
-.aurora-app-node.is-float-4 { animation-delay: -0.4s; }
-.aurora-app-node.is-float-5 { animation-delay: -1.2s; }
-.aurora-app-node.is-float-6 { animation-delay: -2.0s; }
+.aurora-app-node.is-float-2 { animation-delay: -0.9s; }
+.aurora-app-node.is-float-3 { animation-delay: -1.8s; }
+.aurora-app-node.is-float-4 { animation-delay: -0.5s; }
+.aurora-app-node.is-float-5 { animation-delay: -1.4s; }
+.aurora-app-node.is-float-6 { animation-delay: -2.3s; }
 
 @keyframes auroraNodeFloat {
   0% { transform: translate(var(--tx, 0), var(--ty, 0)) translateY(-3px); }
   100% { transform: translate(var(--tx, 0), var(--ty, 0)) translateY(3px); }
 }
 
-.aurora-app-node.is-float-1 { --tx: 175px; --ty: 125px; }
-.aurora-app-node.is-float-2 { --tx: 115px; --ty: 250px; }
-.aurora-app-node.is-float-3 { --tx: 175px; --ty: 375px; }
-.aurora-app-node.is-float-4 { --tx: 825px; --ty: 125px; }
-.aurora-app-node.is-float-5 { --tx: 885px; --ty: 250px; }
-.aurora-app-node.is-float-6 { --tx: 825px; --ty: 375px; }
+.aurora-app-node.is-float-1 { --tx: 210px; --ty: 100px; }
+.aurora-app-node.is-float-2 { --tx: 155px; --ty: 210px; }
+.aurora-app-node.is-float-3 { --tx: 210px; --ty: 320px; }
+.aurora-app-node.is-float-4 { --tx: 790px; --ty: 100px; }
+.aurora-app-node.is-float-5 { --tx: 845px; --ty: 210px; }
+.aurora-app-node.is-float-6 { --tx: 790px; --ty: 320px; }
+
 
 
