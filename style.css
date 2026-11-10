@@ -941,7 +941,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   color: var(--accent);
 }
 
-/* Interactive On-Hover Effect on Hero Headline Words ("Designing AI products people trust.") */
+/* Interactive On-Hover & First-Load Wave Effect on Hero Headline Words ("Designing AI products people trust.") */
 .hero-hover-word {
   display: inline-block;
   cursor: default;
@@ -952,16 +952,39 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   will-change: transform, color;
 }
 
-.hero-hover-word:hover {
-  transform: translateY(-7px) scale(1.06) rotate(-1.5deg);
-  color: var(--accent-saffron);
-  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.42);
+.hero-hover-word:hover,
+.hero-hover-word.is-flash {
+  transform: translateY(-8px) scale(1.06) rotate(-1.5deg);
+  color: #86A8CF;
+  text-shadow: 0 12px 28px rgba(134, 168, 207, 0.45);
 }
 
-.hero-hover-word.is-accent:hover {
-  transform: translateY(-7px) scale(1.06) rotate(1.5deg);
-  color: var(--accent-blush);
+.hero-hover-word:nth-of-type(2):hover,
+.hero-hover-word:nth-of-type(2).is-flash {
+  transform: translateY(-8px) scale(1.07) rotate(1.5deg);
+  color: #C38EB4;
+  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
+}
+
+.hero-hover-word:nth-of-type(3):hover,
+.hero-hover-word:nth-of-type(3).is-flash {
+  transform: translateY(-8px) scale(1.06) rotate(-1deg);
+  color: #E1CBD7;
   text-shadow: 0 12px 28px rgba(225, 203, 215, 0.45);
+}
+
+.hero-hover-word.is-accent:hover,
+.hero-hover-word.is-accent.is-flash {
+  transform: translateY(-8px) scale(1.06) rotate(1.5deg);
+  color: #C38EB4;
+  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
+}
+
+.hero-hover-word.is-accent:last-of-type:hover,
+.hero-hover-word.is-accent:last-of-type.is-flash {
+  transform: translateY(-8px) scale(1.06) rotate(-1.2deg);
+  color: #86A8CF;
+  text-shadow: 0 12px 28px rgba(134, 168, 207, 0.48);
 }
 
 /* Clean Subtitle Line (`.framer-xasqps` — NO cluttered chips underneath!) */
@@ -2182,6 +2205,11 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
 }
 
 .leo-exp-role-card {
+  --exp-grad: linear-gradient(132deg, rgba(14, 31, 47, 0.88) 0%, rgba(38, 66, 90, 0.82) 54%, rgba(134, 168, 207, 0.34) 100%);
+  --exp-grad-light: linear-gradient(132deg, rgba(225, 236, 249, 0.92) 0%, rgba(134, 168, 207, 0.28) 55%, rgba(225, 203, 215, 0.35) 100%);
+  --exp-accent: #9CC0E8;
+  --exp-accent-light: #1E3A5F;
+  --exp-mark-bg: linear-gradient(145deg, #1E3752 0%, #0E1F2F 100%);
   position: relative;
   width: 100%;
   padding: 18px 22px 18px 18px;
@@ -2195,39 +2223,62 @@ body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
   transition:
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.35s ease,
+    border-color 0.35s ease,
     box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 4 Distinct Cohesive Variations from the Twilight-Aurora Family (Pin 2181499817012571) */
+.exp-timeline-group:nth-of-type(1) .leo-exp-role-card {
+  --exp-grad: linear-gradient(132deg, rgba(14, 31, 47, 0.90) 0%, rgba(38, 66, 90, 0.84) 52%, rgba(134, 168, 207, 0.38) 100%);
+  --exp-grad-light: linear-gradient(132deg, rgba(232, 241, 252, 0.95) 0%, rgba(134, 168, 207, 0.32) 55%, rgba(195, 142, 180, 0.22) 100%);
+  --exp-accent: #A5C6EC;
+  --exp-accent-light: #1B3654;
+  --exp-mark-bg: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
+}
+
+.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(1) {
+  --exp-grad: linear-gradient(132deg, rgba(24, 24, 48, 0.90) 0%, rgba(72, 52, 96, 0.82) 52%, rgba(195, 142, 180, 0.38) 100%);
+  --exp-grad-light: linear-gradient(132deg, rgba(246, 235, 244, 0.95) 0%, rgba(195, 142, 180, 0.30) 55%, rgba(134, 168, 207, 0.24) 100%);
+  --exp-accent: #E2A9D2;
+  --exp-accent-light: #4A2849;
+  --exp-mark-bg: linear-gradient(145deg, #4D3664 0%, #191932 100%);
+}
+
+.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(2) {
+  --exp-grad: linear-gradient(132deg, rgba(18, 30, 52, 0.90) 0%, rgba(56, 68, 106, 0.82) 52%, rgba(225, 203, 215, 0.36) 100%);
+  --exp-grad-light: linear-gradient(132deg, rgba(238, 236, 250, 0.95) 0%, rgba(164, 158, 208, 0.28) 55%, rgba(225, 203, 215, 0.36) 100%);
+  --exp-accent: #E8CEDB;
+  --exp-accent-light: #2E385C;
+  --exp-mark-bg: linear-gradient(145deg, #38446A 0%, #121E34 100%);
+}
+
+.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(3) {
+  --exp-grad: linear-gradient(132deg, rgba(15, 34, 48, 0.90) 0%, rgba(36, 76, 98, 0.82) 52%, rgba(142, 188, 218, 0.36) 100%);
+  --exp-grad-light: linear-gradient(132deg, rgba(230, 244, 250, 0.95) 0%, rgba(134, 178, 208, 0.30) 55%, rgba(225, 203, 215, 0.26) 100%);
+  --exp-accent: #9FD0EE;
+  --exp-accent-light: #193E52;
+  --exp-mark-bg: linear-gradient(145deg, #244C62 0%, #0F2230 100%);
 }
 
 .leo-exp-role-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  /* Pinterest Pin 865465253415587845 Palette: #FFFFFF, #E5E5E5, #FCA311, #14213D, #000000 */
-  background: linear-gradient(
-    132deg,
-    rgba(0, 0, 0, 0.52) 0%,
-    rgba(20, 33, 61, 0.72) 55%,
-    rgba(252, 163, 17, 0.22) 100%
-  );
+  background: var(--exp-grad);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.38s ease;
 }
 
 body[data-theme="light"] .leo-exp-role-card::before {
-  background: linear-gradient(
-    132deg,
-    rgba(229, 229, 229, 0.55) 0%,
-    rgba(20, 33, 61, 0.08) 55%,
-    rgba(252, 163, 17, 0.16) 100%
-  );
+  background: var(--exp-grad-light);
 }
 
 .leo-exp-role-card:hover {
   transform: translateY(-4px);
   background: var(--bg-elevated);
-  border-color: var(--border-subtle);
-  box-shadow: 0 20px 42px -16px rgba(20, 33, 61, 0.58);
+  border-color: rgba(134, 168, 207, 0.28);
+  box-shadow: 0 20px 42px -16px rgba(14, 31, 47, 0.55);
 }
 
 .leo-exp-role-card:hover::before {
@@ -2282,9 +2333,9 @@ body[data-theme="light"] .exp-theme-logo-img {
 
 .leo-exp-role-card:hover .leo-exp-mark {
   transform: scale(1.06) rotate(-3deg);
-  background: linear-gradient(145deg, #14213D 0%, #000000 100%);
-  box-shadow: 0 8px 20px rgba(20, 33, 61, 0.45), inset 0 0 0 1px rgba(252, 163, 17, 0.35);
-  color: #FCA311;
+  background: var(--exp-mark-bg);
+  box-shadow: 0 8px 20px rgba(14, 31, 47, 0.42), inset 0 0 0 1px rgba(225, 203, 215, 0.32);
+  color: var(--exp-accent);
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
@@ -2326,11 +2377,11 @@ body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
 }
 
 .leo-exp-role-card:hover .leo-exp-company {
-  color: #FCA311;
+  color: var(--exp-accent);
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
-  color: #14213D;
+  color: var(--exp-accent-light);
 }
 
 /* Pulsing Terracotta `Now` Badge (`.framer-hfkl8u`) */
@@ -2358,11 +2409,11 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 }
 
 .leo-exp-role-card:hover .leo-exp-title {
-  color: #E5E5E5;
+  color: #F1F5F9;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-title {
-  color: #14213D;
+  color: var(--exp-accent-light);
 }
 
 /* Right Period Pill (`.framer-f1qw7t`) */
@@ -2386,14 +2437,14 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-title {
 }
 
 .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(20, 33, 61, 0.78);
-  border-color: var(--border-subtle);
-  color: #FCA311;
+  background: rgba(14, 31, 47, 0.65);
+  border-color: rgba(225, 203, 215, 0.28);
+  color: var(--exp-accent);
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(20, 33, 61, 0.12);
-  color: #14213D;
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--exp-accent-light);
 }
 
 /* ==========================================================================
@@ -2495,8 +2546,8 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
 }
 
 /* ==========================================================================
-   9. FOOTER WRAP — "Let's build something good." (Pinterest Pin 968344357402585770 Palette)
-      Colors: #121212, #1F2937, #334155, #64748B, #F1F5F9, #EC4899 (Rose Pink)
+   9. FOOTER WRAP — "Let's build something good." (Pinterest Pin 2181499817012571 Palette)
+      Colors: #0E1F2F, #26425A, #86A8CF, #E1CBD7, #C38EB4 (Borderless Twilight-Aurora Gradient)
    ========================================================================== */
 .leo-footer-outer {
   width: 100%;
@@ -2510,11 +2561,11 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.20) 0%, transparent 52%),
-    radial-gradient(circle at 18% 82%, rgba(100, 116, 139, 0.34) 0%, transparent 62%),
-    linear-gradient(155deg, #121212 0%, #1F2937 50%, #334155 100%);
-  border: 1px solid rgba(100, 116, 139, 0.36);
-  box-shadow: 0 24px 56px -18px rgba(18, 18, 18, 0.68);
+    radial-gradient(115% 75% at 50% 105%, rgba(225, 203, 215, 0.44) 0%, rgba(195, 142, 180, 0.28) 38%, transparent 74%),
+    radial-gradient(85% 65% at 85% 15%, rgba(134, 168, 207, 0.28) 0%, transparent 62%),
+    linear-gradient(165deg, #0E1F2F 0%, #1C334B 38%, #26425A 68%, #5B7EA3 100%);
+  border: none !important;
+  box-shadow: 0 24px 56px -18px rgba(14, 31, 47, 0.58);
   padding: 96px 24px 0;
   display: flex;
   flex-direction: column;
@@ -2522,7 +2573,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   text-align: center;
   gap: 40px;
   overflow: hidden;
-  color: #F1F5F9;
+  color: #FFFFFF;
 }
 
 .leo-footer-invite {
@@ -2540,12 +2591,12 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   gap: 8px;
   padding: 7px 14px 7px 12px;
   border-radius: 100px;
-  background: rgba(31, 41, 55, 0.84);
-  border: 1px solid rgba(100, 116, 139, 0.42);
+  background: rgba(14, 31, 47, 0.62);
+  border: 1px solid rgba(225, 203, 215, 0.24);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: #F1F5F9;
+  color: #E1CBD7;
 }
 
 .leo-footer-heading {
@@ -2555,14 +2606,14 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   line-height: 0.96;
   letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: #F1F5F9;
+  color: #FFFFFF;
 }
 
 .leo-footer-heading .text-accent {
   font-family: var(--font-script);
   text-transform: none;
   font-size: 1.04em;
-  color: #EC4899;
+  color: #E1CBD7;
 }
 
 .leo-footer-actions {
@@ -2574,40 +2625,40 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
 }
 
-/* Balanced Equal-Width Primary (#EC4899) & Secondary (#334155 / #64748B) Buttons inside Footer Card */
+/* Balanced Equal-Width Primary (#E1CBD7 / #C38EB4) & Secondary (#26425A / #86A8CF) Buttons inside Footer Card */
 .leo-footer-actions .leo-magnetic-btn {
   min-width: 214px;
 }
 
 .leo-footer-wrap .leo-magnetic-btn {
-  background: #EC4899;
-  color: #F1F5F9;
-  border: 1px solid #EC4899;
+  background: linear-gradient(135deg, #E1CBD7 0%, #C38EB4 100%);
+  color: #0E1F2F;
+  border: 1px solid rgba(225, 203, 215, 0.65);
   font-weight: 600;
 }
 
 .leo-footer-wrap .leo-magnetic-btn:hover {
   transform: translateY(-2px);
-  background: #F472B6;
-  color: #121212;
-  border-color: #F1F5F9;
-  box-shadow: 0 12px 26px -8px rgba(236, 72, 153, 0.52);
+  background: linear-gradient(135deg, #F1E3EB 0%, #D4A1C6 100%);
+  color: #0E1F2F;
+  border-color: #FFFFFF;
+  box-shadow: 0 12px 26px -8px rgba(195, 142, 180, 0.52);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-secondary {
-  background: rgba(51, 65, 85, 0.72);
-  color: #F1F5F9;
-  border: 1px solid rgba(100, 116, 139, 0.48);
+  background: rgba(38, 66, 90, 0.62);
+  color: #FFFFFF;
+  border: 1px solid rgba(134, 168, 207, 0.38);
   font-weight: 500;
   backdrop-filter: blur(10px);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-secondary:hover {
   transform: translateY(-2px);
-  background: #334155;
-  color: #EC4899;
-  border-color: rgba(236, 72, 153, 0.72);
-  box-shadow: 0 12px 26px -8px rgba(18, 18, 18, 0.55);
+  background: rgba(38, 66, 90, 0.90);
+  color: #E1CBD7;
+  border-color: rgba(225, 203, 215, 0.65);
+  box-shadow: 0 12px 26px -8px rgba(14, 31, 47, 0.55);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon {
@@ -2615,17 +2666,17 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 42px;
   height: 42px;
   padding: 0;
-  background: rgba(51, 65, 85, 0.55);
-  color: #F1F5F9;
-  border: 1px solid rgba(100, 116, 139, 0.42);
+  background: rgba(225, 203, 215, 0.14);
+  color: #FFFFFF;
+  border: 1px solid rgba(225, 203, 215, 0.28);
 }
 
 .leo-footer-wrap .leo-magnetic-btn.is-icon:hover {
   transform: translateY(-2px);
-  background: #334155;
-  color: #EC4899;
-  border-color: #EC4899;
-  box-shadow: 0 8px 20px -6px rgba(18, 18, 18, 0.4);
+  background: rgba(225, 203, 215, 0.26);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 20px -6px rgba(14, 31, 47, 0.4);
 }
 
 .leo-footer-socials {
@@ -2640,7 +2691,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   width: 100%;
   max-width: 1040px;
   padding: 16px 0;
-  border-top: 1px solid rgba(100, 116, 139, 0.30);
+  border-top: 1px solid rgba(225, 203, 215, 0.20);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2650,7 +2701,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #D2DCE8;
 }
 
 .leo-footer-meta-right {
@@ -2665,21 +2716,21 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(31, 41, 55, 0.78);
-  border: 1px solid rgba(100, 116, 139, 0.42);
+  background: rgba(14, 31, 47, 0.55);
+  border: 1px solid rgba(225, 203, 215, 0.28);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-transform: none;
-  color: #F1F5F9;
+  color: #FFFFFF;
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .leo-back-top-link:hover {
-  background: #F1F5F9;
-  color: #121212;
-  border-color: #F1F5F9;
+  background: #E1CBD7;
+  color: #0E1F2F;
+  border-color: #E1CBD7;
 }
 
 /* Giant Full-Width Tanker Wordmark (`owen-gray.framer.website` style) */
@@ -2695,8 +2746,8 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   line-height: 0.82;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #64748B;
-  opacity: 0.22;
+  color: #E1CBD7;
+  opacity: 0.18;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -4349,6 +4400,167 @@ body[data-theme="light"] .editor-ba-card:not(.is-after) .editor-ba-label {
 @media (max-width: 640px) {
   .final-product-stage.is-android {
     padding: 24px 16px 30px;
+  }
+}
+
+/* ==========================================================================
+   NATIVE VALIDATION TIMELINE ("From Conflicting Priorities" — Slide 204)
+   Sits directly on the website background with zero white box container
+   ========================================================================== */
+.validation-timeline-native {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 36px 0 8px;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  align-items: stretch;
+}
+
+.vt-col {
+  display: grid;
+  grid-template-rows: 220px 64px 160px;
+  align-items: center;
+  justify-items: center;
+}
+
+.vt-top-slot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 0;
+}
+
+.vt-top-slot.is-media-top {
+  padding-bottom: 14px;
+}
+
+.vt-bottom-slot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0;
+}
+
+.vt-pill {
+  width: 100%;
+  height: 62px;
+  border-radius: 999px;
+  background: #4B85EA;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 12px;
+  box-shadow: 0 10px 24px -10px rgba(75, 133, 234, 0.45);
+}
+
+.vt-pill.is-soft {
+  background: #CBDDFB;
+  color: #1E293B;
+  box-shadow: 0 10px 24px -10px rgba(148, 163, 184, 0.28);
+}
+
+.vt-stem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14px;
+}
+
+.vt-stem .vt-line {
+  width: 2px;
+  height: 52px;
+  background: var(--text-secondary);
+  opacity: 0.65;
+}
+
+.vt-stem .vt-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--text-secondary);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.vt-note {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: left;
+}
+
+.vt-top-slot.is-callout-top .vt-note {
+  margin-bottom: 10px;
+}
+
+.vt-bottom-slot.is-callout-bottom .vt-note {
+  margin-top: 10px;
+}
+
+.vt-note strong {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.vt-subnote {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.vt-apps-img {
+  width: 78px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.vt-rocket-gif {
+  width: 122px;
+  height: 122px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.38);
+}
+
+@media (max-width: 860px) {
+  .validation-timeline-native {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .vt-col {
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .vt-stem .vt-line {
+    height: 28px;
   }
 }
 

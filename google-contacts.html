@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=30">
+  <link rel="stylesheet" href="style.css?v=31">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -180,10 +180,10 @@
         </div>
         <div class="frameless-mock framer-reveal" style="margin: 36px 0 32px;">
           <div class="exp-reality-label-row" style="position: relative; height: 28px; margin-bottom: 10px;">
-            <span class="case-caption" style="position: absolute; left: 13%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
-            <span class="case-caption" style="position: absolute; left: 87%; transform: translateX(-50%); margin: 0;">REALITY</span>
+            <span class="case-caption" style="position: absolute; left: 23.7%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
+            <span class="case-caption" style="position: absolute; left: 76.1%; transform: translateX(-50%); margin: 0;">REALITY</span>
           </div>
-          <img src="assets/mocks/ce_expectation_2.png?v=16" alt="Android Homepage Widgets — Expectation vs Reality" loading="lazy">
+          <img src="assets/mocks/ce_expectation_2.png?v=31" alt="Android Homepage Widgets — Expectation vs Reality" loading="lazy">
         </div>
 
         <p class="case-body">To address this gap, I led the redesign of the "Rich Info" initiative, focused on identifying the root causes of the lack of contact info saved by users. The solution involved making it significantly easier for users to add contact information with a complete overhaul of the Contacts Editor across Android, Wear OS, and desktop, transforming a dense, form-based workflow into a streamlined, progressive editing experience.</p>
@@ -290,9 +290,82 @@
         <h3 class="case-h3-italic">To a Shared Validation Plan</h3>
         <p class="case-body">To move forward, we compromised on a two-track validation plan: run a lightweight A/B experiment on value props while conducting qualitative usability research in parallel. This let us test both hypotheses simultaneously without delaying either workstream.</p>
 
-        <div class="case-figure framer-reveal" style="position: relative;">
-          <img src="https://static.wixstatic.com/media/e3505c_ccc7d496d83844e1b79156cfc400af7f~mv2.png/v1/crop/x_0,y_228,w_2928,h_1333/fill/w_1750,h_796,al_c,q_90/Screenshot%202026-03-15%20at%2010_16_18%E2%80%AFPM.png" alt="Shared Validation Plan" loading="lazy">
-          <img src="https://static.wixstatic.com/media/e3505c_054881e1b4ac4ab6bd2b0f949f7059c1~mv2.gif" alt="Validation Rocket Animation" style="position: absolute; left: 81.5%; top: 21.1%; width: 14.05%; height: auto; border: none; background: transparent; pointer-events: none;" loading="lazy">
+        <div class="validation-timeline-native framer-reveal" role="img" aria-label="Shared validation plan timeline: Hypotheses x3, A/B Testing, Usability Study, Competitive Analysis, Design Systems, Metrics">
+          <!-- Step 1: Hypotheses x3 -->
+          <div class="vt-col">
+            <div class="vt-top-slot is-callout-top">
+              <p class="vt-note">Outcome of a<br>cross-functional<br>Workshop</p>
+              <div class="vt-stem is-up" aria-hidden="true">
+                <span class="vt-dot"></span>
+                <span class="vt-line"></span>
+              </div>
+            </div>
+            <div class="vt-pill is-soft">Hypotheses x3</div>
+            <div class="vt-bottom-slot"></div>
+          </div>
+
+          <!-- Step 2: A/B Testing -->
+          <div class="vt-col">
+            <div class="vt-top-slot"></div>
+            <div class="vt-pill">A/B Testing</div>
+            <div class="vt-bottom-slot is-callout-bottom">
+              <div class="vt-stem is-down" aria-hidden="true">
+                <span class="vt-line"></span>
+                <span class="vt-dot"></span>
+              </div>
+              <p class="vt-note">Validate<br>hypothesis</p>
+            </div>
+          </div>
+
+          <!-- Step 3: Usability Study -->
+          <div class="vt-col">
+            <div class="vt-top-slot"></div>
+            <div class="vt-pill">Usability Study</div>
+            <div class="vt-bottom-slot"></div>
+          </div>
+
+          <!-- Step 4: Competitive Analysis -->
+          <div class="vt-col">
+            <div class="vt-top-slot is-media-top">
+              <img src="assets/mocks/ce_validation_apps.png?v=31" alt="1P and 3P audited apps" class="vt-apps-img" loading="lazy">
+            </div>
+            <div class="vt-pill">Competitive<br>Analysis</div>
+            <div class="vt-bottom-slot is-callout-bottom">
+              <div class="vt-stem is-down" aria-hidden="true">
+                <span class="vt-line"></span>
+                <span class="vt-dot"></span>
+              </div>
+              <p class="vt-note"><strong>1P &amp; 3P</strong><span class="vt-subnote">Extensively audited<br>apps for best<br>practices</span></p>
+            </div>
+          </div>
+
+          <!-- Step 5: Design Systems -->
+          <div class="vt-col">
+            <div class="vt-top-slot"></div>
+            <div class="vt-pill">Design Systems</div>
+            <div class="vt-bottom-slot is-callout-bottom">
+              <div class="vt-stem is-down" aria-hidden="true">
+                <span class="vt-line"></span>
+                <span class="vt-dot"></span>
+              </div>
+              <p class="vt-note">Contributed to<br>the design<br>systems</p>
+            </div>
+          </div>
+
+          <!-- Step 6: Metrics -->
+          <div class="vt-col">
+            <div class="vt-top-slot is-media-top">
+              <img src="https://static.wixstatic.com/media/e3505c_054881e1b4ac4ab6bd2b0f949f7059c1~mv2.gif" alt="Validation Rocket Animation" class="vt-rocket-gif" loading="lazy">
+            </div>
+            <div class="vt-pill">Metrics</div>
+            <div class="vt-bottom-slot is-callout-bottom">
+              <div class="vt-stem is-down" aria-hidden="true">
+                <span class="vt-line"></span>
+                <span class="vt-dot"></span>
+              </div>
+              <p class="vt-note">Success &amp; Guardrails</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -622,6 +695,6 @@
 </footer>
 
 
-  <script src="script.js?v=28"></script>
+  <script src="script.js?v=31"></script>
 </body>
 </html>

@@ -21,6 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.body.classList.add('is-loaded');
+
+      // Sequential first-load hover-flash wave across the hero headline words ("Designing AI products people trust.")
+      const heroWords = document.querySelectorAll('.hero-hover-word');
+      if (heroWords.length > 0) {
+        const startDelay = 520;
+        const stepDelay = 115;
+        const holdDuration = 290;
+        heroWords.forEach((word, idx) => {
+          setTimeout(() => {
+            word.classList.add('is-flash');
+            setTimeout(() => {
+              word.classList.remove('is-flash');
+            }, holdDuration);
+          }, startDelay + idx * stepDelay);
+        });
+      }
     });
   });
 
