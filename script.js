@@ -250,6 +250,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     let avatarVariantIdx = 0;
 
+    // On first load of the homepage, while the avatar is the first element appearing (0ms -> 1000ms),
+    // rapidly flash through all 5 GIF variants so the viewer gets a quick preview before the rest of the page settles
+    if (avatarImg) {
+      const introSequence = [1, 2, 3, 4, 0];
+      const introStartMs = 140;
+      const introStepMs = 175;
+      introSequence.forEach((variantIndex, step) => {
+        setTimeout(() => {
+          avatarVariantIdx = variantIndex;
+          avatarImg.src = avatarVariants[variantIndex];
+          if (tiltCard) {
+            tiltCard.animate(
+              [
+                { transform: 'scale(0.95) rotate(-2deg)' },
+                { transform: 'scale(1.04) rotate(1.5deg)' },
+                { transform: 'scale(1) rotate(0deg)' },
+              ],
+              { duration: 165, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+            );
+          }
+        }, introStartMs + step * introStepMs);
+      });
+    }
+
     const advanceAvatarVariant = () => {
       if (!avatarImg) return;
       avatarVariantIdx = (avatarVariantIdx + 1) % avatarVariants.length;

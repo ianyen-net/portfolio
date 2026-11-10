@@ -1990,7 +1990,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 0.35s ease;
-  animation: processCardLoop 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: processCardLoop 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .leo-process-card:nth-of-type(1) {
@@ -2004,31 +2004,82 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 1.2s;
+  animation-delay: 0.8s;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 2.4s;
+  animation-delay: 1.6s;
 }
 
-/* Cute Rocket Vector launching from "Ship" all the way to the top of the homepage during Ship's flash */
-.ship-rocket-launch {
+/* Cute Retro Rocket Vector launching ONCE from "Ship" mimicking the reference launch video:
+   1. Launchpad smoke cloud billows at the base of "Ship"
+   2. Rocket rises into position & ignites main thruster + trailing smoke plume
+   3. Accelerates smoothly upward while side boosters peel away mid-flight
+   4. Continues all the way to the top of the homepage and disappears */
+.ship-rocket-stage {
   position: absolute;
   left: 50%;
-  top: -16px;
-  width: 36px;
-  height: 52px;
-  transform: translate3d(-50%, 6px, 0) scale(0.75);
-  opacity: 0;
+  top: -12px;
+  width: 0;
+  height: 0;
   pointer-events: none;
   z-index: 60;
+  overflow: visible;
+}
+
+.ship-launch-smoke {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 96px;
+  height: 36px;
+  transform: translate3d(-50%, 6px, 0) scale(0.4);
+  opacity: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.framer-reveal.is-visible .ship-launch-smoke {
+  animation: shipLaunchpadSmoke 1.75s cubic-bezier(0.22, 1, 0.36, 1) 1.55s 1 forwards;
+}
+
+@keyframes shipLaunchpadSmoke {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 8px, 0) scale(0.35);
+  }
+  16% {
+    opacity: 0.96;
+    transform: translate3d(-50%, 0px, 0) scale(0.95);
+  }
+  42% {
+    opacity: 0.88;
+    transform: translate3d(-50%, -2px, 0) scale(1.18);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -8px, 0) scale(1.45);
+  }
+}
+
+.ship-rocket-launch {
+  position: absolute;
+  left: 0;
+  top: -36px;
+  width: 44px;
+  height: 82px;
+  transform: translate3d(-50%, 14px, 0) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
   will-change: transform, opacity;
-  filter: drop-shadow(0 6px 16px rgba(129, 140, 248, 0.58));
-  animation: shipRocketLiftoff 3.6s linear infinite;
-  animation-delay: 2.4s;
+  filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.35));
+}
+
+.framer-reveal.is-visible .ship-rocket-launch {
+  animation: shipRocketLiftoff 1.85s linear 1.55s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2040,44 +2091,105 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 
 .ship-rocket-svg .rocket-flame-outer,
 .ship-rocket-svg .rocket-flame-core {
-  transform-origin: 18px 34px;
-  animation: rocketFlameFlicker 0.14s ease-in-out infinite alternate;
+  transform-origin: 40px 88px;
+  animation: rocketFlameFlicker 0.1s ease-in-out infinite alternate;
+}
+
+.ship-rocket-svg .rocket-exhaust-plume {
+  transform-origin: 40px 112px;
+  animation: rocketPlumePulse 0.16s ease-in-out infinite alternate;
+}
+
+/* Side booster pods peel outward and drop away mid-flight like the reference video */
+.framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-left {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: boosterDetachLeft 1.85s cubic-bezier(0.32, 0, 0.67, 0) 1.55s 1 forwards;
+}
+
+.framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-right {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: boosterDetachRight 1.85s cubic-bezier(0.32, 0, 0.67, 0) 1.55s 1 forwards;
+}
+
+@keyframes boosterDetachLeft {
+  0%, 46% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  78% {
+    opacity: 0.85;
+    transform: translate3d(-24px, 42px, 0) rotate(-26deg);
+  }
+  92%, 100% {
+    opacity: 0;
+    transform: translate3d(-38px, 84px, 0) rotate(-42deg);
+  }
+}
+
+@keyframes boosterDetachRight {
+  0%, 46% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  78% {
+    opacity: 0.85;
+    transform: translate3d(24px, 42px, 0) rotate(26deg);
+  }
+  92%, 100% {
+    opacity: 0;
+    transform: translate3d(38px, 84px, 0) rotate(42deg);
+  }
 }
 
 @keyframes rocketFlameFlicker {
   0% {
-    transform: scaleY(0.88) scaleX(0.95);
+    transform: scaleY(0.9) scaleX(0.94);
   }
   100% {
-    transform: scaleY(1.22) scaleX(1.06);
+    transform: scaleY(1.24) scaleX(1.06);
+  }
+}
+
+@keyframes rocketPlumePulse {
+  0% {
+    transform: translateY(0) scale(0.92);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(5px) scale(1.12);
+    opacity: 0.96;
   }
 }
 
 @keyframes shipRocketLiftoff {
   0% {
     opacity: 0;
-    transform: translate3d(-50%, 6px, 0) scale(0.72);
+    transform: translate3d(-50%, 16px, 0) scale(0.45);
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
-  /* Smoothly emerges and begins continuous upward ascent right as "Ship" flashes */
-  7% {
+  /* 1. Rises onto the launchpad above "Ship" as smoke billows */
+  12% {
     opacity: 1;
-    transform: translate3d(-50%, -18px, 0) scale(1);
-    animation-timing-function: cubic-bezier(0.32, 0.08, 0.24, 1);
+    transform: translate3d(-50%, -4px, 0) scale(0.98);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
   }
-  /* Continuous, silky-smooth glide all the way to the top of the homepage */
-  34% {
-    opacity: 0.92;
-    transform: translate3d(-50%, -440px, 0) scale(0.96);
+  /* 2. Brief ignition poise with subtle thrust buildup */
+  22% {
+    opacity: 1;
+    transform: translate3d(-50%, -14px, 0) scale(1.02);
+    animation-timing-function: cubic-bezier(0.32, 0.04, 0.2, 1);
+  }
+  /* 3. Smooth, continuous liftoff & acceleration all the way to the top of the homepage */
+  82% {
+    opacity: 0.96;
+    transform: translate3d(-50%, -520px, 0) scale(0.96);
     animation-timing-function: ease-out;
   }
-  44% {
+  100% {
     opacity: 0;
-    transform: translate3d(-50%, -680px, 0) scale(0.84);
-  }
-  44.01%, 100% {
-    opacity: 0;
-    transform: translate3d(-50%, 6px, 0) scale(0.72);
+    transform: translate3d(-50%, -760px, 0) scale(0.82);
   }
 }
 
@@ -2106,7 +2218,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     color 0.35s ease,
     text-shadow 0.35s ease,
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: processTitleLoop 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: processTitleLoop 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation-delay: inherit;
 }
 
