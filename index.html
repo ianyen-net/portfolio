@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body data-theme="dark">
 
@@ -223,38 +223,32 @@
     </section>
 
     <!-- ====================================================================
-         2B. PROCESS TRAY ("Design · Prototype · Ship" — Above Selected Work, Below Hero)
+         2B. PROCESS FLOW ("Design -> Prototype -> Ship" — Frameless with Handwritten Arrows)
          ==================================================================== -->
-    <section class="leo-section no-top-border framer-reveal" id="process" style="padding-top: 32px; padding-bottom: 24px;">
-      <div class="leo-process-tray">
+    <section class="leo-section no-top-border framer-reveal" id="process" style="padding-top: 28px; padding-bottom: 18px;">
+      <div class="leo-process-tray" role="region" aria-label="How I approach my work: Design, Prototype, Ship">
         <div class="leo-process-card">
-          <div class="leo-process-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div>
-            <h3 class="leo-process-title">Design</h3>
-            <p class="leo-process-desc">Flows, platform systems, and human-centered AI interfaces.</p>
-          </div>
+          <h3 class="leo-process-title">Design</h3>
         </div>
 
+        <!-- Handwritten Arched Arrow 1 (Design -> Prototype) -->
+        <svg class="process-hand-arrow" viewBox="0 0 120 42" fill="none" aria-hidden="true">
+          <path d="M6 28 C 34 8, 78 8, 108 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="140" stroke-dashoffset="0"/>
+          <path d="M97 14 C 103 18, 108 21, 111 24 C 105 25, 99 28, 94 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
         <div class="leo-process-card">
-          <div class="leo-process-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div>
-            <h3 class="leo-process-title">Prototype</h3>
-            <p class="leo-process-desc">Iterating directly in code with AI-native tools alongside engineers.</p>
-          </div>
+          <h3 class="leo-process-title">Prototype</h3>
         </div>
+
+        <!-- Handwritten Looping Arrow 2 (Prototype -> Ship) -->
+        <svg class="process-hand-arrow is-second" viewBox="0 0 120 42" fill="none" aria-hidden="true">
+          <path d="M6 18 C 36 36, 78 34, 108 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M95 12 C 102 14, 107 15, 111 16 C 107 21, 103 26, 99 30" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
 
         <div class="leo-process-card is-accent">
-          <div class="leo-process-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </div>
-          <div>
-            <h3 class="leo-process-title">Ship</h3>
-            <p class="leo-process-desc">Launched to millions of users, measured, and continuously refined.</p>
-          </div>
+          <h3 class="leo-process-title">Ship</h3>
         </div>
       </div>
     </section>
@@ -278,7 +272,7 @@
         <a href="ai-in-contacts.html" class="leo-work-card" id="project-ai-contacts">
           <div class="leo-work-cover">
             <div class="leo-work-media-inner">
-              <img class="wix-static-card-img" src="assets/mocks/card_1_ai_static.png?v=2" alt="AI-Powered Contact Intelligence" loading="lazy">
+              <img class="wix-static-card-img" src="assets/mocks/card_1_ai_static.png?v=23" alt="AI-Powered Contact Intelligence" loading="lazy">
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
               <svg viewBox="0 0 48 48" width="30" height="30">
@@ -299,11 +293,11 @@
           </div>
 
           <div class="leo-work-caption">
-            <h3 class="leo-work-title" data-slot-chars>AI-Powered Contact Intelligence</h3>
+            <h3 class="leo-work-title">AI-Powered Contact Intelligence</h3>
             <div class="leo-work-meta-line">
               <span>Google AI</span>
               <span class="leo-work-meta-dot" aria-hidden="true"></span>
-              <span>4M DAU</span>
+              <span class="leo-work-metric">4M DAU</span>
             </div>
           </div>
         </a>
@@ -312,7 +306,7 @@
         <a href="sharing-design-system.html" class="leo-work-card" id="project-sharekit">
           <div class="leo-work-cover">
             <div class="leo-work-media-inner">
-              <img class="wix-static-card-img" src="assets/mocks/card_2_sharekit_static.png?v=21" alt="ShareKit Design System" loading="lazy">
+              <img class="wix-static-card-img" src="assets/mocks/card_2_sharekit_static.png?v=23" alt="ShareKit Design System" loading="lazy">
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
               <svg viewBox="0 0 48 48" width="30" height="30">
@@ -333,11 +327,11 @@
           </div>
 
           <div class="leo-work-caption">
-            <h3 class="leo-work-title" data-slot-chars>ShareKit Design System</h3>
+            <h3 class="leo-work-title">ShareKit Design System</h3>
             <div class="leo-work-meta-line">
               <span>Design System &middot; Splitti</span>
               <span class="leo-work-meta-dot" aria-hidden="true"></span>
-              <span>+20% Share</span>
+              <span class="leo-work-metric">+20% Share</span>
             </div>
           </div>
         </a>
@@ -367,11 +361,11 @@
           </div>
 
           <div class="leo-work-caption">
-            <h3 class="leo-work-title" data-slot-chars>Contacts Editor Redesign</h3>
+            <h3 class="leo-work-title">Contacts Editor Redesign</h3>
             <div class="leo-work-meta-line">
               <span>Cross-Device UX</span>
               <span class="leo-work-meta-dot" aria-hidden="true"></span>
-              <span>+32% Data Entry</span>
+              <span class="leo-work-metric">+32% Data Entry</span>
             </div>
           </div>
         </a>
@@ -396,11 +390,11 @@
           </div>
 
           <div class="leo-work-caption">
-            <h3 class="leo-work-title" data-slot-chars>Philips Sonicare Connected App</h3>
+            <h3 class="leo-work-title">Philips Sonicare Connected App</h3>
             <div class="leo-work-meta-line">
               <span>Connected IoT</span>
               <span class="leo-work-meta-dot" aria-hidden="true"></span>
-              <span>4.8★ App Store</span>
+              <span class="leo-work-metric">4.8★ App Store</span>
             </div>
           </div>
         </a>
@@ -422,6 +416,12 @@
       </h2>
 
       <div class="about-editorial-split">
+        <div class="about-bio-copy">
+          <p>
+            I'm Ian, a product designer who enjoys turning ambiguous problems into actionable solutions in a fast paced environment. I'm also a first-gen immigrant. Getting here required persistence, adaptability, and a willingness to figure things out without a clear playbook. That experience has shaped how I work: I'm comfortable navigating uncertainty, aligning people with different perspectives, and turning fuzzy visions into clear, user-centered product direction.
+          </p>
+        </div>
+
         <figure class="about-photo-card">
           <div class="about-photo-img">
             <img src="assets/mocks/parents_photo_centered.jpg?v=1" alt="My parents' first time in America" loading="lazy">
@@ -431,12 +431,6 @@
             The hardest-working people I know and the reason I push myself every day.
           </figcaption>
         </figure>
-
-        <div class="about-bio-copy">
-          <p>
-            I'm Ian, a product designer who enjoys turning ambiguous problems into actionable solutions in a fast paced environment. I'm also a first-gen immigrant. Getting here required persistence, adaptability, and a willingness to figure things out without a clear playbook. That experience has shaped how I work: I'm comfortable navigating uncertainty, aligning people with different perspectives, and turning fuzzy visions into clear, user-centered product direction.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -636,6 +630,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=21"></script>
+  <script src="script.js?v=23"></script>
 </body>
 </html>

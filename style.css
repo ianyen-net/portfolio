@@ -1374,16 +1374,16 @@ body[data-theme="light"] .leo-work-cover {
   transition: filter 0.38s ease !important;
 }
 
-/* Soft Tint Overlay on Cover Hover */
+/* Soft Tint Overlay on Cover Hover (with Pinterest Palette #2B124C / #522B5B / #854F6C undertone) */
 .leo-work-cover::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 12, 26, 0.22) 0%,
-    rgba(6, 12, 26, 0.42) 55%,
-    rgba(6, 12, 26, 0.72) 100%
+    rgba(25, 0, 25, 0.16) 0%,
+    rgba(43, 18, 76, 0.38) 54%,
+    rgba(82, 43, 91, 0.72) 100%
   );
   opacity: 0;
   pointer-events: none;
@@ -1396,7 +1396,7 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .leo-work-cover:hover .leo-work-media-inner > img.wix-static-card-img {
-  filter: brightness(0.84) saturate(0.95);
+  filter: brightness(0.84) saturate(0.96);
 }
 
 /* Hover Chips from Wix Portfolio on Case Study Cover Images */
@@ -1418,14 +1418,14 @@ body[data-theme="light"] .leo-work-cover {
   align-items: center;
   padding: 7px 14px;
   border-radius: 999px;
-  background: rgba(14, 31, 47, 0.82);
+  background: rgba(43, 18, 76, 0.82);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(225, 203, 215, 0.42);
+  border: 1px solid rgba(223, 182, 178, 0.52);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 10px 24px -8px rgba(0, 0, 0, 0.55);
-  color: #F7F3F6;
+    inset 0 1px 0 rgba(251, 228, 216, 0.24),
+    0 10px 24px -8px rgba(25, 0, 25, 0.6);
+  color: #FBE4D8;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
@@ -1589,7 +1589,7 @@ body[data-theme="light"] .leo-work-cover {
   color: #ffffff;
 }
 
-/* Centered Title + Centered Category/Metric Below Cover (Frameless text — zero container around text or meta line) */
+/* Centered Title + Centered Category/Metric Below Cover (Gradient Color Sweep + Expanding Underline on Hover) */
 .leo-work-caption {
   display: flex;
   flex-direction: column;
@@ -1604,29 +1604,71 @@ body[data-theme="light"] .leo-work-cover {
 }
 
 .leo-work-title {
+  position: relative;
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.12;
   color: var(--text-primary);
-  display: inline-flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  transition: color 0.35s var(--ease-out-expo), transform 0.38s var(--ease-out-expo);
+  display: inline-block;
+  padding-bottom: 4px;
+  background-image: linear-gradient(
+    90deg,
+    #FBE4D8 0%,
+    #DFB6B2 26%,
+    #854F6C 50%,
+    var(--text-primary) 54%,
+    var(--text-primary) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:
+    background-position 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leo-work-title::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 0;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, #854F6C 20%, #DFB6B2 50%, #FBE4D8 80%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .leo-work-card:hover .leo-work-title {
-  color: var(--accent-blush);
-  transform: translateY(-2px);
+  background-position: 0% 50%;
+  letter-spacing: 0.032em;
+  transform: translateY(-1px);
 }
 
-body[data-theme="light"] .leo-work-card:hover .leo-work-title {
-  color: var(--accent);
+.leo-work-card:hover .leo-work-title::after {
+  transform: scaleX(1);
 }
 
-/* Character-by-character slot machine spans (clean, fast synchronized slide like footer buttons) */
+body[data-theme="light"] .leo-work-title {
+  background-image: linear-gradient(
+    90deg,
+    #2B124C 0%,
+    #522B5B 26%,
+    #854F6C 50%,
+    var(--text-primary) 54%,
+    var(--text-primary) 100%
+  );
+}
+
+/* Character-by-character slot machine spans (for buttons) */
 .char-slot {
   display: inline-block;
   position: relative;
@@ -1641,10 +1683,6 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   flex-direction: column;
   transition: transform 0.45s var(--ease-out-expo);
   transition-delay: calc(var(--char-index, 0) * 5ms);
-}
-
-.leo-work-card:hover .char-slot-track {
-  transform: translateY(-50%);
 }
 
 .leo-work-meta-line {
@@ -1668,18 +1706,31 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   gap: 10px;
 }
 
+.leo-work-metric {
+  transition: color 0.35s ease;
+}
+
+.leo-work-card:hover .leo-work-metric {
+  color: #DFB6B2;
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
+  color: #854F6C;
+}
+
 .leo-work-meta-dot {
   display: inline-block;
   width: 3px;
   height: 3px;
   border-radius: 3px;
   background: currentColor;
-  transition: width 0.55s var(--ease-out-expo), height 0.3s var(--ease-out-expo);
+  transition: width 0.55s var(--ease-out-expo), height 0.3s var(--ease-out-expo), background-color 0.35s ease;
 }
 
 .leo-work-card:hover .leo-work-meta-dot {
   width: 18px;
-  height: 1px;
+  height: 1.5px;
+  background: #DFB6B2;
 }
 
 /* ==========================================================================
@@ -1806,118 +1857,126 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   margin-bottom: 2px;
 }
 
-/* 3-Step Process Grid — Single Clean Container per Card (No Outer Tray Frame!) */
+/* 3-Step Process Story Flow — Frameless Words ("Design ↝ Prototype ↝ Ship") with Handwritten Arrows & Pinterest Palette Pop */
 .leo-process-tray {
   width: 100%;
-  padding: 0;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 8px 0;
   border-radius: 0;
   background: transparent;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .leo-process-card {
   position: relative;
-  border-radius: 20px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px 18px;
+  display: inline-flex;
   align-items: center;
-  text-align: center;
-  gap: 24px;
-  overflow: hidden;
+  justify-content: center;
+  cursor: default;
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.35s ease,
-    background-color 0.35s ease,
-    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    text-shadow 0.35s ease;
 }
 
 .leo-process-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(120% 90% at 50% 0%, rgba(195, 142, 180, 0.16) 0%, rgba(134, 168, 207, 0.10) 48%, transparent 80%);
+  inset: -4px -10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(133, 79, 108, 0.34) 0%, rgba(82, 43, 91, 0.18) 55%, transparent 78%);
   opacity: 0;
-  transition: opacity 0.38s ease;
+  transform: scale(0.85);
+  transition: opacity 0.38s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
+  z-index: 0;
 }
 
 .leo-process-card:hover {
-  transform: translateY(-7px);
-  border-color: var(--accent-saffron);
-  background: var(--bg-elevated);
-  box-shadow:
-    0 22px 44px -16px rgba(4, 8, 20, 0.68),
-    inset 0 1px 0 rgba(225, 203, 215, 0.22);
+  transform: translateY(-4px) scale(1.06);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .leo-process-card:hover::before {
   opacity: 1;
-}
-
-.leo-process-icon {
-  position: relative;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-color 0.35s ease,
-    color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.leo-process-card:hover .leo-process-icon {
-  transform: scale(1.14) rotate(-6deg);
-  background: var(--accent-saffron);
-  color: #030712;
-  box-shadow: 0 8px 20px rgba(195, 142, 180, 0.38);
-}
-
-.leo-process-card.is-accent .leo-process-icon {
-  background: var(--accent);
-  color: #030712;
-}
-
-.leo-process-card.is-accent:hover .leo-process-icon {
-  background: var(--accent-blush);
-  color: #030712;
-  box-shadow: 0 8px 20px rgba(225, 203, 215, 0.42);
+  transform: scale(1.08);
 }
 
 .leo-process-title {
   position: relative;
   z-index: 1;
-  font-family: var(--font-serif);
-  font-size: 22px;
+  font-family: var(--font-script);
+  font-size: clamp(32px, 4.2vw, 46px);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  font-style: italic;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-bottom: 6px;
-  transition: color 0.3s ease;
+  margin: 0;
+  transition:
+    color 0.35s ease,
+    text-shadow 0.35s ease,
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.leo-process-card:hover .leo-process-title {
-  color: var(--accent-blush);
+.leo-process-card:nth-of-type(1):hover .leo-process-title {
+  color: #DFB6B2;
+  text-shadow: 0 6px 24px rgba(133, 79, 108, 0.65);
 }
 
-.leo-process-desc {
-  position: relative;
-  z-index: 1;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 240px;
+.leo-process-card:nth-of-type(2):hover .leo-process-title {
+  color: #FBE4D8;
+  text-shadow: 0 6px 26px rgba(223, 182, 178, 0.58);
+}
+
+.leo-process-card:nth-of-type(3):hover .leo-process-title {
+  color: #DFB6B2;
+  text-shadow: 0 6px 28px rgba(133, 79, 108, 0.72);
+}
+
+body[data-theme="light"] .leo-process-card:hover .leo-process-title {
+  color: #522B5B;
+  text-shadow: 0 6px 20px rgba(133, 79, 108, 0.28);
+}
+
+.process-hand-arrow {
+  width: 96px;
+  height: 36px;
+  color: #854F6C;
+  opacity: 0.88;
+  flex-shrink: 0;
+  transition:
+    color 0.38s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.38s ease;
+}
+
+.leo-process-card:hover + .process-hand-arrow,
+.leo-process-tray:hover .process-hand-arrow {
+  color: #DFB6B2;
+  filter: drop-shadow(0 4px 12px rgba(223, 182, 178, 0.35));
+}
+
+.leo-process-card:hover + .process-hand-arrow {
+  transform: translateX(4px) scale(1.06);
+}
+
+body[data-theme="light"] .process-hand-arrow {
+  color: #854F6C;
+}
+
+body[data-theme="light"] .leo-process-tray:hover .process-hand-arrow {
+  color: #522B5B;
 }
 
 /* Daily Toolbox (`.framer-1354vyu` & `Yt` Tool Dock) */
@@ -2024,7 +2083,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(90% 120% at 15% 50%, rgba(195, 142, 180, 0.14) 0%, rgba(134, 168, 207, 0.10) 45%, transparent 80%);
+  background: linear-gradient(135deg, rgba(43, 18, 76, 0.45) 0%, rgba(82, 43, 91, 0.42) 48%, rgba(133, 79, 108, 0.34) 100%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.38s ease;
@@ -2033,10 +2092,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
 .leo-exp-role-card:hover {
   transform: translateY(-4px);
   background: var(--bg-elevated);
-  border-color: var(--accent-saffron);
+  border-color: #DFB6B2;
   box-shadow:
-    0 20px 42px -16px rgba(4, 8, 20, 0.65),
-    inset 0 1px 0 rgba(225, 203, 215, 0.22);
+    0 20px 42px -16px rgba(25, 0, 25, 0.68),
+    inset 0 1px 0 rgba(251, 228, 216, 0.28);
 }
 
 .leo-exp-role-card:hover::before {
@@ -2064,6 +2123,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
   letter-spacing: 0.03em;
   transition:
     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.35s ease,
     border-color 0.35s ease,
     box-shadow 0.35s ease,
     color 0.35s ease;
@@ -2071,9 +2131,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
 
 .leo-exp-role-card:hover .leo-exp-mark {
   transform: scale(1.1) rotate(-5deg);
-  border-color: rgba(225, 203, 215, 0.65);
-  box-shadow: 0 8px 20px rgba(195, 142, 180, 0.32);
-  color: #FFFFFF;
+  background: linear-gradient(145deg, #854F6C 0%, #522B5B 100%);
+  border-color: #DFB6B2;
+  box-shadow: 0 8px 20px rgba(133, 79, 108, 0.48);
+  color: #FBE4D8;
 }
 
 .leo-exp-mark svg {
@@ -2111,11 +2172,11 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-title {
 }
 
 .leo-exp-role-card:hover .leo-exp-company {
-  color: var(--accent-blush);
+  color: #FBE4D8;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
-  color: var(--accent);
+  color: #522B5B;
 }
 
 /* Pulsing Terracotta `Now` Badge (`.framer-hfkl8u`) */
@@ -2162,9 +2223,9 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 }
 
 .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(225, 203, 215, 0.14);
-  border-color: rgba(225, 203, 215, 0.42);
-  color: var(--text-primary);
+  background: rgba(133, 79, 108, 0.28);
+  border-color: #DFB6B2;
+  color: #FBE4D8;
 }
 
 /* ==========================================================================
@@ -2620,19 +2681,25 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 }
 
 .case-hero-stage.is-wide-slide {
-  width: 100%;
-  margin: 28px 0 8px;
-  height: auto;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  overflow: visible;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 28px 0 8px !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  display: block !important;
 }
 
-.case-hero-stage.is-wide-slide > img.single-border-mock {
-  width: 100%;
-  height: auto;
+.case-hero-stage.is-wide-slide > img,
+.case-hero-stage.is-wide-slide > img.single-border-mock,
+.sk-hero-full-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
   border-radius: 24px;
   border: none;
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.55);
