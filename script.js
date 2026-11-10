@@ -575,11 +575,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('[data-rocket-relaunch]').forEach((btn) => {
+  const rocketRelaunchBtns = document.querySelectorAll('[data-rocket-relaunch]');
+  rocketRelaunchBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       relaunchProcessRocket();
     });
   });
+
+  // Hide the rocket trigger button once the user scrolls past the hero/process area
+  if (rocketRelaunchBtns.length > 0) {
+    const updateRocketBtnVisibility = () => {
+      const heroSection = document.querySelector('.hero-viewport-wrap');
+      const processTray = document.querySelector('.leo-process-tray');
+      const targetEl = processTray || heroSection;
+      if (!targetEl) return;
+      const rect = targetEl.getBoundingClientRect();
+      // Hide once the "Design -> Prototype -> Ship" tray (or hero section) scrolls past the top nav bar
+      const isPastHero = rect.bottom < 72;
+      rocketRelaunchBtns.forEach((btn) => {
+        btn.classList.toggle('is-hidden', isPastHero);
+      });
+    };
+    window.addEventListener('scroll', updateRocketBtnVisibility, { passive: true });
+    window.addEventListener('resize', updateRocketBtnVisibility, { passive: true });
+    updateRocketBtnVisibility();
+  }
 
   const revealElements = document.querySelectorAll('.framer-reveal');
   if (revealElements.length) {
