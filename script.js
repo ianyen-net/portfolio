@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('is-loaded');
 
       // Sequential first-load hover-flash wave across the hero headline words ("Designing AI products people trust.")
+      // Fires at 2050ms, right after .jd-appear-avatar (1.0s), .jd-appear-title (1.85s), and .jd-appear-subtitle (1.95s) have settled
       const heroWords = document.querySelectorAll('.hero-hover-word');
       if (heroWords.length > 0) {
-        const startDelay = 520;
-        const stepDelay = 115;
-        const holdDuration = 290;
+        const startDelay = 2050;
+        const stepDelay = 125;
+        const holdDuration = 320;
         heroWords.forEach((word, idx) => {
           setTimeout(() => {
             word.classList.add('is-flash');
