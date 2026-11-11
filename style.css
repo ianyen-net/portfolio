@@ -771,7 +771,7 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   display: none;
 }
 
-/* Torch-Like Gradient Top Border Explosion Flash (1/4 of the hero section, lingers for 5 seconds and disappears gradually, strictly only visible in the hero section) */
+/* Torch-Like Gradient Top Border Explosion Flash (1/4 of the hero section, lingers for 5 seconds and disappears gradually, strictly only visible in the hero section, behind all hero elements) */
 .hero-top-torch-flash {
   position: fixed;
   top: 0;
@@ -780,7 +780,7 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   height: 25vh;
   min-height: 200px;
   pointer-events: none;
-  z-index: 95;
+  z-index: 1;
   opacity: 0;
   transform-origin: 50% 0%;
   transition: opacity 0.25s ease;
@@ -1395,6 +1395,8 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
       - Centered minimalist layout with `max-width: 1120px` and top 1px border
    ========================================================================== */
 .leo-section {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
