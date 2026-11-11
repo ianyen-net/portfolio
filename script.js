@@ -298,12 +298,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    const avatarCircle = avatarStage.querySelector('[data-avatar-circle]') || avatarStage.querySelector('.avatar-img-circle');
+    const realRevealEl = avatarStage.querySelector('[data-avatar-real-reveal]');
+    const faceBtn = avatarStage.querySelector('[data-avatar-face-btn]');
+    let hasTeasedRealPhotoAfterExplosion = false;
+    let teasePhotoCleanupTimer = null;
+
     triggerAvatarExplosionLook = () => {
       if (!avatarImg) return;
       if (explosionLookTimer) {
         clearTimeout(explosionLookTimer);
         explosionLookTimer = null;
       }
+      if (teasePhotoCleanupTimer) {
+        clearTimeout(teasePhotoCleanupTimer);
+        teasePhotoCleanupTimer = null;
+      }
+      avatarStage.classList.remove('is-teasing-photo');
       avatarImg.src = explosionLookSrc;
       avatarStage.classList.add('is-looking-at-explosion');
       if (tiltCard) {
@@ -321,7 +332,20 @@ document.addEventListener('DOMContentLoaded', () => {
         avatarStage.classList.remove('is-looking-at-explosion');
         avatarImg.src = avatarVariants[avatarVariantIdx];
         explosionLookTimer = null;
-      }, 4500);
+
+        // On initial load, right after the rocket has launched and the explosion effect has faded away,
+        // reveal the real person image momentarily before returning to the 3D avatar.
+        if (realRevealEl && !hasTeasedRealPhotoAfterExplosion) {
+          hasTeasedRealPhotoAfterExplosion = true;
+          if (!avatarStage.classList.contains('is-revealing-photo')) {
+            avatarStage.classList.add('is-teasing-photo');
+            teasePhotoCleanupTimer = setTimeout(() => {
+              avatarStage.classList.remove('is-teasing-photo');
+              teasePhotoCleanupTimer = null;
+            }, 2120);
+          }
+        }
+      }, 4600);
     };
 
     const advanceAvatarVariant = () => {
@@ -344,26 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       }
     };
-
-    const avatarCircle = avatarStage.querySelector('[data-avatar-circle]') || avatarStage.querySelector('.avatar-img-circle');
-    const realRevealEl = avatarStage.querySelector('[data-avatar-real-reveal]');
-    const faceBtn = avatarStage.querySelector('[data-avatar-face-btn]');
-
-    // Post-hero-load teaser: once the hero entrance and initial avatar expression cycle settle (~1.95s),
-    // briefly reveal a partial peek of the real photo so visitors notice it without hovering.
-    if (realRevealEl) {
-      setTimeout(() => {
-        if (
-          !avatarStage.classList.contains('is-revealing-photo') &&
-          !avatarStage.classList.contains('is-looking-at-explosion')
-        ) {
-          avatarStage.classList.add('is-teasing-photo');
-          setTimeout(() => {
-            avatarStage.classList.remove('is-teasing-photo');
-          }, 1880);
-        }
-      }, 1950);
-    }
 
     const resetAvatarTilt = () => {
       avatarStage.classList.remove('is-revealing-photo');
@@ -771,12 +775,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        if (rRect.top <= 28 && elapsed > 1750) {
+        const heroCardEl = document.querySelector('.hero-card-inner');
+        const heroTopEdge = heroCardEl ? heroCardEl.getBoundingClientRect().top : 0;
+        if (rRect.top <= heroTopEdge + 40 && elapsed > 1650) {
           triggerHeroTorch();
           return;
         }
       }
-      if (elapsed < 3900) {
+      if (elapsed < 3800) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();
@@ -837,33 +843,25 @@ document.addEventListener('DOMContentLoaded', () => {
     { passive: true }
   );
 
-  // Launch the rocket ONLY when the user has scrolled to see the three words ("Design -> Prototype -> Ship")
+  // Launch the rocket on initial load once the hero entrance settles (~1.15s) or when the process tray enters the viewport
   const processSectionEl = document.getElementById('process');
   const processTrayEl = document.querySelector('.leo-process-tray');
-  let hasScrolledForRocket = window.scrollY > 4;
 
   const checkAndLaunchProcessRocket = () => {
     if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
-    if (!hasScrolledForRocket) return;
     const trayRect = processTrayEl.getBoundingClientRect();
-    // Trigger as soon as the three words enter the viewport
-    if (trayRect.top < window.innerHeight - 28 && trayRect.bottom > 70) {
+    if (trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60) {
       rocketTorchScheduled = true;
       processSectionEl.classList.add('is-visible', 'is-rocket-launched');
       startRocketTorchTracker(processSectionEl);
     }
   };
 
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (window.scrollY > 4) {
-        hasScrolledForRocket = true;
-      }
-      checkAndLaunchProcessRocket();
-    },
-    { passive: true }
-  );
+  setTimeout(() => {
+    checkAndLaunchProcessRocket();
+  }, 1150);
+
+  window.addEventListener('scroll', checkAndLaunchProcessRocket, { passive: true });
   window.addEventListener('resize', checkAndLaunchProcessRocket, { passive: true });
 
   const revealElements = document.querySelectorAll('.framer-reveal');

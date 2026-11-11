@@ -751,7 +751,7 @@ body[data-theme="light"] .leo-nav-cta:hover {
   max-width: 1600px;
   min-height: 820px;
   height: auto;
-  padding: 0;
+  padding: 12px 16px 0;
   display: flex;
   flex-direction: column;
 }
@@ -761,23 +761,45 @@ body[data-theme="light"] .leo-nav-cta:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
+  padding: 8px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+body[data-theme="light"] .hero-shell-outer {
+  background: rgba(14, 31, 47, 0.045);
+  border-color: rgba(14, 31, 47, 0.08);
 }
 
 .hero-card-inner {
   position: relative;
   flex: 1;
-  border-radius: 0;
+  border-radius: 27px;
   background: var(--bg-page);
-  padding: 116px 32px 44px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 108px 32px 38px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 28px;
   overflow: hidden;
-  transition: background-color 0.35s ease;
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+body[data-theme="light"] .hero-card-inner {
+  border-color: rgba(14, 31, 47, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.hero-process-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 4px 0 0;
 }
 
 /* Subtle Dot Grid Background (`.framer-eza4av`) */
@@ -792,14 +814,37 @@ body[data-theme="light"] .leo-nav-cta:hover {
   z-index: 0;
 }
 
-/* Restrained Apple-like Hero — No noisy background radial glow */
+/* Very Faded Hue Shadow in the Background of the Hero Card (`.framer-i8j31p` from leomarlowe.framer.website) */
 .hero-radial-glow {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: 880px;
+  height: 760px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(134, 168, 207, 0.14) 0%,
+    rgba(195, 142, 180, 0.065) 42%,
+    rgba(134, 168, 207, 0) 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-theme="light"] .hero-radial-glow {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(134, 168, 207, 0.19) 0%,
+    rgba(195, 142, 180, 0.10) 42%,
+    rgba(134, 168, 207, 0) 72%
+  );
 }
 
 /* Torch-Like Gradient Top Border Explosion Flash (1/4 of the hero section, lingers for 5 seconds and disappears gradually, strictly only visible in the hero section, behind all hero elements) */
 .hero-top-torch-flash {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -1005,28 +1050,28 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   animation: none;
 }
 
-/* Post-Hero-Load Teaser: reveals a partial circular peek of the real photo so users notice it before hovering */
+/* Post-Explosion Momentary Reveal: smoothly reveals the full real person photo momentarily after the rocket explosion fades away */
 @keyframes avatarRealPhotoTeaser {
   0% {
     opacity: 0;
-    clip-path: circle(0% at 72% 32%);
+    clip-path: circle(100% at 50% 50%);
   }
   18% {
     opacity: 1;
-    clip-path: circle(56% at 60% 42%);
+    clip-path: circle(100% at 50% 50%);
   }
-  72% {
+  78% {
     opacity: 1;
-    clip-path: circle(58% at 54% 44%);
+    clip-path: circle(100% at 50% 50%);
   }
   100% {
     opacity: 0;
-    clip-path: circle(0% at 72% 32%);
+    clip-path: circle(100% at 50% 50%);
   }
 }
 
 .avatar-stage.is-teasing-photo:not(.is-revealing-photo) .avatar-real-reveal {
-  animation: avatarRealPhotoTeaser 1.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: avatarRealPhotoTeaser 2.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .avatar-stage.is-transparent-gif .avatar-img-circle .avatar-real-reveal img {
@@ -4136,16 +4181,22 @@ body[data-theme="light"] .case-h3-italic {
   transform: translateY(-2px);
 }
 
-/* Scroll Reveal Utility */
+/* Scroll Reveal Utility (Framer-style spring entrance as user scrolls down) */
 .framer-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transform: translateY(34px) scale(0.985);
+  filter: blur(4px);
+  transition:
+    opacity 0.82s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.82s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    filter 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+  will-change: opacity, transform, filter;
 }
 
 .framer-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
 }
 
 /* ==========================================================================
