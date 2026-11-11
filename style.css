@@ -2088,16 +2088,16 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 /* 3-Step Process Story Flow — Frameless Words ("Design ↝ Prototype ↝ Ship") with Handwritten Arrows & Pinterest Palette Pop */
 .leo-process-tray {
   width: 100%;
-  max-width: 820px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 8px 0;
+  padding: 4px 0;
   border-radius: 0;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 8px;
 }
 
 .hero-dock-area.is-below-process {
@@ -2115,7 +2115,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 8px 14px;
+  padding: 4px 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2357,7 +2357,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   position: relative;
   z-index: 1;
   font-family: var(--font-script);
-  font-size: clamp(32px, 4.2vw, 46px);
+  font-size: clamp(24px, 3vw, 34px);
   font-weight: 400;
   font-style: italic;
   letter-spacing: -0.01em;
@@ -2434,8 +2434,8 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
 }
 
 .process-hand-arrow {
-  width: 96px;
-  height: 36px;
+  width: 68px;
+  height: 28px;
   color: var(--text-secondary);
   opacity: 0.65;
   flex-shrink: 0;
