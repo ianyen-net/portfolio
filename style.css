@@ -960,6 +960,21 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
+/* When the rocket top-border explosion happens, the avatar tilts up and looks at the explosion in amazement */
+.avatar-stage.is-looking-at-explosion .avatar-tilt-card {
+  transform: rotateX(13deg) translateY(-5px) scale(1.045);
+  border-color: rgba(250, 204, 21, 0.45);
+  box-shadow:
+    0 -10px 28px -6px rgba(250, 204, 21, 0.32),
+    0 -4px 18px -2px rgba(236, 72, 153, 0.28),
+    0 14px 34px -10px rgba(0, 0, 0, 0.5),
+    var(--card-inner-shadow);
+}
+
+.avatar-stage.is-looking-at-explosion .avatar-img-circle img {
+  transform: translateY(1px) scale(1.05);
+}
+
 .avatar-stage.is-spinning .avatar-tilt-card {
   animation: avatar360Spin 0.72s var(--ease-out-expo);
 }

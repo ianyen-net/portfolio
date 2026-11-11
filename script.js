@@ -250,10 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  let triggerAvatarExplosionLook = () => {};
   const avatarStage = document.querySelector('.avatar-stage');
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
+    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=1';
+    let explosionLookTimer = null;
 
     // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
     const avatarVariants = [
@@ -263,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'assets/avatar_var_3_navy_victory.gif?v=26',
       'assets/avatar_var_2_orange_funny.gif?v=26',
     ];
-    // Preload all variants so hover switching is instant with zero flicker
-    avatarVariants.forEach((src) => {
+    // Preload all variants (including explosion look-up) so switching is instant with zero flicker
+    [...avatarVariants, explosionLookSrc].forEach((src) => {
       const preload = new Image();
       preload.src = src;
     });
@@ -278,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const introStepMs = 175;
       introSequence.forEach((variantIndex, step) => {
         setTimeout(() => {
+          if (avatarStage.classList.contains('is-looking-at-explosion')) return;
           avatarVariantIdx = variantIndex;
           avatarImg.src = avatarVariants[variantIndex];
           if (tiltCard) {
@@ -294,8 +298,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    triggerAvatarExplosionLook = () => {
+      if (!avatarImg) return;
+      if (explosionLookTimer) {
+        clearTimeout(explosionLookTimer);
+        explosionLookTimer = null;
+      }
+      avatarImg.src = explosionLookSrc;
+      avatarStage.classList.add('is-looking-at-explosion');
+      if (tiltCard) {
+        tiltCard.style.transform = '';
+        tiltCard.animate(
+          [
+            { transform: 'rotateX(0deg) translateY(0px) scale(0.96)' },
+            { transform: 'rotateX(16deg) translateY(-7px) scale(1.06)' },
+            { transform: 'rotateX(13deg) translateY(-5px) scale(1.045)' },
+          ],
+          { duration: 460, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
+      }
+      explosionLookTimer = setTimeout(() => {
+        avatarStage.classList.remove('is-looking-at-explosion');
+        avatarImg.src = avatarVariants[avatarVariantIdx];
+        explosionLookTimer = null;
+      }, 4500);
+    };
+
     const advanceAvatarVariant = () => {
       if (!avatarImg) return;
+      if (explosionLookTimer) {
+        clearTimeout(explosionLookTimer);
+        explosionLookTimer = null;
+      }
+      avatarStage.classList.remove('is-looking-at-explosion');
       avatarVariantIdx = (avatarVariantIdx + 1) % avatarVariants.length;
       avatarImg.src = avatarVariants[avatarVariantIdx];
       if (tiltCard) {
@@ -560,6 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroTorchFlash.classList.remove('is-flashing');
         void heroTorchFlash.offsetWidth;
         heroTorchFlash.classList.add('is-flashing');
+        triggerAvatarExplosionLook();
       } else {
         heroTorchFlash.classList.remove('is-flashing');
         heroTorchFlash.classList.add('is-outside-hero');
