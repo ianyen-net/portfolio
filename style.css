@@ -986,9 +986,9 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
-/* When the rocket top-border explosion happens, the avatar turns right & tilts up to look at the explosion in amazement (border stays identical to other avatar states) */
+/* When the rocket top-border explosion happens, the celebratory avatar is slightly zoomed in (border stays identical to other avatar states) */
 .avatar-stage.is-looking-at-explosion .avatar-img-circle img {
-  transform: translateY(3px) scale(1.02);
+  transform: translateY(4px) scale(1.07);
 }
 
 .avatar-stage.is-spinning .avatar-tilt-card {

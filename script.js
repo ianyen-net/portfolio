@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
-    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=3';
+    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=4';
     let explosionLookTimer = null;
 
     // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
