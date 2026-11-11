@@ -187,24 +187,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Live NYC Time Clock (`America/New_York`)
   const clockEl = document.querySelector('[data-nyc-time]');
+  const fullClockEls = document.querySelectorAll('[data-nyc-time-full]');
   const updateClock = () => {
-    if (!clockEl) return;
-    try {
-      const now = new Date();
-      const formatter = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/New_York',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-      });
-      clockEl.textContent = formatter.format(now);
-    } catch (e) {
-      const now = new Date();
-      clockEl.textContent = now.toTimeString().slice(0, 5);
+    const now = new Date();
+    if (clockEl) {
+      try {
+        const formatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/New_York',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
+        clockEl.textContent = formatter.format(now);
+      } catch (e) {
+        clockEl.textContent = now.toTimeString().slice(0, 5);
+      }
+    }
+    if (fullClockEls.length) {
+      try {
+        const fullFormatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/New_York',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+        });
+        const formatted = fullFormatter.format(now);
+        fullClockEls.forEach((el) => {
+          el.textContent = formatted;
+        });
+      } catch (e) {
+        fullClockEls.forEach((el) => {
+          el.textContent = now.toLocaleTimeString();
+        });
+      }
     }
   };
   updateClock();
-  setInterval(updateClock, 15000);
+  setInterval(updateClock, 1000);
 
   /* ==========================================================================
      4. ABOUTDEAN HERO AVATAR (`[data-dean-avatar]`) & LEGACY AVATAR STAGE

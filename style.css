@@ -2602,87 +2602,110 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
 }
 
 .leo-exp-role-card {
-  --exp-grad: linear-gradient(132deg, rgba(14, 31, 47, 0.88) 0%, rgba(38, 66, 90, 0.82) 54%, rgba(134, 168, 207, 0.34) 100%);
-  --exp-grad-light: linear-gradient(132deg, rgba(225, 236, 249, 0.92) 0%, rgba(134, 168, 207, 0.28) 55%, rgba(225, 203, 215, 0.35) 100%);
-  --exp-accent: #9CC0E8;
-  --exp-accent-light: #1E3A5F;
-  --exp-mark-bg: linear-gradient(145deg, #1E3752 0%, #0E1F2F 100%);
   position: relative;
   width: 100%;
-  padding: 18px 22px 18px 18px;
+  padding: 20px 24px 20px 20px;
   border-radius: 20px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background-color: #121212;
+  background-image:
+    radial-gradient(65% 110% at 92% -10%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid transparent;
+  box-shadow:
+    0 14px 34px -14px rgba(0, 0, 0, 0.55),
+    0 2px 6px -1px rgba(0, 0, 0, 0.32);
   display: flex;
   align-items: center;
   gap: 16px;
   overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition:
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.35s ease,
-    border-color 0.35s ease,
     box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* 4 Distinct Cohesive Variations from the Twilight-Aurora Family (Pin 2181499817012571) */
-.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(1) {
-  --exp-grad: linear-gradient(132deg, rgba(14, 31, 47, 0.90) 0%, rgba(38, 66, 90, 0.84) 52%, rgba(134, 168, 207, 0.38) 100%);
-  --exp-grad-light: linear-gradient(132deg, rgba(232, 241, 252, 0.95) 0%, rgba(134, 168, 207, 0.32) 55%, rgba(195, 142, 180, 0.22) 100%);
-  --exp-accent: #A5C6EC;
-  --exp-accent-light: #1B3654;
-  --exp-mark-bg: linear-gradient(145deg, #26425A 0%, #0E1F2F 100%);
-}
-
-.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(2) {
-  --exp-grad: linear-gradient(132deg, rgba(24, 24, 48, 0.90) 0%, rgba(72, 52, 96, 0.82) 52%, rgba(195, 142, 180, 0.38) 100%);
-  --exp-grad-light: linear-gradient(132deg, rgba(246, 235, 244, 0.95) 0%, rgba(195, 142, 180, 0.30) 55%, rgba(134, 168, 207, 0.24) 100%);
-  --exp-accent: #E2A9D2;
-  --exp-accent-light: #4A2849;
-  --exp-mark-bg: linear-gradient(145deg, #4D3664 0%, #191932 100%);
-}
-
-.exp-timeline-group:nth-of-type(1) .leo-exp-role-card:nth-child(3) {
-  --exp-grad: linear-gradient(132deg, rgba(18, 30, 52, 0.90) 0%, rgba(56, 68, 106, 0.82) 52%, rgba(225, 203, 215, 0.36) 100%);
-  --exp-grad-light: linear-gradient(132deg, rgba(238, 236, 250, 0.95) 0%, rgba(164, 158, 208, 0.28) 55%, rgba(225, 203, 215, 0.36) 100%);
-  --exp-accent: #E8CEDB;
-  --exp-accent-light: #2E385C;
-  --exp-mark-bg: linear-gradient(145deg, #38446A 0%, #121E34 100%);
-}
-
-.exp-timeline-group:nth-of-type(2) .leo-exp-role-card:nth-child(1) {
-  --exp-grad: linear-gradient(132deg, rgba(15, 34, 48, 0.90) 0%, rgba(36, 76, 98, 0.82) 52%, rgba(142, 188, 218, 0.36) 100%);
-  --exp-grad-light: linear-gradient(132deg, rgba(230, 244, 250, 0.95) 0%, rgba(134, 178, 208, 0.30) 55%, rgba(225, 203, 215, 0.26) 100%);
-  --exp-accent: #9FD0EE;
-  --exp-accent-light: #193E52;
-  --exp-mark-bg: linear-gradient(145deg, #244C62 0%, #0F2230 100%);
-}
-
-.leo-exp-role-card::before {
+/* Top-to-bottom fading 1px liquid-glass border (exact clientele.framer.website `.framer-63x8lm` spec) */
+.leo-exp-role-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--exp-grad);
-  opacity: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  -webkit-mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
+  mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
   pointer-events: none;
-  transition: opacity 0.38s ease;
+  z-index: 2;
+  transition: border-color 0.35s ease;
+}
+
+/* Soft diagonal blurred light ray inside card (`clientele.framer.website` `.framer-1c33wqp`) */
+.leo-exp-role-card::before {
+  content: '';
+  position: absolute;
+  top: -110%;
+  right: -8%;
+  width: 340px;
+  height: 340px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 48%, transparent 75%);
+  filter: blur(48px);
+  opacity: 0.45;
+  transform: rotate(-18deg);
+  pointer-events: none;
+  transition: opacity 0.38s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="light"] .leo-exp-role-card {
+  background-color: rgba(255, 255, 255, 0.86);
+  background-image:
+    radial-gradient(65% 110% at 92% -10%, rgba(134, 168, 207, 0.18) 0%, rgba(225, 203, 215, 0.10) 48%, transparent 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 244, 246, 0.88) 100%);
+  box-shadow:
+    0 14px 32px -14px rgba(14, 31, 47, 0.10),
+    0 2px 6px -1px rgba(14, 31, 47, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+body[data-theme="light"] .leo-exp-role-card::after {
+  border-color: rgba(14, 31, 47, 0.12);
 }
 
 body[data-theme="light"] .leo-exp-role-card::before {
-  background: var(--exp-grad-light);
+  background: linear-gradient(135deg, rgba(134, 168, 207, 0.28) 0%, rgba(195, 142, 180, 0.12) 48%, transparent 75%);
+  opacity: 0.55;
 }
 
 .leo-exp-role-card:hover {
-  transform: translateY(-4px);
-  background: var(--bg-elevated);
-  border-color: rgba(134, 168, 207, 0.28);
-  box-shadow: 0 20px 42px -16px rgba(14, 31, 47, 0.55);
+  transform: translateY(-3px);
+  background-color: #171717;
+  box-shadow:
+    0 20px 42px -14px rgba(0, 0, 0, 0.68),
+    0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="light"] .leo-exp-role-card:hover {
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 20px 42px -14px rgba(14, 31, 47, 0.15),
+    0 4px 12px -2px rgba(14, 31, 47, 0.06),
+    inset 0 1px 0 #FFFFFF;
+}
+
+.leo-exp-role-card:hover::after {
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+body[data-theme="light"] .leo-exp-role-card:hover::after {
+  border-color: rgba(14, 31, 47, 0.20);
 }
 
 .leo-exp-role-card:hover::before {
-  opacity: 1;
+  opacity: 0.78;
+  transform: rotate(-14deg) scale(1.06);
 }
 
-/* 46x46px Theme-Adaptive Brand Logo Squircle (`Mark` `.framer-1hm35p5`) */
+/* 46x46px Liquid-Glass Brand Logo Squircle (`clientele.framer.website` `.framer-5v2Ux` spec) */
 .leo-exp-mark,
 .leo-exp-mark.is-theme-logo {
   position: relative;
@@ -2690,8 +2713,14 @@ body[data-theme="light"] .leo-exp-role-card::before {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
+  background-color: rgba(13, 13, 13, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  box-shadow:
+    0px 4px 10px -2px rgba(0, 0, 0, 0.24),
+    0px 2px 2px -1px rgba(0, 0, 0, 0.16),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.10);
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -2703,15 +2732,18 @@ body[data-theme="light"] .leo-exp-role-card::before {
   letter-spacing: 0.03em;
   transition:
     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.35s ease,
+    background-color 0.35s ease,
     box-shadow 0.35s ease,
     color 0.35s ease;
 }
 
 body[data-theme="light"] .leo-exp-mark,
 body[data-theme="light"] .leo-exp-mark.is-theme-logo {
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
+  background-color: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0px 4px 10px -2px rgba(14, 31, 47, 0.08),
+    0px 2px 2px -1px rgba(14, 31, 47, 0.04),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.11);
   color: var(--text-primary);
 }
 
@@ -2730,13 +2762,19 @@ body[data-theme="light"] .exp-theme-logo-img {
 
 .leo-exp-role-card:hover .leo-exp-mark {
   transform: scale(1.06) rotate(-3deg);
-  background: var(--exp-mark-bg);
-  box-shadow: 0 8px 20px rgba(14, 31, 47, 0.42), inset 0 0 0 1px rgba(225, 203, 215, 0.32);
-  color: var(--exp-accent);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0px 8px 18px -4px rgba(0, 0, 0, 0.4),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
 }
 
-body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
-  filter: none;
+body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-mark {
+  background-color: #FFFFFF;
+  box-shadow:
+    0px 8px 18px -4px rgba(14, 31, 47, 0.12),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.16);
+  color: var(--text-primary);
 }
 
 .leo-exp-mark svg {
@@ -2774,27 +2812,34 @@ body[data-theme="light"] .leo-exp-role-card:hover .exp-theme-logo-img {
 }
 
 .leo-exp-role-card:hover .leo-exp-company {
-  color: var(--exp-accent);
+  color: #FFFFFF;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
-  color: var(--exp-accent-light);
+  color: #0E1F2F;
 }
 
-/* Pulsing Terracotta `Now` Badge (`.framer-hfkl8u`) */
+/* Liquid-Glass `Now` Pill Badge (`clientele.framer.website` `.framer-kkkzf6` spec) */
 .leo-exp-now-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 8px;
-  border-radius: 100px;
-  background: var(--accent-soft);
-  color: var(--accent);
+  padding: 4px 9px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+body[data-theme="light"] .leo-exp-now-badge {
+  background-color: rgba(14, 31, 47, 0.04);
+  border-color: rgba(14, 31, 47, 0.12);
+  color: var(--text-primary);
 }
 
 .leo-exp-title {
@@ -2806,20 +2851,21 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-company {
 }
 
 .leo-exp-role-card:hover .leo-exp-title {
-  color: #F1F5F9;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-title {
-  color: var(--exp-accent-light);
+  color: rgba(14, 31, 47, 0.85);
 }
 
-/* Right Period Pill (`.framer-f1qw7t`) */
+/* Right Period Pill (`clientele.framer.website` liquid-glass pill) */
 .leo-exp-period {
   position: relative;
   z-index: 1;
   padding: 7px 12px;
   border-radius: 100px;
-  border: 1px solid var(--border-subtle);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -2833,15 +2879,21 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-title {
     color 0.35s ease;
 }
 
+body[data-theme="light"] .leo-exp-period {
+  background-color: rgba(14, 31, 47, 0.03);
+  border-color: rgba(14, 31, 47, 0.10);
+}
+
 .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(14, 31, 47, 0.65);
-  border-color: rgba(225, 203, 215, 0.28);
-  color: var(--exp-accent);
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
 }
 
 body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--exp-accent-light);
+  background-color: rgba(14, 31, 47, 0.06);
+  border-color: rgba(14, 31, 47, 0.18);
+  color: #0E1F2F;
 }
 
 /* ==========================================================================
@@ -4960,6 +5012,462 @@ body[data-theme="light"] .editor-ba-card:not(.is-after) .editor-ba-label {
     height: 28px;
   }
 }
+
+/* ==========================================================================
+   CLIENTELE LIQUID-GLASS "HOW I CAN HELP YOU?" CARD & FOOTER
+   Cloned from https://clientele.framer.website/ (`.framer-10h0qxz` & `.framer-f84p5`)
+   Theme-adaptive: Dark Liquid Glass (`#121212`) + Light Pearl Liquid Glass
+   ========================================================================== */
+.clientele-help-section {
+  padding-top: 24px;
+  padding-bottom: 12px;
+}
+
+.clientele-help-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #121212;
+  background-image:
+    radial-gradient(65% 110% at 88% -10%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 48%, transparent 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 44px -18px rgba(0, 0, 0, 0.62),
+    0 2px 6px -1px rgba(0, 0, 0, 0.35);
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="light"] .clientele-help-card {
+  background-color: rgba(255, 255, 255, 0.88);
+  background-image:
+    radial-gradient(65% 110% at 88% -10%, rgba(134, 168, 207, 0.20) 0%, rgba(225, 203, 215, 0.12) 48%, transparent 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 244, 246, 0.90) 100%);
+  box-shadow:
+    0 20px 44px -18px rgba(14, 31, 47, 0.12),
+    0 2px 6px -1px rgba(14, 31, 47, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+/* Top-to-bottom fading 1px border (`.framer-n72tb1` / `.framer-63x8lm`) */
+.clientele-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  -webkit-mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
+  mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+body[data-theme="light"] .clientele-card-border {
+  border-color: rgba(14, 31, 47, 0.12);
+}
+
+/* Blurred diagonal SVG light ray (`.framer-1c33wqp`) */
+.clientele-card-glow {
+  position: absolute;
+  top: -335px;
+  right: -51px;
+  width: 716px;
+  height: 743px;
+  filter: blur(64px);
+  -webkit-filter: blur(64px);
+  opacity: 0.20;
+  color: #FFFFFF;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.clientele-card-glow svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+body[data-theme="light"] .clientele-card-glow {
+  color: #86A8CF;
+  opacity: 0.30;
+}
+
+.clientele-help-content {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px;
+}
+
+.clientele-help-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.clientele-help-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.clientele-help-script {
+  font-family: var(--font-script), 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+  letter-spacing: 0;
+  color: var(--text-primary);
+}
+
+.clientele-help-services {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px;
+}
+
+.clientele-service-item {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.clientele-service-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clientele-service-title {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+/* Liquid-Glass Pill Badge (`.framer-kkkzf6` / `.framer-lr91y7`) */
+.clientele-service-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+body[data-theme="light"] .clientele-service-badge {
+  background-color: rgba(14, 31, 47, 0.04);
+  border-color: rgba(14, 31, 47, 0.12);
+}
+
+.clientele-service-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Full-width Liquid Glass Button (`.framer-brhU1`) */
+.clientele-glass-btn {
+  position: relative;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: rgba(13, 13, 13, 0.50);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0px 4px 10px -2px rgba(0, 0, 0, 0.18),
+    0px 2px 2px -1px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.clientele-glass-btn:hover {
+  transform: translateY(-1.5px);
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0px 8px 20px -4px rgba(0, 0, 0, 0.32),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.18),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.18);
+}
+
+body[data-theme="light"] .clientele-glass-btn {
+  background-color: rgba(255, 255, 255, 0.84);
+  box-shadow:
+    0px 4px 10px -2px rgba(14, 31, 47, 0.08),
+    0px 2px 2px -1px rgba(14, 31, 47, 0.04),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.12);
+}
+
+body[data-theme="light"] .clientele-glass-btn:hover {
+  background-color: #FFFFFF;
+  box-shadow:
+    0px 8px 20px -4px rgba(14, 31, 47, 0.14),
+    0px 2px 4px -1px rgba(14, 31, 47, 0.06),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.20);
+}
+
+/* Right-side Avatar with Bottom Fade Mask (`.framer-1jkbowb`) */
+.clientele-help-image {
+  position: relative;
+  z-index: 1;
+  width: 270px;
+  height: 291px;
+  flex: none;
+  border-radius: 14px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(#000 60.2882%, transparent 100%);
+  mask: linear-gradient(#000 60.2882%, transparent 100%);
+}
+
+.clientele-help-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  border-radius: 14px;
+}
+
+/* ==========================================================================
+   CLIENTELE FOOTER (`.framer-f84p5` / `.framer-1v1c20b`)
+   ========================================================================== */
+.clientele-footer {
+  width: 100%;
+  padding: 64px 20px 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.clientele-footer-inner {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  text-align: center;
+}
+
+.clientele-footer-logo {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  transition: opacity 0.25s ease;
+}
+
+.clientele-footer-logo:hover {
+  opacity: 0.82;
+}
+
+.clientele-footer-logo-strong {
+  font-weight: 600;
+}
+
+.clientele-footer-time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.clientele-footer-clock {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.clientele-footer-tz {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text-secondary);
+}
+
+.clientele-footer-socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* 36x36px Liquid-Glass Social Button (`.framer-5v2Ux`) */
+.clientele-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(13, 13, 13, 0.50);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0px 4px 10px -2px rgba(0, 0, 0, 0.14),
+    0px 2px 2px -1px rgba(0, 0, 0, 0.10),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.10);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.clientele-social-btn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.clientele-social-btn:hover {
+  transform: translateY(-2px);
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0px 8px 18px -4px rgba(0, 0, 0, 0.28),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.18);
+}
+
+body[data-theme="light"] .clientele-social-btn {
+  background-color: rgba(255, 255, 255, 0.84);
+  box-shadow:
+    0px 4px 10px -2px rgba(14, 31, 47, 0.08),
+    0px 2px 2px -1px rgba(14, 31, 47, 0.04),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.11);
+}
+
+body[data-theme="light"] .clientele-social-btn:hover {
+  background-color: #FFFFFF;
+  box-shadow:
+    0px 8px 18px -4px rgba(14, 31, 47, 0.14),
+    0px 0px 0px 1px rgba(14, 31, 47, 0.18);
+}
+
+.clientele-footer-credits {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text-secondary);
+}
+
+.clientele-footer-credits strong {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.clientele-footer-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: var(--text-secondary);
+  opacity: 0.35;
+}
+
+@media (max-width: 960px) {
+  .clientele-help-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .clientele-help-content {
+    padding: 12px;
+  }
+
+  .clientele-help-services {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .clientele-help-image {
+    width: 100%;
+    max-width: 280px;
+    height: 260px;
+    margin: 0 auto;
+  }
+}
+
 
 
 

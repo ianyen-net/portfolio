@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=26" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=54">
+  <link rel="stylesheet" href="style.css?v=55">
 </head>
 <body data-theme="dark">
 
@@ -282,18 +282,7 @@
             <div class="dock-contact-tooltip" aria-hidden="true">Antigravity</div>
           </div>
 
-          <!-- Tool 02: Claude Code (Deep Midnight Indigo Squircle) -->
-          <div class="dock-item-wrap" style="--tile-tint: #0C1D4B;">
-            <div class="dock-tile" aria-label="Claude Code">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-              </svg>
-            </div>
-            <div class="dock-contact-tooltip" aria-hidden="true">Claude Code</div>
-          </div>
-
-          <!-- Tool 03: GitHub (Clickable Link to Ian's GitHub) -->
+          <!-- Tool 02: GitHub (Clickable Link to Ian's GitHub) -->
           <a href="https://github.com/ianyen-net" target="_blank" rel="noopener noreferrer" class="dock-item-wrap" style="--tile-tint: #4C3B78; text-decoration: none;" aria-label="View Ian Yen's GitHub">
             <div class="dock-tile" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -303,18 +292,7 @@
             <div class="dock-contact-tooltip" aria-hidden="true">GitHub ↗</div>
           </a>
 
-          <!-- Tool 04: HTML / CSS / JS (Plum Mauve Squircle) -->
-          <div class="dock-item-wrap" style="--tile-tint: #7A5878;">
-            <div class="dock-tile" aria-label="HTML / CSS / JS">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
-                <path d="M7 8h10M7 12h6"/>
-              </svg>
-            </div>
-            <div class="dock-contact-tooltip" aria-hidden="true">HTML / CSS / JS</div>
-          </div>
-
-          <!-- Tool 05: Figma (Slate Petrol Squircle — Last) -->
+          <!-- Tool 03: Figma (Slate Petrol Squircle — Last) -->
           <div class="dock-item-wrap" style="--tile-tint: #26425A;">
             <div class="dock-tile" aria-label="Figma">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -681,65 +659,109 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         6. "HOW I CAN HELP YOU?" LIQUID GLASS CARD (Homepage Only — cloned from https://clientele.framer.website/ `#services`)
+         ==================================================================== -->
+    <section class="leo-section no-top-border framer-reveal" id="contact" style="padding-top: 24px; padding-bottom: 32px;">
+      <div class="clientele-help-card">
+        <div class="clientele-card-border" aria-hidden="true"></div>
+        <div class="clientele-card-glow" aria-hidden="true">
+          <svg viewBox="0 0 716 743" fill="none" aria-hidden="true">
+            <path d="M 519 0.5 L 0.5 743 L 715.5 20 Z" fill="currentColor"></path>
+          </svg>
+        </div>
+
+        <div class="clientele-help-content">
+          <div class="clientele-help-container">
+            <h2 class="clientele-help-heading">
+              How I can help <span class="clientele-help-script">you?</span>
+            </h2>
+
+            <div class="clientele-help-services">
+              <div class="clientele-service-item">
+                <div class="clientele-service-head">
+                  <h6 class="clientele-service-title">0-to-1 AI &amp; Product Design</h6>
+                  <span class="clientele-service-badge">End-to-End UX</span>
+                </div>
+                <p class="clientele-service-desc">
+                  Designing intuitive, human-centered AI experiences, agentic workflows, and consumer products from concept to launch.
+                </p>
+              </div>
+
+              <div class="clientele-service-item">
+                <div class="clientele-service-head">
+                  <h6 class="clientele-service-title">Design Systems &amp; Prototyping</h6>
+                  <span class="clientele-service-badge">Interactive Craft</span>
+                </div>
+                <p class="clientele-service-desc">
+                  Building high-craft interactive prototypes, scalable multi-platform patterns, and cohesive product ecosystems.
+                </p>
+              </div>
+            </div>
+
+            <a href="mailto:ianyenyh@gmail.com?subject=Reaching%20Out%20via%20Portfolio" class="clientele-glass-btn">
+              <span>Get In Touch</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"></path>
+                <path d="M7 7h10v10"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="clientele-help-image" aria-hidden="true">
+          <img src="assets/avatar_var_3_navy_victory.gif?v=26" alt="Ian Yen 3D Avatar" loading="lazy">
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ====================================================================
-       6. FOOTER WRAP — "Let’s build something good." (`.framer-1vw9b7e` in leomarlowe)
-          Linked to Ian Yen's exact email (`ianyenyh@gmail.com`), LinkedIn
-          (`https://www.linkedin.com/in/ian-yen/`), and Resume PDF.
+       7. FOOTER — Cloned from https://clientele.framer.website/ (`.framer-Np3YN` + `.framer-oZmbG`)
        ==================================================================== -->
-  <footer class="leo-footer-outer" id="contact">
-    <div class="leo-footer-wrap">
-      <div class="leo-footer-invite">
-        <!-- Status Pill (`.framer-zuxted`) -->
-        <div class="leo-footer-status-pill">
-          <span class="pulse-dot-wrap" aria-hidden="true">
-            <span class="pulse-dot-ring"></span>
-            <span class="pulse-dot-core"></span>
-          </span>
-          <span>Available for new opportunities</span>
-        </div>
+  <footer class="clientele-footer">
+    <div class="clientele-footer-inner">
+      <a href="#top" class="clientele-footer-logo" aria-label="Back to top">
+        Ian<span class="clientele-footer-logo-strong">Yen</span>
+      </a>
 
-        <!-- Heading (`.framer-tc74t8`) -->
-        <h2 class="leo-footer-heading">
-          Let’s build <span class="text-accent">something good.</span>
-        </h2>
-
-        <!-- Primary Actions (`.framer-19w6mu6`) -->
-        <div class="leo-footer-actions">
-          <a href="mailto:ianyenyh@gmail.com?subject=Reaching%20Out%20via%20Portfolio" class="leo-magnetic-btn">
-            <span class="leo-btn-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="3.5"></rect>
-                <path d="M4 7.5l8 5.5 8-5.5"></path>
-              </svg>
-              <span>ianyenyh@gmail.com</span>
-            </span>
-          </a>
-
-          <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="leo-magnetic-btn is-secondary">
-            <span class="leo-btn-label">
-              <span>Connect on LinkedIn</span>
-              <span class="leo-btn-arrow" aria-hidden="true">↗</span>
-            </span>
-          </a>
-        </div>
+      <div class="clientele-footer-time-block">
+        <div class="clientele-footer-clock" data-nyc-time-full>12:00:00 PM</div>
+        <p class="clientele-footer-tz">Local time in New York, United States</p>
       </div>
 
-      <!-- Bottom Meta Row (`.framer-s51sll`) -->
-      <div class="leo-footer-meta-bar">
-        <span>&copy; 2026 Ian Yen</span>
-        <div class="leo-footer-meta-right">
-          <span>New York, NY &middot; EST</span>
-          <a href="#top" class="leo-back-top-link">Back to top ↑</a>
-        </div>
-      </div>
+      <div class="clientele-footer-socials">
+        <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="clientele-social-btn" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
 
-      <!-- Giant Wordmark (`.framer-187v9rt`) -->
-      <div class="leo-footer-wordmark" aria-hidden="true">Ian Yen</div>
+        <a href="https://github.com/ianyen-net" target="_blank" rel="noopener noreferrer" class="clientele-social-btn" aria-label="GitHub" title="GitHub">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+
+        <a href="mailto:ianyenyh@gmail.com?subject=Reaching%20Out%20via%20Portfolio" class="clientele-social-btn" aria-label="Email Ian Yen" title="Email">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+            <path d="M4 7.5l8 5.5 8-5.5"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="clientele-footer-credits">
+      <span>&copy; 2026 Ian Yen</span>
+      <span class="clientele-footer-dot" aria-hidden="true">&bull;</span>
+      <span>Created by <a href="#top">Ian Yen</a></span>
     </div>
   </footer>
 
-  <script src="script.js?v=54"></script>
+  <script src="script.js?v=55"></script>
 </body>
 </html>
