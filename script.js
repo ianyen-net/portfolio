@@ -497,12 +497,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let rocketTorchScheduled = false;
   let activeRocketTrackRaf = null;
 
-  // True only while the user is still in the hero section (the 1/3-height top torch explosion stays inside the hero section and never bleeds into the work section below)
+  // True only while the user is still in the hero section (the 1/4-height top torch explosion stays inside the hero section and never bleeds into the work section below)
   const isUserInHeroSection = () => {
     const heroSection = document.querySelector('.hero-viewport-wrap');
     if (!heroSection) return false;
     const heroRect = heroSection.getBoundingClientRect();
-    const minHeroRemaining = Math.max(280, window.innerHeight * 0.36);
+    const minHeroRemaining = Math.max(200, window.innerHeight * 0.27);
     return heroRect.bottom > minHeroRemaining;
   };
 
