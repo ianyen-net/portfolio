@@ -574,12 +574,35 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', syncHeroTorchBounds, { passive: true });
   syncHeroTorchBounds();
 
+  const rocketRelaunchBtns = document.querySelectorAll('[data-rocket-relaunch]');
+  let rocketIdleBtnTimer = null;
+
+  const setRocketActionState = (inAction) => {
+    if (rocketIdleBtnTimer) {
+      clearTimeout(rocketIdleBtnTimer);
+      rocketIdleBtnTimer = null;
+    }
+    rocketRelaunchBtns.forEach((btn) => {
+      btn.classList.toggle('is-hidden', inAction);
+    });
+    if (inAction) {
+      // Show the rocket launch button next to "Ship" as soon as the 3.667s rocket launch sequence finishes
+      rocketIdleBtnTimer = setTimeout(() => {
+        rocketRelaunchBtns.forEach((btn) => {
+          btn.classList.remove('is-hidden');
+        });
+        rocketIdleBtnTimer = null;
+      }, 3680);
+    }
+  };
+
   const startRocketTorchTracker = (processSectionEl) => {
     if (!heroTorchFlash || !processSectionEl) return;
     if (activeRocketTrackRaf) {
       cancelAnimationFrame(activeRocketTrackRaf);
       activeRocketTrackRaf = null;
     }
+    setRocketActionState(true);
     heroTorchFlash.classList.remove('is-flashing');
     syncHeroTorchBounds();
 
@@ -661,35 +684,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const rocketRelaunchBtns = document.querySelectorAll('[data-rocket-relaunch]');
   rocketRelaunchBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       relaunchProcessRocket();
     });
   });
 
-  // Hide the rocket trigger button once the user scrolls past the hero/process area
-  if (rocketRelaunchBtns.length > 0) {
-    const updateRocketBtnVisibility = () => {
-      const heroSection = document.querySelector('.hero-viewport-wrap');
-      const processTray = document.querySelector('.leo-process-tray');
-      const targetEl = processTray || heroSection;
-      if (!targetEl) return;
-      const rect = targetEl.getBoundingClientRect();
-      // Hide once the "Design -> Prototype -> Ship" tray (or hero section) scrolls past the top nav bar
-      const isPastHero = rect.bottom < 72;
-      rocketRelaunchBtns.forEach((btn) => {
-        btn.classList.toggle('is-hidden', isPastHero);
-      });
-      // Immediately hide the top torch explosion if the user scrolls past the hero section
+  // Immediately hide the top torch explosion if the user scrolls past the hero section
+  window.addEventListener(
+    'scroll',
+    () => {
       if (heroTorchFlash && !isUserInHeroSection()) {
         heroTorchFlash.classList.remove('is-flashing');
       }
-    };
-    window.addEventListener('scroll', updateRocketBtnVisibility, { passive: true });
-    window.addEventListener('resize', updateRocketBtnVisibility, { passive: true });
-    updateRocketBtnVisibility();
-  }
+    },
+    { passive: true }
+  );
 
   // Launch the rocket ONLY when the user has scrolled to see the three words ("Design -> Prototype -> Ship")
   const processSectionEl = document.getElementById('process');
