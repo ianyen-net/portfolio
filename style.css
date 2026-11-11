@@ -5079,9 +5079,7 @@ body[data-theme="light"] .editor-ba-card:not(.is-after) .editor-ba-label {
   position: relative;
   width: 100%;
   border-radius: 28px;
-  background:
-    radial-gradient(65% 90% at 50% 0%, rgba(134, 168, 207, 0.14) 0%, rgba(38, 66, 90, 0.10) 52%, transparent 80%),
-    rgba(11, 22, 40, 0.88);
+  background: var(--nav-bg);
   border: 1px solid var(--border-subtle);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
