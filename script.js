@@ -576,12 +576,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
-        if (rRect.top <= 28 && performance.now() - startTrack > 650) {
+        if (rRect.top <= 28 && performance.now() - startTrack > 3100) {
           triggerHeroTorch();
           return;
         }
       }
-      if (performance.now() - startTrack < 2500) {
+      if (performance.now() - startTrack < 5200) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();
