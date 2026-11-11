@@ -986,7 +986,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
-/* Cursor-Localized Real Photo Spotlight Reveal Layer on Avatar Hover */
+/* Full Real Photo Reveal Layer on Avatar Hover */
 .avatar-real-reveal {
   position: absolute;
   inset: 0;
@@ -995,19 +995,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   pointer-events: none;
   z-index: 3;
   opacity: 0;
-  transition: opacity 0.22s ease;
-  -webkit-mask-image: radial-gradient(
-    circle 56px at var(--spot-x, 50%) var(--spot-y, 50%),
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.94) 55%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-image: radial-gradient(
-    circle 56px at var(--spot-x, 50%) var(--spot-y, 50%),
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.94) 55%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .avatar-stage.is-revealing-photo .avatar-real-reveal {
@@ -1019,8 +1007,13 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.02);
+  transform: scale(1.05);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   filter: none;
+}
+
+.avatar-stage.is-revealing-photo .avatar-img-circle .avatar-real-reveal img {
+  transform: scale(1.01);
 }
 
 /* When the rocket top-border explosion happens, the celebratory avatar is slightly zoomed in (border stays identical to other avatar states) */

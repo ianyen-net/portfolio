@@ -371,12 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (realRevealEl && avatarCircle) {
-        const cRect = avatarCircle.getBoundingClientRect();
-        const cx = e.clientX - cRect.left;
-        const cy = e.clientY - cRect.top;
-        realRevealEl.style.setProperty('--spot-x', `${cx.toFixed(1)}px`);
-        realRevealEl.style.setProperty('--spot-y', `${cy.toFixed(1)}px`);
+      if (realRevealEl) {
         avatarStage.classList.add('is-revealing-photo');
       }
     });
