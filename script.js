@@ -577,6 +577,48 @@ document.addEventListener('DOMContentLoaded', () => {
   const rocketRelaunchBtns = document.querySelectorAll('[data-rocket-relaunch]');
   let rocketIdleBtnTimer = null;
 
+  // Prepare breakable text pieces in the hero headline & subtitle so they part around the ascending rocket
+  const breakableHeroPieces = [];
+  document.querySelectorAll('.hero-fraunces-title .hero-hover-word').forEach((wordEl) => {
+    const rawText = wordEl.textContent || '';
+    if (!rawText) return;
+    wordEl.textContent = '';
+    Array.from(rawText).forEach((ch) => {
+      const span = document.createElement('span');
+      span.className = 'rocket-breakable-piece is-char';
+      span.textContent = ch;
+      wordEl.appendChild(span);
+      breakableHeroPieces.push(span);
+    });
+  });
+
+  const subtitleEl = document.querySelector('.hero-subtitle-line');
+  if (subtitleEl) {
+    const tokens = (subtitleEl.textContent || '').trim().split(/\s+/);
+    if (tokens.length > 0) {
+      subtitleEl.textContent = '';
+      tokens.forEach((tok, idx) => {
+        const span = document.createElement('span');
+        span.className = 'rocket-breakable-piece is-subword';
+        span.textContent = tok;
+        subtitleEl.appendChild(span);
+        if (idx < tokens.length - 1) {
+          subtitleEl.appendChild(document.createTextNode(' '));
+        }
+        breakableHeroPieces.push(span);
+      });
+    }
+  }
+
+  const resetBreakableHeroPieces = () => {
+    breakableHeroPieces.forEach((p) => {
+      if (p.classList.contains('is-parting')) {
+        p.classList.remove('is-parting');
+        p.style.transform = '';
+      }
+    });
+  };
+
   const setRocketActionState = (inAction) => {
     if (rocketIdleBtnTimer) {
       clearTimeout(rocketIdleBtnTimer);
@@ -586,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('is-hidden', inAction);
     });
     if (inAction) {
-      // Show the rocket launch button next to "Ship" as soon as the 3.667s rocket launch sequence finishes
+      // Show the rocket launch button next to "Launch" as soon as the 3.667s rocket launch sequence finishes
       rocketIdleBtnTimer = setTimeout(() => {
         rocketRelaunchBtns.forEach((btn) => {
           btn.classList.remove('is-hidden');
@@ -602,16 +644,19 @@ document.addEventListener('DOMContentLoaded', () => {
       cancelAnimationFrame(activeRocketTrackRaf);
       activeRocketTrackRaf = null;
     }
+    resetBreakableHeroPieces();
     setRocketActionState(true);
     heroTorchFlash.classList.remove('is-flashing');
     syncHeroTorchBounds();
 
     const rocketEl = processSectionEl.querySelector('.ship-rocket-launch');
     let torchFired = false;
+    let pieceCenters = null;
 
     const triggerHeroTorch = () => {
       if (torchFired) return;
       torchFired = true;
+      resetBreakableHeroPieces();
       // Only show the explosion effect if the user has NOT scrolled past the hero section
       if (isUserInHeroSection()) {
         heroTorchFlash.classList.remove('is-outside-hero');
@@ -630,17 +675,57 @@ document.addEventListener('DOMContentLoaded', () => {
       if (torchFired) return;
       if (!isUserInHeroSection()) {
         torchFired = true;
+        resetBreakableHeroPieces();
         heroTorchFlash.classList.remove('is-flashing');
         return;
       }
+      const elapsed = performance.now() - startTrack;
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
-        if (rRect.top <= 28 && performance.now() - startTrack > 1750) {
+
+        // While the rocket is ascending (after 1.55s), break/part any hero text pieces in its flight path
+        if (elapsed >= 1550 && breakableHeroPieces.length > 0) {
+          if (!pieceCenters) {
+            pieceCenters = breakableHeroPieces.map((el) => {
+              const rect = el.getBoundingClientRect();
+              return {
+                el,
+                cx: rect.left + rect.width * 0.5,
+                cy: rect.top + rect.height * 0.5,
+              };
+            });
+          }
+          const rx = rRect.left + rRect.width * 0.5;
+          const rMidY = rRect.top + rRect.height * 0.42;
+          const halfSpanY = 88;
+          const maxSpanX = 175;
+
+          for (let i = 0; i < pieceCenters.length; i++) {
+            const item = pieceCenters[i];
+            const dy = item.cy - rMidY;
+            const dx = item.cx - rx;
+            if (Math.abs(dy) < halfSpanY && Math.abs(dx) < maxSpanX) {
+              const fy = Math.sin((1 - Math.abs(dy) / halfSpanY) * (Math.PI * 0.5));
+              const fx = Math.pow(1 - Math.abs(dx) / maxSpanX, 1.3);
+              const dir = dx < 0 ? -1 : 1;
+              const pushX = dir * (52 * fx + 22) * fy;
+              const pushY = -10 * fx * fy;
+              const rot = dir * 15 * fx * fy;
+              item.el.classList.add('is-parting');
+              item.el.style.transform = `translate3d(${pushX.toFixed(1)}px, ${pushY.toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg)`;
+            } else if (item.el.classList.contains('is-parting')) {
+              item.el.classList.remove('is-parting');
+              item.el.style.transform = '';
+            }
+          }
+        }
+
+        if (rRect.top <= 28 && elapsed > 1750) {
           triggerHeroTorch();
           return;
         }
       }
-      if (performance.now() - startTrack < 3900) {
+      if (elapsed < 3900) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();

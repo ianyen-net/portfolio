@@ -1189,6 +1189,17 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   text-wrap: balance;
 }
 
+/* Breakable Hero Text Pieces (characters inside headline words & words inside subtitle) that part to let the ascending rocket pass through */
+.rocket-breakable-piece {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rocket-breakable-piece.is-parting {
+  transition: transform 0.07s ease-out;
+}
+
 /* ==========================================================================
    3. HERO BOTTOM PROJECT DOCK (`Kt` & `.framer-1g93158` in leomarlowe)
       - Exact squircle colored tiles (`border-radius: 28%`, `46x46px`)
