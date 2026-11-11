@@ -1036,7 +1036,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   object-position: center center;
   transform: scale(1.04);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  filter: brightness(1.04) contrast(1.02) saturate(1.03);
+  filter: none;
 }
 
 .avatar-stage.is-revealing-photo .avatar-img-circle .avatar-real-reveal img,
