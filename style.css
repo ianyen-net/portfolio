@@ -1659,7 +1659,7 @@ body[data-theme="light"] .leo-work-cover {
   transform: translateY(0) scale(1);
 }
 
-/* Top-Right Google "G" & Philips Brand Logo on Case Study Cards */
+/* Top-Right Monochromatic Google "G" & Philips Brand Logo on Case Study Cards (Palette Slate Navy `#26425A`) */
 .work-card-brand-logo {
   position: absolute;
   top: 22px;
@@ -1670,15 +1670,24 @@ body[data-theme="light"] .leo-work-cover {
   align-items: center;
   justify-content: center;
   z-index: 3;
+  color: #26425A;
   pointer-events: none;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 2px 6px rgba(14, 31, 47, 0.14));
 }
 
-.work-card-brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.work-card-brand-logo svg {
+  width: 28px;
+  height: 28px;
   display: block;
+}
+
+.work-card-brand-logo .philips-mono-mask {
+  display: block;
+  width: 28px;
+  height: 32px;
+  background-color: currentColor;
+  -webkit-mask: url('assets/mocks/logo_philips_mono.png?v=25') center / contain no-repeat;
+  mask: url('assets/mocks/logo_philips_mono.png?v=25') center / contain no-repeat;
 }
 
 /* 3D-Angled Studio Titanium iPhone Frame (referencing uploaded iPhone Pro studio image) */
@@ -2223,7 +2232,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   }
 }
 
-.framer-reveal.is-visible .ship-launch-smoke {
+#process.is-rocket-launched .ship-launch-smoke {
   animation: shipLaunchpadSmoke 3.2s linear 0.5s 1 forwards;
 }
 
@@ -2258,7 +2267,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.35));
 }
 
-.framer-reveal.is-visible .ship-rocket-launch {
+#process.is-rocket-launched .ship-rocket-launch {
   animation: shipRocketLiftoff 3.2s linear 0.5s 1 forwards;
 }
 
@@ -2291,13 +2300,13 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 /* Side booster pods stay attached during simmer, then peel outward mid-flight */
-.framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-left {
+#process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
   animation: boosterDetachLeft 3.2s linear 0.5s 1 forwards;
 }
 
-.framer-reveal.is-visible .ship-rocket-svg .rocket-side-booster-right {
+#process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
   animation: boosterDetachRight 3.2s linear 0.5s 1 forwards;
@@ -2399,13 +2408,13 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Each word flashes ONCE on initial appearance, then only flashes when hovered */
-.framer-reveal.is-visible .leo-process-title {
+/* Each word flashes ONCE when the three words enter view and launch the rocket, then only flashes when hovered */
+#process.is-rocket-launched .leo-process-title {
   animation: processTitleFlashOnce 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   animation-delay: inherit;
 }
 
-body[data-theme="light"] .framer-reveal.is-visible .leo-process-title {
+body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
   animation-name: processTitleFlashOnceLight;
 }
 

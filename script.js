@@ -594,7 +594,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const relaunchProcessRocket = () => {
     const processSection = document.getElementById('process');
     if (!processSection) return;
-    processSection.classList.add('is-visible');
+    rocketTorchScheduled = true;
+    processSection.classList.add('is-visible', 'is-rocket-launched');
 
     const animatedSelectors = [
       '.leo-process-title',
@@ -652,6 +653,35 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRocketBtnVisibility();
   }
 
+  // Launch the rocket ONLY when the user has scrolled to see the three words ("Design -> Prototype -> Ship")
+  const processSectionEl = document.getElementById('process');
+  const processTrayEl = document.querySelector('.leo-process-tray');
+  let hasScrolledForRocket = window.scrollY > 12;
+
+  const checkAndLaunchProcessRocket = () => {
+    if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
+    if (!hasScrolledForRocket) return;
+    const trayRect = processTrayEl.getBoundingClientRect();
+    // Wait until the three words are genuinely visible inside the viewport
+    if (trayRect.top < window.innerHeight - 60 && trayRect.bottom > 80) {
+      rocketTorchScheduled = true;
+      processSectionEl.classList.add('is-visible', 'is-rocket-launched');
+      startRocketTorchTracker(processSectionEl);
+    }
+  };
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (window.scrollY > 12) {
+        hasScrolledForRocket = true;
+      }
+      checkAndLaunchProcessRocket();
+    },
+    { passive: true }
+  );
+  window.addEventListener('resize', checkAndLaunchProcessRocket, { passive: true });
+
   const revealElements = document.querySelectorAll('.framer-reveal');
   if (revealElements.length) {
     const revealObs = new IntersectionObserver(
@@ -659,12 +689,8 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            if (
-              entry.target.id === 'process' &&
-              !rocketTorchScheduled
-            ) {
-              rocketTorchScheduled = true;
-              startRocketTorchTracker(entry.target);
+            if (entry.target.id === 'process') {
+              checkAndLaunchProcessRocket();
             }
             revealObs.unobserve(entry.target);
           }
