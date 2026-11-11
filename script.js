@@ -349,6 +349,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const realRevealEl = avatarStage.querySelector('[data-avatar-real-reveal]');
     const faceBtn = avatarStage.querySelector('[data-avatar-face-btn]');
 
+    // Post-hero-load teaser: once the hero entrance and initial avatar expression cycle settle (~1.95s),
+    // briefly reveal a partial peek of the real photo so visitors notice it without hovering.
+    if (realRevealEl) {
+      setTimeout(() => {
+        if (
+          !avatarStage.classList.contains('is-revealing-photo') &&
+          !avatarStage.classList.contains('is-looking-at-explosion')
+        ) {
+          avatarStage.classList.add('is-teasing-photo');
+          setTimeout(() => {
+            avatarStage.classList.remove('is-teasing-photo');
+          }, 1880);
+        }
+      }, 1950);
+    }
+
     const resetAvatarTilt = () => {
       avatarStage.classList.remove('is-revealing-photo');
       if (tiltCard) {
@@ -372,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (realRevealEl) {
+        avatarStage.classList.remove('is-teasing-photo');
         avatarStage.classList.add('is-revealing-photo');
       }
     });
@@ -381,6 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faceBtn) {
       faceBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        avatarStage.classList.remove('is-teasing-photo');
         avatarStage.classList.remove('is-revealing-photo');
         advanceAvatarVariant();
         faceBtn.animate(

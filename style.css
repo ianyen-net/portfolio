@@ -986,7 +986,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
-/* Full Real Photo Reveal Layer on Avatar Hover */
+/* Full Real Photo Reveal Layer on Avatar Hover + Post-Load Teaser Peek */
 .avatar-real-reveal {
   position: absolute;
   inset: 0;
@@ -995,11 +995,38 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   pointer-events: none;
   z-index: 3;
   opacity: 0;
+  clip-path: circle(100% at 50% 50%);
   transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .avatar-stage.is-revealing-photo .avatar-real-reveal {
   opacity: 1;
+  clip-path: circle(100% at 50% 50%);
+  animation: none;
+}
+
+/* Post-Hero-Load Teaser: reveals a partial circular peek of the real photo so users notice it before hovering */
+@keyframes avatarRealPhotoTeaser {
+  0% {
+    opacity: 0;
+    clip-path: circle(0% at 72% 32%);
+  }
+  18% {
+    opacity: 1;
+    clip-path: circle(56% at 60% 42%);
+  }
+  72% {
+    opacity: 1;
+    clip-path: circle(58% at 54% 44%);
+  }
+  100% {
+    opacity: 0;
+    clip-path: circle(0% at 72% 32%);
+  }
+}
+
+.avatar-stage.is-teasing-photo:not(.is-revealing-photo) .avatar-real-reveal {
+  animation: avatarRealPhotoTeaser 1.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .avatar-stage.is-transparent-gif .avatar-img-circle .avatar-real-reveal img {
@@ -1007,12 +1034,13 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.05);
+  transform: scale(1.04);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  filter: none;
+  filter: brightness(1.04) contrast(1.02) saturate(1.03);
 }
 
-.avatar-stage.is-revealing-photo .avatar-img-circle .avatar-real-reveal img {
+.avatar-stage.is-revealing-photo .avatar-img-circle .avatar-real-reveal img,
+.avatar-stage.is-teasing-photo .avatar-img-circle .avatar-real-reveal img {
   transform: scale(1.01);
 }
 
@@ -1968,41 +1996,25 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   line-height: 1.12;
   color: var(--text-primary);
   display: inline-block;
-  background-image: linear-gradient(
-    90deg,
-    var(--case-hue-1) 0%,
-    var(--case-hue-2) 26%,
-    var(--case-hue-3) 50%,
-    var(--text-primary) 54%,
-    var(--text-primary) 100%
-  );
-  background-size: 220% 100%;
-  background-position: 100% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   transition:
-    background-position 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.32s ease,
     letter-spacing 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .leo-work-card:hover .leo-work-title {
-  background-position: 0% 50%;
+  color: #86A8CF;
   letter-spacing: 0.032em;
   transform: translateY(-1px);
 }
 
+#project-sharekit:hover .leo-work-title,
+#project-sonicare:hover .leo-work-title {
+  color: #C38EB4;
+}
+
 body[data-theme="light"] .leo-work-title {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
-  -webkit-text-fill-color: currentColor !important;
   color: #0C1D4B;
-  transition:
-    color 0.32s ease,
-    letter-spacing 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body[data-theme="light"] .leo-work-card:hover .leo-work-title {
@@ -5294,168 +5306,151 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 }
 
 /* ==========================================================================
-   LIGHT THEME SOLID PALETTE TEXT HIGHLIGHTS
+   SYSTEMATIC TYPOGRAPHIC COLOR & BOLD HIERARCHY (CONSISTENT ACROSS DARK & LIGHT THEMES & ALL 4 CASE STUDIES)
    Reference Palette (https://www.pinterest.com/pin/2181499817012571/):
-   #0C1D4B (Royal Navy) | #C38EB4 (Warm Mauve) | #E1CBD7 (Soft Blush)
-   #86A8CF (Cornflower Blue) | #26425A (Slate Blue) | #0E1F2F (Midnight Ink)
+   - Level 1 (Primary Headings `.hero-fraunces-title`, `.leo-h2`, `.case-title`, `.case-h2`): #F7F3F6 (Dark) / #0E1F2F (Light)
+   - Level 2 (Secondary Script Titles `.case-h3-italic`, `.hero-fraunces-title .text-accent`): #86A8CF (Cornflower Blue in BOTH themes)
+   - Level 3 (Eyebrows, Section Labels & Index Numbers `.leo-section-label`, `.case-eyebrow`, `.feature-num`, `.principle-num`): #C38EB4 (Warm Mauve in BOTH themes)
+   - Level 4 (Quantitative Metrics, Data Labels & Chosen Captions `.metric-value`, `.metric-number`, `.leo-work-metric`, `.case-meta-label`, `.case-caption.is-accent`): #86A8CF (Cornflower Blue in BOTH themes)
+   - Level 5 (Subheadings, Card Titles & Inline Emphasis `.case-h4`, `.principle-title`, `.leo-work-title`, `strong`, `.is-sub-navy`, `.bio-highlight.is-navy`): #F7F3F6 (Dark) / #0C1D4B (Light) with identical `font-weight: 600`
    ========================================================================== */
+.leo-section-label,
+.case-eyebrow,
+.next-case-eyebrow,
+.proto-banner-label,
+.case-password-kicker,
+.feature-num,
+.principle-num {
+  color: #C38EB4;
+}
+
+.case-eyebrow::before {
+  background: #C38EB4;
+}
+
+.metric-value,
+.metric-number,
+.leo-work-metric,
+.leo-range-label,
+.case-meta-label,
+.case-caption.is-accent,
+.leo-exp-period {
+  color: #86A8CF;
+}
+
+.leo-work-metric,
+.leo-exp-period {
+  font-weight: 600;
+}
+
+.leo-work-card:hover .leo-work-metric {
+  color: #C38EB4;
+}
+
+.leo-work-meta-dot {
+  background: #86A8CF;
+}
+
+/* Hero Name Pill — consistent bolding and location highlight across Dark and Light themes */
+.hero-name-pill > span:nth-of-type(2) {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 body[data-theme="light"] .hero-name-pill > span:nth-of-type(2) {
   color: #0C1D4B;
-  font-weight: 600;
 }
 
-body[data-theme="light"] .hero-name-pill .pill-loc {
+.hero-name-pill .pill-loc {
   color: #C38EB4;
   font-weight: 500;
 }
 
-body[data-theme="light"] .hero-subtitle-line .is-sub-navy {
+/* Consistent Inline Highlight System in Subtitle & Bio Across BOTH Dark and Light Themes */
+.hero-subtitle-line .is-sub-navy,
+.about-bio-copy .bio-highlight.is-navy {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+body[data-theme="light"] .hero-subtitle-line .is-sub-navy,
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
   color: #0C1D4B;
-  font-weight: 500;
 }
 
-body[data-theme="light"] .hero-subtitle-line .is-sub-blue {
+.hero-subtitle-line .is-sub-blue,
+.hero-subtitle-line .is-sub-mauve,
+.about-bio-copy .bio-highlight.is-blue,
+.about-bio-copy .bio-highlight.is-mauve {
   color: #86A8CF;
   font-weight: 600;
 }
 
-body[data-theme="light"] .hero-subtitle-line .is-sub-mauve {
-  color: #C38EB4;
-  font-weight: 600;
-}
-
-/* Process Flow ("Design -> Prototype -> Launch") Solid Palette Colors in Light Mode */
-body[data-theme="light"] .leo-process-card:nth-of-type(1) .leo-process-title {
+/* Process Flow ("Design -> Prototype -> Launch") Consistent Palette Progression Across Dark and Light Themes */
+.leo-process-card:nth-of-type(1) .leo-process-title {
   color: #86A8CF;
 }
 
-body[data-theme="light"] .leo-process-card:nth-of-type(2) .leo-process-title {
+.leo-process-card:nth-of-type(2) .leo-process-title {
   color: #C38EB4;
+}
+
+.leo-process-card:nth-of-type(3) .leo-process-title {
+  color: #E1CBD7;
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
   color: #0C1D4B;
 }
 
-body[data-theme="light"] .process-hand-arrow {
+.process-hand-arrow {
   color: #86A8CF;
 }
 
-/* Section Eyebrows, Range Labels & Work Card Metrics in Light Mode */
-body[data-theme="light"] .leo-section-label {
-  color: #C38EB4;
-}
-
-body[data-theme="light"] .leo-range-label {
-  color: #86A8CF;
-}
-
-body[data-theme="light"] .leo-work-metric {
-  color: #C38EB4;
+/* Subheadings, Experience Company, Photo Caption & Case Study Strong/Em Emphasis Across BOTH Themes */
+.about-photo-caption strong,
+.case-body strong,
+.case-list strong {
+  color: var(--text-primary);
   font-weight: 600;
 }
 
-body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
-  color: #86A8CF;
+.leo-exp-company,
+.case-meta-value,
+.case-h4,
+.principle-title {
+  color: var(--text-primary);
 }
 
-body[data-theme="light"] .leo-work-meta-dot {
-  background: #86A8CF;
-}
-
-/* About Bio & Photo Caption Solid Palette Highlights in Light Mode */
-body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
-  color: #0C1D4B;
-  font-weight: 500;
-}
-
-body[data-theme="light"] .about-bio-copy .bio-highlight.is-mauve {
-  color: #C38EB4;
-  font-weight: 600;
-}
-
-body[data-theme="light"] .about-bio-copy .bio-highlight.is-blue {
-  color: #86A8CF;
-  font-weight: 600;
-}
-
-body[data-theme="light"] .about-photo-caption strong {
-  color: #C38EB4;
-}
-
-/* Experience Section Solid Palette Highlights in Light Mode */
-body[data-theme="light"] .leo-exp-company {
-  color: #0C1D4B;
-}
-
-body[data-theme="light"] .leo-exp-now-badge {
-  background-color: rgba(225, 203, 215, 0.55);
-  border-color: rgba(195, 142, 180, 0.45);
-  color: #0C1D4B;
-}
-
-body[data-theme="light"] .leo-exp-period {
-  color: #86A8CF;
-  font-weight: 600;
-}
-
-/* Case Study Pages Solid Palette Highlights in Light Mode */
-body[data-theme="light"] .case-eyebrow,
-body[data-theme="light"] .next-case-eyebrow,
-body[data-theme="light"] .proto-banner-label,
-body[data-theme="light"] .case-password-kicker {
-  color: #C38EB4;
-}
-
-body[data-theme="light"] .case-eyebrow::before {
-  background: #86A8CF;
-}
-
-body[data-theme="light"] .case-meta-label {
-  color: #86A8CF;
-}
-
-body[data-theme="light"] .case-meta-value {
-  color: #0C1D4B;
-}
-
-body[data-theme="light"] .metric-value,
-body[data-theme="light"] .metric-number {
-  color: #86A8CF;
-}
-
-body[data-theme="light"] .metric-card:nth-child(even) .metric-value,
-body[data-theme="light"] .metric-card:nth-child(even) .metric-number {
-  color: #C38EB4;
-}
-
-body[data-theme="light"] .feature-num,
-body[data-theme="light"] .principle-num {
-  color: #C38EB4;
-}
-
-body[data-theme="light"] .feature-tag {
-  background: rgba(225, 203, 215, 0.52);
-  border-color: rgba(195, 142, 180, 0.42);
-  color: #0C1D4B;
-}
-
+body[data-theme="light"] .about-photo-caption strong,
+body[data-theme="light"] .case-body strong,
+body[data-theme="light"] .case-list strong,
+body[data-theme="light"] .leo-exp-company,
+body[data-theme="light"] .case-meta-value,
 body[data-theme="light"] .case-h4,
 body[data-theme="light"] .principle-title {
   color: #0C1D4B;
 }
 
-body[data-theme="light"] .case-body strong,
-body[data-theme="light"] .case-list strong {
-  color: #0C1D4B;
-  font-weight: 600;
-}
-
-body[data-theme="light"] .case-body em u {
+.case-body em u {
   color: #C38EB4;
   text-decoration-color: #C38EB4;
   font-style: normal;
   font-weight: 600;
+}
+
+.leo-exp-now-badge,
+.feature-tag {
+  background-color: rgba(195, 142, 180, 0.14);
+  border-color: rgba(195, 142, 180, 0.34);
+  color: #E1CBD7;
+}
+
+body[data-theme="light"] .leo-exp-now-badge,
+body[data-theme="light"] .feature-tag {
+  background-color: rgba(225, 203, 215, 0.55);
+  border-color: rgba(195, 142, 180, 0.45);
+  color: #0C1D4B;
 }
 
 .clientele-footer-credits {
