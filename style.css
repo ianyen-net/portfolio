@@ -885,11 +885,11 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   height: 172px;
   border-radius: 50%;
   overflow: hidden;
-  background: #15283B;
-  border: 1.5px solid rgba(134, 168, 207, 0.24);
+  background: radial-gradient(circle at 50% 35%, #23262E 0%, #16181D 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.65);
   transform-style: preserve-3d;
-  transition: transform 0.22s var(--ease-slot), box-shadow 0.3s ease, background-color 0.35s ease, border-color 0.35s ease;
+  transition: transform 0.22s var(--ease-slot), box-shadow 0.3s ease, background 0.35s ease, border-color 0.35s ease;
 }
 
 body[data-theme="light"] .avatar-tilt-card,
@@ -930,8 +930,8 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   height: 176px;
   border-radius: 50%;
   overflow: hidden;
-  background: #15283B;
-  border: 1.5px solid rgba(134, 168, 207, 0.24);
+  background: radial-gradient(circle at 50% 35%, #23262E 0%, #16181D 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 22px 48px -14px rgba(0, 0, 0, 0.65);
 }
 
@@ -1027,27 +1027,40 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   color: var(--bg-page);
 }
 
-/* Hero Name & Location Pill (`.framer-1qt8vim`) */
+/* Hero Name & Location Pill (`.framer-1qt8vim`) — Uses the high-visibility status pill styling */
 .hero-name-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 14px 7px 11px;
+  padding: 7px 14px 7px 12px;
   border-radius: 100px;
-  background: var(--bg-page);
-  border: 1px solid var(--border-subtle);
+  background: rgba(14, 31, 47, 0.62);
+  border: 1px solid rgba(225, 203, 215, 0.24);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.35);
   font-family: var(--font-sans);
   font-size: 13px;
+  font-weight: 500;
+  color: #E1CBD7;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+body[data-theme="light"] .hero-name-pill {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(14, 31, 47, 0.18);
   color: var(--text-primary);
+  box-shadow: 0 8px 20px -10px rgba(14, 31, 47, 0.12);
 }
 
 .hero-name-pill .pill-sep {
   width: 3px;
   height: 3px;
   border-radius: 999px;
+  background: rgba(225, 203, 215, 0.45);
+}
+
+body[data-theme="light"] .hero-name-pill .pill-sep {
   background: var(--border-strong);
 }
 
@@ -1055,7 +1068,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--text-secondary);
+  color: inherit;
 }
 
 /* Bold Display Hero Headline (`Tanker` from `owen-gray.framer.website` — Strictly 2 Rows Max) */
@@ -2940,6 +2953,26 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   transform: translateX(110%);
 }
 
+/* Primary Email Button Hover Effect (`ianyenyh@gmail.com`) */
+.leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
+  transform: translateY(-2.5px) scale(1.02);
+  background: var(--accent);
+  color: #030712;
+  border-color: rgba(225, 203, 215, 0.55);
+  box-shadow: 0 12px 28px -8px rgba(134, 168, 207, 0.52);
+}
+
+body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px -8px rgba(38, 66, 90, 0.35);
+}
+
+.leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover .leo-btn-label svg {
+  transform: translateY(-1px) rotate(-6deg) scale(1.08);
+}
+
 .leo-magnetic-btn.is-secondary {
   background: var(--bg-surface);
   color: var(--text-primary);
@@ -2949,8 +2982,12 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
 .leo-magnetic-btn.is-secondary:hover {
   transform: translateY(-2px);
   background: var(--bg-elevated);
-  border-color: rgba(252, 163, 17, 0.45);
+  border-color: var(--border-strong);
   box-shadow: 0 10px 24px -10px rgba(20, 33, 61, 0.45);
+}
+
+.leo-magnetic-btn.is-secondary:hover .leo-btn-label svg {
+  transform: translateY(-1px) scale(1.08);
 }
 
 .leo-magnetic-btn.is-icon {
@@ -5014,406 +5051,43 @@ body[data-theme="light"] .editor-ba-card:not(.is-after) .editor-ba-label {
 }
 
 /* ==========================================================================
-   CLIENTELE LIQUID-GLASS "HOW I CAN HELP YOU?" CARD & FOOTER
-   Cloned from https://clientele.framer.website/ (`.framer-10h0qxz` & `.framer-f84p5`)
-   Theme-adaptive: Dark Liquid Glass (`#121212`) + Light Pearl Liquid Glass
+   "LET'S BUILD SOMETHING GOOD." MENU-STYLED CARD & MINIMAL SINGLE-LINE FOOTER
+   Uses the exact frosted-glass pill surface & border styling of `.leo-nav`
    ========================================================================== */
-.clientele-help-section {
-  padding-top: 24px;
-  padding-bottom: 12px;
-}
-
-.clientele-help-card {
+.leo-fade-card {
   position: relative;
   width: 100%;
-  border-radius: 16px;
-  background-color: #121212;
-  background-image:
-    radial-gradient(65% 110% at 88% -10%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 48%, transparent 78%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  overflow: hidden;
-  box-shadow:
-    0 20px 44px -18px rgba(0, 0, 0, 0.62),
-    0 2px 6px -1px rgba(0, 0, 0, 0.35);
-  transition:
-    background-color 0.35s ease,
-    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-body[data-theme="light"] .clientele-help-card {
-  background-color: rgba(255, 255, 255, 0.88);
-  background-image:
-    radial-gradient(65% 110% at 88% -10%, rgba(134, 168, 207, 0.20) 0%, rgba(225, 203, 215, 0.12) 48%, transparent 78%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 244, 246, 0.90) 100%);
-  box-shadow:
-    0 20px 44px -18px rgba(14, 31, 47, 0.12),
-    0 2px 6px -1px rgba(14, 31, 47, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.94);
-}
-
-/* Top-to-bottom fading 1px border (`.framer-n72tb1` / `.framer-63x8lm`) */
-.clientele-card-border {
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  -webkit-mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
-  mask: linear-gradient(#000 0%, rgba(0, 0, 0, 0.16) 82.8442%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-body[data-theme="light"] .clientele-card-border {
-  border-color: rgba(14, 31, 47, 0.12);
-}
-
-/* Blurred diagonal SVG light ray (`.framer-1c33wqp`) */
-.clientele-card-glow {
-  position: absolute;
-  top: -335px;
-  right: -51px;
-  width: 716px;
-  height: 743px;
-  filter: blur(64px);
-  -webkit-filter: blur(64px);
-  opacity: 0.20;
-  color: #FFFFFF;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.clientele-card-glow svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-body[data-theme="light"] .clientele-card-glow {
-  color: #86A8CF;
-  opacity: 0.30;
-}
-
-.clientele-help-content {
-  position: relative;
-  z-index: 1;
-  flex: 1 0 0;
-  min-width: 0;
-  padding: 20px;
+  border-radius: 28px;
+  background: var(--nav-bg);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.45), var(--card-inner-shadow);
+  padding: 64px 28px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 28px;
-}
-
-.clientele-help-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.clientele-help-heading {
-  font-family: var(--font-sans);
-  font-size: clamp(22px, 2.4vw, 26px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.2;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.clientele-help-script {
-  font-family: var(--font-script), 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.08em;
-  letter-spacing: 0;
-  color: var(--text-primary);
-}
-
-.clientele-help-services {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 28px;
-}
-
-.clientele-service-item {
-  flex: 1 0 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.clientele-service-head {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.clientele-service-title {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  color: var(--text-primary);
-}
-
-/* Liquid-Glass Pill Badge (`.framer-kkkzf6` / `.framer-lr91y7`) */
-.clientele-service-badge {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-body[data-theme="light"] .clientele-service-badge {
-  background-color: rgba(14, 31, 47, 0.04);
-  border-color: rgba(14, 31, 47, 0.12);
-}
-
-.clientele-service-desc {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-/* Full-width Liquid Glass Button (`.framer-brhU1`) */
-.clientele-glass-btn {
-  position: relative;
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background-color: rgba(13, 13, 13, 0.50);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0px 4px 10px -2px rgba(0, 0, 0, 0.18),
-    0px 2px 2px -1px rgba(0, 0, 0, 0.12),
-    0px 0px 0px 1px rgba(255, 255, 255, 0.10);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--text-primary);
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.28s ease,
-    box-shadow 0.28s ease;
-}
-
-.clientele-glass-btn:hover {
-  transform: translateY(-1.5px);
-  background-color: rgba(255, 255, 255, 0.07);
-  box-shadow:
-    0px 8px 20px -4px rgba(0, 0, 0, 0.32),
-    0px 2px 4px -1px rgba(0, 0, 0, 0.18),
-    0px 0px 0px 1px rgba(255, 255, 255, 0.18);
-}
-
-body[data-theme="light"] .clientele-glass-btn {
-  background-color: rgba(255, 255, 255, 0.84);
-  box-shadow:
-    0px 4px 10px -2px rgba(14, 31, 47, 0.08),
-    0px 2px 2px -1px rgba(14, 31, 47, 0.04),
-    0px 0px 0px 1px rgba(14, 31, 47, 0.12);
-}
-
-body[data-theme="light"] .clientele-glass-btn:hover {
-  background-color: #FFFFFF;
-  box-shadow:
-    0px 8px 20px -4px rgba(14, 31, 47, 0.14),
-    0px 2px 4px -1px rgba(14, 31, 47, 0.06),
-    0px 0px 0px 1px rgba(14, 31, 47, 0.20);
-}
-
-/* Right-side Avatar with Bottom Fade Mask (`.framer-1jkbowb`) */
-.clientele-help-image {
-  position: relative;
-  z-index: 1;
-  width: 270px;
-  height: 291px;
-  flex: none;
-  border-radius: 14px;
+  text-align: center;
   overflow: hidden;
-  -webkit-mask: linear-gradient(#000 60.2882%, transparent 100%);
-  mask: linear-gradient(#000 60.2882%, transparent 100%);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-.clientele-help-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 22%;
-  display: block;
-  border-radius: 14px;
+.leo-fade-card .leo-footer-heading {
+  color: var(--text-primary);
 }
 
-/* ==========================================================================
-   CLIENTELE FOOTER (`.framer-f84p5` / `.framer-1v1c20b`)
-   ========================================================================== */
+.leo-fade-card .leo-footer-heading .text-accent {
+  color: var(--accent);
+}
+
 .clientele-footer {
   width: 100%;
-  padding: 64px 20px 88px;
+  padding: 28px 20px 56px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.clientele-footer-inner {
-  width: 100%;
-  max-width: 1120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  text-align: center;
-}
-
-.clientele-footer-logo {
-  font-family: var(--font-sans);
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-  color: var(--text-primary);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: baseline;
-  transition: opacity 0.25s ease;
-}
-
-.clientele-footer-logo:hover {
-  opacity: 0.82;
-}
-
-.clientele-footer-logo-strong {
-  font-weight: 600;
-}
-
-.clientele-footer-time-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.clientele-footer-clock {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-}
-
-.clientele-footer-tz {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  color: var(--text-secondary);
-}
-
-.clientele-footer-socials {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-}
-
-/* 36x36px Liquid-Glass Social Button (`.framer-5v2Ux`) */
-.clientele-social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: rgba(13, 13, 13, 0.50);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0px 4px 10px -2px rgba(0, 0, 0, 0.14),
-    0px 2px 2px -1px rgba(0, 0, 0, 0.10),
-    0px 0px 0px 1px rgba(255, 255, 255, 0.10);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.25s ease,
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.clientele-social-btn svg {
-  width: 16px;
-  height: 16px;
-  display: block;
-}
-
-.clientele-social-btn:hover {
-  transform: translateY(-2px);
-  color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0px 8px 18px -4px rgba(0, 0, 0, 0.28),
-    0px 0px 0px 1px rgba(255, 255, 255, 0.18);
-}
-
-body[data-theme="light"] .clientele-social-btn {
-  background-color: rgba(255, 255, 255, 0.84);
-  box-shadow:
-    0px 4px 10px -2px rgba(14, 31, 47, 0.08),
-    0px 2px 2px -1px rgba(14, 31, 47, 0.04),
-    0px 0px 0px 1px rgba(14, 31, 47, 0.11);
-}
-
-body[data-theme="light"] .clientele-social-btn:hover {
-  background-color: #FFFFFF;
-  box-shadow:
-    0px 8px 18px -4px rgba(14, 31, 47, 0.14),
-    0px 0px 0px 1px rgba(14, 31, 47, 0.18);
 }
 
 .clientele-footer-credits {
@@ -5431,9 +5105,15 @@ body[data-theme="light"] .clientele-social-btn:hover {
   color: var(--text-secondary);
 }
 
-.clientele-footer-credits strong {
+.clientele-footer-credits a {
   font-weight: 500;
   color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.clientele-footer-credits a:hover {
+  opacity: 0.78;
 }
 
 .clientele-footer-dot {
@@ -5444,29 +5124,6 @@ body[data-theme="light"] .clientele-social-btn:hover {
   opacity: 0.35;
 }
 
-@media (max-width: 960px) {
-  .clientele-help-card {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 16px;
-  }
-
-  .clientele-help-content {
-    padding: 12px;
-  }
-
-  .clientele-help-services {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .clientele-help-image {
-    width: 100%;
-    max-width: 280px;
-    height: 260px;
-    margin: 0 auto;
-  }
-}
 
 
 
