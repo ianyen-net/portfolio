@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
-    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=1';
+    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=2';
     let explosionLookTimer = null;
 
     // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
@@ -310,11 +310,11 @@ document.addEventListener('DOMContentLoaded', () => {
         tiltCard.style.transform = '';
         tiltCard.animate(
           [
-            { transform: 'rotateX(0deg) translateY(0px) scale(0.96)' },
-            { transform: 'rotateX(16deg) translateY(-7px) scale(1.06)' },
-            { transform: 'rotateX(13deg) translateY(-5px) scale(1.045)' },
+            { transform: 'scale(0.95) rotate(-2deg)' },
+            { transform: 'scale(1.04) rotate(1.5deg)' },
+            { transform: 'scale(1) rotate(0deg)' },
           ],
-          { duration: 460, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+          { duration: 210, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
         );
       }
       explosionLookTimer = setTimeout(() => {
