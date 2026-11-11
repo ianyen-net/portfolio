@@ -1560,14 +1560,15 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   isolation: isolate;
   background: transparent;
   border: none;
-  box-shadow: 0 22px 48px -18px rgba(4, 8, 20, 0.62);
-  clip-path: inset(14% 7% 0% 7% round 26px);
-  transform: translateY(56px);
+  box-shadow:
+    0 20px 44px -14px rgba(0, 0, 0, 0.55),
+    0 6px 18px -6px rgba(0, 0, 0, 0.32);
+  transform: translateY(44px) scale(0.96);
   opacity: 0;
   transition:
-    clip-path 1.3s var(--ease-out-expo),
-    transform 1.3s var(--ease-out-expo),
-    opacity 0.5s ease;
+    transform 1.1s var(--ease-out-expo),
+    opacity 0.5s ease,
+    box-shadow 0.38s ease;
 }
 
 #project-sharekit .leo-work-cover {
@@ -1587,13 +1588,26 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 
 body[data-theme="light"] .leo-work-cover {
   border: none;
-  box-shadow: 0 20px 44px -16px rgba(14, 31, 47, 0.16);
+  box-shadow:
+    0 20px 44px -14px rgba(14, 31, 47, 0.24),
+    0 6px 18px -6px rgba(14, 31, 47, 0.12);
 }
 
 .leo-work-card.is-revealed .leo-work-cover {
-  clip-path: inset(0% 0% 0% 0% round 26px);
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
+}
+
+.leo-work-card:hover .leo-work-cover {
+  box-shadow:
+    0 26px 54px -14px rgba(0, 0, 0, 0.68),
+    0 10px 24px -6px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
+  box-shadow:
+    0 26px 54px -14px rgba(14, 31, 47, 0.30),
+    0 10px 24px -6px rgba(14, 31, 47, 0.15);
 }
 
 .leo-work-media-inner {
