@@ -2136,27 +2136,27 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --loop-color: #6B9BFF;
   --loop-color-light: #2563EB;
   --loop-glow: rgba(99, 102, 241, 0.55);
-  animation-delay: 0.5s !important;
+  animation-delay: 0.25s !important;
 }
 
 .leo-process-card:nth-of-type(2) {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 1.6s !important;
+  animation-delay: 1.0s !important;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 2.7s !important;
+  animation-delay: 1.75s !important;
 }
 
 /* Cute Retro Rocket Vector perched above "Ship" from the start:
    1. Appears immediately together with "Design -> Prototype -> Ship"
-   2. Thruster fire & smoke simmer underneath for 3.0s while Design & Prototype flash (0s -> 3.0s)
-   3. At 3.0s when the flash hits "Ship", the rocket lifts off in a steady linear ascent to the top border */
+   2. Thruster fire & smoke simmer underneath for 2.0s while Design & Prototype flash (0s -> 2.0s)
+   3. At 2.0s when the flash hits "Ship", the rocket lifts off in a steady linear ascent to the top border */
 .ship-rocket-stage {
   position: absolute;
   left: 50%;
@@ -2202,22 +2202,22 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-launch-smoke {
-  animation: shipLaunchpadSmoke 5.0s linear 0s 1 forwards;
+  animation: shipLaunchpadSmoke 4.0s linear 0s 1 forwards;
 }
 
 @keyframes shipLaunchpadSmoke {
-  /* Simmering underneath the perched rocket for 3.0s until liftoff at 60% */
-  0%, 60% {
+  /* Simmering underneath the perched rocket for 2.0s until liftoff at 50% */
+  0%, 50% {
     opacity: 0.92;
     transform: translate3d(-50%, 0px, 0) scale(0.9);
   }
   /* Billows outward as the rocket lifts off */
-  68% {
+  60% {
     opacity: 1;
     transform: translate3d(-50%, -2px, 0) scale(1.22);
   }
   /* Dissipates after the rocket leaves the pad */
-  82%, 100% {
+  78%, 100% {
     opacity: 0;
     transform: translate3d(-50%, -8px, 0) scale(1.5);
   }
@@ -2237,7 +2237,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-rocket-launch {
-  animation: shipRocketLiftoff 5.0s linear 0s 1 forwards;
+  animation: shipRocketLiftoff 4.0s linear 0s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2272,40 +2272,40 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachLeft 5.0s linear 0s 1 forwards;
+  animation: boosterDetachLeft 4.0s linear 0s 1 forwards;
 }
 
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachRight 5.0s linear 0s 1 forwards;
+  animation: boosterDetachRight 4.0s linear 0s 1 forwards;
 }
 
 @keyframes boosterDetachLeft {
-  0%, 78% {
+  0%, 72% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  89% {
+  86% {
     opacity: 0.85;
     transform: translate3d(-22px, 38px, 0) rotate(-24deg);
   }
-  96%, 100% {
+  95%, 100% {
     opacity: 0;
     transform: translate3d(-36px, 76px, 0) rotate(-38deg);
   }
 }
 
 @keyframes boosterDetachRight {
-  0%, 78% {
+  0%, 72% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  89% {
+  86% {
     opacity: 0.85;
     transform: translate3d(22px, 38px, 0) rotate(24deg);
   }
-  96%, 100% {
+  95%, 100% {
     opacity: 0;
     transform: translate3d(36px, 76px, 0) rotate(38deg);
   }
@@ -2332,17 +2332,17 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 @keyframes shipRocketLiftoff {
-  /* 0s -> 3.0s (0% -> 60%): Perched on the pad above "Ship" while Design & Prototype flash */
-  0%, 60% {
+  /* 0s -> 2.0s (0% -> 50%): Perched on the pad above "Ship" while Design & Prototype flash */
+  0%, 50% {
     opacity: 1;
     transform: translate3d(-50%, 0px, 0) scale(1);
   }
-  /* 3.0s -> 4.725s (60% -> 94.5%): Launches at 3.0s when "Ship" flashes and ascends steadily to the top border */
-  94.5% {
+  /* 2.0s -> 3.72s (50% -> 93%): Launches at 2.0s when "Ship" flashes and ascends steadily to the top border */
+  93% {
     opacity: 1;
     transform: translate3d(-50%, -920px, 0) scale(1);
   }
-  /* 4.725s -> 5.0s (94.5% -> 100%): Continues past the top edge and fades out permanently */
+  /* 3.72s -> 4.0s (93% -> 100%): Continues past the top edge and fades out permanently */
   100% {
     opacity: 0;
     transform: translate3d(-50%, -1020px, 0) scale(0.96);
@@ -2379,7 +2379,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 
 /* Each word flashes ONCE when the three words enter view and launch the rocket, then only flashes when hovered */
 #process.is-rocket-launched .leo-process-title {
-  animation: processTitleFlashOnce 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  animation: processTitleFlashOnce 0.75s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   animation-delay: inherit;
 }
 
