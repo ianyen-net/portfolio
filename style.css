@@ -2359,10 +2359,12 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   position: relative;
   z-index: 1;
   font-family: var(--font-script);
-  font-size: clamp(24px, 3vw, 34px);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.01em;
+  font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 0.96;
+  letter-spacing: 0em;
+  text-transform: none;
   color: var(--text-primary);
   margin: 0;
   transition:
