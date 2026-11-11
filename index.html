@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=26" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=62">
+  <link rel="stylesheet" href="style.css?v=63">
 </head>
 <body data-theme="dark">
 
@@ -167,17 +167,17 @@
     <section class="leo-section no-top-border framer-reveal" id="process" style="padding-top: 28px; padding-bottom: 24px;">
       <div class="leo-process-tray" role="region" aria-label="How I approach my work: Design, Prototype, Ship">
         <div class="leo-process-card">
-          <h3 class="leo-process-title">Design</h3>
+          <h3 class="leo-process-title" data-text="Design">Design</h3>
         </div>
 
         <!-- Handwritten Arched Arrow 1 (Design -> Prototype) -->
-        <svg class="process-hand-arrow" viewBox="0 0 120 42" fill="none" aria-hidden="true">
+        <svg class="process-hand-arrow is-first" viewBox="0 0 120 42" fill="none" aria-hidden="true">
           <path d="M6 28 C 34 8, 78 8, 108 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="140" stroke-dashoffset="0"/>
           <path d="M97 14 C 103 18, 108 21, 111 24 C 105 25, 99 28, 94 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
         <div class="leo-process-card">
-          <h3 class="leo-process-title">Prototype</h3>
+          <h3 class="leo-process-title" data-text="Prototype">Prototype</h3>
         </div>
 
         <!-- Handwritten Looping Arrow 2 (Prototype -> Ship) -->
@@ -187,7 +187,7 @@
         </svg>
 
         <div class="leo-process-card is-accent is-ship-card">
-          <h3 class="leo-process-title">Ship</h3>
+          <h3 class="leo-process-title" data-text="Ship">Ship</h3>
           <!-- Cute Retro Rocket Vector with Launchpad Smoke & Thruster Plume (launches once when "Ship" flashes) -->
           <span class="ship-rocket-stage" aria-hidden="true">
             <!-- Billowing Launchpad Smoke Cloud at the base of "Ship" -->
@@ -324,8 +324,11 @@
               <img class="wix-static-card-img" src="assets/mocks/card_1_ai_static.png?v=23" alt="AI-Powered Contact Intelligence" loading="lazy">
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/>
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <path fill="#C9C9C9" stroke="#9A9A9A" stroke-width="0.35" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#8F8F8F" stroke="#7A7A7A" stroke-width="0.35" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#626262" stroke="#525252" stroke-width="0.35" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#313131" stroke="#262626" stroke-width="0.35" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
             </div>
             <div class="work-card-hover-chips" aria-hidden="true">
@@ -355,8 +358,11 @@
               <img class="wix-static-card-img" src="assets/mocks/card_2_sharekit_static.png?v=23" alt="ShareKit Design System" loading="lazy">
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/>
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <path fill="#C9C9C9" stroke="#9A9A9A" stroke-width="0.35" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#8F8F8F" stroke="#7A7A7A" stroke-width="0.35" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#626262" stroke="#525252" stroke-width="0.35" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#313131" stroke="#262626" stroke-width="0.35" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
             </div>
             <div class="work-card-hover-chips" aria-hidden="true">
@@ -386,8 +392,11 @@
               <img class="wix-static-card-img" src="assets/mocks/card_3_editor_static.png?v=26" alt="Contacts Editor Redesign" loading="lazy">
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/>
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <path fill="#C9C9C9" stroke="#9A9A9A" stroke-width="0.35" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#8F8F8F" stroke="#7A7A7A" stroke-width="0.35" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#626262" stroke="#525252" stroke-width="0.35" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#313131" stroke="#262626" stroke-width="0.35" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
             </div>
             <div class="work-card-hover-chips" aria-hidden="true">
@@ -417,7 +426,7 @@
               <img class="wix-static-card-img" src="assets/mocks/card_4_sonicare_static.png?v=3" alt="Philips Sonicare Connected App" loading="lazy">
             </div>
             <div class="work-card-brand-logo is-philips" aria-hidden="true">
-              <span class="philips-mono-mask"></span>
+              <img src="assets/mocks/logo_philips_mono.png?v=25" alt="Philips" width="28" height="34">
             </div>
             <div class="work-card-hover-chips" aria-hidden="true">
               <span class="work-card-chip">Play Store</span>
@@ -536,6 +545,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=62"></script>
+  <script src="script.js?v=63"></script>
 </body>
 </html>

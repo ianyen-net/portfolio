@@ -1659,7 +1659,7 @@ body[data-theme="light"] .leo-work-cover {
   transform: translateY(0) scale(1);
 }
 
-/* Top-Right Monochromatic Google "G" & Philips Brand Logo on Case Study Cards (Palette Slate Navy `#26425A`) */
+/* Top-Right Monochromatic Google "G" & Philips Brand Logo on Case Study Cards */
 .work-card-brand-logo {
   position: absolute;
   top: 22px;
@@ -1670,7 +1670,6 @@ body[data-theme="light"] .leo-work-cover {
   align-items: center;
   justify-content: center;
   z-index: 3;
-  color: #26425A;
   pointer-events: none;
   filter: drop-shadow(0 2px 6px rgba(14, 31, 47, 0.14));
 }
@@ -1681,13 +1680,10 @@ body[data-theme="light"] .leo-work-cover {
   display: block;
 }
 
-.work-card-brand-logo .philips-mono-mask {
-  display: block;
+.work-card-brand-logo.is-philips img {
   width: 28px;
-  height: 32px;
-  background-color: currentColor;
-  -webkit-mask: url('assets/mocks/logo_philips_mono.png?v=25') center / contain no-repeat;
-  mask: url('assets/mocks/logo_philips_mono.png?v=25') center / contain no-repeat;
+  height: auto;
+  display: block;
 }
 
 /* 3D-Angled Studio Titanium iPhone Frame (referencing uploaded iPhone Pro studio image) */
@@ -2167,27 +2163,27 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --loop-color: #6B9BFF;
   --loop-color-light: #2563EB;
   --loop-glow: rgba(99, 102, 241, 0.55);
-  animation-delay: 0s !important;
+  --torch-delay: 0s;
 }
 
 .leo-process-card:nth-of-type(2) {
   --loop-color: #A855F7;
   --loop-color-light: #7C3AED;
   --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 0.6s !important;
+  --torch-delay: 0.24s;
 }
 
 .leo-process-card:nth-of-type(3) {
   --loop-color: #818CF8;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 1.2s !important;
+  --torch-delay: 0.48s;
 }
 
 /* Cute Retro Rocket Vector perched above "Ship" from the start:
    1. Appears immediately together with "Design -> Prototype -> Ship"
-   2. Thruster fire & smoke simmer and boil underneath while Design & Prototype flash (0s -> 1.2s)
-   3. At 1.2s when the flash hits "Ship", the rocket sets off in a steady linear motion to the top and triggers the 1/3-height hero top border torch explosion */
+   2. Thruster fire & smoke simmer underneath while the torch sweeps left-to-right across Design & Prototype (0s -> 0.53s)
+   3. At 0.53s when the torch reaches "Ship", the rocket immediately lifts off in a steady linear ascent to the top border */
 .ship-rocket-stage {
   position: absolute;
   left: 50%;
@@ -2233,24 +2229,24 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-launch-smoke {
-  animation: shipLaunchpadSmoke 3.2s linear 0.5s 1 forwards;
+  animation: shipLaunchpadSmoke 2.2s linear 0s 1 forwards;
 }
 
 @keyframes shipLaunchpadSmoke {
-  /* Simmering & boiling underneath the perched rocket until liftoff at 1.7s (0.5s delay + 1.2s) */
-  0%, 37.5% {
+  /* Simmering underneath the perched rocket until the torch hits "Ship" at 0.53s (24%) */
+  0%, 24% {
     opacity: 0.92;
     transform: translate3d(-50%, 0px, 0) scale(0.9);
   }
-  /* Billows outward as the rocket lifts off */
-  48% {
+  /* Ignites and billows outward as the torch reaches "Ship" and the rocket lifts off */
+  35% {
     opacity: 1;
-    transform: translate3d(-50%, -2px, 0) scale(1.22);
+    transform: translate3d(-50%, -2px, 0) scale(1.26);
   }
   /* Dissipates after the rocket leaves the pad */
-  70%, 100% {
+  58%, 100% {
     opacity: 0;
-    transform: translate3d(-50%, -8px, 0) scale(1.5);
+    transform: translate3d(-50%, -8px, 0) scale(1.52);
   }
 }
 
@@ -2268,7 +2264,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-rocket-launch {
-  animation: shipRocketLiftoff 3.2s linear 0.5s 1 forwards;
+  animation: shipRocketLiftoff 2.2s linear 0s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2303,40 +2299,40 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachLeft 3.2s linear 0.5s 1 forwards;
+  animation: boosterDetachLeft 2.2s linear 0s 1 forwards;
 }
 
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachRight 3.2s linear 0.5s 1 forwards;
+  animation: boosterDetachRight 2.2s linear 0s 1 forwards;
 }
 
 @keyframes boosterDetachLeft {
-  0%, 66% {
+  0%, 56% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  84% {
+  78% {
     opacity: 0.85;
     transform: translate3d(-22px, 38px, 0) rotate(-24deg);
   }
-  95%, 100% {
+  92%, 100% {
     opacity: 0;
     transform: translate3d(-36px, 76px, 0) rotate(-38deg);
   }
 }
 
 @keyframes boosterDetachRight {
-  0%, 66% {
+  0%, 56% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  84% {
+  78% {
     opacity: 0.85;
     transform: translate3d(22px, 38px, 0) rotate(24deg);
   }
-  95%, 100% {
+  92%, 100% {
     opacity: 0;
     transform: translate3d(36px, 76px, 0) rotate(38deg);
   }
@@ -2363,17 +2359,17 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 @keyframes shipRocketLiftoff {
-  /* 0s -> 1.2s (0% -> 37.5%): Visible on the pad above "Ship" while fire & smoke simmer underneath */
-  0%, 37.5% {
+  /* 0s -> 0.53s (0% -> 24%): Perched on the pad above "Ship" while the torch races left-to-right across Design & Prototype */
+  0%, 24% {
     opacity: 1;
     transform: translate3d(-50%, 0px, 0) scale(1);
   }
-  /* 1.2s -> 2.95s (37.5% -> 92%): Steady linear ascent all the way past the top border of the viewport */
-  92% {
+  /* 0.53s -> 1.98s (24% -> 90%): Launches as soon as the torch hits "Ship" and ascends briskly to the top border */
+  90% {
     opacity: 1;
     transform: translate3d(-50%, -920px, 0) scale(1);
   }
-  /* 2.95s -> 3.2s (92% -> 100%): Continues past the top edge and fades out permanently */
+  /* 1.98s -> 2.2s (90% -> 100%): Continues past the top edge and fades out permanently */
   100% {
     opacity: 0;
     transform: translate3d(-50%, -1020px, 0) scale(0.96);
@@ -2408,68 +2404,141 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Each word flashes ONCE when the three words enter view and launch the rocket, then only flashes when hovered */
-#process.is-rocket-launched .leo-process-title {
-  animation: processTitleFlashOnce 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
-  animation-delay: inherit;
+/* Left-to-Right Blowtorch Overlay on Each Word ("Design" -> "Prototype" -> "Ship") */
+.leo-process-title::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 24%,
+    #86A8CF 32%,
+    #C38EB4 40%,
+    #F97316 50%,
+    #FACC15 58%,
+    #FFFBEB 63%,
+    rgba(251, 146, 60, 0.85) 66%,
+    transparent 70%,
+    transparent 100%
+  );
+  background-size: 320% 100%;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0;
+  filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.72)) drop-shadow(0 0 20px rgba(195, 142, 180, 0.48));
 }
 
-body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
-  animation-name: processTitleFlashOnceLight;
+/* Physical Torch Flame Jet sweeping from the left edge to the right edge of each word */
+.leo-process-title::after {
+  content: "";
+  position: absolute;
+  top: -16%;
+  bottom: -12%;
+  left: 0;
+  width: 34px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at 58% 50%,
+    rgba(255, 251, 235, 0.98) 0%,
+    rgba(250, 204, 21, 0.92) 28%,
+    rgba(249, 115, 22, 0.82) 55%,
+    rgba(195, 142, 180, 0.42) 80%,
+    transparent 100%
+  );
+  filter: blur(3px);
+  mix-blend-mode: screen;
+  transform: translate3d(-16px, 0, 0) scaleY(0.76) rotate(8deg);
 }
 
-@keyframes processTitleFlashOnce {
-  0%, 100% {
-    color: var(--text-primary);
-    text-shadow: 0 0 0 transparent;
+body[data-theme="light"] .leo-process-title::after {
+  mix-blend-mode: normal;
+  opacity: 0;
+}
+
+#process.is-rocket-launched .leo-process-title::before {
+  animation: processWordTorchSweep 0.34s linear var(--torch-delay, 0s) 1 forwards;
+}
+
+#process.is-rocket-launched .leo-process-title::after {
+  animation: processWordTorchJet 0.34s linear var(--torch-delay, 0s) 1 forwards;
+}
+
+@keyframes processWordTorchSweep {
+  0% {
+    opacity: 0;
+    background-position: 98% 50%;
   }
-  38% {
-    color: var(--loop-color);
-    text-shadow:
-      0 0 18px var(--loop-glow),
-      0 8px 28px var(--loop-glow);
+  12% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: 8% 50%;
   }
 }
 
-@keyframes processTitleFlashOnceLight {
-  0%, 100% {
-    color: var(--text-primary);
-    text-shadow: 0 0 0 transparent;
+@keyframes processWordTorchJet {
+  0% {
+    left: -6%;
+    opacity: 0;
+    transform: translate3d(-50%, 1px, 0) scale(0.75) rotate(10deg);
   }
-  38% {
-    color: var(--loop-color-light);
-    text-shadow: 0 6px 22px rgba(124, 58, 237, 0.28);
+  15% {
+    opacity: 0.95;
+    transform: translate3d(-50%, 0px, 0) scale(1.06) rotate(8deg);
+  }
+  82% {
+    opacity: 0.95;
+    transform: translate3d(-50%, -1px, 0) scale(1.04) rotate(8deg);
+  }
+  100% {
+    left: 104%;
+    opacity: 0;
+    transform: translate3d(-50%, 0px, 0) scale(0.78) rotate(6deg);
   }
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #6B9BFF;
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 0 8px 28px rgba(59, 130, 246, 0.48);
+  color: #86A8CF;
+  text-shadow: 0 0 18px rgba(134, 168, 207, 0.55), 0 8px 26px rgba(38, 66, 90, 0.48);
 }
 
 .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #A855F7;
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.62), 0 8px 28px rgba(147, 51, 234, 0.48);
+  color: #C38EB4;
+  text-shadow: 0 0 18px rgba(195, 142, 180, 0.58), 0 8px 26px rgba(195, 142, 180, 0.42);
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #818CF8;
-  text-shadow: 0 0 20px rgba(129, 140, 248, 0.62), 0 8px 28px rgba(99, 102, 241, 0.48);
+  color: #FB923C;
+  text-shadow: 0 0 18px rgba(251, 146, 60, 0.58), 0 8px 26px rgba(234, 88, 12, 0.42);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #2563EB;
-  text-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+  color: #26425A;
+  text-shadow: 0 6px 20px rgba(38, 66, 90, 0.24);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #7C3AED;
-  text-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
+  color: #8A4F7D;
+  text-shadow: 0 6px 20px rgba(138, 79, 125, 0.24);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #4F46E5;
-  text-shadow: 0 6px 20px rgba(79, 70, 229, 0.28);
+  color: #EA580C;
+  text-shadow: 0 6px 20px rgba(234, 88, 12, 0.24);
 }
 
 .process-hand-arrow {
@@ -2478,9 +2547,27 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
   color: var(--text-secondary);
   opacity: 0.65;
   flex-shrink: 0;
-  animation: none !important;
-  transform: none !important;
-  filter: none !important;
+}
+
+#process.is-rocket-launched .process-hand-arrow.is-first {
+  animation: processArrowTorchPulse 0.18s ease-out 0.17s 1 forwards;
+}
+
+#process.is-rocket-launched .process-hand-arrow.is-second {
+  animation: processArrowTorchPulse 0.18s ease-out 0.41s 1 forwards;
+}
+
+@keyframes processArrowTorchPulse {
+  0%, 100% {
+    color: var(--text-secondary);
+    opacity: 0.65;
+    filter: none;
+  }
+  50% {
+    color: #FB923C;
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.75));
+  }
 }
 
 /* Daily Toolbox (`.framer-1354vyu` & `Yt` Tool Dock) */

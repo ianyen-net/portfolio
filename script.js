@@ -576,12 +576,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
-        if (rRect.top <= 28 && performance.now() - startTrack > 1750) {
+        if (rRect.top <= 28 && performance.now() - startTrack > 650) {
           triggerHeroTorch();
           return;
         }
       }
-      if (performance.now() - startTrack < 3800) {
+      if (performance.now() - startTrack < 2500) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();
@@ -590,15 +590,16 @@ document.addEventListener('DOMContentLoaded', () => {
     activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
   };
 
-  // Relaunch the Ship rocket & flash sequence every time the user switches the theme or clicks the rocket icon button
+  // Relaunch the Ship rocket & left-to-right torch sequence every time the user switches the theme or clicks the rocket icon button
   const relaunchProcessRocket = () => {
     const processSection = document.getElementById('process');
     if (!processSection) return;
     rocketTorchScheduled = true;
-    processSection.classList.add('is-visible', 'is-rocket-launched');
+    processSection.classList.remove('is-rocket-launched');
 
     const animatedSelectors = [
       '.leo-process-title',
+      '.process-hand-arrow',
       '.ship-launch-smoke',
       '.ship-rocket-launch',
       '.rocket-side-booster-left',
@@ -608,11 +609,12 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedEls.forEach((el) => {
       el.style.animation = 'none';
     });
-    // Force reflow so the browser cleanly restarts all CSS keyframe animations
+    // Force reflow so the browser cleanly restarts all CSS keyframe animations (including ::before and ::after torch sweeps)
     void processSection.offsetWidth;
     animatedEls.forEach((el) => {
       el.style.animation = '';
     });
+    processSection.classList.add('is-visible', 'is-rocket-launched');
 
     startRocketTorchTracker(processSection);
   };
@@ -656,14 +658,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Launch the rocket ONLY when the user has scrolled to see the three words ("Design -> Prototype -> Ship")
   const processSectionEl = document.getElementById('process');
   const processTrayEl = document.querySelector('.leo-process-tray');
-  let hasScrolledForRocket = window.scrollY > 12;
+  let hasScrolledForRocket = window.scrollY > 4;
 
   const checkAndLaunchProcessRocket = () => {
     if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
     if (!hasScrolledForRocket) return;
     const trayRect = processTrayEl.getBoundingClientRect();
-    // Wait until the three words are genuinely visible inside the viewport
-    if (trayRect.top < window.innerHeight - 60 && trayRect.bottom > 80) {
+    // Trigger as soon as the three words enter the viewport
+    if (trayRect.top < window.innerHeight - 28 && trayRect.bottom > 70) {
       rocketTorchScheduled = true;
       processSectionEl.classList.add('is-visible', 'is-rocket-launched');
       startRocketTorchTracker(processSectionEl);
@@ -673,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener(
     'scroll',
     () => {
-      if (window.scrollY > 12) {
+      if (window.scrollY > 4) {
         hasScrolledForRocket = true;
       }
       checkAndLaunchProcessRocket();
