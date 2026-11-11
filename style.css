@@ -2942,30 +2942,33 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
-  transform: translateX(-110%);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: inherit;
+  background: var(--btn-hover-fill, var(--nav-hover-pill));
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.32s var(--ease-slot),
+    transform 0.38s var(--ease-slot);
   pointer-events: none;
 }
 
 .leo-magnetic-btn:hover::before {
-  transform: translateX(110%);
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Primary Email Button Hover Effect (`ianyenyh@gmail.com`) */
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
-  transform: translateY(-2.5px) scale(1.02);
+  transform: translateY(-2px);
   background: var(--accent);
   color: #030712;
-  border-color: rgba(225, 203, 215, 0.55);
-  box-shadow: 0 12px 28px -8px rgba(134, 168, 207, 0.52);
+  border-color: transparent;
 }
 
 body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
   background: var(--accent);
   color: #FFFFFF;
-  border-color: var(--accent);
-  box-shadow: 0 12px 28px -8px rgba(38, 66, 90, 0.35);
+  border-color: transparent;
 }
 
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover .leo-btn-label svg {
@@ -2973,27 +2976,67 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 }
 
 .leo-magnetic-btn.is-secondary {
+  --btn-hover-fill: rgba(134, 168, 207, 0.16);
+  --btn-hover-text: #86A8CF;
   background: var(--bg-surface);
   color: var(--text-primary);
   border-color: var(--border-subtle);
 }
 
-.leo-magnetic-btn.is-secondary:hover {
-  transform: translateY(-2.5px);
-  background: linear-gradient(135deg, rgba(195, 142, 180, 0.22) 0%, var(--bg-elevated) 100%);
-  border-color: rgba(225, 203, 215, 0.52);
-  color: #E1CBD7;
-  box-shadow: 0 12px 26px -10px rgba(195, 142, 180, 0.38);
+.leo-magnetic-btn.is-secondary.is-palette-blue {
+  --btn-hover-fill: linear-gradient(135deg, rgba(134, 168, 207, 0.22) 0%, rgba(38, 66, 90, 0.34) 100%);
+  --btn-hover-text: #9BC0E8;
 }
 
-body[data-theme="light"] .leo-magnetic-btn.is-secondary:hover {
-  background: linear-gradient(135deg, rgba(225, 203, 215, 0.65) 0%, #FFFFFF 100%);
-  border-color: #C38EB4;
-  color: #0E1F2F;
-  box-shadow: 0 12px 26px -10px rgba(195, 142, 180, 0.32);
+.leo-magnetic-btn.is-secondary.is-palette-mauve {
+  --btn-hover-fill: linear-gradient(135deg, rgba(195, 142, 180, 0.22) 0%, rgba(134, 168, 207, 0.16) 100%);
+  --btn-hover-text: #E1CBD7;
+}
+
+.leo-magnetic-btn.is-secondary.is-palette-blush {
+  --btn-hover-fill: linear-gradient(135deg, rgba(225, 203, 215, 0.20) 0%, rgba(195, 142, 180, 0.18) 100%);
+  --btn-hover-text: #F0DCE7;
+}
+
+body[data-theme="light"] .leo-magnetic-btn.is-secondary {
+  --btn-hover-fill: rgba(38, 66, 90, 0.10);
+  --btn-hover-text: #26425A;
+}
+
+body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blue {
+  --btn-hover-fill: linear-gradient(135deg, rgba(134, 168, 207, 0.34) 0%, rgba(225, 203, 215, 0.32) 100%);
+  --btn-hover-text: #0E1F2F;
+}
+
+body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-mauve {
+  --btn-hover-fill: linear-gradient(135deg, rgba(195, 142, 180, 0.30) 0%, rgba(225, 203, 215, 0.42) 100%);
+  --btn-hover-text: #0E1F2F;
+}
+
+body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
+  --btn-hover-fill: linear-gradient(135deg, rgba(225, 203, 215, 0.52) 0%, rgba(134, 168, 207, 0.26) 100%);
+  --btn-hover-text: #0E1F2F;
+}
+
+/* Keep border 100% consistent on hover (no highlighted border) while rolling slot text & tinting icon */
+.leo-magnetic-btn.is-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-subtle);
+  color: var(--btn-hover-text);
+  box-shadow: none;
+}
+
+.leo-magnetic-btn.is-secondary .slot-text-clone {
+  color: var(--btn-hover-text);
+}
+
+.leo-magnetic-btn:hover .slot-text-primary,
+.leo-magnetic-btn:hover .slot-text-clone {
+  transform: translateY(-125%);
 }
 
 .leo-magnetic-btn.is-secondary:hover .leo-btn-label svg {
+  color: var(--btn-hover-text);
   transform: translateY(-1px) scale(1.08);
 }
 
