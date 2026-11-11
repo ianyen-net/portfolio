@@ -3754,8 +3754,12 @@ body[data-theme="light"] .share-icons-direct {
   font-size: clamp(28px, 3.4vw, 42px);
   line-height: 1.1;
   letter-spacing: 0em;
-  color: var(--accent);
+  color: #86A8CF;
   margin: -10px 0 22px;
+}
+
+body[data-theme="light"] .case-h3-italic {
+  color: #86A8CF;
 }
 
 .case-h4 {
