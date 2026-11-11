@@ -4341,6 +4341,19 @@ body[data-theme="light"] .desktop-window-frame {
   background: transparent;
 }
 
+.frameless-mock.is-elevated-dialog img {
+  border-radius: 22px;
+  filter:
+    drop-shadow(0 20px 44px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 6px 16px rgba(0, 0, 0, 0.24));
+}
+
+body[data-theme="light"] .frameless-mock.is-elevated-dialog img {
+  filter:
+    drop-shadow(0 20px 42px rgba(14, 31, 47, 0.22))
+    drop-shadow(0 6px 16px rgba(14, 31, 47, 0.12));
+}
+
 /* Single-Border Mock (Strictly 1 border, zero nested container — used for ShareKit Design Principles slides) */
 .single-border-mock {
   width: 100%;
