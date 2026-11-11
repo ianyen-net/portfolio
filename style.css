@@ -977,7 +977,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   background: transparent;
 }
 
-.avatar-stage.is-transparent-gif .avatar-img-circle img {
+.avatar-stage.is-transparent-gif .avatar-img-circle > img.hero-transparent-gif {
   width: 94%;
   height: 94%;
   object-fit: contain;
@@ -986,8 +986,45 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
+/* Cursor-Localized Real Photo Spotlight Reveal Layer on Avatar Hover */
+.avatar-real-reveal {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  -webkit-mask-image: radial-gradient(
+    circle 56px at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.94) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle 56px at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.94) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.avatar-stage.is-revealing-photo .avatar-real-reveal {
+  opacity: 1;
+}
+
+.avatar-stage.is-transparent-gif .avatar-img-circle .avatar-real-reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.02);
+  filter: none;
+}
+
 /* When the rocket top-border explosion happens, the celebratory avatar is slightly zoomed in (border stays identical to other avatar states) */
-.avatar-stage.is-looking-at-explosion .avatar-img-circle img {
+.avatar-stage.is-looking-at-explosion .avatar-img-circle > img.hero-transparent-gif {
   transform: translateY(4px) scale(1.07);
 }
 
@@ -1040,30 +1077,51 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* Bottom-right 360° Spin / Cycle GIF Button on Avatar */
+/* Bottom-Right Generic Face Icon Button on Avatar (Cycles Facial Expressions) */
 .avatar-action-btn {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 2px;
+  right: 2px;
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  background: var(--bg-page);
+  background: rgba(6, 13, 26, 0.92);
   border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 5;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, color 0.25s ease;
+  z-index: 12;
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+body[data-theme="light"] .avatar-action-btn {
+  background: #FFFFFF;
+  border-color: rgba(14, 31, 47, 0.14);
+  color: #26425A;
+  box-shadow: 0 6px 16px -4px rgba(14, 31, 47, 0.16);
 }
 
 .avatar-action-btn:hover {
-  transform: scale(1.1) rotate(25deg);
-  background: var(--text-primary);
-  color: var(--bg-page);
+  transform: scale(1.08);
+  background: #86A8CF;
+  color: #0E1F2F;
+  border-color: transparent;
+  box-shadow: 0 8px 20px -6px rgba(134, 168, 207, 0.5);
+}
+
+body[data-theme="light"] .avatar-action-btn:hover {
+  background: #C38EB4;
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 8px 20px -6px rgba(195, 142, 180, 0.45);
 }
 
 /* Hero Name & Location Pill (`.framer-1qt8vim`) — Uses the exact "Available for new opportunities" chip styling */
@@ -1128,7 +1186,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 }
 
 body[data-theme="light"] .hero-fraunces-title .text-accent {
-  color: #4A719C;
+  color: #86A8CF;
 }
 
 /* Interactive On-Hover & First-Load Wave Effect on Hero Headline Words ("Designing AI products people trust.") */
@@ -1943,14 +2001,24 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 }
 
 body[data-theme="light"] .leo-work-title {
-  background-image: linear-gradient(
-    90deg,
-    var(--case-hue-light-1) 0%,
-    var(--case-hue-light-2) 26%,
-    var(--case-hue-light-3) 50%,
-    var(--text-primary) 54%,
-    var(--text-primary) 100%
-  );
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: #0C1D4B;
+  transition:
+    color 0.32s ease,
+    letter-spacing 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-title {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] #project-sharekit:hover .leo-work-title,
+body[data-theme="light"] #project-sonicare:hover .leo-work-title {
+  color: #C38EB4;
 }
 
 /* Character-by-character slot machine spans (for buttons) */
@@ -2452,7 +2520,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 
 /* Each word flashes ONCE when the three words enter view and launch the rocket, then only flashes when hovered */
 #process.is-rocket-launched .leo-process-title {
-  animation: processTitleFlashOnce 0.68s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  animation: processTitleFlashOnce 0.68s cubic-bezier(0.4, 0, 0.2, 1) 1;
   animation-delay: inherit;
 }
 
@@ -5230,6 +5298,171 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* ==========================================================================
+   LIGHT THEME SOLID PALETTE TEXT HIGHLIGHTS
+   Reference Palette (https://www.pinterest.com/pin/2181499817012571/):
+   #0C1D4B (Royal Navy) | #C38EB4 (Warm Mauve) | #E1CBD7 (Soft Blush)
+   #86A8CF (Cornflower Blue) | #26425A (Slate Blue) | #0E1F2F (Midnight Ink)
+   ========================================================================== */
+body[data-theme="light"] .hero-name-pill > span:nth-of-type(2) {
+  color: #0C1D4B;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .hero-name-pill .pill-loc {
+  color: #C38EB4;
+  font-weight: 500;
+}
+
+body[data-theme="light"] .hero-subtitle-line .is-sub-navy {
+  color: #0C1D4B;
+  font-weight: 500;
+}
+
+body[data-theme="light"] .hero-subtitle-line .is-sub-blue {
+  color: #86A8CF;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .hero-subtitle-line .is-sub-mauve {
+  color: #C38EB4;
+  font-weight: 600;
+}
+
+/* Process Flow ("Design -> Prototype -> Launch") Solid Palette Colors in Light Mode */
+body[data-theme="light"] .leo-process-card:nth-of-type(1) .leo-process-title {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] .leo-process-card:nth-of-type(2) .leo-process-title {
+  color: #C38EB4;
+}
+
+body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .process-hand-arrow {
+  color: #86A8CF;
+}
+
+/* Section Eyebrows, Range Labels & Work Card Metrics in Light Mode */
+body[data-theme="light"] .leo-section-label {
+  color: #C38EB4;
+}
+
+body[data-theme="light"] .leo-range-label {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] .leo-work-metric {
+  color: #C38EB4;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] .leo-work-meta-dot {
+  background: #86A8CF;
+}
+
+/* About Bio & Photo Caption Solid Palette Highlights in Light Mode */
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
+  color: #0C1D4B;
+  font-weight: 500;
+}
+
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-mauve {
+  color: #C38EB4;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-blue {
+  color: #86A8CF;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .about-photo-caption strong {
+  color: #C38EB4;
+}
+
+/* Experience Section Solid Palette Highlights in Light Mode */
+body[data-theme="light"] .leo-exp-company {
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .leo-exp-now-badge {
+  background-color: rgba(225, 203, 215, 0.55);
+  border-color: rgba(195, 142, 180, 0.45);
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .leo-exp-period {
+  color: #86A8CF;
+  font-weight: 600;
+}
+
+/* Case Study Pages Solid Palette Highlights in Light Mode */
+body[data-theme="light"] .case-eyebrow,
+body[data-theme="light"] .next-case-eyebrow,
+body[data-theme="light"] .proto-banner-label,
+body[data-theme="light"] .case-password-kicker {
+  color: #C38EB4;
+}
+
+body[data-theme="light"] .case-eyebrow::before {
+  background: #86A8CF;
+}
+
+body[data-theme="light"] .case-meta-label {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] .case-meta-value {
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .metric-value,
+body[data-theme="light"] .metric-number {
+  color: #86A8CF;
+}
+
+body[data-theme="light"] .metric-card:nth-child(even) .metric-value,
+body[data-theme="light"] .metric-card:nth-child(even) .metric-number {
+  color: #C38EB4;
+}
+
+body[data-theme="light"] .feature-num,
+body[data-theme="light"] .principle-num {
+  color: #C38EB4;
+}
+
+body[data-theme="light"] .feature-tag {
+  background: rgba(225, 203, 215, 0.52);
+  border-color: rgba(195, 142, 180, 0.42);
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .case-h4,
+body[data-theme="light"] .principle-title {
+  color: #0C1D4B;
+}
+
+body[data-theme="light"] .case-body strong,
+body[data-theme="light"] .case-list strong {
+  color: #0C1D4B;
+  font-weight: 600;
+}
+
+body[data-theme="light"] .case-body em u {
+  color: #C38EB4;
+  text-decoration-color: #C38EB4;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .clientele-footer-credits {

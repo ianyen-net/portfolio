@@ -345,7 +345,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    const avatarCircle = avatarStage.querySelector('[data-avatar-circle]') || avatarStage.querySelector('.avatar-img-circle');
+    const realRevealEl = avatarStage.querySelector('[data-avatar-real-reveal]');
+    const faceBtn = avatarStage.querySelector('[data-avatar-face-btn]');
+
     const resetAvatarTilt = () => {
+      avatarStage.classList.remove('is-revealing-photo');
       if (tiltCard) {
         tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
@@ -353,20 +358,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     avatarStage.addEventListener('mousemove', (e) => {
       if (!tiltCard) return;
+      const onFaceBtn = e.target && e.target.closest && e.target.closest('[data-avatar-face-btn]');
       const rect = avatarStage.getBoundingClientRect();
       const nx = (e.clientX - rect.left) / rect.width - 0.5;
       const ny = (e.clientY - rect.top) / rect.height - 0.5;
       const rotY = nx * 14;
       const rotX = -ny * 14;
       tiltCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+
+      if (onFaceBtn || avatarStage.classList.contains('is-looking-at-explosion')) {
+        avatarStage.classList.remove('is-revealing-photo');
+        return;
+      }
+
+      if (realRevealEl && avatarCircle) {
+        const cRect = avatarCircle.getBoundingClientRect();
+        const cx = e.clientX - cRect.left;
+        const cy = e.clientY - cRect.top;
+        realRevealEl.style.setProperty('--spot-x', `${cx.toFixed(1)}px`);
+        realRevealEl.style.setProperty('--spot-y', `${cy.toFixed(1)}px`);
+        avatarStage.classList.add('is-revealing-photo');
+      }
     });
 
-    avatarStage.addEventListener('mouseenter', advanceAvatarVariant);
     avatarStage.addEventListener('mouseleave', resetAvatarTilt);
-    avatarStage.addEventListener('click', (e) => {
-      e.stopPropagation();
-      advanceAvatarVariant();
-    });
+
+    if (faceBtn) {
+      faceBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        avatarStage.classList.remove('is-revealing-photo');
+        advanceAvatarVariant();
+        faceBtn.animate(
+          [
+            { transform: 'scale(0.86) rotate(-14deg)' },
+            { transform: 'scale(1.16) rotate(12deg)' },
+            { transform: 'scale(1) rotate(0deg)' },
+          ],
+          { duration: 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
+      });
+    }
   }
 
   /* ==========================================================================
@@ -594,12 +625,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const subtitleEl = document.querySelector('.hero-subtitle-line');
   if (subtitleEl) {
+    const navyWords = new Set(['7', 'years', '0-to-1', 'AI']);
+    const blueWords = new Set(['Agentic', 'Messaging,', 'Ecosystem', 'Growth.']);
+    const mauveWords = new Set(['People', 'Platform,']);
     const tokens = (subtitleEl.textContent || '').trim().split(/\s+/);
     if (tokens.length > 0) {
       subtitleEl.textContent = '';
       tokens.forEach((tok, idx) => {
         const span = document.createElement('span');
-        span.className = 'rocket-breakable-piece is-subword';
+        let extraCls = '';
+        if (navyWords.has(tok)) extraCls = ' is-sub-navy';
+        else if (blueWords.has(tok)) extraCls = ' is-sub-blue';
+        else if (mauveWords.has(tok)) extraCls = ' is-sub-mauve';
+        span.className = 'rocket-breakable-piece is-subword' + extraCls;
         span.textContent = tok;
         subtitleEl.appendChild(span);
         if (idx < tokens.length - 1) {
