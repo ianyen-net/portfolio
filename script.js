@@ -617,13 +617,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('is-hidden', inAction);
     });
     if (inAction) {
-      // Show the rocket launch button next to "Launch" as soon as the 3.667s rocket launch sequence finishes
+      // Show the rocket launch button next to "Launch" as soon as the 4.7s rocket launch sequence finishes
       rocketIdleBtnTimer = setTimeout(() => {
         rocketRelaunchBtns.forEach((btn) => {
           btn.classList.remove('is-hidden');
         });
         rocketIdleBtnTimer = null;
-      }, 3680);
+      }, 4720);
     }
   };
 
@@ -672,8 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
 
-        // While the rocket is ascending (after 1.55s), break/part any hero text pieces in its flight path
-        if (elapsed >= 1550 && breakableHeroPieces.length > 0) {
+        // While the rocket is ascending (after 2.65s), break/part any hero text pieces in its flight path
+        if (elapsed >= 2650 && breakableHeroPieces.length > 0) {
           if (!pieceCenters) {
             pieceCenters = breakableHeroPieces.map((el) => {
               const rect = el.getBoundingClientRect();
@@ -711,12 +711,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const heroCardEl = document.querySelector('.hero-card-inner');
         const heroTopEdge = heroCardEl ? heroCardEl.getBoundingClientRect().top : 0;
-        if (rRect.top <= heroTopEdge + 40 && elapsed > 1650) {
+        if (rRect.top <= heroTopEdge + 40 && elapsed > 2750) {
           triggerHeroTorch();
           return;
         }
       }
-      if (elapsed < 3800) {
+      if (elapsed < 4850) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();
@@ -777,13 +777,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { passive: true }
   );
 
-  // Launch the rocket on initial load after 2.5s (2500ms) or when the process tray enters the viewport after 2.5s
+  // Start the rocket in position as soon as the user sees the three words (and lifts off 2.7s after the words are seen)
   const processSectionEl = document.getElementById('process');
   const processTrayEl = document.querySelector('.leo-process-tray');
-  let rocketDelayElapsed = false;
 
   const checkAndLaunchProcessRocket = () => {
-    if (!rocketDelayElapsed || rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
+    if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
     const trayRect = processTrayEl.getBoundingClientRect();
     if (trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60) {
       rocketTorchScheduled = true;
@@ -793,9 +792,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setTimeout(() => {
-    rocketDelayElapsed = true;
     checkAndLaunchProcessRocket();
-  }, 2500);
+  }, 850);
 
   window.addEventListener('scroll', checkAndLaunchProcessRocket, { passive: true });
   window.addEventListener('resize', checkAndLaunchProcessRocket, { passive: true });
