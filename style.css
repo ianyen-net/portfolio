@@ -761,22 +761,21 @@ body[data-theme="light"] .leo-nav-cta:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  border-radius: 34px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  transition: background-color 0.35s ease, border-color 0.35s ease;
+  padding: 0;
+  border-radius: 30px;
+  background: transparent;
+  border: none;
 }
 
 body[data-theme="light"] .hero-shell-outer {
-  background: rgba(14, 31, 47, 0.045);
-  border-color: rgba(14, 31, 47, 0.08);
+  background: transparent;
+  border: none;
 }
 
 .hero-card-inner {
   position: relative;
   flex: 1;
-  border-radius: 27px;
+  border-radius: 30px;
   background: var(--bg-page);
   border: 1px solid var(--border-subtle);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -791,7 +790,7 @@ body[data-theme="light"] .hero-shell-outer {
 }
 
 body[data-theme="light"] .hero-card-inner {
-  border-color: rgba(14, 31, 47, 0.08);
+  border-color: rgba(14, 31, 47, 0.11);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
@@ -4222,17 +4221,17 @@ body.is-loaded .load-reveal {
 }
 
 /* ==========================================================================
-   10B-2. JULIAN DAVID (`https://juliandavid.framer.website/`) FIRST-LOAD HERO CHOREOGRAPHY
-          - `1ejl7m2` (Avatar): scale(1.3) -> scale(1) over 1.0s cubic-bezier(0.75, 0.25, 1, 1) @ 0s delay
-          - `bi5zts` (Bottom Dock): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 0.5s delay
-          - `1rt5431` (Top Nav): opacity 0.001, y: -90px -> 0 spring(300, 60, 1) @ 1.0s delay
-          - `hkuxeh` / `1guwwyf` (Pill & Title): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 1.0s delay
-          - `ymsdf6` (Subtitle): opacity 0.001, y: +90px -> 0 spring(300, 60, 1) @ 1.1s delay
+   10B-2. LEO MARLOWE (`https://leomarlowe.framer.website/`) FIRST-LOAD HERO CHOREOGRAPHY
+          - `qeh3f0` (Avatar Stage): opacity 0.001, scale(0.9) -> scale(1) @ 0.1s delay, 0.9s spring
+          - `1qt8vim` (Name Pill): opacity 0.001, y: +10px -> 0 @ 0.3s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+          - `1txiwdh` (Headline Words): word-by-word opacity 0.001, blur(8px), y: +16px -> 0 @ 0.38s..0.66s stagger
+          - `xasqps` (Subtitle Line): opacity 0.001, y: +10px -> 0 @ 0.75s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+          - `#process` (Process Flow): opacity 0.001, y: +10px -> 0 @ 0.85s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
    ========================================================================== */
-@keyframes jdAvatarZoom {
+@keyframes leoAvatarAppear {
   0% {
-    opacity: 1;
-    transform: scale(1.3);
+    opacity: 0.001;
+    transform: scale(0.9);
   }
   100% {
     opacity: 1;
@@ -4240,10 +4239,10 @@ body.is-loaded .load-reveal {
   }
 }
 
-@keyframes jdNavDrop {
+@keyframes leoNavAppear {
   0% {
     opacity: 0.001;
-    transform: translateY(-90px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -4251,40 +4250,85 @@ body.is-loaded .load-reveal {
   }
 }
 
-@keyframes jdRiseUp90 {
+@keyframes leoFadeRise10 {
   0% {
     opacity: 0.001;
-    transform: translateY(90px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leoHeadlineWordAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(8px);
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
     transform: translateY(0);
   }
 }
 
 .jd-appear-avatar {
-  will-change: transform;
-  animation: jdAvatarZoom 1s cubic-bezier(0.75, 0.25, 1, 1) 0s both;
+  will-change: transform, opacity;
+  animation: leoAvatarAppear 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .jd-appear-dock {
   will-change: transform, opacity;
-  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
 }
 
 .jd-appear-nav {
   will-change: transform, opacity;
-  animation: jdNavDrop 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both;
+  animation: leoNavAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
-.jd-appear-title {
+.hero-name-pill.jd-appear-title {
   will-change: transform, opacity;
-  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.0s both;
+  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.hero-fraunces-title.jd-appear-title {
+  animation: none;
+}
+
+.hero-fraunces-title .hero-hover-word {
+  animation: leoHeadlineWordAppear 0.75s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.36s;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(2) {
+  animation-delay: 0.43s;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
+  animation-delay: 0.50s;
+}
+
+.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.57s;
+}
+
+.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
+  animation-delay: 0.64s;
 }
 
 .jd-appear-subtitle {
   will-change: transform, opacity;
-  animation: jdRiseUp90 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
+  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+}
+
+#process.jd-appear-subtitle {
+  animation-delay: 0.85s;
 }
 
 /* ==========================================================================
@@ -4625,13 +4669,13 @@ body[data-theme="light"] .frameless-mock.is-elevated-dialog img {
   }
 
   .hero-shell-outer {
-    padding: 6px;
-    border-radius: 26px;
+    padding: 0;
+    border-radius: 22px;
   }
 
   .hero-card-inner {
     padding: 88px 16px 28px;
-    border-radius: 20px;
+    border-radius: 22px;
   }
 
   .leo-work-cover {

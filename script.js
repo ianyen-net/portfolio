@@ -37,23 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.body.classList.add('is-loaded');
-
-      // Sequential first-load hover-flash wave across the hero headline words ("Designing AI products people trust.")
-      // Fires at 1480ms so it flows seamlessly right as the exponential ease-out entrance settles
-      const heroWords = document.querySelectorAll('.hero-hover-word');
-      if (heroWords.length > 0) {
-        const startDelay = 1480;
-        const stepDelay = 115;
-        const holdDuration = 300;
-        heroWords.forEach((word, idx) => {
-          setTimeout(() => {
-            word.classList.add('is-flash');
-            setTimeout(() => {
-              word.classList.remove('is-flash');
-            }, holdDuration);
-          }, startDelay + idx * stepDelay);
-        });
-      }
     });
   });
 
@@ -794,12 +777,13 @@ document.addEventListener('DOMContentLoaded', () => {
     { passive: true }
   );
 
-  // Launch the rocket on initial load once the hero entrance settles (~1.15s) or when the process tray enters the viewport
+  // Launch the rocket on initial load after 2.5s (2500ms) or when the process tray enters the viewport after 2.5s
   const processSectionEl = document.getElementById('process');
   const processTrayEl = document.querySelector('.leo-process-tray');
+  let rocketDelayElapsed = false;
 
   const checkAndLaunchProcessRocket = () => {
-    if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
+    if (!rocketDelayElapsed || rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
     const trayRect = processTrayEl.getBoundingClientRect();
     if (trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60) {
       rocketTorchScheduled = true;
@@ -809,8 +793,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setTimeout(() => {
+    rocketDelayElapsed = true;
     checkAndLaunchProcessRocket();
-  }, 1150);
+  }, 2500);
 
   window.addEventListener('scroll', checkAndLaunchProcessRocket, { passive: true });
   window.addEventListener('resize', checkAndLaunchProcessRocket, { passive: true });
