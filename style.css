@@ -2307,24 +2307,30 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:nth-of-type(1) {
-  --loop-color: #6B9BFF;
+  --word-base-color: #86A8CF;
+  --word-base-color-light: #86A8CF;
+  --loop-color: #B8D4FF;
   --loop-color-light: #2563EB;
-  --loop-glow: rgba(99, 102, 241, 0.55);
-  animation-delay: 0.45s !important;
+  --loop-glow: rgba(134, 168, 207, 0.75);
+  --word-flash-delay: 0.10s;
 }
 
 .leo-process-card:nth-of-type(2) {
-  --loop-color: #A855F7;
-  --loop-color-light: #7C3AED;
-  --loop-glow: rgba(168, 85, 247, 0.58);
-  animation-delay: 1.45s !important;
+  --word-base-color: #C38EB4;
+  --word-base-color-light: #C38EB4;
+  --loop-color: #F0B8E0;
+  --loop-color-light: #9333EA;
+  --loop-glow: rgba(195, 142, 180, 0.78);
+  --word-flash-delay: 0.90s;
 }
 
 .leo-process-card:nth-of-type(3) {
-  --loop-color: #818CF8;
+  --word-base-color: #E1CBD7;
+  --word-base-color-light: #0C1D4B;
+  --loop-color: #FFFFFF;
   --loop-color-light: #4F46E5;
-  --loop-glow: rgba(129, 140, 248, 0.56);
-  animation-delay: 2.45s !important;
+  --loop-glow: rgba(225, 203, 215, 0.82);
+  --word-flash-delay: 1.70s;
 }
 
 /* Cute Retro Rocket Vector that grows directly out of the `.rocket-relaunch-btn` next to "Launch":
@@ -2376,7 +2382,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-launch-smoke {
-  animation: shipLaunchpadSmoke 4.7s linear 0s 1 forwards;
+  animation: shipLaunchpadSmoke 4.5s linear 0s 1 forwards;
 }
 
 @keyframes shipLaunchpadSmoke {
@@ -2385,17 +2391,17 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     opacity: 0;
     transform: translate3d(-50%, 10px, 0) scale(0.2);
   }
-  6%, 57.5% {
+  6%, 55.6% {
     opacity: 0.92;
     transform: translate3d(-50%, 0px, 0) scale(0.9);
   }
-  /* Billows outward as the rocket lifts off at 2.7s */
-  66% {
+  /* Billows outward as the rocket lifts off at 2.5s */
+  65% {
     opacity: 1;
     transform: translate3d(-50%, -2px, 0) scale(1.22);
   }
   /* Dissipates after the rocket leaves the pad */
-  82%, 100% {
+  81%, 100% {
     opacity: 0;
     transform: translate3d(-50%, -8px, 0) scale(1.5);
   }
@@ -2416,7 +2422,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 #process.is-rocket-launched .ship-rocket-launch {
-  animation: shipRocketLiftoff 4.7s linear 0s 1 forwards;
+  animation: shipRocketLiftoff 4.5s linear 0s 1 forwards;
 }
 
 .ship-rocket-svg {
@@ -2451,40 +2457,40 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-left {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachLeft 4.7s linear 0s 1 forwards;
+  animation: boosterDetachLeft 4.5s linear 0s 1 forwards;
 }
 
 #process.is-rocket-launched .ship-rocket-svg .rocket-side-booster-right {
   transform-box: fill-box;
   transform-origin: center top;
-  animation: boosterDetachRight 4.7s linear 0s 1 forwards;
+  animation: boosterDetachRight 4.5s linear 0s 1 forwards;
 }
 
 @keyframes boosterDetachLeft {
-  0%, 78% {
+  0%, 76% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  90% {
+  89% {
     opacity: 0.85;
     transform: translate3d(-22px, 38px, 0) rotate(-24deg);
   }
-  97%, 100% {
+  96%, 100% {
     opacity: 0;
     transform: translate3d(-36px, 76px, 0) rotate(-38deg);
   }
 }
 
 @keyframes boosterDetachRight {
-  0%, 78% {
+  0%, 76% {
     opacity: 1;
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
-  90% {
+  89% {
     opacity: 0.85;
     transform: translate3d(22px, 38px, 0) rotate(24deg);
   }
-  97%, 100% {
+  96%, 100% {
     opacity: 0;
     transform: translate3d(36px, 76px, 0) rotate(38deg);
   }
@@ -2511,7 +2517,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 @keyframes shipRocketLiftoff {
-  /* 0% -> 7% (0s -> 0.33s): Rocket vector appears in position right as the user sees the three words */
+  /* 0% -> 5% (0s -> 0.22s): Rocket vector appears in position right as the user sees the three words */
   0% {
     opacity: 0;
     transform: translate3d(-50%, 20px, 0) scale(0.24);
@@ -2522,18 +2528,18 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     transform: translate3d(-50%, -3px, 0) scale(1.05);
     animation-timing-function: ease-out;
   }
-  /* 8% -> 57.5% (0.37s -> 2.70s): Perched in position simmering while Prototype -> Measure -> Launch flash, then launches at 2.7s */
-  8%, 57.5% {
+  /* 7% -> 55.6% (0.31s -> 2.50s): Perched in position simmering while Prototype (0.1s) -> Measure (0.9s) -> Launch (1.7s) flash once, then launches at 2.5s */
+  7%, 55.6% {
     opacity: 1;
     transform: translate3d(-50%, 0px, 0) scale(1);
     animation-timing-function: linear;
   }
-  /* 2.70s -> 4.42s (57.5% -> 94%): Launches at 2.7s and ascends steadily to the top border */
-  94% {
+  /* 2.50s -> 4.20s (55.6% -> 93.3%): Launches at 2.5s and ascends steadily to the top border */
+  93.3% {
     opacity: 1;
     transform: translate3d(-50%, -920px, 0) scale(1);
   }
-  /* 4.42s -> 4.70s (94% -> 100%): Continues past the top edge and fades out permanently */
+  /* 4.20s -> 4.50s (93.3% -> 100%): Continues past the top edge and fades out permanently */
   100% {
     opacity: 0;
     transform: translate3d(-50%, -1020px, 0) scale(0.96);
@@ -2568,10 +2574,9 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
     transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Each word flashes ONCE when the three words enter view and launch the rocket, then only flashes when hovered */
+/* Each word flashes strictly ONCE when the three words enter view, starting and ending at its resting palette color so there is never a double flash */
 #process.is-rocket-launched .leo-process-title {
-  animation: processTitleFlashOnce 0.68s cubic-bezier(0.4, 0, 0.2, 1) 1;
-  animation-delay: inherit;
+  animation: processTitleFlashOnce 0.70s cubic-bezier(0.4, 0, 0.2, 1) var(--word-flash-delay, 0s) 1 backwards;
 }
 
 body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
@@ -2580,25 +2585,29 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 
 @keyframes processTitleFlashOnce {
   0%, 100% {
-    color: var(--text-primary);
+    color: var(--word-base-color);
     text-shadow: 0 0 0 transparent;
+    transform: translateY(0) scale(1);
   }
-  38% {
+  45% {
     color: var(--loop-color);
     text-shadow:
       0 0 18px var(--loop-glow),
       0 8px 28px var(--loop-glow);
+    transform: translateY(-2px) scale(1.06);
   }
 }
 
 @keyframes processTitleFlashOnceLight {
   0%, 100% {
-    color: var(--text-primary);
+    color: var(--word-base-color-light);
     text-shadow: 0 0 0 transparent;
+    transform: translateY(0) scale(1);
   }
-  38% {
+  45% {
     color: var(--loop-color-light);
     text-shadow: 0 6px 22px rgba(124, 58, 237, 0.28);
+    transform: translateY(-2px) scale(1.06);
   }
 }
 

@@ -617,13 +617,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('is-hidden', inAction);
     });
     if (inAction) {
-      // Show the rocket launch button next to "Launch" as soon as the 4.7s rocket launch sequence finishes
+      // Show the rocket launch button next to "Launch" as soon as the 4.5s rocket launch sequence finishes
       rocketIdleBtnTimer = setTimeout(() => {
         rocketRelaunchBtns.forEach((btn) => {
           btn.classList.remove('is-hidden');
         });
         rocketIdleBtnTimer = null;
-      }, 4720);
+      }, 4520);
     }
   };
 
@@ -672,8 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rocketEl) {
         const rRect = rocketEl.getBoundingClientRect();
 
-        // While the rocket is ascending (after 2.65s), break/part any hero text pieces in its flight path
-        if (elapsed >= 2650 && breakableHeroPieces.length > 0) {
+        // While the rocket is ascending (after 2.45s), break/part any hero text pieces in its flight path
+        if (elapsed >= 2450 && breakableHeroPieces.length > 0) {
           if (!pieceCenters) {
             pieceCenters = breakableHeroPieces.map((el) => {
               const rect = el.getBoundingClientRect();
@@ -711,12 +711,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const heroCardEl = document.querySelector('.hero-card-inner');
         const heroTopEdge = heroCardEl ? heroCardEl.getBoundingClientRect().top : 0;
-        if (rRect.top <= heroTopEdge + 40 && elapsed > 2750) {
+        if (rRect.top <= heroTopEdge + 40 && elapsed > 2550) {
           triggerHeroTorch();
           return;
         }
       }
-      if (elapsed < 4850) {
+      if (elapsed < 4650) {
         activeRocketTrackRaf = requestAnimationFrame(trackRocketArrival);
       } else {
         triggerHeroTorch();
