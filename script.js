@@ -818,10 +818,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     10. CASE STUDY PASSWORD PROTECTION (`uxian12`)
+     10. CASE STUDY PASSWORD PROTECTION (SHA-256 HASHED)
      ========================================================================== */
-  const CASE_PASSWORD = 'uxian12';
+  const CASE_PASSWORD_HASH = '208984112481814036c6a8fb96017106d2c7ba8bf1b64c2ae5b44a5d7b283cec';
   const AUTH_STORAGE_KEY = 'ian-case-auth';
+  const sha256Hex = async (str) => {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('');
+  };
   const isCaseStudyPage =
     document.body.classList.contains('case-study-body') ||
     Boolean(document.querySelector('.case-page'));
@@ -874,7 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(gate);
     }
 
-    const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD;
+    const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
 
     if (isUnlocked) {
       document.body.classList.remove('is-locked');
@@ -910,11 +916,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (form && input) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
           const val = input.value.trim();
-          if (val === CASE_PASSWORD) {
-            sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD);
+          const inputHash = await sha256Hex(val);
+          if (inputHash === CASE_PASSWORD_HASH) {
+            sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH);
             document.body.classList.remove('is-locked');
             gate.classList.add('is-hidden');
             input.blur();
