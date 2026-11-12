@@ -298,23 +298,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const avatarCircle = avatarStage.querySelector('[data-avatar-circle]') || avatarStage.querySelector('.avatar-img-circle');
-    const realRevealEl = avatarStage.querySelector('[data-avatar-real-reveal]');
-    const faceBtn = avatarStage.querySelector('[data-avatar-face-btn]');
-    let hasTeasedRealPhotoAfterExplosion = false;
-    let teasePhotoCleanupTimer = null;
-
     triggerAvatarExplosionLook = () => {
       if (!avatarImg) return;
       if (explosionLookTimer) {
         clearTimeout(explosionLookTimer);
         explosionLookTimer = null;
       }
-      if (teasePhotoCleanupTimer) {
-        clearTimeout(teasePhotoCleanupTimer);
-        teasePhotoCleanupTimer = null;
-      }
-      avatarStage.classList.remove('is-teasing-photo');
       avatarImg.src = explosionLookSrc;
       avatarStage.classList.add('is-looking-at-explosion');
       if (tiltCard) {
@@ -332,19 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
         avatarStage.classList.remove('is-looking-at-explosion');
         avatarImg.src = avatarVariants[avatarVariantIdx];
         explosionLookTimer = null;
-
-        // On initial load, right after the rocket has launched and the explosion effect has faded away,
-        // reveal the real person image momentarily before returning to the 3D avatar.
-        if (realRevealEl && !hasTeasedRealPhotoAfterExplosion) {
-          hasTeasedRealPhotoAfterExplosion = true;
-          if (!avatarStage.classList.contains('is-revealing-photo')) {
-            avatarStage.classList.add('is-teasing-photo');
-            teasePhotoCleanupTimer = setTimeout(() => {
-              avatarStage.classList.remove('is-teasing-photo');
-              teasePhotoCleanupTimer = null;
-            }, 2120);
-          }
-        }
       }, 4600);
     };
 
@@ -370,51 +346,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const resetAvatarTilt = () => {
-      avatarStage.classList.remove('is-revealing-photo');
       if (tiltCard) {
         tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
     };
 
+    avatarStage.addEventListener('mouseenter', () => {
+      advanceAvatarVariant();
+    });
+
+    avatarStage.addEventListener('click', () => {
+      advanceAvatarVariant();
+    });
+
     avatarStage.addEventListener('mousemove', (e) => {
       if (!tiltCard) return;
-      const onFaceBtn = e.target && e.target.closest && e.target.closest('[data-avatar-face-btn]');
       const rect = avatarStage.getBoundingClientRect();
       const nx = (e.clientX - rect.left) / rect.width - 0.5;
       const ny = (e.clientY - rect.top) / rect.height - 0.5;
       const rotY = nx * 14;
       const rotX = -ny * 14;
       tiltCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
-
-      if (onFaceBtn || avatarStage.classList.contains('is-looking-at-explosion')) {
-        avatarStage.classList.remove('is-revealing-photo');
-        return;
-      }
-
-      if (realRevealEl) {
-        avatarStage.classList.remove('is-teasing-photo');
-        avatarStage.classList.add('is-revealing-photo');
-      }
     });
 
     avatarStage.addEventListener('mouseleave', resetAvatarTilt);
-
-    if (faceBtn) {
-      faceBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        avatarStage.classList.remove('is-teasing-photo');
-        avatarStage.classList.remove('is-revealing-photo');
-        advanceAvatarVariant();
-        faceBtn.animate(
-          [
-            { transform: 'scale(0.86) rotate(-14deg)' },
-            { transform: 'scale(1.16) rotate(12deg)' },
-            { transform: 'scale(1) rotate(0deg)' },
-          ],
-          { duration: 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-        );
-      });
-    }
   }
 
   /* ==========================================================================
@@ -643,8 +598,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const subtitleEl = document.querySelector('.hero-subtitle-line');
   if (subtitleEl) {
     const navyWords = new Set(['7', 'years', '0-to-1', 'AI']);
-    const blueWords = new Set(['Agentic', 'Messaging,', 'Ecosystem', 'Growth.']);
-    const mauveWords = new Set(['People', 'Platform,']);
     const tokens = (subtitleEl.textContent || '').trim().split(/\s+/);
     if (tokens.length > 0) {
       subtitleEl.textContent = '';
@@ -652,8 +605,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const span = document.createElement('span');
         let extraCls = '';
         if (navyWords.has(tok)) extraCls = ' is-sub-navy';
-        else if (blueWords.has(tok)) extraCls = ' is-sub-blue';
-        else if (mauveWords.has(tok)) extraCls = ' is-sub-mauve';
         span.className = 'rocket-breakable-piece is-subword' + extraCls;
         span.textContent = tok;
         subtitleEl.appendChild(span);

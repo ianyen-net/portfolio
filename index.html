@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=26" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=26" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=87">
+  <link rel="stylesheet" href="style.css?v=93">
 </head>
 <body data-theme="dark">
 
@@ -112,15 +112,11 @@
 
           <div class="hero-center-stack">
             <!-- Center-Aligned Interactive Circular 3D Pixar Avatar Stage (Julian David scale 1.3 -> 1.0 entrance) -->
-            <div class="avatar-stage is-transparent-gif jd-appear-avatar" aria-label="Ian Yen interactive avatar — hover to reveal photo, click face button to change expression">
+            <div class="avatar-stage is-transparent-gif jd-appear-avatar" aria-label="Ian Yen interactive avatar — hover to change expression">
               <div class="avatar-tilt-card">
                 <div class="avatar-img-circle" data-avatar-circle>
                   <img src="assets/avatar_var_1_blue_blink.gif?v=26" alt="Ian Yen animated 3D avatar" class="hero-transparent-gif" fetchpriority="high" decoding="sync" data-avatar-img>
-                  <!-- Real photo reveal layer (reveals on hover and briefly teases after hero load) -->
-                  <div class="avatar-real-reveal" data-avatar-real-reveal aria-hidden="true">
-                    <img src="assets/avatar_real_photo.jpg?v=4" alt="" fetchpriority="high" decoding="async">
-                  </div>
-                  <!-- Pre-decoded avatar variants in DOM so first-load, face-button, and explosion transitions are instant -->
+                  <!-- Pre-decoded avatar variants in DOM so first-load, hover, and explosion transitions are instant -->
                   <div aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;">
                     <img src="assets/avatar_var_4_navy_hoodie.gif?v=27" alt="" fetchpriority="high" decoding="sync">
                     <img src="assets/avatar_var_5_green_laptop.gif?v=26" alt="" fetchpriority="high" decoding="sync">
@@ -130,15 +126,6 @@
                   </div>
                 </div>
               </div>
-              <!-- Bottom-Right Generic Face Icon Button to Cycle Avatar Facial Expressions -->
-              <button type="button" class="avatar-action-btn" data-avatar-face-btn aria-label="Change avatar facial expression" title="Change expression">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M8.5 14.5s1.5 2 3.5 2 3.5-2 3.5-2"></path>
-                  <line x1="9" y1="9.5" x2="9.01" y2="9.5" stroke-width="2.5"></line>
-                  <line x1="15" y1="9.5" x2="15.01" y2="9.5" stroke-width="2.5"></line>
-                </svg>
-              </button>
             </div>
 
             <!-- Hero Name & Location Pill (Julian David y: +90 -> 0 @ 1.0s delay) -->
@@ -164,25 +151,25 @@
           </div>
 
           <!-- ====================================================================
-               2B. PROCESS FLOW ("Design -> Prototype -> Launch" Inside Hero Card)
+               2B. PROCESS FLOW ("Prototype -> Measure -> Launch" Inside Hero Card)
                ==================================================================== -->
-          <div class="hero-process-wrap framer-reveal" id="process">
-            <div class="leo-process-tray" role="region" aria-label="How I approach my work: Design, Prototype, Launch">
+          <div class="hero-process-wrap jd-appear-subtitle" id="process">
+            <div class="leo-process-tray" role="region" aria-label="How I approach my work: Prototype, Measure, Launch">
               <div class="leo-process-card">
-                <h3 class="leo-process-title" data-text="Design">Design</h3>
+                <h3 class="leo-process-title" data-text="Prototype">Prototype</h3>
               </div>
 
-              <!-- Handwritten Arched Arrow 1 (Design -> Prototype) -->
+              <!-- Handwritten Arched Arrow 1 (Prototype -> Measure) -->
               <svg class="process-hand-arrow is-first" viewBox="0 0 120 42" fill="none" aria-hidden="true">
                 <path d="M6 28 C 34 8, 78 8, 108 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="140" stroke-dashoffset="0"/>
                 <path d="M97 14 C 103 18, 108 21, 111 24 C 105 25, 99 28, 94 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
 
               <div class="leo-process-card">
-                <h3 class="leo-process-title" data-text="Prototype">Prototype</h3>
+                <h3 class="leo-process-title" data-text="Measure">Measure</h3>
               </div>
 
-              <!-- Handwritten Looping Arrow 2 (Prototype -> Launch) -->
+              <!-- Handwritten Looping Arrow 2 (Measure -> Launch) -->
               <svg class="process-hand-arrow is-second" viewBox="0 0 120 42" fill="none" aria-hidden="true">
                 <path d="M6 18 C 36 36, 78 34, 108 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M95 12 C 102 14, 107 15, 111 16 C 107 21, 103 26, 99 30" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -512,6 +499,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=87"></script>
+  <script src="script.js?v=93"></script>
 </body>
 </html>

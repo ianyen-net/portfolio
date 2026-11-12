@@ -799,7 +799,8 @@ body[data-theme="light"] .hero-card-inner {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 4px 0 0;
+  margin-top: 32px;
+  padding: 28px 0 6px;
 }
 
 /* Subtle Dot Grid Background (`.framer-eza4av`) */
@@ -2554,10 +2555,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   position: relative;
   z-index: 1;
   font-family: var(--font-script);
-  font-size: clamp(28px, 3.4vw, 38px);
-  font-weight: 600;
+  font-size: clamp(24px, 2.5vw, 31px);
+  font-weight: 700;
   font-style: normal;
-  line-height: 0.96;
+  line-height: 1.05;
   letter-spacing: 0em;
   text-transform: none;
   color: var(--text-primary);
@@ -2633,10 +2634,10 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-tit
 }
 
 .process-hand-arrow {
-  width: 68px;
-  height: 28px;
+  width: 58px;
+  height: 24px;
   color: var(--text-secondary);
-  opacity: 0.65;
+  opacity: 0.72;
   flex-shrink: 0;
   animation: none !important;
   transform: none !important;
@@ -5537,6 +5538,133 @@ body[data-theme="light"] .feature-tag {
   background-color: var(--text-secondary);
   opacity: 0.35;
 }
+
+/* ==========================================================================
+   CASE STUDY VISUAL REFINEMENTS:
+   1. Expectation vs. Reality Mocks Shadow (Light & Dark Mode)
+   2. "From Conflicting Priorities" Shared Validation Plan Grid (`google-contacts.html`)
+   3. AI-Built Prototypes Header (`ai-in-contacts.html`)
+   4. "We Had a Solution" Native Transparent Diagram (`ai-in-contacts.html`)
+   ========================================================================== */
+
+/* 1. Expectation vs. Reality Mocks Elevation Shadow */
+.frameless-mock.is-expectation-reality {
+  padding: 12px 6px 24px;
+  overflow: visible;
+}
+
+.frameless-mock.is-expectation-reality img {
+  filter:
+    drop-shadow(0 24px 48px rgba(0, 0, 0, 0.52))
+    drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+body[data-theme="light"] .frameless-mock.is-expectation-reality img {
+  filter:
+    drop-shadow(0 22px 42px rgba(12, 29, 75, 0.18))
+    drop-shadow(0 8px 20px rgba(12, 29, 75, 0.12))
+    drop-shadow(0 1px 3px rgba(12, 29, 75, 0.16));
+}
+
+/* 2. "From Conflicting Priorities" Shared Validation Plan Grid */
+.validation-plan-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 32px 0 12px;
+}
+
+.validation-step-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 20px;
+  border-radius: 20px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+body[data-theme="light"] .validation-step-card {
+  background: #FFFFFF;
+  border-color: rgba(14, 31, 47, 0.11);
+  box-shadow:
+    0 12px 30px rgba(14, 31, 47, 0.06),
+    0 2px 6px rgba(14, 31, 47, 0.04);
+}
+
+.validation-step-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(134, 168, 207, 0.42);
+}
+
+.validation-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.validation-step-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #C38EB4;
+}
+
+.validation-step-title {
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+body[data-theme="light"] .validation-step-title {
+  color: #0C1D4B;
+}
+
+.validation-step-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .validation-plan-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .validation-plan-flow {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. Prototypes I Built Chip Header (`ai-in-contacts.html`) */
+.ai-prototypes-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto 4px;
+  text-align: center;
+}
+
+
 
 
 

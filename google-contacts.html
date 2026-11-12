@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=87">
+  <link rel="stylesheet" href="style.css?v=93">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='uxian12'){document.body.classList.remove('is-locked');}</script>
@@ -171,14 +171,14 @@
         <p class="case-body">The effectiveness of Google's connected experiences (Maps, Calendar, Assistant) depends entirely on the richness of contact data stored by users. Without an address, Maps can't surface a contact's location. Without a birthday, Calendar can't trigger a reminder. Contacts is the backbone of many features across Google.</p>
         <p class="case-body">The gap between what Contacts was designed to do and what users actually did with it had become a strategic problem for the product. Improving contact data quality required understanding and removing the barriers to editing.</p>
 
-        <div class="frameless-mock framer-reveal" style="margin: 36px 0 32px;">
+        <div class="frameless-mock is-expectation-reality framer-reveal" style="margin: 36px 0 32px;">
           <div class="exp-reality-label-row" style="position: relative; height: 28px; margin-bottom: 10px;">
             <span class="case-caption" style="position: absolute; left: 37.4%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
             <span class="case-caption" style="position: absolute; left: 88.2%; transform: translateX(-50%); margin: 0;">REALITY</span>
           </div>
           <img src="assets/mocks/ce_expectation_1.png?v=32" alt="Contacts Completeness — Expectation vs Reality" loading="lazy">
         </div>
-        <div class="frameless-mock framer-reveal" style="margin: 36px 0 32px;">
+        <div class="frameless-mock is-expectation-reality framer-reveal" style="margin: 36px 0 32px;">
           <div class="exp-reality-label-row" style="position: relative; height: 28px; margin-bottom: 10px;">
             <span class="case-caption" style="position: absolute; left: 37.4%; transform: translateX(-50%); margin: 0;">EXPECTATION</span>
             <span class="case-caption" style="position: absolute; left: 88.2%; transform: translateX(-50%); margin: 0;">REALITY</span>
@@ -290,81 +290,59 @@
         <h3 class="case-h3-italic">To a Shared Validation Plan</h3>
         <p class="case-body">To move forward, we compromised on a two-track validation plan: run a lightweight A/B experiment on value props while conducting qualitative usability research in parallel. This let us test both hypotheses simultaneously without delaying either workstream.</p>
 
-        <div class="validation-timeline-native framer-reveal" role="img" aria-label="Shared validation plan timeline: Hypotheses x3, A/B Testing, Usability Study, Competitive Analysis, Design Systems, Metrics">
-          <!-- Step 1: Hypotheses x3 -->
-          <div class="vt-col">
-            <div class="vt-top-slot is-callout-top">
-              <p class="vt-note">Outcome of a<br>cross-functional<br>Workshop</p>
-              <div class="vt-stem is-up" aria-hidden="true">
-                <span class="vt-dot"></span>
-                <span class="vt-line"></span>
-              </div>
+        <div class="validation-plan-flow framer-reveal" role="region" aria-label="Shared validation plan timeline: Hypotheses x3, A/B Testing, Usability Study, Competitive Analysis, Design Systems, Metrics">
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">01</span>
+              <span class="feature-tag">ALIGNMENT</span>
             </div>
-            <div class="vt-pill is-soft">Hypotheses x3</div>
-            <div class="vt-bottom-slot"></div>
+            <h4 class="validation-step-title">Hypotheses &times; 3</h4>
+            <p class="validation-step-desc">Synthesized friction moments from our cross-functional empathy workshop with PM, Eng, and UXR.</p>
           </div>
 
-          <!-- Step 2: A/B Testing -->
-          <div class="vt-col">
-            <div class="vt-top-slot"></div>
-            <div class="vt-pill">A/B Testing</div>
-            <div class="vt-bottom-slot is-callout-bottom">
-              <div class="vt-stem is-down" aria-hidden="true">
-                <span class="vt-line"></span>
-                <span class="vt-dot"></span>
-              </div>
-              <p class="vt-note">Validate<br>hypothesis</p>
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">02</span>
+              <span class="feature-tag">QUANTITATIVE</span>
             </div>
+            <h4 class="validation-step-title">A/B Testing</h4>
+            <p class="validation-step-desc">Ran a live experiment on value-proposition prompts to test PM's motivation hypothesis at scale.</p>
           </div>
 
-          <!-- Step 3: Usability Study -->
-          <div class="vt-col">
-            <div class="vt-top-slot"></div>
-            <div class="vt-pill">Usability Study</div>
-            <div class="vt-bottom-slot"></div>
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">03</span>
+              <span class="feature-tag">QUALITATIVE</span>
+            </div>
+            <h4 class="validation-step-title">Usability Study</h4>
+            <p class="validation-step-desc">Observed real task flows in parallel to pinpoint where form density caused editing drop-offs.</p>
           </div>
 
-          <!-- Step 4: Competitive Analysis -->
-          <div class="vt-col">
-            <div class="vt-top-slot is-media-top">
-              <img src="assets/mocks/ce_validation_apps.png?v=31" alt="1P and 3P audited apps" class="vt-apps-img" loading="lazy">
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">04</span>
+              <span class="feature-tag">1P &amp; 3P AUDIT</span>
             </div>
-            <div class="vt-pill">Competitive<br>Analysis</div>
-            <div class="vt-bottom-slot is-callout-bottom">
-              <div class="vt-stem is-down" aria-hidden="true">
-                <span class="vt-line"></span>
-                <span class="vt-dot"></span>
-              </div>
-              <p class="vt-note"><strong>1P &amp; 3P</strong><span class="vt-subnote">Extensively audited<br>apps for best<br>practices</span></p>
-            </div>
+            <h4 class="validation-step-title">Competitive Analysis</h4>
+            <p class="validation-step-desc">Audited best-in-class 1P &amp; 3P apps to benchmark progressive disclosure and field grouping.</p>
           </div>
 
-          <!-- Step 5: Design Systems -->
-          <div class="vt-col">
-            <div class="vt-top-slot"></div>
-            <div class="vt-pill">Design Systems</div>
-            <div class="vt-bottom-slot is-callout-bottom">
-              <div class="vt-stem is-down" aria-hidden="true">
-                <span class="vt-line"></span>
-                <span class="vt-dot"></span>
-              </div>
-              <p class="vt-note">Contributed to<br>the design<br>systems</p>
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">05</span>
+              <span class="feature-tag">SYSTEMS</span>
             </div>
+            <h4 class="validation-step-title">Design Systems</h4>
+            <p class="validation-step-desc">Standardized form tokens and contributed reusable editing components back to Material 3.</p>
           </div>
 
-          <!-- Step 6: Metrics -->
-          <div class="vt-col">
-            <div class="vt-top-slot is-media-top">
-              <img src="https://static.wixstatic.com/media/e3505c_054881e1b4ac4ab6bd2b0f949f7059c1~mv2.gif" alt="Validation Rocket Animation" class="vt-rocket-gif" loading="lazy">
+          <div class="validation-step-card">
+            <div class="validation-step-top">
+              <span class="validation-step-num">06</span>
+              <span class="feature-tag">LAUNCH</span>
             </div>
-            <div class="vt-pill">Metrics</div>
-            <div class="vt-bottom-slot is-callout-bottom">
-              <div class="vt-stem is-down" aria-hidden="true">
-                <span class="vt-line"></span>
-                <span class="vt-dot"></span>
-              </div>
-              <p class="vt-note">Success &amp; Guardrails</p>
-            </div>
+            <h4 class="validation-step-title">Metrics &amp; Guardrails</h4>
+            <p class="validation-step-desc">Aligned on field-completion success metrics and save-latency guardrails before rollout.</p>
           </div>
         </div>
       </div>
@@ -632,6 +610,6 @@
   </footer>
 
 
-  <script src="script.js?v=87"></script>
+  <script src="script.js?v=93"></script>
 </body>
 </html>
