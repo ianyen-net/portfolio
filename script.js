@@ -815,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gate.innerHTML = `
         <div class="case-password-card" role="dialog" aria-modal="true" aria-labelledby="case-gate-title">
           <div class="case-password-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
@@ -829,12 +829,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 type="password"
                 id="case-password-input"
                 class="case-password-input"
-                placeholder="Enter password"
+                placeholder="Password"
                 aria-label="Case study password"
                 required
               />
               <button type="button" class="case-password-toggle" id="case-password-toggle" aria-label="Show password">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
@@ -842,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
             <button type="submit" class="case-password-submit">
-              <span>Unlock Case Study</span>
+              <span>Continue</span>
               <span aria-hidden="true">→</span>
             </button>
             <div class="case-password-error" id="case-password-error" role="alert">Incorrect password. Please try again.</div>
