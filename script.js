@@ -13,11 +13,11 @@
 
 // Immediately preload and decode all 5 avatar GIF variants before DOMContentLoaded
 const AVATAR_GIF_VARIANTS = [
-  'assets/avatar_var_1_blue_blink.gif?v=28',
-  'assets/avatar_var_4_navy_hoodie.gif?v=28',
-  'assets/avatar_var_5_green_laptop.gif?v=28',
-  'assets/avatar_var_3_navy_victory.gif?v=28',
-  'assets/avatar_var_2_orange_funny.gif?v=28',
+  'assets/avatar_var_1_blue_blink.gif?v=29',
+  'assets/avatar_var_4_navy_hoodie.gif?v=29',
+  'assets/avatar_var_5_green_laptop.gif?v=29',
+  'assets/avatar_var_3_navy_victory.gif?v=29',
+  'assets/avatar_var_2_orange_funny.gif?v=29',
 ];
 const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
   const img = new Image();
@@ -238,16 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
-    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=28';
+    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=29';
     let explosionLookTimer = null;
 
     // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
     const avatarVariants = [
-      'assets/avatar_var_1_blue_blink.gif?v=28',
-      'assets/avatar_var_4_navy_hoodie.gif?v=28',
-      'assets/avatar_var_5_green_laptop.gif?v=28',
-      'assets/avatar_var_3_navy_victory.gif?v=28',
-      'assets/avatar_var_2_orange_funny.gif?v=28',
+      'assets/avatar_var_1_blue_blink.gif?v=29',
+      'assets/avatar_var_4_navy_hoodie.gif?v=29',
+      'assets/avatar_var_5_green_laptop.gif?v=29',
+      'assets/avatar_var_3_navy_victory.gif?v=29',
+      'assets/avatar_var_2_orange_funny.gif?v=29',
     ];
     // Preload all variants (including explosion look-up) so switching is instant with zero flicker
     [...avatarVariants, explosionLookSrc].forEach((src) => {
@@ -255,31 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
       preload.src = src;
     });
     let avatarVariantIdx = 0;
-
-    // On first load of the homepage, while the avatar is the first element appearing (0ms -> 1000ms),
-    // rapidly flash through all 5 GIF variants so the viewer gets a quick preview before the rest of the page settles
-    if (avatarImg) {
-      const introSequence = [1, 2, 3, 4, 0];
-      const introStartMs = 140;
-      const introStepMs = 175;
-      introSequence.forEach((variantIndex, step) => {
-        setTimeout(() => {
-          if (avatarStage.classList.contains('is-looking-at-explosion')) return;
-          avatarVariantIdx = variantIndex;
-          avatarImg.src = avatarVariants[variantIndex];
-          if (tiltCard) {
-            tiltCard.animate(
-              [
-                { transform: 'scale(0.95) rotate(-2deg)' },
-                { transform: 'scale(1.04) rotate(1.5deg)' },
-                { transform: 'scale(1) rotate(0deg)' },
-              ],
-              { duration: 165, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-            );
-          }
-        }, introStartMs + step * introStepMs);
-      });
-    }
 
     triggerAvatarExplosionLook = () => {
       if (!avatarImg) return;
