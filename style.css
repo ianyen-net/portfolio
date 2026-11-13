@@ -4912,6 +4912,26 @@ body[data-theme="light"] .case-password-card {
   transform: translateY(0);
 }
 
+.case-password-help {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+.case-password-help a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.case-password-help a:hover {
+  opacity: 0.8;
+}
+
 .case-password-error {
   font-family: var(--font-sans);
   font-size: 13px;
