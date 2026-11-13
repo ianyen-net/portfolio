@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Prototypes Directory — Ian Yen</title>
-  <meta name="description" content="Interactive code prototypes built by Ian Yen, Senior Product Designer at Google NYC — spanning Magic Cue, Gemini × Contacts, Instant Curation, Prompt Sharing, and the Splitti Design System Theme Generator.">
-  <meta property="og:title" content="Interactive Prototypes Directory — Ian Yen">
+  <title>Interactive Prototypes — Ian Yen</title>
+  <meta name="description" content="Interactive UI directory of functional code prototypes built by Ian Yen, Senior Product Designer at Google NYC — Magic Cue, Prompt Sharing, Splitti Theme Generator, Gemini × Contacts, and Instant Curation.">
+  <meta property="og:title" content="Interactive Prototypes — Ian Yen">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ianyen.net/prototypes">
   <link rel="icon" href="favicon.png?v=3" type="image/png">
@@ -15,7 +15,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=107">
+  <link rel="stylesheet" href="style.css?v=108">
 </head>
 <body data-theme="dark">
 
@@ -90,9 +90,9 @@
   <main id="top" class="leo-page proto-directory-page">
 
     <!-- ====================================================================
-         2. DIRECTORY HERO SECTION
+         2. COMPACT DIRECTORY HEADER
          ==================================================================== -->
-    <section class="proto-dir-hero">
+    <section class="proto-dir-hero" id="live-stage">
       <div class="proto-dir-hero-inner">
         <div class="proto-dir-avatar-badge jd-appear-avatar">
           <img src="assets/avatar_var_5_green_laptop.gif?v=29" alt="Ian Yen building interactive prototypes" width="88" height="88">
@@ -105,7 +105,7 @@
           </span>
           <span>Ian Yen</span>
           <span class="pill-sep" aria-hidden="true"></span>
-          <span class="pill-loc">Interactive Prototype Lab &middot; 5 Live Builds</span>
+          <span class="pill-loc">Interactive Prototype Directory &middot; 5 Live Builds</span>
         </div>
 
         <h1 class="leo-h2 proto-dir-h1 jd-appear-title">
@@ -113,156 +113,134 @@
         </h1>
 
         <p class="proto-dir-subtitle jd-appear-subtitle">
-          High-fidelity functional prototypes I built to test agentic AI workflows, validate edge cases in user research, and align engineering &amp; product teams across Google. Use the same password as the portfolio site to unlock any prototype.
+          Select any prototype below to interact with it live on this page or launch it in a full browser tab. Enter the same password as the portfolio site once to unlock all 5 prototypes.
         </p>
+      </div>
 
-        <!-- Quick-Launch Squircle Dock (All 5 Prototypes) -->
-        <div class="hero-dock-area is-selected-work-dock jd-appear-subtitle" style="padding-top: 10px;">
-          <p class="hero-dock-label">Quick launch</p>
-          <div class="hero-project-dock" role="navigation" aria-label="Quick launch interactive prototypes">
-            <!-- 1. Magic Cue -->
-            <div class="dock-item-wrap" style="--tile-tint: #4A6B6C;">
-              <a href="https://ianyen-net.github.io/magic-cue-contacts/" target="_blank" rel="noopener noreferrer" class="dock-tile" aria-label="Magic Cue — Proactive Contact Sharing Prototype">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- ====================================================================
+           3. INTERACTIVE LIVE WORKBENCH (SWITCH & PLAY RIGHT ON THIS PAGE)
+           ==================================================================== -->
+      <div class="proto-workbench jd-appear-subtitle">
+        <!-- Top Switcher Tabs -->
+        <div class="proto-workbench-bar">
+          <div class="proto-workbench-tabs" role="tablist" aria-label="Select prototype to interact with">
+            <button type="button" class="proto-tab-btn is-active" role="tab" aria-selected="true"
+              data-proto-id="magic-cue"
+              data-proto-url="https://ianyen-net.github.io/magic-cue-contacts/"
+              data-proto-title="Magic Cue — Proactive Contact Sharing"
+              data-proto-sub="Google Pixel &amp; Messages &middot; Switch between Share, Add &amp; Update scenarios or simulate incoming messages"
+              data-proto-case="ai-in-contacts.html#shipped-magic-cue">
+              <span class="proto-tab-icon" style="--tile-tint: #4A6B6C;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 16c2.5-5 5.5-8 8-8s5.5 3 8 8"></path>
                   <circle cx="12" cy="8" r="2.2" fill="currentColor" stroke="none"></circle>
                 </svg>
-              </a>
-              <div class="dock-preview-card is-proto-popover" aria-hidden="true">
-                <div class="dock-preview-row">
-                  <span class="dock-preview-mini-icon" style="--tile-tint: #4A6B6C;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 16c2.5-5 5.5-8 8-8s5.5 3 8 8"></path>
-                      <circle cx="12" cy="8" r="2.2" fill="currentColor" stroke="none"></circle>
-                    </svg>
-                  </span>
-                  <div class="dock-preview-text">
-                    <div class="dock-preview-title">Magic Cue</div>
-                    <div class="dock-preview-sub">Proactive Contact Sharing</div>
-                  </div>
-                  <svg class="dock-preview-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17L17 7M9 7h8v8"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
+              </span>
+              <span class="proto-tab-label">Magic Cue</span>
+            </button>
 
-            <!-- 2. Gemini x Contacts Sync -->
-            <div class="dock-item-wrap" style="--tile-tint: #9A5F4A;">
-              <a href="https://ianyen-net.github.io/contacts-crud-remy/" target="_blank" rel="noopener noreferrer" class="dock-tile" aria-label="Gemini × Contacts — Conversational CRUD Prototype">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="4" y="5" width="16" height="14" rx="4"></rect>
-                  <path d="M8 15c1.2-3 2.6-4.5 4-4.5s2.8 1.5 4 4.5"></path>
-                </svg>
-              </a>
-              <div class="dock-preview-card is-proto-popover" aria-hidden="true">
-                <div class="dock-preview-row">
-                  <span class="dock-preview-mini-icon" style="--tile-tint: #9A5F4A;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="4" y="5" width="16" height="14" rx="4"></rect>
-                      <path d="M8 15c1.2-3 2.6-4.5 4-4.5s2.8 1.5 4 4.5"></path>
-                    </svg>
-                  </span>
-                  <div class="dock-preview-text">
-                    <div class="dock-preview-title">Gemini &times; Contacts</div>
-                    <div class="dock-preview-sub">Conversational CRUD</div>
-                  </div>
-                  <svg class="dock-preview-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17L17 7M9 7h8v8"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- 3. Instant Curation -->
-            <div class="dock-item-wrap" style="--tile-tint: #2E3440;">
-              <a href="https://ianyen-net.github.io/instant-curation/" target="_blank" rel="noopener noreferrer" class="dock-tile" aria-label="Instant Curation — Gmail Extraction Prototype">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="6.5"></circle>
-                  <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
-                </svg>
-              </a>
-              <div class="dock-preview-card is-proto-popover" aria-hidden="true">
-                <div class="dock-preview-row">
-                  <span class="dock-preview-mini-icon" style="--tile-tint: #2E3440;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="6.5"></circle>
-                      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
-                    </svg>
-                  </span>
-                  <div class="dock-preview-text">
-                    <div class="dock-preview-title">Instant Curation</div>
-                    <div class="dock-preview-sub">Gmail Contact Extraction</div>
-                  </div>
-                  <svg class="dock-preview-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17L17 7M9 7h8v8"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4. Prompt Sharing -->
-            <div class="dock-item-wrap" style="--tile-tint: #6B6F4E;">
-              <a href="https://ianyen-net.github.io/prompt-sharing/" target="_blank" rel="noopener noreferrer" class="dock-tile" aria-label="Prompt Sharing — ShareKit Extended Prototype">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <button type="button" class="proto-tab-btn" role="tab" aria-selected="false"
+              data-proto-id="prompt-sharing"
+              data-proto-url="https://ianyen-net.github.io/prompt-sharing/"
+              data-proto-title="Prompt Sharing — ShareKit Extended"
+              data-proto-sub="Gemini &times; ShareKit &middot; Tap Share on generated artwork, toggle Include Prompt, and edit inline"
+              data-proto-case="sharing-design-system.html">
+              <span class="proto-tab-icon" style="--tile-tint: #6B6F4E;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 16h14M7 12h10M9 8h6"></path>
                   <circle cx="12" cy="16" r="2" fill="currentColor" stroke="none"></circle>
                 </svg>
-              </a>
-              <div class="dock-preview-card is-proto-popover" aria-hidden="true">
-                <div class="dock-preview-row">
-                  <span class="dock-preview-mini-icon" style="--tile-tint: #6B6F4E;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 16h14M7 12h10M9 8h6"></path>
-                      <circle cx="12" cy="16" r="2" fill="currentColor" stroke="none"></circle>
-                    </svg>
-                  </span>
-                  <div class="dock-preview-text">
-                    <div class="dock-preview-title">Prompt Sharing</div>
-                    <div class="dock-preview-sub">ShareKit Extended</div>
-                  </div>
-                  <svg class="dock-preview-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17L17 7M9 7h8v8"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
+              </span>
+              <span class="proto-tab-label">Prompt Sharing</span>
+            </button>
 
-            <!-- 5. Splitti -->
-            <div class="dock-item-wrap" style="--tile-tint: #5B5F86;">
-              <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="dock-tile" aria-label="Splitti — Theme Generator Prototype">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <button type="button" class="proto-tab-btn" role="tab" aria-selected="false"
+              data-proto-id="splitti"
+              data-proto-url="https://ianyen-net.github.io/splitti/"
+              data-proto-title="Splitti — Sharesheet Theme Generator"
+              data-proto-sub="ShareKit Design System Tool &middot; Switch Material 3, Geo, NotebookLM &amp; Gemini themes, OS sheets &amp; locales"
+              data-proto-case="sharing-design-system.html">
+              <span class="proto-tab-icon" style="--tile-tint: #5B5F86;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 4l7 4v8l-7 4-7-4V8l7-4z"></path>
                   <path d="M12 12l7-4M12 12v8M12 12L5 8"></path>
                 </svg>
-              </a>
-              <div class="dock-preview-card is-proto-popover" aria-hidden="true">
-                <div class="dock-preview-row">
-                  <span class="dock-preview-mini-icon" style="--tile-tint: #5B5F86;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 4l7 4v8l-7 4-7-4V8l7-4z"></path>
-                      <path d="M12 12l7-4M12 12v8M12 12L5 8"></path>
-                    </svg>
-                  </span>
-                  <div class="dock-preview-text">
-                    <div class="dock-preview-title">Splitti</div>
-                    <div class="dock-preview-sub">Theme Generator Tool</div>
-                  </div>
-                  <svg class="dock-preview-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17L17 7M9 7h8v8"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
+              </span>
+              <span class="proto-tab-label">Splitti Tool</span>
+            </button>
+
+            <button type="button" class="proto-tab-btn" role="tab" aria-selected="false"
+              data-proto-id="gemini-contacts"
+              data-proto-url="https://ianyen-net.github.io/contacts-crud-remy/"
+              data-proto-title="Gemini &times; Contacts — Conversational CRUD"
+              data-proto-sub="Gemini &times; Google Contacts &middot; Test conversational contact creation, updates &amp; Human-in-the-Loop cards"
+              data-proto-case="ai-in-contacts.html#shipped-gemini">
+              <span class="proto-tab-icon" style="--tile-tint: #9A5F4A;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="5" width="16" height="14" rx="4"></rect>
+                  <path d="M8 15c1.2-3 2.6-4.5 4-4.5s2.8 1.5 4 4.5"></path>
+                </svg>
+              </span>
+              <span class="proto-tab-label">Gemini &times; Contacts</span>
+            </button>
+
+            <button type="button" class="proto-tab-btn" role="tab" aria-selected="false"
+              data-proto-id="instant-curation"
+              data-proto-url="https://ianyen-net.github.io/instant-curation/"
+              data-proto-title="Instant Curation — Gmail Contact Extraction"
+              data-proto-sub="Gmail &times; Google Contacts &middot; Open email threads and review extracted contact info in the side panel"
+              data-proto-case="ai-in-contacts.html#shipped-gmail">
+              <span class="proto-tab-icon" style="--tile-tint: #2E3440;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="6.5"></circle>
+                  <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+                </svg>
+              </span>
+              <span class="proto-tab-label">Instant Curation</span>
+            </button>
           </div>
+
+          <div class="proto-workbench-actions">
+            <a href="ai-in-contacts.html#shipped-magic-cue" id="wb-case-link" class="proto-wb-link">
+              Read Case Study →
+            </a>
+            <a href="https://ianyen-net.github.io/magic-cue-contacts/" id="wb-open-tab" target="_blank" rel="noopener noreferrer" class="proto-wb-primary-btn">
+              <span>Open in New Tab</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Active Prototype Context Strip -->
+        <div class="proto-workbench-info">
+          <span class="proto-wb-info-title" id="wb-info-title">Magic Cue — Proactive Contact Sharing</span>
+          <span class="proto-wb-info-sep" aria-hidden="true">&middot;</span>
+          <span class="proto-wb-info-sub" id="wb-info-sub">Google Pixel &amp; Messages &middot; Switch between Share, Add &amp; Update scenarios or simulate incoming messages</span>
+        </div>
+
+        <!-- Embedded Live Prototype Iframe -->
+        <div class="proto-workbench-frame-wrap">
+          <iframe
+            id="proto-live-iframe"
+            class="proto-workbench-iframe"
+            src="https://ianyen-net.github.io/magic-cue-contacts/"
+            title="Interactive Prototype Live Stage"
+            loading="eager"
+            allow="clipboard-write"
+          ></iframe>
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         3. PROTOTYPE DIRECTORY LISTING (5 INTERACTIVE CARDS)
+         4. ALL 5 PROTOTYPE DIRECTORY CARDS (DETAILED BREAKDOWN)
          ==================================================================== -->
     <section class="proto-dir-section">
+      <div class="leo-section-header-stack framer-reveal" style="margin-bottom: 36px;">
+        <p class="leo-section-label">All 5 Prototypes</p>
+        <h2 class="leo-h2">Directory <span class="text-muted">overview</span></h2>
+      </div>
+
       <div class="proto-dir-grid">
 
         <!-- 01. Magic Cue -->
@@ -278,7 +256,7 @@
               <span class="proto-dir-num">01 &middot; GOOGLE PIXEL &amp; MESSAGES</span>
             </div>
 
-            <h2 class="proto-dir-title">Magic Cue — Proactive Contact Sharing &amp; Save</h2>
+            <h3 class="proto-dir-title">Magic Cue — Proactive Contact Sharing &amp; Save</h3>
             <p class="proto-dir-desc">
               Surfaces contextual, one-tap chips inside Android Messages and system notifications whenever a friend shares a new address, phone number, or asks for a contact's details.
             </p>
@@ -295,11 +273,11 @@
             </div>
 
             <div class="proto-dir-actions">
-              <a href="https://ianyen-net.github.io/magic-cue-contacts/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Prototype ↗
-              </a>
-              <a href="https://ianyen-net.github.io/magic-cue-contacts/notifications.html" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
-                Notification Shade Flow ↗
+              <button type="button" class="btn btn-primary" data-load-proto="magic-cue">
+                Interact in Live Stage ↑
+              </button>
+              <a href="https://ianyen-net.github.io/magic-cue-contacts/" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
+                Open in New Tab ↗
               </a>
               <a href="ai-in-contacts.html#shipped-magic-cue" class="proto-dir-case-link">
                 Read Case Study →
@@ -313,11 +291,11 @@
                 <source src="assets/mocks/ai_brief_1_magic.mp4?v=19" type="video/mp4">
               </video>
             </div>
-            <span class="proto-dir-visual-pill">Click to interact ↗</span>
+            <span class="proto-dir-visual-pill">Open in new tab ↗</span>
           </a>
         </article>
 
-        <!-- 02.Prompt Sharing (ShareKit Extended) -->
+        <!-- 02. Prompt Sharing (ShareKit Extended) -->
         <article class="proto-dir-card framer-reveal" id="proto-prompt-sharing">
           <div class="proto-dir-card-copy">
             <div class="proto-dir-card-top">
@@ -330,7 +308,7 @@
               <span class="proto-dir-num">02 &middot; GEMINI &times; SHAREKIT DESIGN SYSTEM</span>
             </div>
 
-            <h2 class="proto-dir-title">Prompt Sharing — ShareKit Extended Half Sheet</h2>
+            <h3 class="proto-dir-title">Prompt Sharing — ShareKit Extended Half Sheet</h3>
             <p class="proto-dir-desc">
               Designed the first <em>Extended</em> tier implementation for Google's cross-platform ShareKit system—giving Gemini an interactive half sheet to preview generated media, toggle prompt inclusion, and edit prompts before sharing to third-party apps.
             </p>
@@ -347,8 +325,11 @@
             </div>
 
             <div class="proto-dir-actions">
-              <a href="https://ianyen-net.github.io/prompt-sharing/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Prototype ↗
+              <button type="button" class="btn btn-primary" data-load-proto="prompt-sharing">
+                Interact in Live Stage ↑
+              </button>
+              <a href="https://ianyen-net.github.io/prompt-sharing/" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
+                Open in New Tab ↗
               </a>
               <a href="sharing-design-system.html" class="proto-dir-case-link">
                 Read Case Study →
@@ -362,7 +343,7 @@
                 <source src="assets/mocks/sk_extended_demo.mp4?v=21" type="video/mp4">
               </video>
             </div>
-            <span class="proto-dir-visual-pill">Click to interact ↗</span>
+            <span class="proto-dir-visual-pill">Open in new tab ↗</span>
           </a>
         </article>
 
@@ -379,7 +360,7 @@
               <span class="proto-dir-num">03 &middot; SHAREKIT DESIGN SYSTEM TOOL</span>
             </div>
 
-            <h2 class="proto-dir-title">Splitti — Multi-System Sharesheet Theme Generator</h2>
+            <h3 class="proto-dir-title">Splitti — Multi-System Sharesheet Theme Generator</h3>
             <p class="proto-dir-desc">
               An interactive design-system stress-testing and token-inspection tool built to visualize how Google's unified ShareSheet adapts across <strong>Material 3</strong>, <strong>Geo</strong>, <strong>NotebookLM</strong>, and <strong>Gemini</strong> palettes, Android/iOS OS sheets, and 7 international locales.
             </p>
@@ -396,8 +377,11 @@
             </div>
 
             <div class="proto-dir-actions">
-              <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Tool ↗
+              <button type="button" class="btn btn-primary" data-load-proto="splitti">
+                Interact in Live Stage ↑
+              </button>
+              <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
+                Open in New Tab ↗
               </a>
               <a href="sharing-design-system.html" class="proto-dir-case-link">
                 Read Case Study →
@@ -411,7 +395,7 @@
                 <source src="https://video.wixstatic.com/video/e3505c_809e2df6d208413d8ba601accb7e0432/1080p/mp4/file.mp4" type="video/mp4">
               </video>
             </div>
-            <span class="proto-dir-visual-pill">Click to interact ↗</span>
+            <span class="proto-dir-visual-pill">Open in new tab ↗</span>
           </a>
         </article>
 
@@ -428,7 +412,7 @@
               <span class="proto-dir-num">04 &middot; GEMINI &times; GOOGLE CONTACTS</span>
             </div>
 
-            <h2 class="proto-dir-title">Gemini &times; Contacts — Conversational CRUD</h2>
+            <h3 class="proto-dir-title">Gemini &times; Contacts — Conversational CRUD</h3>
             <p class="proto-dir-desc">
               Integrates Google Contacts with Gemini via an MCP server to form a Personal Intelligence knowledge graph—allowing users to create, update, and query contact context conversationally with Human-in-the-Loop confirmation cards.
             </p>
@@ -445,8 +429,11 @@
             </div>
 
             <div class="proto-dir-actions">
-              <a href="https://ianyen-net.github.io/contacts-crud-remy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Prototype ↗
+              <button type="button" class="btn btn-primary" data-load-proto="gemini-contacts">
+                Interact in Live Stage ↑
+              </button>
+              <a href="https://ianyen-net.github.io/contacts-crud-remy/" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
+                Open in New Tab ↗
               </a>
               <a href="ai-in-contacts.html#shipped-gemini" class="proto-dir-case-link">
                 Read Case Study →
@@ -460,7 +447,7 @@
                 <source src="assets/mocks/ai_brief_2_gemini_sync.mp4?v=19" type="video/mp4">
               </video>
             </div>
-            <span class="proto-dir-visual-pill">Click to interact ↗</span>
+            <span class="proto-dir-visual-pill">Open in new tab ↗</span>
           </a>
         </article>
 
@@ -477,7 +464,7 @@
               <span class="proto-dir-num">05 &middot; GMAIL &times; GOOGLE CONTACTS</span>
             </div>
 
-            <h2 class="proto-dir-title">Instant Curation — Gmail Contact Info Extraction</h2>
+            <h3 class="proto-dir-title">Instant Curation — Gmail Contact Info Extraction</h3>
             <p class="proto-dir-desc">
               Automatically detects contact details buried inside email threads and signatures—surfacing structured, reviewable suggestions inside the Gmail Contacts side panel so users can save or update contact info in one click.
             </p>
@@ -494,8 +481,11 @@
             </div>
 
             <div class="proto-dir-actions">
-              <a href="https://ianyen-net.github.io/instant-curation/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Prototype ↗
+              <button type="button" class="btn btn-primary" data-load-proto="instant-curation">
+                Interact in Live Stage ↑
+              </button>
+              <a href="https://ianyen-net.github.io/instant-curation/" target="_blank" rel="noopener noreferrer" class="proto-dir-secondary-btn">
+                Open in New Tab ↗
               </a>
               <a href="ai-in-contacts.html#shipped-gmail" class="proto-dir-case-link">
                 Read Case Study →
@@ -509,7 +499,7 @@
                 <source src="assets/mocks/ai_proto_2_gmail.mp4?v=19" type="video/mp4">
               </video>
             </div>
-            <span class="proto-dir-visual-pill">Click to interact ↗</span>
+            <span class="proto-dir-visual-pill">Open in new tab ↗</span>
           </a>
         </article>
 
@@ -517,7 +507,7 @@
     </section>
 
     <!-- ====================================================================
-         4. FOOTER CTA CARD
+         5. FOOTER CTA CARD
          ==================================================================== -->
     <section class="leo-section no-top-border" style="padding-top: 24px; padding-bottom: 16px;">
       <div class="leo-fade-card framer-reveal">
@@ -542,11 +532,17 @@
                 </span>
               </span>
             </a>
-            <a href="assets/Ian_Yen_Resume.pdf" target="_blank" rel="noopener noreferrer" class="leo-magnetic-btn is-secondary is-palette-blush" download="Ian_Yen_Resume.pdf">
+            <a href="assets/Ian_Yen_Resume.pdf?v=107" target="_blank" rel="noopener noreferrer" class="leo-magnetic-btn is-secondary is-palette-blush">
               <span class="leo-btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
                 <span class="slot-text-wrap">
-                  <span class="slot-text-primary">Download Résumé</span>
-                  <span class="slot-text-clone" aria-hidden="true">Download Résumé</span>
+                  <span class="slot-text-primary">Open resume</span>
+                  <span class="slot-text-clone" aria-hidden="true">Open resume</span>
                 </span>
               </span>
             </a>
@@ -565,6 +561,56 @@
     </div>
   </footer>
 
-  <script src="script.js?v=107"></script>
+  <script src="script.js?v=108"></script>
+  <script>
+    (function() {
+      const tabs = Array.from(document.querySelectorAll('.proto-tab-btn'));
+      const iframe = document.getElementById('proto-live-iframe');
+      const infoTitle = document.getElementById('wb-info-title');
+      const infoSub = document.getElementById('wb-info-sub');
+      const openTabBtn = document.getElementById('wb-open-tab');
+      const caseLink = document.getElementById('wb-case-link');
+
+      function selectProto(btn, scrollToStage) {
+        if (!btn || !iframe) return;
+        tabs.forEach((t) => {
+          const active = t === btn;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        const url = btn.getAttribute('data-proto-url');
+        const title = btn.getAttribute('data-proto-title');
+        const sub = btn.getAttribute('data-proto-sub');
+        const caseHref = btn.getAttribute('data-proto-case');
+
+        if (iframe.getAttribute('src') !== url) {
+          iframe.setAttribute('src', url);
+        }
+        if (infoTitle) infoTitle.innerHTML = title;
+        if (infoSub) infoSub.innerHTML = sub;
+        if (openTabBtn) openTabBtn.setAttribute('href', url);
+        if (caseLink) caseLink.setAttribute('href', caseHref);
+
+        if (scrollToStage) {
+          const stageEl = document.getElementById('live-stage');
+          if (stageEl) {
+            stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+
+      tabs.forEach((btn) => {
+        btn.addEventListener('click', () => selectProto(btn, false));
+      });
+
+      document.querySelectorAll('[data-load-proto]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const id = trigger.getAttribute('data-load-proto');
+          const match = tabs.find((t) => t.getAttribute('data-proto-id') === id);
+          if (match) selectProto(match, true);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
