@@ -4915,9 +4915,9 @@ body[data-theme="light"] .case-password-card {
 .case-password-help {
   font-family: var(--font-sans);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--text-muted);
-  margin: 4px 0 0;
+  margin: -2px 0 4px;
 }
 
 .case-password-help a {

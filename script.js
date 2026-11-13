@@ -840,11 +840,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </svg>
               </button>
             </div>
+            <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
             <button type="submit" class="case-password-submit">
               <span>Unlock Case Study</span>
               <span aria-hidden="true">→</span>
             </button>
-            <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
             <div class="case-password-error" id="case-password-error" role="alert">Incorrect password. Please try again.</div>
           </form>
           <a href="index.html" class="case-password-back">← Back to Home</a>
