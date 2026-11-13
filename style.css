@@ -5717,6 +5717,31 @@ body[data-theme="light"] .validation-step-title {
   text-align: center;
 }
 
+/* 4. Interactive Prototypes Dock under Selected Work (`index.html`) */
+.hero-dock-area.is-selected-work-dock {
+  padding-top: 18px;
+  padding-bottom: 4px;
+  gap: 12px;
+}
+
+.hero-dock-area.is-selected-work-dock .hero-dock-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.dock-preview-card.is-proto-popover {
+  width: 244px;
+  padding: 8px 10px;
+}
+
+.dock-preview-card.is-proto-popover .dock-preview-row {
+  padding: 2px 2px;
+}
+
+
 
 
 
