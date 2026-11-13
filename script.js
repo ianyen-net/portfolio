@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="case-password-kicker">Protected Case Study</div>
           <h2 class="case-password-title" id="case-gate-title">Enter Password</h2>
-          <p class="case-password-desc">This case study is password-protected. Please enter the password to continue.</p>
+          <p class="case-password-desc">Enter the password to continue</p>
           <form class="case-password-form" id="case-password-form" autocomplete="off">
             <div class="case-password-input-wrap">
               <input
