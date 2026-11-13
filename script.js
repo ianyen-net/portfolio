@@ -555,15 +555,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const subtitleEl = document.querySelector('.hero-subtitle-line');
   if (subtitleEl) {
-    const navyWords = new Set(['7', 'years', '0-to-1', 'AI']);
     const tokens = (subtitleEl.textContent || '').trim().split(/\s+/);
     if (tokens.length > 0) {
       subtitleEl.textContent = '';
       tokens.forEach((tok, idx) => {
         const span = document.createElement('span');
-        let extraCls = '';
-        if (navyWords.has(tok)) extraCls = ' is-sub-navy';
-        span.className = 'rocket-breakable-piece is-subword' + extraCls;
+        span.className = 'rocket-breakable-piece is-subword';
         span.textContent = tok;
         subtitleEl.appendChild(span);
         if (idx < tokens.length - 1) {
