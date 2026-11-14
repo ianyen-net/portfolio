@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=30" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=109">
+  <link rel="stylesheet" href="style.css?v=111">
 </head>
 <body data-theme="dark">
 
@@ -42,11 +42,18 @@
 
       <span class="leo-nav-divider" aria-hidden="true"></span>
 
-      <!-- Vertical Slot-Machine Nav Links (Order: Projects, About, Say hi) -->
+      <!-- Vertical Slot-Machine Nav Links (Order: Projects, Prototypes, About, Say hi) -->
       <a href="#work" class="leo-nav-link" data-nav-hover>
         <span class="slot-text-wrap">
           <span class="slot-text-primary">Projects</span>
           <span class="slot-text-clone" aria-hidden="true">Projects</span>
+        </span>
+      </a>
+
+      <a href="#prototypes" class="leo-nav-link" data-nav-hover>
+        <span class="slot-text-wrap">
+          <span class="slot-text-primary">Prototypes</span>
+          <span class="slot-text-clone" aria-hidden="true">Prototypes</span>
         </span>
       </a>
 
@@ -391,6 +398,11 @@
             </div>
           </div>
         </a>
+      </div>
+
+      <!-- Divider line + section label between case study cards and interactive prototypes banner -->
+      <div class="proto-showcase-divider framer-reveal" id="prototypes" style="--reveal-delay: 0.06s;">
+        <p class="leo-section-label">Interactive prototypes</p>
       </div>
 
       <!-- Full-width interactive prototypes banner matching the 2-column work grid width -->
