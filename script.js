@@ -853,11 +853,34 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(gate);
     }
 
-    const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
+    try {
+      const hashMatch = location.hash.match(/(?:^|[#&])unlocked=([a-f0-9]{64})/i);
+      if (hashMatch && hashMatch[1].toLowerCase() === CASE_PASSWORD_HASH) {
+        try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
+        try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    } catch (e) {}
+
+    const syncCaseStudyPrototypeLinks = () => {
+      document.querySelectorAll('a[href*="ianyen-net.github.io/"]').forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (!href.includes('#unlock=')) {
+          link.setAttribute('href', href.split('#')[0] + '#unlock=dXhpYW4xMg==');
+        }
+      });
+    };
+
+    const isUnlocked =
+      sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH ||
+      localStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
 
     if (isUnlocked) {
+      try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
+      try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
       document.body.classList.remove('is-locked');
       gate.classList.add('is-hidden');
+      syncCaseStudyPrototypeLinks();
     } else {
       document.body.classList.add('is-locked');
       gate.classList.remove('is-hidden');
@@ -894,9 +917,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const val = input.value.trim();
           const inputHash = await sha256Hex(val);
           if (inputHash === CASE_PASSWORD_HASH) {
-            sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH);
+            try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (ex) {}
+            try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (ex) {}
             document.body.classList.remove('is-locked');
             gate.classList.add('is-hidden');
+            syncCaseStudyPrototypeLinks();
             input.blur();
           } else {
             input.classList.add('is-error');
