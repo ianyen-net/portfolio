@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=30" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=119">
+  <link rel="stylesheet" href="style.css?v=122">
 </head>
 <body data-theme="dark">
 
@@ -324,110 +324,241 @@
           </div>
         </a>
 
-        <!-- Case 02: ShareKit Design System (Frameless Design System Specimen Preview: Color Palette, Typography & Button Tokens) -->
+        <!-- Case 02: ShareKit Design System (Dunzo Colour Palette 2x2 Specimen — Material 3 System Active) -->
         <a href="sharing-design-system.html" class="leo-work-card framer-reveal" style="--reveal-delay: 0.14s;" id="project-sharekit">
           <div class="leo-work-cover">
             <div class="leo-work-media-inner">
-              <div class="sharekit-ds-cover" aria-hidden="true">
-                <!-- Top Multi-System Token Bar (from Splitti Theme Controls) -->
-                <div class="sk-ds-topbar">
-                  <div class="sk-ds-system-pills">
-                    <span class="sk-ds-sys-pill is-active"><i style="background:#0B57D0"></i>Material 3</span>
-                    <span class="sk-ds-sys-pill"><i style="background:#007B8B"></i>Geo</span>
-                    <span class="sk-ds-sys-pill"><i style="background:#4259FF"></i>NotebookLM</span>
-                    <span class="sk-ds-sys-pill"><i style="background:#3186FF"></i>Gemini</span>
+              <div class="sharekit-dunzo-cover" aria-hidden="true">
+                <!-- Top System Selector Bar: Material 3 active, naming Geo, NotebookLM, Gemini -->
+                <div class="sk-dunzo-topbar">
+                  <div class="sk-dunzo-pills">
+                    <span class="sk-dunzo-pill is-active"><i style="background:#0B57D0"></i>Material 3</span>
+                    <span class="sk-dunzo-pill"><i style="background:#007B8B"></i>Geo</span>
+                    <span class="sk-dunzo-pill"><i style="background:#4259FF"></i>NotebookLM</span>
+                    <span class="sk-dunzo-pill"><i style="background:#3186FF"></i>Gemini</span>
                   </div>
                 </div>
 
-                <!-- Middle 2-Column Bento: Typography Specimen + Color Palette Swatches -->
-                <div class="sk-ds-bento">
-                  <!-- Left: Typography Specimen Card -->
-                  <div class="sk-ds-card sk-ds-type-card">
-                    <div class="sk-ds-card-head">
-                      <span class="sk-ds-card-label">Typography</span>
-                      <span class="sk-ds-card-tag">Google Sans</span>
-                    </div>
-                    <div class="sk-ds-aa-row">
-                      <span class="sk-ds-aa-glyph">Aa</span>
-                      <div class="sk-ds-aa-meta">
-                        <span class="sk-ds-aa-weights">Medium 500 &middot; Regular 400</span>
-                        <span class="sk-ds-aa-track">Tracking -0.01em &middot; 4pt Grid</span>
+                <!-- 2x2 Dunzo Colour Palette Grid -->
+                <div class="sk-dunzo-grid">
+                  <!-- Quadrant 1 (Top-Left): Primary Horizontal Pill Bars -->
+                  <div class="sk-dunzo-card sk-dunzo-q-primary">
+                    <div class="sk-pri-row">
+                      <span class="sk-pri-bar" style="background:#0B57D0;"></span>
+                      <div class="sk-pri-meta">
+                        <strong>Primary</strong>
+                        <span>Blue600</span>
                       </div>
                     </div>
-                    <div class="sk-ds-type-scale">
-                      <div class="sk-ds-scale-row">
-                        <span class="sk-ds-scale-sample is-h">Share Sheet</span>
-                        <span class="sk-ds-scale-spec">22 / 28</span>
+                    <div class="sk-pri-row">
+                      <span class="sk-pri-bar" style="background:#0842A0;"></span>
+                      <div class="sk-pri-meta">
+                        <strong>Primary Dark</strong>
+                        <span>Blue800</span>
                       </div>
-                      <div class="sk-ds-scale-row">
-                        <span class="sk-ds-scale-sample is-t">Content title</span>
-                        <span class="sk-ds-scale-spec">16 / 24</span>
-                      </div>
-                      <div class="sk-ds-scale-row">
-                        <span class="sk-ds-scale-sample is-l">Action label</span>
-                        <span class="sk-ds-scale-spec">12 / 16</span>
+                    </div>
+                    <div class="sk-pri-row">
+                      <span class="sk-pri-bar" style="background:#D3E3FD;"></span>
+                      <div class="sk-pri-meta">
+                        <strong>Primary Light</strong>
+                        <span>Blue90</span>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Right: Color Palette Swatches (from Splitti Palette Groups) -->
-                  <div class="sk-ds-card sk-ds-palette-card">
-                    <div class="sk-ds-card-head">
-                      <span class="sk-ds-card-label">Color Tokens</span>
-                      <span class="sk-ds-card-tag">4 Systems</span>
-                    </div>
-                    <div class="sk-ds-swatch-grid">
-                      <div class="sk-ds-swatch" style="background:#0B57D0; color:#FFFFFF;">
-                        <span class="sk-swatch-name">Primary 40</span>
-                        <span class="sk-swatch-hex">#0B57D0</span>
+                  <!-- Quadrant 2 (Top-Right): Utility 4x4 Rounded Square Swatches -->
+                  <div class="sk-dunzo-card sk-dunzo-q-utility">
+                    <h4 class="sk-dunzo-heading">Utility</h4>
+                    <div class="sk-util-grid">
+                      <!-- Row 1: Negative (Red) -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#D93025;"></span>
+                        <div class="sk-sw-txt"><strong>Negative</strong><span>Red600</span></div>
                       </div>
-                      <div class="sk-ds-swatch" style="background:#9DD2FF; color:#001D35;">
-                        <span class="sk-swatch-name">Lumi Accent</span>
-                        <span class="sk-swatch-hex">#9DD2FF</span>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#FCE8E6;"></span>
+                        <div class="sk-sw-txt"><strong>BgNegative</strong><span>Red50</span></div>
                       </div>
-                      <div class="sk-ds-swatch" style="background:#007B8B; color:#FFFFFF;">
-                        <span class="sk-swatch-name">Geo Teal</span>
-                        <span class="sk-swatch-hex">#007B8B</span>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#F6AEA9;"></span>
+                        <div class="sk-sw-txt"><strong>Border Neg</strong><span>Red200</span></div>
                       </div>
-                      <div class="sk-ds-swatch" style="background:linear-gradient(266deg, #3CFF52 0.57%, #7182FF 89.06%); color:#081226;">
-                        <span class="sk-swatch-name">NLM Brand</span>
-                        <span class="sk-swatch-hex">#4259FF</span>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#C5221F;"></span>
+                        <div class="sk-sw-txt"><strong>Text Neg</strong><span>Red700</span></div>
                       </div>
-                      <div class="sk-ds-swatch" style="background:#C2E7FF; color:#001D35;">
-                        <span class="sk-swatch-name">Secondary 90</span>
-                        <span class="sk-swatch-hex">#C2E7FF</span>
-                      </div>
-                      <div class="sk-ds-swatch" style="background:#EDEFFA; color:#1B1B1C; border:1px solid #DDE1EB;">
-                        <span class="sk-swatch-name">Surface Container</span>
-                        <span class="sk-swatch-hex">#EDEFFA</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <!-- Bottom Full-Width Card: Button Styles & Interactive State Tokens (from Splitti #ref-buttons-showcase) -->
-                <div class="sk-ds-card sk-ds-buttons-card">
-                  <div class="sk-ds-card-head">
-                    <span class="sk-ds-card-label">Button &amp; Action Tokens</span>
-                    <span class="sk-ds-card-tag">Pill 999px &middot; State Layer</span>
+                      <!-- Row 2: Warning (Yellow / Orange) -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#FBBC04;"></span>
+                        <div class="sk-sw-txt"><strong>Warning</strong><span>Yellow500</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#FEF7E0;"></span>
+                        <div class="sk-sw-txt"><strong>BgWarning</strong><span>Yellow50</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#FDE293;"></span>
+                        <div class="sk-sw-txt"><strong>Border Warn</strong><span>Yellow200</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#B06000;"></span>
+                        <div class="sk-sw-txt"><strong>Text Warn</strong><span>Orange900</span></div>
+                      </div>
+
+                      <!-- Row 3: Positive (Green) -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#188038;"></span>
+                        <div class="sk-sw-txt"><strong>Positive</strong><span>Green700</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#E6F4EA;"></span>
+                        <div class="sk-sw-txt"><strong>BgPositive</strong><span>Green50</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#A8DAB5;"></span>
+                        <div class="sk-sw-txt"><strong>Border Pos</strong><span>Green200</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#0D652D;"></span>
+                        <div class="sk-sw-txt"><strong>Text Pos</strong><span>Green900</span></div>
+                      </div>
+
+                      <!-- Row 4: Info (Blue) -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#1A73E8;"></span>
+                        <div class="sk-sw-txt"><strong>Info</strong><span>Blue600</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#E8F0FE;"></span>
+                        <div class="sk-sw-txt"><strong>BgInfo</strong><span>Blue50</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#A8C7FA;"></span>
+                        <div class="sk-sw-txt"><strong>Border Info</strong><span>Blue200</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-sq" style="background:#174EA6;"></span>
+                        <div class="sk-sw-txt"><strong>Text Info</strong><span>Blue900</span></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="sk-ds-btn-row">
-                    <span class="sk-demo-btn is-primary">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                      Standard action
-                    </span>
-                    <span class="sk-demo-btn is-tonal">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                      Copy link
-                    </span>
-                    <span class="sk-demo-btn is-lumi">App action</span>
-                    <span class="sk-demo-btn is-outlined">+ Action</span>
+
+                  <!-- Quadrant 3 (Bottom-Left): Vibrant Primary Outer Container with Text & Background Inner Subcards -->
+                  <div class="sk-dunzo-card sk-dunzo-q-split">
+                    <div class="sk-split-subcard is-text-sub">
+                      <h4 class="sk-split-heading">Text</h4>
+                      <div class="sk-split-list is-compact">
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#1F1F1F;"></span>
+                          <div class="sk-sw-txt"><strong>Text Primary</strong><span>Neutral10</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#444746;"></span>
+                          <div class="sk-sw-txt"><strong>Text Secondary</strong><span>Neutral30</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#70757A;"></span>
+                          <div class="sk-sw-txt"><strong>Text Tertiary</strong><span>Neutral50</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#C4C7C5;"></span>
+                          <div class="sk-sw-txt"><strong>Text Disabled</strong><span>Neutral80</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#FFFFFF;"></span>
+                          <div class="sk-sw-txt"><strong>Text Inverse</strong><span>Neutral99</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq" style="background:#9AA0A6;"></span>
+                          <div class="sk-sw-txt"><strong>Text Sec Inv</strong><span>Neutral70</span></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="sk-split-subcard is-bg-sub">
+                      <h4 class="sk-split-heading">Background</h4>
+                      <div class="sk-split-list is-spacious">
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq is-lg" style="background:#FFFFFF;"></span>
+                          <div class="sk-sw-txt"><strong>Bg Primary</strong><span>Surface99</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq is-lg" style="background:#F0F4F9;"></span>
+                          <div class="sk-sw-txt"><strong>Bg Secondary</strong><span>Surface90</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq is-lg" style="background:#1E2A3A;"></span>
+                          <div class="sk-sw-txt"><strong>Bg Overlay</strong><span>Surface30</span></div>
+                        </div>
+                        <div class="sk-swatch-item is-dark-ink">
+                          <span class="sk-sq is-lg" style="background:#0D1520;"></span>
+                          <div class="sk-sw-txt"><strong>Bg Inverse</strong><span>Surface10</span></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="sk-ds-state-strip">
-                    <span class="sk-state-chip" style="background:#0B57D0; color:#FFF;">Enabled</span>
-                    <span class="sk-state-chip" style="background:#1B62D6; color:#FFF;">Hover +8%</span>
-                    <span class="sk-state-chip" style="background:#2368D8; color:#FFF;">Focus +10%</span>
-                    <span class="sk-state-chip" style="background:#0842A0; color:#FFF;">Pressed +16%</span>
+
+                  <!-- Quadrant 4 (Bottom-Right): Component Circular Swatches -->
+                  <div class="sk-dunzo-card sk-dunzo-q-component">
+                    <h4 class="sk-dunzo-heading">Component</h4>
+                    <div class="sk-comp-grid">
+                      <!-- Row 1 -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#0B57D0;"></span>
+                        <div class="sk-sw-txt"><strong>bg primary</strong><span>Primary 40</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#0842A0;"></span>
+                        <div class="sk-sw-txt"><strong>bg pri pressed</strong><span>Primary 30</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#A8C7FA;"></span>
+                        <div class="sk-sw-txt"><strong>Text</strong><span>Primary 80</span></div>
+                      </div>
+
+                      <!-- Row 2 -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#C2E7FF;"></span>
+                        <div class="sk-sw-txt"><strong>bg secondary</strong><span>Secondary 90</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#7CCBFF;"></span>
+                        <div class="sk-sw-txt"><strong>bg sec pressed</strong><span>Secondary 80</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#FFFFFF;"></span>
+                        <div class="sk-sw-txt"><strong>Text Inverse</strong><span>On Primary</span></div>
+                      </div>
+
+                      <!-- Row 3 -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#D93025;"></span>
+                        <div class="sk-sw-txt"><strong>bg destructive</strong><span>Red 600</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#C5221F;"></span>
+                        <div class="sk-sw-txt"><strong>bg dest press</strong><span>Red 700</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#1E3A5F;"></span>
+                        <div class="sk-sw-txt"><strong>Text disabled</strong><span>Neutral 50</span></div>
+                      </div>
+
+                      <!-- Row 4 -->
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#1B3658;"></span>
+                        <div class="sk-sw-txt"><strong>bg disabled</strong><span>Surface Dim</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#632E2B;"></span>
+                        <div class="sk-sw-txt"><strong>bg dest disab</strong><span>Red 900</span></div>
+                      </div>
+                      <div class="sk-swatch-item">
+                        <span class="sk-circle" style="background:#8E969E;"></span>
+                        <div class="sk-sw-txt"><strong>Text Inv disab</strong><span>Neutral 60</span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -448,7 +579,7 @@
           </div>
 
           <div class="leo-work-caption">
-            <h3 class="leo-work-title">ShareKit Design System</h3>
+            <h3 class="leo-work-title">Sharing design system</h3>
             <div class="leo-work-meta-line">
               <span>Design System &middot; Splitti</span>
               <span class="leo-work-meta-dot" aria-hidden="true"></span>
@@ -488,11 +619,13 @@
           </div>
         </a>
 
-        <!-- Case 04: Philips Sonicare Connected App (Static Cover Image from ianyenyh.wixsite.com/portfolio) -->
+        <!-- Case 04: Philips Sonicare Connected App (Animated Mouth Map & Sonicare 9900 Prestige Handle) -->
         <a href="sonicare.html" class="leo-work-card framer-reveal" style="--reveal-delay: 0.14s;" id="project-sonicare">
           <div class="leo-work-cover">
             <div class="leo-work-media-inner">
-              <img class="wix-static-card-img" src="assets/mocks/card_4_sonicare_static.png?v=3" alt="Philips Sonicare Connected App" loading="lazy">
+              <video class="wix-card-1-video" autoplay muted loop playsinline preload="auto" poster="assets/mocks/card_4_sonicare_static.png?v=122">
+                <source src="assets/mocks/card_4_sonicare_anim.mp4?v=122" type="video/mp4">
+              </video>
             </div>
             <div class="work-card-brand-logo is-philips" aria-hidden="true">
               <img src="assets/mocks/logo_philips_mono.png?v=25" alt="Philips" width="28" height="34">
@@ -592,17 +725,13 @@
               </div>
             </a>
 
-            <!-- 03. Splitti Theme Generator -->
+            <!-- 03. Splitti Theme Generator (Frameless Generator Preview — Only Inner Device is a Phone) -->
             <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Splitti Theme Generator interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-desktop">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/e3505c_809e2df6d208413d8ba601accb7e0432f000.jpg">
-                        <source src="https://video.wixstatic.com/video/e3505c_809e2df6d208413d8ba601accb7e0432/1080p/mp4/file.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
+              <div class="proto-carousel-stage is-generator-stage">
+                <div class="proto-generator-canvas">
+                  <video autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/e3505c_809e2df6d208413d8ba601accb7e0432f000.jpg">
+                    <source src="https://video.wixstatic.com/video/e3505c_809e2df6d208413d8ba601accb7e0432/1080p/mp4/file.mp4" type="video/mp4">
+                  </video>
                 </div>
                 <span class="proto-stage-action-btn" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -739,7 +868,7 @@
 
         <figure class="about-photo-card framer-reveal" style="--reveal-delay: 0.18s;">
           <div class="about-photo-img">
-            <img src="assets/mocks/parents_photo_centered.jpg?v=1" alt="My parents' first time in America" loading="lazy">
+            <img src="assets/mocks/parents_photo_centered.jpg?v=122" alt="My parents' first time in America" loading="lazy">
           </div>
           <figcaption class="about-photo-caption">
             <strong>My Parents' First Time in America</strong>
