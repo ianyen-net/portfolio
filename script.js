@@ -13,10 +13,10 @@
 
 // Immediately preload and decode all 5 avatar GIF variants before DOMContentLoaded
 const AVATAR_GIF_VARIANTS = [
-  'assets/avatar_var_1_blue_blink.gif?v=29',
+  'assets/avatar_var_1_blue_blink.gif?v=30',
   'assets/avatar_var_4_navy_hoodie.gif?v=29',
   'assets/avatar_var_5_green_laptop.gif?v=29',
-  'assets/avatar_var_3_navy_victory.gif?v=29',
+  'assets/avatar_var_3_navy_victory.gif?v=30',
   'assets/avatar_var_2_orange_funny.gif?v=29',
 ];
 const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
@@ -243,10 +243,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
     const avatarVariants = [
-      'assets/avatar_var_1_blue_blink.gif?v=29',
+      'assets/avatar_var_1_blue_blink.gif?v=30',
       'assets/avatar_var_4_navy_hoodie.gif?v=29',
       'assets/avatar_var_5_green_laptop.gif?v=29',
-      'assets/avatar_var_3_navy_victory.gif?v=29',
+      'assets/avatar_var_3_navy_victory.gif?v=30',
       'assets/avatar_var_2_orange_funny.gif?v=29',
     ];
     // Preload all variants (including explosion look-up) so switching is instant with zero flicker
