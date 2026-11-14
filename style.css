@@ -4953,6 +4953,10 @@ body[data-theme="light"] .case-password-card {
   align-items: center;
   gap: 6px;
   margin-top: 14px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.05em;

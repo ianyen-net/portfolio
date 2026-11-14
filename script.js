@@ -790,10 +790,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     10. CASE STUDY PASSWORD PROTECTION (SHA-256 HASHED)
+     10. CASE STUDY & PROTOTYPE PASSWORD PROTECTION (SHA-256 HASHED, SESSION-SCOPED)
      ========================================================================== */
   const CASE_PASSWORD_HASH = '208984112481814036c6a8fb96017106d2c7ba8bf1b64c2ae5b44a5d7b283cec';
-  const AUTH_STORAGE_KEY = 'ian-case-auth';
+  const AUTH_STORAGE_KEY = 'ian-case-auth-session';
+  try { localStorage.removeItem('ian-case-auth'); } catch (e) {}
+
   const sha256Hex = async (str) => {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
     return Array.from(new Uint8Array(buf))
@@ -857,7 +859,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const hashMatch = location.hash.match(/(?:^|[#&])unlocked=([a-f0-9]{64})/i);
       if (hashMatch && hashMatch[1].toLowerCase() === CASE_PASSWORD_HASH) {
         try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
-        try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
         history.replaceState(null, '', location.pathname + location.search);
       }
     } catch (e) {}
@@ -871,13 +872,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    const isUnlocked =
-      sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH ||
-      localStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
+    const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
 
     if (isUnlocked) {
-      try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
-      try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (e) {}
       document.body.classList.remove('is-locked');
       gate.classList.add('is-hidden');
       syncCaseStudyPrototypeLinks();
@@ -918,7 +915,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const inputHash = await sha256Hex(val);
           if (inputHash === CASE_PASSWORD_HASH) {
             try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (ex) {}
-            try { localStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (ex) {}
             document.body.classList.remove('is-locked');
             gate.classList.add('is-hidden');
             syncCaseStudyPrototypeLinks();
@@ -937,20 +933,155 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   } else {
-    // On homepage, if user has already unlocked case studies, pass unlock hash to prototype links
-    try {
-      const alreadyUnlocked =
-        sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH ||
-        localStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
-      if (alreadyUnlocked) {
-        document.querySelectorAll('a[href*="ianyen-net.github.io/"]').forEach((link) => {
-          const href = link.getAttribute('href') || '';
-          if (!href.includes('#unlock=')) {
-            link.setAttribute('href', href.split('#')[0] + '#unlock=dXhpYW4xMg==');
+    // Homepage password gate for Interactive Prototype links
+    const homepageProtoLinks = Array.from(document.querySelectorAll('a[href*="ianyen-net.github.io/"]'));
+    if (homepageProtoLinks.length) {
+      let protoGate = document.getElementById('proto-password-gate');
+      let pendingProtoUrl = null;
+
+      if (!protoGate) {
+        protoGate = document.createElement('div');
+        protoGate.id = 'proto-password-gate';
+        protoGate.className = 'case-password-gate is-hidden';
+        protoGate.innerHTML = `
+          <div class="case-password-card" role="dialog" aria-modal="true" aria-labelledby="proto-gate-title">
+            <div class="case-password-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div class="case-password-kicker">Protected Prototype</div>
+            <h2 class="case-password-title" id="proto-gate-title">Enter Password</h2>
+            <p class="case-password-desc">Enter the password to launch this prototype</p>
+            <form class="case-password-form" id="proto-password-form" autocomplete="off">
+              <div class="case-password-input-wrap">
+                <input
+                  type="password"
+                  id="proto-password-input"
+                  class="case-password-input"
+                  placeholder="Password"
+                  aria-label="Prototype password"
+                  required
+                />
+                <button type="button" class="case-password-toggle" id="proto-password-toggle" aria-label="Show password">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+              <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
+              <button type="submit" class="case-password-submit">
+                <span>Continue</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <div class="case-password-error" id="proto-password-error" role="alert">Incorrect password. Please try again.</div>
+            </form>
+            <button type="button" class="case-password-back" id="proto-password-cancel">← Cancel</button>
+          </div>
+        `;
+        document.body.appendChild(protoGate);
+      }
+
+      const protoForm = document.getElementById('proto-password-form');
+      const protoInput = document.getElementById('proto-password-input');
+      const protoToggle = document.getElementById('proto-password-toggle');
+      const protoError = document.getElementById('proto-password-error');
+      const protoCancel = document.getElementById('proto-password-cancel');
+      const protoCard = protoGate.querySelector('.case-password-card');
+
+      const closeProtoGate = () => {
+        protoGate.classList.add('is-hidden');
+        pendingProtoUrl = null;
+        if (protoInput) {
+          protoInput.value = '';
+          protoInput.classList.remove('is-error');
+        }
+        if (protoError) protoError.classList.remove('is-visible');
+      };
+
+      const openProtoGate = (targetUrl) => {
+        pendingProtoUrl = targetUrl.split('#')[0];
+        protoGate.classList.remove('is-hidden');
+        if (protoInput) {
+          protoInput.value = '';
+          protoInput.classList.remove('is-error');
+          setTimeout(() => protoInput.focus(), 60);
+        }
+        if (protoError) protoError.classList.remove('is-visible');
+      };
+
+      homepageProtoLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          if (e.defaultPrevented) return;
+          const baseHref = (link.getAttribute('href') || '').split('#')[0];
+          if (!baseHref) return;
+
+          const unlockedInSession = sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
+          if (unlockedInSession) {
+            link.setAttribute('href', baseHref + '#unlock=dXhpYW4xMg==');
+            return;
+          }
+
+          e.preventDefault();
+          openProtoGate(baseHref);
+        });
+      });
+
+      if (protoToggle && protoInput) {
+        protoToggle.addEventListener('click', () => {
+          const isPwd = protoInput.type === 'password';
+          protoInput.type = isPwd ? 'text' : 'password';
+          protoToggle.setAttribute('aria-label', isPwd ? 'Hide password' : 'Show password');
+          protoInput.focus();
+        });
+      }
+
+      if (protoInput && protoError) {
+        protoInput.addEventListener('input', () => {
+          protoInput.classList.remove('is-error');
+          protoError.classList.remove('is-visible');
+        });
+      }
+
+      if (protoCancel) {
+        protoCancel.addEventListener('click', closeProtoGate);
+      }
+
+      protoGate.addEventListener('click', (e) => {
+        if (e.target === protoGate) closeProtoGate();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !protoGate.classList.contains('is-hidden')) {
+          closeProtoGate();
+        }
+      });
+
+      if (protoForm && protoInput) {
+        protoForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const val = protoInput.value.trim();
+          const inputHash = await sha256Hex(val);
+          if (inputHash === CASE_PASSWORD_HASH) {
+            try { sessionStorage.setItem(AUTH_STORAGE_KEY, CASE_PASSWORD_HASH); } catch (ex) {}
+            const launchUrl = (pendingProtoUrl || 'https://ianyen-net.github.io/prototypes/') + '#unlock=dXhpYW4xMg==';
+            closeProtoGate();
+            window.open(launchUrl, '_blank', 'noopener,noreferrer');
+          } else {
+            protoInput.classList.add('is-error');
+            if (protoError) protoError.classList.add('is-visible');
+            if (protoCard) {
+              protoCard.classList.remove('is-shaking');
+              void protoCard.offsetWidth;
+              protoCard.classList.add('is-shaking');
+            }
+            protoInput.select();
           }
         });
       }
-    } catch (e) {}
+    }
   }
 
   /* =========================================================================
