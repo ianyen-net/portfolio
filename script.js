@@ -936,5 +936,127 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     }
+  } else {
+    // On homepage, if user has already unlocked case studies, pass unlock hash to prototype links
+    try {
+      const alreadyUnlocked =
+        sessionStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH ||
+        localStorage.getItem(AUTH_STORAGE_KEY) === CASE_PASSWORD_HASH;
+      if (alreadyUnlocked) {
+        document.querySelectorAll('a[href*="ianyen-net.github.io/"]').forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (!href.includes('#unlock=')) {
+            link.setAttribute('href', href.split('#')[0] + '#unlock=dXhpYW4xMg==');
+          }
+        });
+      }
+    } catch (e) {}
+  }
+
+  /* =========================================================================
+     9. INTERACTIVE PROTOTYPE PREVIEW CAROUSEL (`[data-proto-carousel]`)
+     ========================================================================= */
+  const protoCarousel = document.querySelector('[data-proto-carousel]');
+  if (protoCarousel) {
+    const viewport = protoCarousel.querySelector('[data-proto-viewport]');
+    const cards = Array.from(protoCarousel.querySelectorAll('.proto-carousel-card'));
+    const dots = Array.from(protoCarousel.querySelectorAll('[data-proto-dot]'));
+    const prevBtn = protoCarousel.querySelector('[data-proto-prev]');
+    const nextBtn = protoCarousel.querySelector('[data-proto-next]');
+
+    const getStepWidth = () => {
+      if (!cards.length) return 460;
+      const rect = cards[0].getBoundingClientRect();
+      return rect.width + 20;
+    };
+
+    const updateCarouselState = () => {
+      if (!viewport || !cards.length) return;
+      const scrollLeft = viewport.scrollLeft;
+      const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+      const step = getStepWidth();
+      let activeIdx = Math.round(scrollLeft / step);
+      if (scrollLeft >= maxScroll - 8) {
+        activeIdx = cards.length - 1;
+      }
+      activeIdx = Math.max(0, Math.min(cards.length - 1, activeIdx));
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('is-active', idx === activeIdx);
+      });
+
+      if (prevBtn) prevBtn.disabled = scrollLeft <= 4;
+      if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 4;
+    };
+
+    if (prevBtn && viewport) {
+      prevBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: -getStepWidth(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn && viewport) {
+      nextBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: getStepWidth(), behavior: 'smooth' });
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.getAttribute('data-proto-dot') || 0);
+        if (viewport && cards[idx]) {
+          viewport.scrollTo({ left: cards[idx].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
+        }
+      });
+    });
+
+    if (viewport) {
+      viewport.addEventListener('scroll', updateCarouselState, { passive: true });
+      window.addEventListener('resize', updateCarouselState, { passive: true });
+
+      // Mouse drag-to-scroll without triggering accidental link clicks
+      let isDown = false;
+      let didDrag = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+
+      viewport.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        isDown = true;
+        didDrag = false;
+        startX = e.pageX;
+        startScrollLeft = viewport.scrollLeft;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 6) {
+          didDrag = true;
+          viewport.classList.add('is-dragging');
+          viewport.scrollLeft = startScrollLeft - dx;
+        }
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        viewport.classList.remove('is-dragging');
+      });
+
+      viewport.addEventListener(
+        'click',
+        (e) => {
+          if (didDrag) {
+            e.preventDefault();
+            e.stopPropagation();
+            didDrag = false;
+          }
+        },
+        true
+      );
+
+      updateCarouselState();
+    }
   }
 });
