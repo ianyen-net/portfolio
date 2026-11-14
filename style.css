@@ -1980,16 +1980,162 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 }
 
 #project-ai-contacts {
-  --case-hue-1: #FADEDE;
-  --case-hue-2: #E99E9F;
-  --case-hue-3: #D06B6E;
-  --case-hue-light-1: #9E3E42;
-  --case-hue-light-2: #C45E62;
-  --case-hue-light-3: #DF8486;
-  --chip-bg: rgba(94, 34, 38, 0.84);
-  --chip-border: rgba(242, 184, 186, 0.56);
-  --chip-text: #FCE8E8;
-  --cover-tint: linear-gradient(180deg, rgba(42, 14, 16, 0.08) 0%, rgba(78, 28, 32, 0.28) 56%, rgba(98, 36, 40, 0.62) 100%);
+  --case-hue-1: #F8D4EB;
+  --case-hue-2: #E087BF;
+  --case-hue-3: #C2185B;
+  --case-hue-light-1: #880E4F;
+  --case-hue-light-2: #AD1457;
+  --case-hue-light-3: #D81B60;
+  --chip-bg: rgba(74, 14, 46, 0.86);
+  --chip-border: rgba(244, 143, 177, 0.58);
+  --chip-text: #FFF0F7;
+  --cover-tint: linear-gradient(180deg, rgba(56, 10, 36, 0.06) 0%, rgba(88, 16, 54, 0.24) 58%, rgba(114, 18, 68, 0.56) 100%);
+}
+
+/* "Designed for Gemini Intelligence" Pixel 11 Hardware Crop Cover (#project-ai-contacts) */
+#project-ai-contacts .leo-work-cover {
+  background: linear-gradient(180deg, #FFF6FE 0%, #FBE8F8 65%, #F6DFF3 100%);
+}
+
+#project-ai-contacts .work-card-brand-logo svg {
+  fill: #7B164C;
+  opacity: 0.85;
+}
+
+#project-ai-contacts .work-card-brand-logo {
+  filter: none;
+}
+
+.gemini-intel-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(85% 65% at 50% 85%, rgba(236, 64, 122, 0.14) 0%, rgba(251, 232, 248, 0) 72%),
+    linear-gradient(180deg, #FFF6FE 0%, #FBE8F8 68%, #F6DFF3 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.gemini-intel-device-crop {
+  position: relative;
+  width: 78%;
+  max-width: 392px;
+  height: 92%;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.52s var(--ease-out-expo), filter 0.38s ease;
+}
+
+.leo-work-cover:hover .gemini-intel-device-crop {
+  transform: translateY(-4px);
+  filter: brightness(0.94) saturate(1.02);
+}
+
+/* 3D Anodized Berry/Peony Pixel 11 Lower Hardware Frame */
+.gemini-intel-chassis {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 5.5px 5.5px 5.5px;
+  border-radius: 0 0 54px 54px;
+  background: linear-gradient(
+    90deg,
+    #F8BBD0 0%,
+    #D81B60 7%,
+    #880E4F 22%,
+    #C2185B 50%,
+    #880E4F 78%,
+    #D81B60 93%,
+    #F8BBD0 100%
+  );
+  box-shadow:
+    inset 0 -1.5px 1px rgba(255, 255, 255, 0.58),
+    inset 2px 0 2px rgba(255, 255, 255, 0.48),
+    inset -2px 0 2px rgba(62, 6, 32, 0.55),
+    0 18px 34px -8px rgba(74, 12, 44, 0.32),
+    0 6px 14px -4px rgba(74, 12, 44, 0.22);
+}
+
+/* Subtle bottom antenna band notches on the anodized Pixel rail */
+.gemini-intel-chassis::before,
+.gemini-intel-chassis::after {
+  content: '';
+  position: absolute;
+  bottom: 58px;
+  width: 5.5px;
+  height: 4px;
+  background: rgba(255, 214, 232, 0.55);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gemini-intel-chassis::before {
+  left: 0;
+}
+
+.gemini-intel-chassis::after {
+  right: 0;
+}
+
+/* Deep-black obsidian glass bezel */
+.gemini-intel-bezel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 10px 10px;
+  border-radius: 0 0 48.5px 48.5px;
+  background: #050507;
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.18),
+    inset 1px 0 0 rgba(255, 255, 255, 0.12),
+    inset -1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Inner rounded display showing the bottom ~65% of the Magic Cue screen */
+.gemini-intel-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 38.5px 38.5px;
+  overflow: hidden;
+  background: #131316;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.gemini-intel-screen video {
+  width: 100%;
+  height: 148%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  pointer-events: none;
+}
+
+/* Seamless Top-Edge Gradient Dissolve ("Designed for Gemini Intelligence" mist fade) */
+.gemini-intel-top-fade {
+  position: absolute;
+  top: -2px;
+  left: -16px;
+  right: -16px;
+  height: 36%;
+  background: linear-gradient(
+    180deg,
+    #FFF6FE 0%,
+    #FFF6FE 18%,
+    rgba(255, 246, 254, 0.92) 42%,
+    rgba(253, 239, 251, 0.52) 72%,
+    rgba(251, 232, 248, 0) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
 }
 
 #project-sharekit {
@@ -5825,15 +5971,16 @@ body[data-theme="light"] .proto-carousel-card:hover {
 
 .proto-carousel-stage {
   position: relative;
-  height: 268px;
-  border-radius: 16px;
-  background-color: var(--bg-page);
-  background-image: radial-gradient(circle at 50% 25%, rgba(134, 168, 207, 0.10), transparent 70%);
-  border: 1px solid var(--border-subtle);
+  height: 324px;
+  border-radius: 18px;
+  background:
+    radial-gradient(80% 70% at 50% 42%, rgba(255, 255, 255, 0.72) 0%, rgba(251, 232, 248, 0) 75%),
+    linear-gradient(180deg, #FFF6FE 0%, #FBE8F8 65%, #F5DCF1 100%);
+  border: 1px solid rgba(216, 27, 96, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: 24px 20px;
   overflow: hidden;
 }
 
@@ -5844,9 +5991,9 @@ body[data-theme="light"] .proto-carousel-card:hover {
   z-index: 2;
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  color: rgba(92, 16, 54, 0.68);
 }
 
 .proto-stage-launch {
@@ -5856,51 +6003,157 @@ body[data-theme="light"] .proto-carousel-card:hover {
   z-index: 2;
   padding: 5px 11px;
   border-radius: 999px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(136, 14, 79, 0.16);
   font-family: var(--font-mono);
   font-size: 10.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: #6B1140;
   transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
 .proto-carousel-card:hover .proto-stage-launch {
-  background: var(--text-primary);
-  color: var(--bg-page);
-  border-color: var(--text-primary);
+  background: #7B164C;
+  color: #FFF6FE;
+  border-color: #7B164C;
 }
 
+/* 3-Layer Anodized Google Pixel 11 Hardware Frame ("Help this brilliant has to be Google Pixel") */
 .proto-device-phone {
+  position: relative;
   height: 100%;
   aspect-ratio: 9 / 19.5;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.14), 0 14px 30px rgba(0, 0, 0, 0.55);
-  transition: transform 0.36s var(--ease-out-expo);
+  padding: 3.5px;
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    #F8BBD0 0%,
+    #D81B60 18%,
+    #880E4F 48%,
+    #AD1457 78%,
+    #F48FB1 100%
+  );
+  box-shadow:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
+    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
+    inset -1.5px 0 1px rgba(56, 6, 28, 0.55),
+    0 12px 22px -6px rgba(54, 8, 32, 0.28),
+    14px 22px 38px -8px rgba(54, 8, 32, 0.24);
+  transition: transform 0.38s var(--ease-out-expo), box-shadow 0.38s var(--ease-out-expo);
 }
 
+/* Protruding Anodized Pixel Side Hardware Buttons (Power + Volume Rocker) */
+.proto-device-phone::before,
+.proto-device-phone::after {
+  content: '';
+  position: absolute;
+  right: -2.5px;
+  width: 2.5px;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(180deg, #F48FB1 0%, #AD1457 50%, #6A0B3C 100%);
+  box-shadow: inset -0.5px 0 0 rgba(255, 255, 255, 0.45), 1px 1px 2px rgba(45, 4, 22, 0.25);
+  pointer-events: none;
+}
+
+.proto-device-phone::before {
+  top: 24%;
+  height: 17px;
+}
+
+.proto-device-phone::after {
+  top: 36%;
+  height: 33px;
+}
+
+/* Matching 3-Layer Anodized Pixel Tablet / Desktop Studio Frame */
 .proto-device-desktop {
-  width: 90%;
+  position: relative;
+  width: 92%;
   aspect-ratio: 16 / 10;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.14), 0 14px 30px rgba(0, 0, 0, 0.55);
-  transition: transform 0.36s var(--ease-out-expo);
+  padding: 3.5px;
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    #F8BBD0 0%,
+    #D81B60 18%,
+    #880E4F 48%,
+    #AD1457 78%,
+    #F48FB1 100%
+  );
+  box-shadow:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
+    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
+    inset -1.5px 0 1px rgba(56, 6, 28, 0.55),
+    0 12px 22px -6px rgba(54, 8, 32, 0.28),
+    14px 22px 38px -8px rgba(54, 8, 32, 0.24);
+  transition: transform 0.38s var(--ease-out-expo), box-shadow 0.38s var(--ease-out-expo);
 }
 
-body[data-theme="light"] .proto-device-phone,
-body[data-theme="light"] .proto-device-desktop {
-  box-shadow: 0 0 0 1.5px rgba(14, 31, 47, 0.14), 0 14px 28px rgba(14, 31, 47, 0.18);
+/* Inner Deep-Black Obsidian Glass Bezel */
+.proto-device-bezel {
+  width: 100%;
+  height: 100%;
+  padding: 5.5px;
+  background: #050507;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.proto-device-phone .proto-device-bezel {
+  border-radius: 26.5px;
+}
+
+.proto-device-desktop .proto-device-bezel {
+  border-radius: 16.5px;
+}
+
+/* Inner Rounded Active Display Screen */
+.proto-device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0D0E12;
+  box-shadow: 0 0 0 0.75px rgba(255, 255, 255, 0.1);
+}
+
+.proto-device-phone .proto-device-screen {
+  border-radius: 21px;
+}
+
+.proto-device-desktop .proto-device-screen {
+  border-radius: 11px;
+}
+
+/* Subtle top punch-hole front camera on Pixel phone frames */
+.proto-device-phone .proto-device-screen::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #040406;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .proto-carousel-card:hover .proto-device-phone,
 .proto-carousel-card:hover .proto-device-desktop {
-  transform: scale(1.03);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.75),
+    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
+    0 16px 28px -6px rgba(54, 8, 32, 0.34),
+    18px 28px 44px -8px rgba(54, 8, 32, 0.28);
 }
 
 .proto-carousel-stage video {
@@ -6051,1131 +6304,6 @@ body[data-theme="light"] .proto-device-desktop {
   }
   .proto-carousel-stage {
     height: 230px;
-  }
-}
-
-/* ==========================================================================
-   5B. BESPOKE FRAMELESS INTERACTIVE CASE STUDY COMPONENT STAGES (`index.html`)
-       4 distinct component-focused visual styles with ambient + hover motion
-   ========================================================================== */
-.leo-work-cover:has(.cs-stage)::after {
-  background: linear-gradient(180deg, transparent 64%, rgba(10, 14, 22, 0.56) 100%);
-}
-
-.cs-stage {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 24px 24px 44px;
-  font-family: var(--font-sans);
-  user-select: none;
-}
-
-.cs-stage-canvas {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s var(--ease-out-expo);
-}
-
-/* --------------------------------------------------------------------------
-   CARD 01 — AI-POWERED CONTACT INTELLIGENCE
-   Frameless Conversational AI Disambiguation & Provenance Stack
-   -------------------------------------------------------------------------- */
-.cs-stage--ai {
-  background:
-    radial-gradient(95% 88% at 50% 18%, rgba(255, 228, 224, 0.42) 0%, transparent 65%),
-    linear-gradient(155deg, #E88F8D 0%, #D97273 52%, #BF575B 100%);
-}
-
-.cs-ai-stack {
-  width: 100%;
-  max-width: 348px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.cs-ai-bubble-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.cs-ai-user-bubble {
-  padding: 8px 14px;
-  border-radius: 18px 18px 4px 18px;
-  background: rgba(255, 250, 248, 0.94);
-  color: #201A1B;
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  box-shadow: 0 10px 24px -8px rgba(68, 18, 22, 0.28);
-  transition: transform 0.42s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ai-user-bubble {
-  transform: translateY(-3px);
-}
-
-.cs-ai-prompt-row {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 2px 4px;
-  color: #FFFFFF;
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  text-shadow: 0 1px 8px rgba(74, 20, 24, 0.28);
-}
-
-.cs-ai-sparkle {
-  display: inline-flex;
-  color: #FFF4F2;
-  font-size: 14px;
-  animation: csSparklePulse 2.8s ease-in-out infinite;
-}
-
-@keyframes csSparklePulse {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.88; }
-  50% { transform: scale(1.22) rotate(14deg); opacity: 1; }
-}
-
-.cs-ai-mcp-badge {
-  margin-left: auto;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(8px);
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  opacity: 0;
-  transform: translateY(4px) scale(0.94);
-  transition: opacity 0.34s ease, transform 0.38s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ai-mcp-badge {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.cs-ai-card {
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 22px;
-  padding: 12px;
-  box-shadow:
-    0 26px 50px -16px rgba(66, 18, 22, 0.45),
-    0 4px 12px rgba(66, 18, 22, 0.14),
-    inset 0 1px 0 #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: transform 0.45s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ai-card {
-  transform: translateY(-4px);
-}
-
-.cs-ai-card-head {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 2px 6px 4px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #5F6368;
-}
-
-.cs-ai-card-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #1A73E8;
-}
-
-.cs-ai-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 14px;
-  background: #F8F9FA;
-  border: 1.5px solid transparent;
-  transition:
-    transform 0.42s var(--ease-out-expo),
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.35s ease,
-    opacity 0.32s ease;
-}
-
-.cs-ai-row.is-primary {
-  background: #F1F6FE;
-  border-color: rgba(26, 115, 232, 0.24);
-}
-
-.leo-work-card:hover .cs-ai-row.is-primary {
-  transform: scale(1.035) translateX(3px);
-  background: #E8F0FE;
-  border-color: #1A73E8;
-  box-shadow: 0 10px 22px -10px rgba(26, 115, 232, 0.45);
-}
-
-.leo-work-card:hover .cs-ai-row.is-secondary {
-  opacity: 0.56;
-  transform: scale(0.985);
-}
-
-.cs-ai-avatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #FFFFFF;
-  flex-shrink: 0;
-}
-
-.cs-ai-avatar.is-teal { background: linear-gradient(135deg, #2B7A78, #174E4F); }
-.cs-ai-avatar.is-sage { background: linear-gradient(135deg, #6A8A73, #425B49); }
-.cs-ai-avatar.is-rose { background: linear-gradient(135deg, #D84B7F, #A12B58); }
-
-.cs-ai-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.cs-ai-name-line {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.cs-ai-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1F1F1F;
-  line-height: 1.2;
-}
-
-.cs-ai-prov-pill {
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: rgba(26, 115, 232, 0.12);
-  color: #1558D6;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.cs-ai-sub {
-  font-size: 11px;
-  color: #5F6368;
-  line-height: 1.25;
-}
-
-.cs-ai-check {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(26, 115, 232, 0.45);
-  color: #1A73E8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.28s ease, color 0.28s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.28s ease;
-}
-
-.cs-ai-check svg {
-  width: 12px;
-  height: 12px;
-}
-
-.leo-work-card:hover .cs-ai-check {
-  background: #1A73E8;
-  border-color: #1A73E8;
-  color: #FFFFFF;
-  transform: scale(1.12);
-}
-
-.cs-ai-chev {
-  font-size: 16px;
-  color: #9AA0A6;
-  padding-right: 4px;
-}
-
-/* --------------------------------------------------------------------------
-   CARD 02 — SHAREKIT DESIGN SYSTEM
-   Live Multi-Brand Token & Modular Sheet Morphing Stage
-   -------------------------------------------------------------------------- */
-@property --sk-accent {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #8AB4F8;
-}
-
-@property --sk-accent-ink {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #081C3A;
-}
-
-.cs-stage--sharekit {
-  --sk-accent: #8AB4F8;
-  --sk-accent-ink: #081C3A;
-  background:
-    radial-gradient(95% 90% at 50% 15%, rgba(232, 244, 255, 0.38) 0%, transparent 66%),
-    linear-gradient(155deg, #94BCE4 0%, #6E9BC9 52%, #4B77A6 100%);
-  animation: skAccentCycle 7.5s ease-in-out infinite;
-}
-
-@keyframes skAccentCycle {
-  0%, 28% {
-    --sk-accent: #8AB4F8;
-    --sk-accent-ink: #081C3A;
-  }
-  34%, 62% {
-    --sk-accent: #D0BCFF;
-    --sk-accent-ink: #23114B;
-  }
-  68%, 94% {
-    --sk-accent: #7FD89A;
-    --sk-accent-ink: #092B16;
-  }
-  100% {
-    --sk-accent: #8AB4F8;
-    --sk-accent-ink: #081C3A;
-  }
-}
-
-.cs-sk-wrap {
-  width: 100%;
-  max-width: 348px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.cs-sk-themes {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  align-self: flex-start;
-  padding: 5px 8px;
-  border-radius: 999px;
-  background: rgba(18, 26, 38, 0.72);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 24px -10px rgba(10, 24, 44, 0.45);
-}
-
-.cs-sk-theme-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.cs-sk-theme-pill i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.cs-sk-token-tag {
-  margin-left: 4px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  color: #E8F0FE;
-  letter-spacing: 0.04em;
-}
-
-.cs-sk-sheet {
-  background: #1B2029;
-  border-radius: 24px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow:
-    0 28px 52px -16px rgba(10, 24, 44, 0.58),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: transform 0.45s var(--ease-out-expo), gap 0.4s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-sk-sheet {
-  transform: translateY(-4px) scale(1.015);
-  gap: 13px;
-}
-
-.cs-sk-slot {
-  position: relative;
-  border-radius: 16px;
-  border: 1px dashed transparent;
-  transition: border-color 0.32s ease, transform 0.38s var(--ease-out-expo), background 0.32s ease;
-}
-
-.leo-work-card:hover .cs-sk-slot {
-  border-color: rgba(172, 208, 248, 0.34);
-}
-
-.cs-sk-identity {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 10px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.cs-sk-avatar-mini {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--sk-accent);
-  color: var(--sk-accent-ink);
-  font-size: 10px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.6s ease, color 0.6s ease;
-}
-
-.cs-sk-id-text {
-  font-size: 12px;
-  font-weight: 500;
-  color: #E8EAED;
-}
-
-.cs-sk-slot-tag {
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: #9AA0A6;
-  opacity: 0;
-  transform: translateX(4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.leo-work-card:hover .cs-sk-slot-tag {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.cs-sk-payload {
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.cs-sk-preview-box {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.cs-sk-art {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--sk-accent) 0%, rgba(255, 255, 255, 0.16) 100%);
-  color: var(--sk-accent-ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  transition: background 0.6s ease, transform 0.4s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-sk-art {
-  transform: rotate(-6deg) scale(1.06);
-}
-
-.cs-sk-preview-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.cs-sk-preview-meta strong {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #F1F3F4 !important;
-}
-
-.cs-sk-preview-meta span {
-  font-size: 11px;
-  color: #9AA0A6;
-}
-
-.cs-sk-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.cs-sk-btn {
-  padding: 6px 11px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  color: #E8EAED;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: background 0.6s ease, color 0.6s ease, transform 0.3s ease;
-}
-
-.cs-sk-btn.is-filled {
-  background: var(--sk-accent);
-  color: var(--sk-accent-ink);
-}
-
-.leo-work-card:hover .cs-sk-btn.is-filled {
-  transform: scale(1.04);
-}
-
-.cs-sk-targets {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 12px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.cs-sk-target {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #2A313E;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 600;
-  color: #E8EAED;
-  transition: transform 0.35s var(--ease-out-expo), border-color 0.5s ease;
-}
-
-.cs-sk-target i {
-  position: absolute;
-  right: -1px;
-  bottom: -1px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--sk-accent);
-  border: 2px solid #1B2029;
-  transition: background 0.6s ease;
-}
-
-.cs-sk-target.is-more {
-  background: rgba(255, 255, 255, 0.09);
-}
-
-.leo-work-card:hover .cs-sk-target:nth-child(1) { transform: translateY(-3px); border-color: var(--sk-accent); }
-.leo-work-card:hover .cs-sk-target:nth-child(2) { transform: translateY(-3px); transition-delay: 35ms; }
-.leo-work-card:hover .cs-sk-target:nth-child(3) { transform: translateY(-3px); transition-delay: 70ms; }
-
-/* --------------------------------------------------------------------------
-   CARD 03 — CONTACTS EDITOR REDESIGN
-   Cross-Device Structured Composer & Wear OS Swipe Collage
-   -------------------------------------------------------------------------- */
-.cs-stage--editor {
-  background:
-    radial-gradient(95% 88% at 50% 16%, rgba(255, 255, 255, 0.55) 0%, transparent 65%),
-    linear-gradient(155deg, #D1D3D9 0%, #B2B5BE 52%, #8D919C 100%);
-}
-
-.cs-ed-collage {
-  position: relative;
-  width: 100%;
-  max-width: 396px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-ed-composer {
-  width: 232px;
-  background: #17191E;
-  border-radius: 22px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow:
-    0 26px 48px -14px rgba(16, 18, 24, 0.52),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1;
-  transform: translateX(-34px) rotate(-1.5deg);
-  transition: transform 0.48s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ed-composer {
-  transform: translateX(-42px) translateY(-4px) rotate(-2.5deg);
-}
-
-.cs-ed-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.cs-ed-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: #F1F3F4;
-}
-
-.cs-ed-save {
-  position: relative;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: #A8C7FA;
-  color: #062E6F;
-  font-size: 10.5px;
-  font-weight: 700;
-  transition: background 0.32s ease, color 0.32s ease, transform 0.32s ease;
-}
-
-.cs-ed-save-done {
-  display: none;
-}
-
-.leo-work-card:hover .cs-ed-save {
-  background: #81C995;
-  color: #072711;
-  transform: scale(1.05);
-}
-
-.leo-work-card:hover .cs-ed-save-default {
-  display: none;
-}
-
-.leo-work-card:hover .cs-ed-save-done {
-  display: inline;
-}
-
-.cs-ed-calling-tile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 10px;
-  border-radius: 14px;
-  background: #0F1115;
-}
-
-.cs-ed-cc-avatar {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 36%, #9AA0A6 22%, transparent 23%),
-              radial-gradient(circle at 50% 108%, #9AA0A6 42%, transparent 43%),
-              #1E3A8A;
-}
-
-.cs-ed-cc-card {
-  position: relative;
-  width: 36px;
-  height: 52px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #1E3A8A 0%, #172554 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 7px 5px;
-}
-
-.cs-ed-cc-bar {
-  width: 16px;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.cs-ed-cc-mtn {
-  width: 22px;
-  height: 12px;
-  border-radius: 3px;
-  background: rgba(147, 197, 253, 0.45);
-}
-
-.cs-ed-cc-plus {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #5F6368;
-  color: #FFFFFF;
-  font-size: 10px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-ed-field {
-  position: relative;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.03);
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.cs-ed-field.is-focused {
-  border-color: #A8C7FA;
-  background: rgba(168, 199, 250, 0.06);
-}
-
-.cs-ed-label {
-  font-size: 9.5px;
-  color: #A8C7FA;
-  font-weight: 500;
-}
-
-.cs-ed-val {
-  font-size: 11.5px;
-  font-weight: 500;
-  color: #F1F3F4;
-  display: inline-flex;
-  align-items: center;
-}
-
-.cs-ed-caret {
-  display: inline-block;
-  width: 1.5px;
-  height: 12px;
-  margin-left: 2px;
-  background: #A8C7FA;
-  animation: csCaretBlink 1.05s steps(2) infinite;
-}
-
-@keyframes csCaretBlink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-/* Circular Wear OS Dial Component */
-.cs-ed-watch {
-  position: absolute;
-  right: 2px;
-  bottom: -10px;
-  width: 184px;
-  height: 184px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 20%, #1C201B 0%, #090B09 78%);
-  border: 4px solid #26292E;
-  box-shadow:
-    0 24px 44px -10px rgba(12, 14, 18, 0.62),
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.14);
-  padding: 14px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  z-index: 2;
-  overflow: hidden;
-  transition: transform 0.48s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ed-watch {
-  transform: translateX(8px) translateY(-6px) scale(1.03);
-}
-
-.cs-ed-watch-time {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  font-weight: 600;
-  color: #BDC1C6;
-  line-height: 1;
-}
-
-.cs-ed-watch-head {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 2px;
-}
-
-.cs-ed-watch-pill {
-  width: 100%;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: #2E3427;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.cs-ed-watch-pill strong {
-  font-size: 10px;
-  font-weight: 600;
-  color: #F1F3F4 !important;
-}
-
-.cs-ed-watch-pill span {
-  font-size: 8.5px;
-  color: #B8C2AE;
-}
-
-.cs-ed-watch-swipe-row {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.cs-ed-watch-pill.is-swiping {
-  position: relative;
-  z-index: 2;
-  transform: translateX(-18px);
-  transition: transform 0.42s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-ed-watch-pill.is-swiping {
-  transform: translateX(-34px);
-}
-
-.cs-ed-watch-del {
-  position: absolute;
-  right: 2px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #F28B82;
-  color: #3C0D09;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.leo-work-card:hover .cs-ed-watch-del {
-  transform: scale(1.1);
-}
-
-.cs-ed-watch-add {
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  font-size: 8.5px;
-  font-weight: 600;
-  color: #D7E3CC;
-}
-
-/* --------------------------------------------------------------------------
-   CARD 04 — PHILIPS SONICARE CONNECTED APP
-   Live Ultrasonic Dental Arch & Biometric Telemetry HUD
-   -------------------------------------------------------------------------- */
-.cs-stage--sonicare {
-  background:
-    radial-gradient(95% 90% at 28% 18%, #F4F8FB 0%, #D5E2EE 52%, #A6BDD1 100%);
-}
-
-#project-sonicare .work-card-brand-logo.is-philips img {
-  filter: brightness(0.22) contrast(1.2);
-}
-
-.cs-sc-hud {
-  position: relative;
-  width: 100%;
-  max-width: 332px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-sc-card {
-  width: 266px;
-  border-radius: 26px;
-  padding: 16px 18px 14px;
-  background: linear-gradient(165deg, #1E4B70 0%, #143654 58%, #0D263D 100%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow:
-    0 28px 54px -14px rgba(13, 38, 61, 0.52),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  transition: transform 0.48s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-sc-card {
-  transform: translateY(-5px) scale(1.02);
-}
-
-.cs-sc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFFFFF;
-}
-
-.cs-sc-bt {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.cs-sc-bt-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #67E8F9;
-  box-shadow: 0 0 10px #67E8F9;
-  animation: scDotPulse 2s ease-in-out infinite;
-}
-
-@keyframes scDotPulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.3); opacity: 1; }
-}
-
-.cs-sc-timer {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  color: #BAE6FD;
-}
-
-.cs-sc-time-hover {
-  display: none;
-  color: #7DD3FC;
-}
-
-.leo-work-card:hover .cs-sc-time-default {
-  display: none;
-}
-
-.leo-work-card:hover .cs-sc-time-hover {
-  display: inline;
-}
-
-.cs-sc-arch-wrap {
-  position: relative;
-  width: 100%;
-  height: 212px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-sc-arch-svg {
-  width: 204px;
-  height: 212px;
-  overflow: visible;
-}
-
-.cs-sc-guide-active {
-  stroke-dasharray: 180;
-  stroke-dashoffset: 62;
-  filter: drop-shadow(0 0 6px rgba(140, 231, 255, 0.75));
-  transition: stroke-dashoffset 0.65s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-sc-guide-active {
-  stroke-dashoffset: 0;
-}
-
-.cs-tooth {
-  transition: fill 0.38s ease, filter 0.38s ease, opacity 0.38s ease;
-}
-
-.cs-tooth.is-lit {
-  fill: #F8FCFF;
-  filter: drop-shadow(0 0 5px rgba(140, 231, 255, 0.55));
-}
-
-.cs-tooth.is-sweep-1,
-.cs-tooth.is-sweep-2,
-.cs-tooth.is-sweep-3 {
-  fill: rgba(255, 255, 255, 0.34);
-}
-
-.cs-tooth.is-sweep-1 {
-  animation: scToothPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes scToothPulse {
-  0%, 100% { fill: rgba(255, 255, 255, 0.42); }
-  50% { fill: #FFFFFF; filter: drop-shadow(0 0 6px rgba(140, 231, 255, 0.8)); }
-}
-
-.leo-work-card:hover .cs-tooth.is-sweep-1 {
-  animation: none;
-  fill: #FFFFFF;
-  filter: drop-shadow(0 0 6px rgba(140, 231, 255, 0.75));
-  transition-delay: 40ms;
-}
-
-.leo-work-card:hover .cs-tooth.is-sweep-2 {
-  fill: #FFFFFF;
-  filter: drop-shadow(0 0 6px rgba(140, 231, 255, 0.75));
-  transition-delay: 110ms;
-}
-
-.leo-work-card:hover .cs-tooth.is-sweep-3 {
-  fill: #FFFFFF;
-  filter: drop-shadow(0 0 6px rgba(140, 231, 255, 0.75));
-  transition-delay: 180ms;
-}
-
-.cs-tooth.is-dim {
-  fill: rgba(255, 255, 255, 0.18);
-}
-
-.leo-work-card:hover .cs-tooth.is-dim {
-  fill: rgba(255, 255, 255, 0.3);
-}
-
-.cs-sc-center-copy {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  text-align: center;
-  padding-top: 8px;
-}
-
-.cs-sc-quadrant {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
-}
-
-.cs-sc-sub {
-  font-size: 10.5px;
-  color: rgba(214, 236, 252, 0.78);
-}
-
-.cs-sc-sensor-pill {
-  position: absolute;
-  left: -8px;
-  bottom: -6px;
-  padding: 8px 13px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 16px 32px -10px rgba(13, 38, 61, 0.36);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.45s var(--ease-out-expo);
-}
-
-.leo-work-card:hover .cs-sc-sensor-pill {
-  transform: translateY(-4px) translateX(4px) scale(1.03);
-}
-
-.cs-sc-wave {
-  display: inline-flex;
-  align-items: center;
-  gap: 2.5px;
-  height: 18px;
-}
-
-.cs-sc-wave span {
-  width: 3px;
-  border-radius: 99px;
-  background: #0284C7;
-  animation: scWaveBar 1.2s ease-in-out infinite;
-}
-
-.cs-sc-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
-.cs-sc-wave span:nth-child(2) { height: 15px; animation-delay: 0.18s; }
-.cs-sc-wave span:nth-child(3) { height: 11px; animation-delay: 0.34s; }
-.cs-sc-wave span:nth-child(4) { height: 16px; animation-delay: 0.5s; }
-
-@keyframes scWaveBar {
-  0%, 100% { transform: scaleY(0.55); }
-  50% { transform: scaleY(1.1); }
-}
-
-.cs-sc-sensor-meta {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.18;
-}
-
-.cs-sc-sensor-meta strong {
-  font-size: 11px;
-  font-weight: 700;
-  color: #0F2942 !important;
-}
-
-.cs-sc-sensor-meta span {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  color: #476782;
-}
-
-@media (max-width: 640px) {
-  .leo-work-cover:has(.cs-stage) {
-    height: 340px;
-  }
-  .cs-stage {
-    padding: 14px 12px 34px;
-  }
-  .cs-stage-canvas {
-    transform: scale(0.8);
   }
 }
 
