@@ -14,7 +14,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=117">
+  <link rel="stylesheet" href="style.css?v=125">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='208984112481814036c6a8fb96017106d2c7ba8bf1b64c2ae5b44a5d7b283cec'){document.body.classList.remove('is-locked');}</script>
@@ -355,10 +355,416 @@
 
         <h4 class="case-h4">Component variants and color palettes</h4>
         <p class="case-body">In the same tool, I generated the component variants by mapping out all state changes for the elements based on the selected design system, and to audit existing files to ensure compliance with strict accessibility standards, identifying rogue hex codes or detached instances.</p>
-        <div class="case-figure framer-reveal" style="max-width: 720px; margin: 24px auto;">
-          <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/e3505c_f2d16f36bc9949d6bd86f729a6de9124f000.jpg">
-            <source src="https://video.wixstatic.com/video/e3505c_f2d16f36bc9949d6bd86f729a6de9124/1080p/mp4/file.mp4" type="video/mp4">
-          </video>
+        <div class="case-figure framer-reveal" style="max-width: 880px; margin: 28px auto; background: transparent; border: none; padding: 0; overflow: visible;">
+          <div class="sk-dunzo-case-specimen" id="sk-dunzo-specimen">
+            <!-- Top Interactive Design System Selector -->
+            <div class="sk-dunzo-case-header">
+              <div class="sk-dunzo-case-tabs" role="tablist" aria-label="Splitti Design Systems">
+                <button type="button" class="sk-dunzo-case-tab is-active" data-sys="m3" role="tab" aria-selected="true">
+                  <i style="background:#0B57D0"></i>Material 3
+                </button>
+                <button type="button" class="sk-dunzo-case-tab" data-sys="geo" role="tab" aria-selected="false">
+                  <i style="background:#007B8B"></i>Geo
+                </button>
+                <button type="button" class="sk-dunzo-case-tab" data-sys="nlm" role="tab" aria-selected="false">
+                  <i style="background:#4259FF"></i>NotebookLM
+                </button>
+                <button type="button" class="sk-dunzo-case-tab" data-sys="gemini" role="tab" aria-selected="false">
+                  <i style="background:#3186FF"></i>Gemini
+                </button>
+              </div>
+              <span class="sk-dunzo-case-badge" id="sk-sys-badge">Material 3 &middot; Dynamic Token System</span>
+            </div>
+
+            <!-- 2x2 Dunzo Colour Palette Grid -->
+            <div class="sk-dunzo-grid">
+              <!-- Quadrant 1 (Top-Left): Primary Horizontal Pill Bars -->
+              <div class="sk-dunzo-card sk-dunzo-q-primary">
+                <div class="sk-pri-row">
+                  <span class="sk-pri-bar" id="sk-p1-bar" style="background:#0B57D0;"></span>
+                  <div class="sk-pri-meta">
+                    <strong>Primary</strong>
+                    <span id="sk-p1-tok">Blue600 &middot; #0B57D0</span>
+                  </div>
+                </div>
+                <div class="sk-pri-row">
+                  <span class="sk-pri-bar" id="sk-p2-bar" style="background:#0842A0;"></span>
+                  <div class="sk-pri-meta">
+                    <strong>Primary Dark</strong>
+                    <span id="sk-p2-tok">Blue800 &middot; #0842A0</span>
+                  </div>
+                </div>
+                <div class="sk-pri-row">
+                  <span class="sk-pri-bar" id="sk-p3-bar" style="background:#D3E3FD;"></span>
+                  <div class="sk-pri-meta">
+                    <strong>Primary Light</strong>
+                    <span id="sk-p3-tok">Blue90 &middot; #D3E3FD</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quadrant 2 (Top-Right): Utility 4x4 Rounded Square Swatches -->
+              <div class="sk-dunzo-card sk-dunzo-q-utility">
+                <h4 class="sk-dunzo-heading" id="sk-h-utility">Utility</h4>
+                <div class="sk-util-grid">
+                  <!-- Row 1: Negative (Red) -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#D93025;"></span>
+                    <div class="sk-sw-txt"><strong>Negative</strong><span>Red600</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#FCE8E6;"></span>
+                    <div class="sk-sw-txt"><strong>BgNegative</strong><span>Red50</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#F6AEA9;"></span>
+                    <div class="sk-sw-txt"><strong>Border Neg</strong><span>Red200</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#C5221F;"></span>
+                    <div class="sk-sw-txt"><strong>Text Neg</strong><span>Red700</span></div>
+                  </div>
+
+                  <!-- Row 2: Warning (Yellow / Orange) -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#FBBC04;"></span>
+                    <div class="sk-sw-txt"><strong>Warning</strong><span>Yellow500</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#FEF7E0;"></span>
+                    <div class="sk-sw-txt"><strong>BgWarning</strong><span>Yellow50</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#FDE293;"></span>
+                    <div class="sk-sw-txt"><strong>Border Warn</strong><span>Yellow200</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#B06000;"></span>
+                    <div class="sk-sw-txt"><strong>Text Warn</strong><span>Orange900</span></div>
+                  </div>
+
+                  <!-- Row 3: Positive (Green) -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#188038;"></span>
+                    <div class="sk-sw-txt"><strong>Positive</strong><span>Green700</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#E6F4EA;"></span>
+                    <div class="sk-sw-txt"><strong>BgPositive</strong><span>Green50</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#A8DAB5;"></span>
+                    <div class="sk-sw-txt"><strong>Border Pos</strong><span>Green200</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" style="background:#0D652D;"></span>
+                    <div class="sk-sw-txt"><strong>Text Pos</strong><span>Green900</span></div>
+                  </div>
+
+                  <!-- Row 4: Info (System Accent) -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" id="sk-u-info" style="background:#1A73E8;"></span>
+                    <div class="sk-sw-txt"><strong>Info</strong><span id="sk-u-info-t">Blue600</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" id="sk-u-bginfo" style="background:#E8F0FE;"></span>
+                    <div class="sk-sw-txt"><strong>BgInfo</strong><span id="sk-u-bginfo-t">Blue50</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" id="sk-u-bdinfo" style="background:#A8C7FA;"></span>
+                    <div class="sk-sw-txt"><strong>Border Info</strong><span id="sk-u-bdinfo-t">Blue200</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-sq" id="sk-u-txinfo" style="background:#174EA6;"></span>
+                    <div class="sk-sw-txt"><strong>Text Info</strong><span id="sk-u-txinfo-t">Blue900</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quadrant 3 (Bottom-Left): Vibrant Primary Outer Container with Text & Background Inner Subcards -->
+              <div class="sk-dunzo-card sk-dunzo-q-split" id="sk-q-split" style="background:#1B6EF3;">
+                <div class="sk-split-subcard is-text-sub" id="sk-sub-text" style="background:#8AB4F8;">
+                  <h4 class="sk-split-heading">Text</h4>
+                  <div class="sk-split-list is-compact">
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-1" style="background:#1F1F1F;"></span>
+                      <div class="sk-sw-txt"><strong>Text Primary</strong><span id="sk-tx-1-t">Neutral10</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-2" style="background:#444746;"></span>
+                      <div class="sk-sw-txt"><strong>Text Secondary</strong><span id="sk-tx-2-t">Neutral30</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-3" style="background:#70757A;"></span>
+                      <div class="sk-sw-txt"><strong>Text Tertiary</strong><span id="sk-tx-3-t">Neutral50</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-4" style="background:#C4C7C5;"></span>
+                      <div class="sk-sw-txt"><strong>Text Disabled</strong><span id="sk-tx-4-t">Neutral80</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-5" style="background:#FFFFFF;"></span>
+                      <div class="sk-sw-txt"><strong>Text Inverse</strong><span id="sk-tx-5-t">Neutral99</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq" id="sk-tx-6" style="background:#9AA0A6;"></span>
+                      <div class="sk-sw-txt"><strong>Text Sec Inv</strong><span id="sk-tx-6-t">Neutral70</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sk-split-subcard is-bg-sub" id="sk-sub-bg" style="background:#669DF6;">
+                  <h4 class="sk-split-heading">Background</h4>
+                  <div class="sk-split-list is-spacious">
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq is-lg" id="sk-bg-1" style="background:#FFFFFF;"></span>
+                      <div class="sk-sw-txt"><strong>Bg Primary</strong><span id="sk-bg-1-t">Surface99</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq is-lg" id="sk-bg-2" style="background:#F0F4F9;"></span>
+                      <div class="sk-sw-txt"><strong>Bg Secondary</strong><span id="sk-bg-2-t">Surface90</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq is-lg" id="sk-bg-3" style="background:#1E2A3A;"></span>
+                      <div class="sk-sw-txt"><strong>Bg Overlay</strong><span id="sk-bg-3-t">Surface30</span></div>
+                    </div>
+                    <div class="sk-swatch-item is-dark-ink">
+                      <span class="sk-sq is-lg" id="sk-bg-4" style="background:#0D1520;"></span>
+                      <div class="sk-sw-txt"><strong>Bg Inverse</strong><span id="sk-bg-4-t">Surface10</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quadrant 4 (Bottom-Right): Component Circular Swatches -->
+              <div class="sk-dunzo-card sk-dunzo-q-component">
+                <h4 class="sk-dunzo-heading" id="sk-h-comp">Component</h4>
+                <div class="sk-comp-grid">
+                  <!-- Row 1 -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-1" style="background:#0B57D0;"></span>
+                    <div class="sk-sw-txt"><strong>bg primary</strong><span id="sk-c-1-t">Primary 40</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-2" style="background:#0842A0;"></span>
+                    <div class="sk-sw-txt"><strong>bg pri pressed</strong><span id="sk-c-2-t">Primary 30</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-3" style="background:#A8C7FA;"></span>
+                    <div class="sk-sw-txt"><strong>Text</strong><span id="sk-c-3-t">Primary 80</span></div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-4" style="background:#C2E7FF;"></span>
+                    <div class="sk-sw-txt"><strong>bg secondary</strong><span id="sk-c-4-t">Secondary 90</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-5" style="background:#7CCBFF;"></span>
+                    <div class="sk-sw-txt"><strong>bg sec pressed</strong><span id="sk-c-5-t">Secondary 80</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" id="sk-c-6" style="background:#FFFFFF;"></span>
+                    <div class="sk-sw-txt"><strong>Text Inverse</strong><span id="sk-c-6-t">On Primary</span></div>
+                  </div>
+
+                  <!-- Row 3 -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#D93025;"></span>
+                    <div class="sk-sw-txt"><strong>bg destructive</strong><span>Red 600</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#C5221F;"></span>
+                    <div class="sk-sw-txt"><strong>bg dest press</strong><span>Red 700</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#1E3A5F;"></span>
+                    <div class="sk-sw-txt"><strong>Text disabled</strong><span>Neutral 50</span></div>
+                  </div>
+
+                  <!-- Row 4 -->
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#1B3658;"></span>
+                    <div class="sk-sw-txt"><strong>bg disabled</strong><span>Surface Dim</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#632E2B;"></span>
+                    <div class="sk-sw-txt"><strong>bg dest disab</strong><span>Red 900</span></div>
+                  </div>
+                  <div class="sk-swatch-item">
+                    <span class="sk-circle" style="background:#8E969E;"></span>
+                    <div class="sk-sw-txt"><strong>Text Inv disab</strong><span>Neutral 60</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Rendered Component Elements & State Variants Across Systems -->
+            <div class="sk-dunzo-variants-bar">
+              <div class="sk-dunzo-variants-top">
+                <h4 class="sk-dunzo-heading" id="sk-h-variants" style="margin:0; font-size:15px;">Element Variants &amp; Interactive States</h4>
+                <span style="font-family:var(--font-mono); font-size:10.5px; color:#8EA4BE;" id="sk-radius-spec">Corner Radius: 999px Pill &middot; AA/AAA Compliant</span>
+              </div>
+              <div class="sk-dunzo-variants-row">
+                <div class="sk-variant-elem-card">
+                  <span class="sk-variant-elem-label">Primary Share CTA</span>
+                  <div class="sk-variant-elem-preview">
+                    <span class="sk-v-btn" id="sk-v-pri" style="background:#0B57D0; color:#FFFFFF; border-radius:999px;">Copy link</span>
+                    <span class="sk-v-btn" id="sk-v-pri-press" style="background:#0842A0; color:#FFFFFF; border-radius:999px; opacity:0.9;">Pressed</span>
+                  </div>
+                </div>
+                <div class="sk-variant-elem-card">
+                  <span class="sk-variant-elem-label">Tonal Action Chip</span>
+                  <div class="sk-variant-elem-preview">
+                    <span class="sk-v-btn" id="sk-v-tonal" style="background:#D3E3FD; color:#041E49; border-radius:999px;">Anyone with link</span>
+                  </div>
+                </div>
+                <div class="sk-variant-elem-card">
+                  <span class="sk-variant-elem-label">Permission Toggle</span>
+                  <div class="sk-variant-elem-preview">
+                    <span class="sk-v-btn" id="sk-v-perm" style="background:#C2E7FF; color:#001D35; border-radius:12px;">Can view &#9662;</span>
+                  </div>
+                </div>
+                <div class="sk-variant-elem-card">
+                  <span class="sk-variant-elem-label">Disabled &amp; Audit State</span>
+                  <div class="sk-variant-elem-preview">
+                    <span class="sk-v-btn" id="sk-v-dis" style="background:#1B3658; color:#8E969E; border-radius:999px;">Restricted</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+          (function() {
+            const SYSTEMS = {
+              m3: {
+                badge: 'Material 3 · Dynamic Token System',
+                headingColor: '#559BF6',
+                p1: ['#0B57D0', 'Blue600 · #0B57D0'],
+                p2: ['#0842A0', 'Blue800 · #0842A0'],
+                p3: ['#D3E3FD', 'Blue90 · #D3E3FD'],
+                info: [['#1A73E8','Blue600'], ['#E8F0FE','Blue50'], ['#A8C7FA','Blue200'], ['#174EA6','Blue900']],
+                splitBg: '#1B6EF3', subText: '#8AB4F8', subBg: '#669DF6',
+                bg: [['#FFFFFF','Surface99'], ['#F0F4F9','Surface90'], ['#1E2A3A','Surface30'], ['#0D1520','Surface10']],
+                comp: [['#0B57D0','Primary 40'], ['#0842A0','Primary 30'], ['#A8C7FA','Primary 80'], ['#C2E7FF','Secondary 90'], ['#7CCBFF','Secondary 80'], ['#FFFFFF','On Primary']],
+                radiusSpec: 'Corner Radius: 999px Pill · Material 3 Expressive',
+                btnRadius: '999px', chipRadius: '12px',
+                tonalFg: '#041E49', secFg: '#001D35'
+              },
+              geo: {
+                badge: 'Geo (Google Maps) · Spatial Teal System',
+                headingColor: '#36C5D8',
+                p1: ['#007B8B', 'Teal600 · #007B8B'],
+                p2: ['#005662', 'Teal800 · #005662'],
+                p3: ['#CCF2F7', 'Teal90 · #CCF2F7'],
+                info: [['#007B8B','Teal600'], ['#E4F7FA','Teal50'], ['#8CE1ED','Teal200'], ['#004E59','Teal900']],
+                splitBg: '#007B8B', subText: '#8CE1ED', subBg: '#4DCAD9',
+                bg: [['#FFFFFF','GeoSurface'], ['#EBF6F8','GeoTint90'], ['#132E35','GeoDark30'], ['#091B20','GeoDark10']],
+                comp: [['#007B8B','Teal 40'], ['#005662','Teal 30'], ['#8CE1ED','Teal 80'], ['#CCF2F7','Cyan 90'], ['#6BD8E6','Cyan 80'], ['#FFFFFF','On Teal']],
+                radiusSpec: 'Corner Radius: 12px Structured · Geo Navigation UI',
+                btnRadius: '12px', chipRadius: '10px',
+                tonalFg: '#00363E', secFg: '#00363E'
+              },
+              nlm: {
+                badge: 'NotebookLM · Editorial Indigo System',
+                headingColor: '#8C9EFF',
+                p1: ['#4259FF', 'Indigo600 · #4259FF'],
+                p2: ['#2A3BC2', 'Indigo800 · #2A3BC2'],
+                p3: ['#E0E4FF', 'Indigo90 · #E0E4FF'],
+                info: [['#4259FF','Indigo600'], ['#EEF0FF','Indigo50'], ['#B3BDFF','Indigo200'], ['#1E2B99','Indigo900']],
+                splitBg: '#4259FF', subText: '#B3BDFF', subBg: '#8292FF',
+                bg: [['#FBF9F5','Paper99'], ['#F2EFE9','Paper90'], ['#23263A','InkSurface'], ['#12131F','InkDeep']],
+                comp: [['#4259FF','Indigo 40'], ['#2A3BC2','Indigo 30'], ['#B3BDFF','Indigo 80'], ['#E0E4FF','Violet 90'], ['#9DA9FF','Violet 80'], ['#FFFFFF','On Indigo']],
+                radiusSpec: 'Corner Radius: 14px Editorial · NotebookLM Artifact UI',
+                btnRadius: '14px', chipRadius: '10px',
+                tonalFg: '#16227A', secFg: '#16227A'
+              },
+              gemini: {
+                badge: 'Gemini · AI Gradient & Celestial Blue System',
+                headingColor: '#76ACFF',
+                p1: ['#3186FF', 'GeminiBlue · #3186FF'],
+                p2: ['#5B4DFF', 'GeminiViolet · #5B4DFF'],
+                p3: ['#DCE8FF', 'Celestial90 · #DCE8FF'],
+                info: [['#3186FF','Celestial600'], ['#EDF3FF','Celestial50'], ['#A6C8FF','Celestial200'], ['#183B8C','Celestial900']],
+                splitBg: '#3186FF', subText: '#A8C7FA', subBg: '#76ACFF',
+                bg: [['#131314','Obsidian10'], ['#1E1F22','Obsidian20'], ['#282A2E','Obsidian30'], ['#090A0C','Obsidian05']],
+                comp: [['#3186FF','Gemini 50'], ['#5B4DFF','Violet 40'], ['#A8C7FA','Sparkle 80'], ['#DCE8FF','Aura 90'], ['#91B9FF','Aura 80'], ['#FFFFFF','On Gemini']],
+                radiusSpec: 'Corner Radius: 999px Expressive · Gemini Dark Surface',
+                btnRadius: '999px', chipRadius: '16px',
+                tonalFg: '#0A2558', secFg: '#0A2558'
+              }
+            };
+
+            const root = document.getElementById('sk-dunzo-specimen');
+            if (!root) return;
+            const tabs = root.querySelectorAll('.sk-dunzo-case-tab');
+
+            tabs.forEach(tab => {
+              tab.addEventListener('click', () => {
+                const key = tab.getAttribute('data-sys');
+                const s = SYSTEMS[key];
+                if (!s) return;
+
+                tabs.forEach(t => {
+                  t.classList.toggle('is-active', t === tab);
+                  t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+                });
+
+                document.getElementById('sk-sys-badge').textContent = s.badge;
+                ['sk-h-utility', 'sk-h-comp', 'sk-h-variants'].forEach(id => {
+                  document.getElementById(id).style.color = s.headingColor;
+                });
+
+                document.getElementById('sk-p1-bar').style.background = s.p1[0];
+                document.getElementById('sk-p1-tok').textContent = s.p1[1];
+                document.getElementById('sk-p2-bar').style.background = s.p2[0];
+                document.getElementById('sk-p2-tok').textContent = s.p2[1];
+                document.getElementById('sk-p3-bar').style.background = s.p3[0];
+                document.getElementById('sk-p3-tok').textContent = s.p3[1];
+
+                const infoIds = [['sk-u-info','sk-u-info-t'],['sk-u-bginfo','sk-u-bginfo-t'],['sk-u-bdinfo','sk-u-bdinfo-t'],['sk-u-txinfo','sk-u-txinfo-t']];
+                infoIds.forEach((pair, idx) => {
+                  document.getElementById(pair[0]).style.background = s.info[idx][0];
+                  document.getElementById(pair[1]).textContent = s.info[idx][1];
+                });
+
+                document.getElementById('sk-q-split').style.background = s.splitBg;
+                document.getElementById('sk-sub-text').style.background = s.subText;
+                document.getElementById('sk-sub-bg').style.background = s.subBg;
+
+                s.bg.forEach((b, idx) => {
+                  document.getElementById(`sk-bg-${idx+1}`).style.background = b[0];
+                  document.getElementById(`sk-bg-${idx+1}-t`).textContent = b[1];
+                });
+
+                s.comp.forEach((c, idx) => {
+                  document.getElementById(`sk-c-${idx+1}`).style.background = c[0];
+                  document.getElementById(`sk-c-${idx+1}-t`).textContent = c[1];
+                });
+
+                document.getElementById('sk-radius-spec').textContent = s.radiusSpec;
+                const vPri = document.getElementById('sk-v-pri');
+                const vPriP = document.getElementById('sk-v-pri-press');
+                const vTonal = document.getElementById('sk-v-tonal');
+                const vPerm = document.getElementById('sk-v-perm');
+                const vDis = document.getElementById('sk-v-dis');
+
+                vPri.style.background = s.p1[0];
+                vPri.style.borderRadius = s.btnRadius;
+                vPriP.style.background = s.p2[0];
+                vPriP.style.borderRadius = s.btnRadius;
+                vTonal.style.background = s.p3[0];
+                vTonal.style.color = s.tonalFg;
+                vTonal.style.borderRadius = s.btnRadius;
+                vPerm.style.background = s.comp[3][0];
+                vPerm.style.color = s.secFg;
+                vPerm.style.borderRadius = s.chipRadius;
+                vDis.style.borderRadius = s.btnRadius;
+              });
+            });
+          })();
+          </script>
         </div>
 
         <h4 class="case-h4">Stress-testing with dynamic content</h4>

@@ -1750,7 +1750,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   transform: none !important;
 }
 
-.leo-work-media-inner > img.wix-static-card-img {
+.leo-work-media-inner > img.wix-static-card-img,
+.leo-work-media-inner > video.wix-card-1-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1779,7 +1780,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   opacity: 1;
 }
 
-.leo-work-cover:hover .leo-work-media-inner > img.wix-static-card-img {
+.leo-work-cover:hover .leo-work-media-inner > img.wix-static-card-img,
+.leo-work-cover:hover .leo-work-media-inner > video.wix-card-1-video {
   filter: brightness(0.86) saturate(0.98);
 }
 
@@ -1980,30 +1982,262 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 }
 
 #project-ai-contacts {
-  --case-hue-1: #F8D4EB;
-  --case-hue-2: #E087BF;
-  --case-hue-3: #C2185B;
-  --case-hue-light-1: #880E4F;
-  --case-hue-light-2: #AD1457;
-  --case-hue-light-3: #D81B60;
-  --chip-bg: rgba(74, 14, 46, 0.86);
-  --chip-border: rgba(244, 143, 177, 0.58);
-  --chip-text: #FFF0F7;
-  --cover-tint: linear-gradient(180deg, rgba(56, 10, 36, 0.06) 0%, rgba(88, 16, 54, 0.24) 58%, rgba(114, 18, 68, 0.56) 100%);
+  --case-hue-1: #F9DADA;
+  --case-hue-2: #E99E9F;
+  --case-hue-3: #D06B6E;
+  --case-hue-light-1: #9E3E42;
+  --case-hue-light-2: #C45E62;
+  --case-hue-light-3: #DF8486;
+  --chip-bg: rgba(94, 34, 38, 0.84);
+  --chip-border: rgba(242, 184, 186, 0.56);
+  --chip-text: #FCE8E8;
+  --cover-tint: linear-gradient(180deg, rgba(42, 14, 16, 0.08) 0%, rgba(78, 28, 32, 0.28) 56%, rgba(98, 36, 40, 0.62) 100%);
 }
 
-/* "Designed for Gemini Intelligence" Pixel 11 Hardware Crop Cover (#project-ai-contacts) */
 #project-ai-contacts .leo-work-cover {
-  background: linear-gradient(180deg, #FFF6FE 0%, #FBE8F8 65%, #F6DFF3 100%);
+  background: #DB8D8E;
 }
 
-#project-ai-contacts .work-card-brand-logo svg {
-  fill: #7B164C;
-  opacity: 0.85;
+/* Interactive Dunzo Colour Palette & Component Variants Specimen on sharing-design-system.html */
+.sk-dunzo-case-specimen {
+  width: 100%;
+  border-radius: 24px;
+  padding: 24px;
+  background:
+    radial-gradient(85% 75% at 15% 15%, var(--sk-sys-glow, rgba(27, 110, 243, 0.18)) 0%, transparent 65%),
+    linear-gradient(180deg, #091525 0%, #07101C 100%);
+  border: 1px solid rgba(168, 199, 250, 0.16);
+  box-shadow: 0 24px 60px -16px rgba(4, 10, 20, 0.65);
+  color: #F1F5F9;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-#project-ai-contacts .work-card-brand-logo {
-  filter: none;
+.sk-dunzo-case-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sk-dunzo-case-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 999px;
+  background: #0D1E33;
+  border: 1px solid rgba(168, 199, 250, 0.16);
+}
+
+.sk-dunzo-case-tab {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #93A8C1;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.sk-dunzo-case-tab:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sk-dunzo-case-tab.is-active {
+  background: #173052;
+  color: #FFFFFF;
+  border-color: rgba(138, 180, 248, 0.36);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.sk-dunzo-case-tab i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sk-dunzo-case-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8AB4F8;
+  background: rgba(27, 110, 243, 0.14);
+  border: 1px solid rgba(138, 180, 248, 0.24);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-grid {
+  gap: 16px;
+  min-height: 460px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-card {
+  border-radius: 18px;
+  padding: 18px 20px;
+}
+
+.sk-dunzo-case-specimen .sk-pri-bar {
+  height: 52px;
+  border-radius: 14px;
+}
+
+.sk-dunzo-case-specimen .sk-pri-meta strong {
+  font-size: 14px;
+}
+
+.sk-dunzo-case-specimen .sk-pri-meta span {
+  font-size: 12px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-heading {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-q-utility .sk-sq {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-q-utility .sk-sw-txt strong {
+  font-size: 10.5px;
+}
+
+.sk-dunzo-case-specimen .sk-dunzo-q-utility .sk-sw-txt span {
+  font-size: 9px;
+}
+
+.sk-dunzo-case-specimen .sk-sq {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.sk-dunzo-case-specimen .sk-sq.is-lg {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+}
+
+.sk-dunzo-case-specimen .sk-circle {
+  width: 24px;
+  height: 24px;
+}
+
+.sk-dunzo-case-specimen .sk-sw-txt strong {
+  font-size: 11px;
+}
+
+.sk-dunzo-case-specimen .sk-sw-txt span {
+  font-size: 9.5px;
+}
+
+.sk-dunzo-case-specimen .sk-split-heading {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.sk-dunzo-case-specimen .sk-split-subcard {
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.sk-dunzo-case-specimen .sk-swatch-item {
+  gap: 8px;
+}
+
+.sk-dunzo-case-specimen .sk-swatch-item.is-dark-ink .sk-sw-txt strong {
+  font-size: 11px;
+}
+
+.sk-dunzo-case-specimen .sk-swatch-item.is-dark-ink .sk-sw-txt span {
+  font-size: 9.5px;
+}
+
+/* Bottom Live Component Variants Strip inside the Dunzo Specimen */
+.sk-dunzo-variants-bar {
+  border-radius: 18px;
+  padding: 16px 20px;
+  background: #0B1B30;
+  border: 1px solid rgba(138, 180, 248, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sk-dunzo-variants-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sk-dunzo-variants-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sk-variant-elem-card {
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #081322;
+  border: 1px solid rgba(168, 199, 250, 0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sk-variant-elem-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8CA2BC;
+}
+
+.sk-variant-elem-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sk-v-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+@media (max-width: 768px) {
+  .sk-dunzo-case-specimen .sk-dunzo-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .sk-dunzo-variants-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .gemini-intel-cover {
