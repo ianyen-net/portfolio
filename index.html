@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=30" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=118">
+  <link rel="stylesheet" href="style.css?v=119">
 </head>
 <body data-theme="dark">
 
@@ -289,8 +289,8 @@
                   <div class="gemini-intel-chassis">
                     <div class="gemini-intel-bezel">
                       <div class="gemini-intel-screen">
-                        <video autoplay muted loop playsinline preload="auto" poster="assets/mocks/ai_brief_1_magic_poster.jpg">
-                          <source src="assets/mocks/ai_brief_1_magic.mp4" type="video/mp4">
+                        <video autoplay muted loop playsinline preload="auto" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
+                          <source src="assets/mocks/ai_brief_1_magic.mp4?v=119" type="video/mp4">
                         </video>
                       </div>
                     </div>
@@ -324,11 +324,113 @@
           </div>
         </a>
 
-        <!-- Case 02: ShareKit Design System (Slide 99 Cover Image) -->
+        <!-- Case 02: ShareKit Design System (Frameless Design System Specimen Preview: Color Palette, Typography & Button Tokens) -->
         <a href="sharing-design-system.html" class="leo-work-card framer-reveal" style="--reveal-delay: 0.14s;" id="project-sharekit">
           <div class="leo-work-cover">
             <div class="leo-work-media-inner">
-              <img class="wix-static-card-img" src="assets/mocks/card_2_sharekit_static.png?v=27" alt="ShareKit Design System" loading="lazy">
+              <div class="sharekit-ds-cover" aria-hidden="true">
+                <!-- Top Multi-System Token Bar (from Splitti Theme Controls) -->
+                <div class="sk-ds-topbar">
+                  <div class="sk-ds-system-pills">
+                    <span class="sk-ds-sys-pill is-active"><i style="background:#0B57D0"></i>Material 3</span>
+                    <span class="sk-ds-sys-pill"><i style="background:#007B8B"></i>Geo</span>
+                    <span class="sk-ds-sys-pill"><i style="background:#4259FF"></i>NotebookLM</span>
+                    <span class="sk-ds-sys-pill"><i style="background:#3186FF"></i>Gemini</span>
+                  </div>
+                </div>
+
+                <!-- Middle 2-Column Bento: Typography Specimen + Color Palette Swatches -->
+                <div class="sk-ds-bento">
+                  <!-- Left: Typography Specimen Card -->
+                  <div class="sk-ds-card sk-ds-type-card">
+                    <div class="sk-ds-card-head">
+                      <span class="sk-ds-card-label">Typography</span>
+                      <span class="sk-ds-card-tag">Google Sans</span>
+                    </div>
+                    <div class="sk-ds-aa-row">
+                      <span class="sk-ds-aa-glyph">Aa</span>
+                      <div class="sk-ds-aa-meta">
+                        <span class="sk-ds-aa-weights">Medium 500 &middot; Regular 400</span>
+                        <span class="sk-ds-aa-track">Tracking -0.01em &middot; 4pt Grid</span>
+                      </div>
+                    </div>
+                    <div class="sk-ds-type-scale">
+                      <div class="sk-ds-scale-row">
+                        <span class="sk-ds-scale-sample is-h">Share Sheet</span>
+                        <span class="sk-ds-scale-spec">22 / 28</span>
+                      </div>
+                      <div class="sk-ds-scale-row">
+                        <span class="sk-ds-scale-sample is-t">Content title</span>
+                        <span class="sk-ds-scale-spec">16 / 24</span>
+                      </div>
+                      <div class="sk-ds-scale-row">
+                        <span class="sk-ds-scale-sample is-l">Action label</span>
+                        <span class="sk-ds-scale-spec">12 / 16</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right: Color Palette Swatches (from Splitti Palette Groups) -->
+                  <div class="sk-ds-card sk-ds-palette-card">
+                    <div class="sk-ds-card-head">
+                      <span class="sk-ds-card-label">Color Tokens</span>
+                      <span class="sk-ds-card-tag">4 Systems</span>
+                    </div>
+                    <div class="sk-ds-swatch-grid">
+                      <div class="sk-ds-swatch" style="background:#0B57D0; color:#FFFFFF;">
+                        <span class="sk-swatch-name">Primary 40</span>
+                        <span class="sk-swatch-hex">#0B57D0</span>
+                      </div>
+                      <div class="sk-ds-swatch" style="background:#9DD2FF; color:#001D35;">
+                        <span class="sk-swatch-name">Lumi Accent</span>
+                        <span class="sk-swatch-hex">#9DD2FF</span>
+                      </div>
+                      <div class="sk-ds-swatch" style="background:#007B8B; color:#FFFFFF;">
+                        <span class="sk-swatch-name">Geo Teal</span>
+                        <span class="sk-swatch-hex">#007B8B</span>
+                      </div>
+                      <div class="sk-ds-swatch" style="background:linear-gradient(266deg, #3CFF52 0.57%, #7182FF 89.06%); color:#081226;">
+                        <span class="sk-swatch-name">NLM Brand</span>
+                        <span class="sk-swatch-hex">#4259FF</span>
+                      </div>
+                      <div class="sk-ds-swatch" style="background:#C2E7FF; color:#001D35;">
+                        <span class="sk-swatch-name">Secondary 90</span>
+                        <span class="sk-swatch-hex">#C2E7FF</span>
+                      </div>
+                      <div class="sk-ds-swatch" style="background:#EDEFFA; color:#1B1B1C; border:1px solid #DDE1EB;">
+                        <span class="sk-swatch-name">Surface Container</span>
+                        <span class="sk-swatch-hex">#EDEFFA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Full-Width Card: Button Styles & Interactive State Tokens (from Splitti #ref-buttons-showcase) -->
+                <div class="sk-ds-card sk-ds-buttons-card">
+                  <div class="sk-ds-card-head">
+                    <span class="sk-ds-card-label">Button &amp; Action Tokens</span>
+                    <span class="sk-ds-card-tag">Pill 999px &middot; State Layer</span>
+                  </div>
+                  <div class="sk-ds-btn-row">
+                    <span class="sk-demo-btn is-primary">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                      Standard action
+                    </span>
+                    <span class="sk-demo-btn is-tonal">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      Copy link
+                    </span>
+                    <span class="sk-demo-btn is-lumi">App action</span>
+                    <span class="sk-demo-btn is-outlined">+ Action</span>
+                  </div>
+                  <div class="sk-ds-state-strip">
+                    <span class="sk-state-chip" style="background:#0B57D0; color:#FFF;">Enabled</span>
+                    <span class="sk-state-chip" style="background:#1B62D6; color:#FFF;">Hover +8%</span>
+                    <span class="sk-state-chip" style="background:#2368D8; color:#FFF;">Focus +10%</span>
+                    <span class="sk-state-chip" style="background:#0842A0; color:#FFF;">Pressed +16%</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="work-card-brand-logo" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF">
@@ -429,21 +531,22 @@
             <!-- 01. Magic Cue -->
             <a href="https://ianyen-net.github.io/magic-cue-contacts/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Magic Cue interactive prototype">
               <div class="proto-carousel-stage">
-                <span class="proto-stage-index">01</span>
-                <span class="proto-stage-launch">Launch &#8599;</span>
                 <div class="proto-device-phone">
                   <div class="proto-device-bezel">
                     <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_1_magic_poster.jpg">
-                        <source src="assets/mocks/ai_brief_1_magic.mp4" type="video/mp4">
+                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
+                        <source src="assets/mocks/ai_brief_1_magic.mp4?v=119" type="video/mp4">
                       </video>
                     </div>
                   </div>
                 </div>
+                <span class="proto-stage-action-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </span>
               </div>
               <div class="proto-carousel-body">
-                <div class="proto-carousel-title-row">
-                  <h3 class="proto-carousel-title">Magic Cue</h3>
+                <div class="proto-carousel-eyebrow-row">
+                  <span class="proto-carousel-eyebrow">Pixel AI &middot; Android Messages</span>
                   <span class="proto-exp-now-badge">
                     <span class="pulse-dot-wrap" aria-hidden="true">
                       <span class="pulse-dot-ring"></span>
@@ -452,20 +555,14 @@
                     <span>Live</span>
                   </span>
                 </div>
+                <h3 class="proto-carousel-title">Magic Cue</h3>
                 <p class="proto-carousel-desc">Proactive contact sharing and save suggestions inside Android Messages and system notifications.</p>
-                <div class="proto-carousel-chips" aria-hidden="true">
-                  <span class="proto-carousel-chip">Live Chat Simulator</span>
-                  <span class="proto-carousel-chip">System Notifications</span>
-                  <span class="proto-carousel-chip">Pixel AI</span>
-                </div>
               </div>
             </a>
 
             <!-- 02. Prompt Sharing -->
             <a href="https://ianyen-net.github.io/prompt-sharing/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Prompt Sharing interactive prototype">
               <div class="proto-carousel-stage">
-                <span class="proto-stage-index">02</span>
-                <span class="proto-stage-launch">Launch &#8599;</span>
                 <div class="proto-device-phone">
                   <div class="proto-device-bezel">
                     <div class="proto-device-screen">
@@ -475,10 +572,13 @@
                     </div>
                   </div>
                 </div>
+                <span class="proto-stage-action-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </span>
               </div>
               <div class="proto-carousel-body">
-                <div class="proto-carousel-title-row">
-                  <h3 class="proto-carousel-title">Prompt Sharing</h3>
+                <div class="proto-carousel-eyebrow-row">
+                  <span class="proto-carousel-eyebrow">ShareKit Extended &middot; Gemini</span>
                   <span class="proto-exp-now-badge">
                     <span class="pulse-dot-wrap" aria-hidden="true">
                       <span class="pulse-dot-ring"></span>
@@ -487,20 +587,14 @@
                     <span>Live</span>
                   </span>
                 </div>
+                <h3 class="proto-carousel-title">Prompt Sharing</h3>
                 <p class="proto-carousel-desc">ShareKit Extended half sheet for previewing generated media and editing prompts before sharing from Gemini.</p>
-                <div class="proto-carousel-chips" aria-hidden="true">
-                  <span class="proto-carousel-chip">ShareKit Half Sheet</span>
-                  <span class="proto-carousel-chip">iOS Share Handoff</span>
-                  <span class="proto-carousel-chip">Sender &amp; Receiver UX</span>
-                </div>
               </div>
             </a>
 
             <!-- 03. Splitti Theme Generator -->
             <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Splitti Theme Generator interactive prototype">
               <div class="proto-carousel-stage">
-                <span class="proto-stage-index">03</span>
-                <span class="proto-stage-launch">Launch &#8599;</span>
                 <div class="proto-device-desktop">
                   <div class="proto-device-bezel">
                     <div class="proto-device-screen">
@@ -510,10 +604,13 @@
                     </div>
                   </div>
                 </div>
+                <span class="proto-stage-action-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </span>
               </div>
               <div class="proto-carousel-body">
-                <div class="proto-carousel-title-row">
-                  <h3 class="proto-carousel-title">Splitti Theme Generator</h3>
+                <div class="proto-carousel-eyebrow-row">
+                  <span class="proto-carousel-eyebrow">Design Systems &middot; Token Engine</span>
                   <span class="proto-exp-now-badge">
                     <span class="pulse-dot-wrap" aria-hidden="true">
                       <span class="pulse-dot-ring"></span>
@@ -522,20 +619,14 @@
                     <span>Live</span>
                   </span>
                 </div>
+                <h3 class="proto-carousel-title">Splitti Theme Generator</h3>
                 <p class="proto-carousel-desc">Multi-system ShareSheet theme generator and token inspector across Material 3, Geo, NotebookLM, and Gemini.</p>
-                <div class="proto-carousel-chips" aria-hidden="true">
-                  <span class="proto-carousel-chip">Dynamic Theme Switching</span>
-                  <span class="proto-carousel-chip">Live Token Inspector</span>
-                  <span class="proto-carousel-chip">Design Tokens</span>
-                </div>
               </div>
             </a>
 
             <!-- 04. Gemini x Contacts Sync -->
             <a href="https://ianyen-net.github.io/contacts-crud-remy/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Gemini Contacts Sync interactive prototype">
               <div class="proto-carousel-stage">
-                <span class="proto-stage-index">04</span>
-                <span class="proto-stage-launch">Launch &#8599;</span>
                 <div class="proto-device-phone">
                   <div class="proto-device-bezel">
                     <div class="proto-device-screen">
@@ -545,10 +636,13 @@
                     </div>
                   </div>
                 </div>
+                <span class="proto-stage-action-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </span>
               </div>
               <div class="proto-carousel-body">
-                <div class="proto-carousel-title-row">
-                  <h3 class="proto-carousel-title">Gemini &times; Contacts Sync</h3>
+                <div class="proto-carousel-eyebrow-row">
+                  <span class="proto-carousel-eyebrow">Gemini &times; Contacts &middot; MCP Server</span>
                   <span class="proto-exp-now-badge">
                     <span class="pulse-dot-wrap" aria-hidden="true">
                       <span class="pulse-dot-ring"></span>
@@ -557,20 +651,14 @@
                     <span>Live</span>
                   </span>
                 </div>
+                <h3 class="proto-carousel-title">Gemini &times; Contacts Sync</h3>
                 <p class="proto-carousel-desc">Conversational contact creation and updates in Gemini with Human-in-the-Loop confirmation cards.</p>
-                <div class="proto-carousel-chips" aria-hidden="true">
-                  <span class="proto-carousel-chip">Human-in-the-Loop Cards</span>
-                  <span class="proto-carousel-chip">MCP Server</span>
-                  <span class="proto-carousel-chip">Multi-Step Flows</span>
-                </div>
               </div>
             </a>
 
             <!-- 05. Instant Curation -->
             <a href="https://ianyen-net.github.io/instant-curation/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Instant Curation interactive prototype">
               <div class="proto-carousel-stage">
-                <span class="proto-stage-index">05</span>
-                <span class="proto-stage-launch">Launch &#8599;</span>
                 <div class="proto-device-desktop">
                   <div class="proto-device-bezel">
                     <div class="proto-device-screen">
@@ -580,10 +668,13 @@
                     </div>
                   </div>
                 </div>
+                <span class="proto-stage-action-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </span>
               </div>
               <div class="proto-carousel-body">
-                <div class="proto-carousel-title-row">
-                  <h3 class="proto-carousel-title">Instant Curation</h3>
+                <div class="proto-carousel-eyebrow-row">
+                  <span class="proto-carousel-eyebrow">Gmail &times; Contacts &middot; Provenance AI</span>
                   <span class="proto-exp-now-badge">
                     <span class="pulse-dot-wrap" aria-hidden="true">
                       <span class="pulse-dot-ring"></span>
@@ -592,12 +683,8 @@
                     <span>Live</span>
                   </span>
                 </div>
+                <h3 class="proto-carousel-title">Instant Curation</h3>
                 <p class="proto-carousel-desc">Source-attributed contact suggestions extracted from Gmail signatures with provenance traces upfront.</p>
-                <div class="proto-carousel-chips" aria-hidden="true">
-                  <span class="proto-carousel-chip">Provenance Attribution</span>
-                  <span class="proto-carousel-chip">Gmail Signature Sync</span>
-                  <span class="proto-carousel-chip">Trust UX</span>
-                </div>
               </div>
             </a>
 

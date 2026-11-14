@@ -2021,10 +2021,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 
 .gemini-intel-device-crop {
   position: relative;
-  width: 78%;
-  max-width: 392px;
-  height: 92%;
-  margin-bottom: 22px;
+  width: 60%;
+  max-width: 288px;
+  height: 84%;
+  margin-bottom: 36px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -2033,7 +2033,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 
 .leo-work-cover:hover .gemini-intel-device-crop {
   transform: translateY(-4px);
-  filter: brightness(0.94) saturate(1.02);
+  filter: brightness(0.95) saturate(1.02);
 }
 
 /* 3D Anodized Berry/Peony Pixel 11 Lower Hardware Frame */
@@ -2041,8 +2041,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0 5.5px 5.5px 5.5px;
-  border-radius: 0 0 54px 54px;
+  padding: 0 4.5px 4.5px 4.5px;
+  border-radius: 0 0 44px 44px;
   background: linear-gradient(
     90deg,
     #F8BBD0 0%,
@@ -2057,8 +2057,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
     inset 0 -1.5px 1px rgba(255, 255, 255, 0.58),
     inset 2px 0 2px rgba(255, 255, 255, 0.48),
     inset -2px 0 2px rgba(62, 6, 32, 0.55),
-    0 18px 34px -8px rgba(74, 12, 44, 0.32),
-    0 6px 14px -4px rgba(74, 12, 44, 0.22);
+    0 18px 34px -8px rgba(74, 12, 44, 0.28),
+    0 6px 14px -4px rgba(74, 12, 44, 0.18);
 }
 
 /* Subtle bottom antenna band notches on the anodized Pixel rail */
@@ -2066,9 +2066,9 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 .gemini-intel-chassis::after {
   content: '';
   position: absolute;
-  bottom: 58px;
-  width: 5.5px;
-  height: 4px;
+  bottom: 48px;
+  width: 4.5px;
+  height: 3.5px;
   background: rgba(255, 214, 232, 0.55);
   z-index: 2;
   pointer-events: none;
@@ -2087,8 +2087,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0 10px 10px 10px;
-  border-radius: 0 0 48.5px 48.5px;
+  padding: 0 8px 8px 8px;
+  border-radius: 0 0 39.5px 39.5px;
   background: #050507;
   box-shadow:
     inset 0 -1px 0 rgba(255, 255, 255, 0.18),
@@ -2101,7 +2101,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 0 0 38.5px 38.5px;
+  border-radius: 0 0 31.5px 31.5px;
   overflow: hidden;
   background: #131316;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
@@ -2109,7 +2109,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 
 .gemini-intel-screen video {
   width: 100%;
-  height: 148%;
+  height: 152%;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -2117,6 +2117,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   object-position: center bottom;
   display: block;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Seamless Top-Edge Gradient Dissolve ("Designed for Gemini Intelligence" mist fade) */
@@ -2125,17 +2127,311 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   top: -2px;
   left: -16px;
   right: -16px;
-  height: 36%;
+  height: 34%;
   background: linear-gradient(
     180deg,
     #FFF6FE 0%,
-    #FFF6FE 18%,
+    #FFF6FE 16%,
     rgba(255, 246, 254, 0.92) 42%,
-    rgba(253, 239, 251, 0.52) 72%,
+    rgba(253, 239, 251, 0.50) 72%,
     rgba(251, 232, 248, 0) 100%
   );
   z-index: 3;
   pointer-events: none;
+}
+
+/* ShareKit Design System Specimen Preview Cover (#project-sharekit) */
+#project-sharekit .leo-work-cover {
+  background: linear-gradient(155deg, #0D1E36 0%, #132B4C 52%, #193760 100%);
+}
+
+.sharekit-ds-cover {
+  width: 100%;
+  height: 100%;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 11px;
+  background:
+    radial-gradient(85% 75% at 15% 10%, rgba(157, 210, 255, 0.16) 0%, transparent 65%),
+    radial-gradient(75% 70% at 88% 90%, rgba(66, 89, 255, 0.20) 0%, transparent 65%),
+    linear-gradient(155deg, #0D1E36 0%, #132B4C 52%, #18355C 100%);
+  color: #F0F4F9;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+  transition: filter 0.38s ease;
+}
+
+.leo-work-cover:hover .sharekit-ds-cover {
+  filter: brightness(0.94);
+}
+
+.sk-ds-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 42px;
+}
+
+.sk-ds-system-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(194, 231, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.sk-ds-sys-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(227, 242, 253, 0.78);
+}
+
+.sk-ds-sys-pill.is-active {
+  background: #FFFFFF;
+  color: #0B192C;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.sk-ds-sys-pill i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.sk-ds-bento {
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  gap: 11px;
+  flex: 1;
+  min-height: 0;
+}
+
+.sk-ds-card {
+  background: rgba(248, 251, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  padding: 13px 14px;
+  color: #1B1F26;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 12px 28px -10px rgba(5, 14, 28, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.sk-ds-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.sk-ds-card-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #44546A;
+}
+
+.sk-ds-card-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #E8F0FE;
+  color: #0B57D0;
+}
+
+.sk-ds-aa-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 2px 0 6px;
+  border-bottom: 1px solid rgba(11, 87, 208, 0.12);
+}
+
+.sk-ds-aa-glyph {
+  font-family: var(--font-sans);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #0B57D0 0%, #4259FF 55%, #007B8B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sk-ds-aa-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sk-ds-aa-weights {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.sk-ds-aa-track {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #64748B;
+}
+
+.sk-ds-type-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 6px;
+}
+
+.sk-ds-scale-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.sk-ds-scale-sample.is-h {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+}
+
+.sk-ds-scale-sample.is-t {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.sk-ds-scale-sample.is-l {
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.sk-ds-scale-spec {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #64748B;
+}
+
+.sk-ds-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  flex: 1;
+}
+
+.sk-ds-swatch {
+  border-radius: 10px;
+  padding: 7px 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 44px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.sk-swatch-name {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.sk-swatch-hex {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.86;
+}
+
+.sk-ds-buttons-card {
+  gap: 8px;
+  padding: 11px 14px;
+}
+
+.sk-ds-btn-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.sk-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sk-demo-btn.is-primary {
+  background: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(11, 87, 208, 0.28);
+}
+
+.sk-demo-btn.is-tonal {
+  background: #C2E7FF;
+  color: #001D35;
+}
+
+.sk-demo-btn.is-lumi {
+  background: #9DD2FF;
+  color: #000000;
+}
+
+.sk-demo-btn.is-outlined {
+  background: #FFFFFF;
+  color: #1B1B1C;
+  border: 1px solid #C7C7C7;
+}
+
+.sk-ds-state-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.sk-state-chip {
+  height: 20px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 #project-sharekit {
@@ -5941,219 +6237,183 @@ body[data-theme="light"] .validation-step-title {
   width: max-content;
 }
 
+/* Google Store "Help this brilliant has to be Google Pixel" Frameless Carousel Card Style */
 .proto-carousel-card {
   width: 440px;
   flex: 0 0 440px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  padding: 14px;
-  border-radius: 24px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   text-decoration: none;
   color: var(--text-primary);
   user-select: none;
   -webkit-user-drag: none;
-  transition: transform 0.32s var(--ease-out-expo), border-color 0.25s ease, background 0.25s ease, box-shadow 0.32s var(--ease-out-expo);
 }
 
 .proto-carousel-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
-  background: var(--bg-elevated);
-  box-shadow: 0 24px 48px -22px rgba(0, 0, 0, 0.55);
+  transform: none;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 body[data-theme="light"] .proto-carousel-card:hover {
-  box-shadow: 0 20px 44px -20px rgba(14, 31, 47, 0.14);
+  box-shadow: none;
 }
 
+/* Top Rounded Media Container (.lXKJdc in Google Store template_card_slider) */
 .proto-carousel-stage {
   position: relative;
-  height: 324px;
-  border-radius: 18px;
+  height: 364px;
+  border-radius: 22px;
   background:
-    radial-gradient(80% 70% at 50% 42%, rgba(255, 255, 255, 0.72) 0%, rgba(251, 232, 248, 0) 75%),
-    linear-gradient(180deg, #FFF6FE 0%, #FBE8F8 65%, #F5DCF1 100%);
-  border: 1px solid rgba(216, 27, 96, 0.12);
+    radial-gradient(75% 65% at 50% 45%, rgba(134, 168, 207, 0.14) 0%, transparent 72%),
+    var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 20px;
+  padding: 28px 24px;
   overflow: hidden;
+  transition: border-color 0.28s ease, background 0.28s ease, box-shadow 0.34s var(--ease-out-expo);
 }
 
-.proto-stage-index {
+body[data-theme="light"] .proto-carousel-stage {
+  background:
+    radial-gradient(75% 65% at 50% 45%, rgba(255, 255, 255, 0.85) 0%, transparent 75%),
+    #F3F5F8;
+  border-color: rgba(14, 31, 47, 0.08);
+}
+
+.proto-carousel-card:hover .proto-carousel-stage {
+  border-color: var(--border-strong);
+  box-shadow: 0 20px 42px -20px rgba(0, 0, 0, 0.45);
+}
+
+body[data-theme="light"] .proto-carousel-card:hover .proto-carousel-stage {
+  box-shadow: 0 18px 36px -18px rgba(14, 31, 47, 0.14);
+}
+
+/* Bottom-Right Circular Action Button inside Media Stage (matching Google Store .m45old icon_button) */
+.proto-stage-action-btn {
   position: absolute;
-  top: 12px;
-  left: 14px;
-  z-index: 2;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(92, 16, 54, 0.68);
+  right: 16px;
+  bottom: 16px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+  transition: transform 0.26s var(--ease-out-expo), background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
 }
 
-.proto-stage-launch {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-  padding: 5px 11px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(136, 14, 79, 0.16);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6B1140;
-  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+body[data-theme="light"] .proto-stage-action-btn {
+  background: #FFFFFF;
+  border-color: rgba(14, 31, 47, 0.1);
+  color: #1F2937;
+  box-shadow: 0 6px 16px rgba(14, 31, 47, 0.12);
 }
 
-.proto-carousel-card:hover .proto-stage-launch {
-  background: #7B164C;
-  color: #FFF6FE;
-  border-color: #7B164C;
+.proto-carousel-card:hover .proto-stage-action-btn {
+  transform: scale(1.08);
+  background: var(--text-primary);
+  color: var(--bg-page);
+  border-color: var(--text-primary);
 }
 
-/* 3-Layer Anodized Google Pixel 11 Hardware Frame ("Help this brilliant has to be Google Pixel") */
+/* Sleek Black Device Frames (Phone & Desktop) */
 .proto-device-phone {
   position: relative;
   height: 100%;
   aspect-ratio: 9 / 19.5;
-  padding: 3.5px;
-  border-radius: 30px;
-  background: linear-gradient(
-    145deg,
-    #F8BBD0 0%,
-    #D81B60 18%,
-    #880E4F 48%,
-    #AD1457 78%,
-    #F48FB1 100%
-  );
+  padding: 2.5px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #2A2D34 0%, #111318 45%, #07080B 100%);
   box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.72),
-    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
-    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
-    inset -1.5px 0 1px rgba(56, 6, 28, 0.55),
-    0 12px 22px -6px rgba(54, 8, 32, 0.28),
-    14px 22px 38px -8px rgba(54, 8, 32, 0.24);
-  transition: transform 0.38s var(--ease-out-expo), box-shadow 0.38s var(--ease-out-expo);
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.24),
+    0 14px 32px -6px rgba(0, 0, 0, 0.55),
+    0 4px 12px -2px rgba(0, 0, 0, 0.35);
+  transition: transform 0.42s var(--ease-out-expo), box-shadow 0.42s var(--ease-out-expo);
 }
 
-/* Protruding Anodized Pixel Side Hardware Buttons (Power + Volume Rocker) */
 .proto-device-phone::before,
 .proto-device-phone::after {
-  content: '';
-  position: absolute;
-  right: -2.5px;
-  width: 2.5px;
-  border-radius: 0 2px 2px 0;
-  background: linear-gradient(180deg, #F48FB1 0%, #AD1457 50%, #6A0B3C 100%);
-  box-shadow: inset -0.5px 0 0 rgba(255, 255, 255, 0.45), 1px 1px 2px rgba(45, 4, 22, 0.25);
-  pointer-events: none;
+  display: none;
 }
 
-.proto-device-phone::before {
-  top: 24%;
-  height: 17px;
-}
-
-.proto-device-phone::after {
-  top: 36%;
-  height: 33px;
-}
-
-/* Matching 3-Layer Anodized Pixel Tablet / Desktop Studio Frame */
 .proto-device-desktop {
   position: relative;
   width: 92%;
   aspect-ratio: 16 / 10;
-  padding: 3.5px;
-  border-radius: 20px;
-  background: linear-gradient(
-    145deg,
-    #F8BBD0 0%,
-    #D81B60 18%,
-    #880E4F 48%,
-    #AD1457 78%,
-    #F48FB1 100%
-  );
+  padding: 2.5px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #2A2D34 0%, #111318 45%, #07080B 100%);
   box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.72),
-    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
-    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
-    inset -1.5px 0 1px rgba(56, 6, 28, 0.55),
-    0 12px 22px -6px rgba(54, 8, 32, 0.28),
-    14px 22px 38px -8px rgba(54, 8, 32, 0.24);
-  transition: transform 0.38s var(--ease-out-expo), box-shadow 0.38s var(--ease-out-expo);
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.24),
+    0 14px 32px -6px rgba(0, 0, 0, 0.55),
+    0 4px 12px -2px rgba(0, 0, 0, 0.35);
+  transition: transform 0.42s var(--ease-out-expo), box-shadow 0.42s var(--ease-out-expo);
 }
 
-/* Inner Deep-Black Obsidian Glass Bezel */
+body[data-theme="light"] .proto-device-phone,
+body[data-theme="light"] .proto-device-desktop {
+  box-shadow:
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.28),
+    0 16px 34px -8px rgba(14, 31, 47, 0.26),
+    0 6px 14px -4px rgba(14, 31, 47, 0.14);
+}
+
 .proto-device-bezel {
   width: 100%;
   height: 100%;
-  padding: 5.5px;
+  padding: 5px;
   background: #050507;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .proto-device-phone .proto-device-bezel {
-  border-radius: 26.5px;
+  border-radius: 25.5px;
 }
 
 .proto-device-desktop .proto-device-bezel {
-  border-radius: 16.5px;
+  border-radius: 15.5px;
 }
 
-/* Inner Rounded Active Display Screen */
 .proto-device-screen {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #0D0E12;
-  box-shadow: 0 0 0 0.75px rgba(255, 255, 255, 0.1);
+  background: #0B0C0E;
 }
 
 .proto-device-phone .proto-device-screen {
-  border-radius: 21px;
+  border-radius: 20.5px;
 }
 
 .proto-device-desktop .proto-device-screen {
-  border-radius: 11px;
+  border-radius: 10.5px;
 }
 
-/* Subtle top punch-hole front camera on Pixel phone frames */
 .proto-device-phone .proto-device-screen::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #040406;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-  z-index: 2;
-  pointer-events: none;
+  display: none;
 }
 
 .proto-carousel-card:hover .proto-device-phone,
 .proto-carousel-card:hover .proto-device-desktop {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.75),
-    inset 0 -1.5px 1.5px rgba(45, 4, 22, 0.72),
-    0 16px 28px -6px rgba(54, 8, 32, 0.34),
-    18px 28px 44px -8px rgba(54, 8, 32, 0.28);
+  transform: scale(1.045);
 }
 
 .proto-carousel-stage video {
@@ -6164,28 +6424,45 @@ body[data-theme="light"] .proto-carousel-card:hover {
   pointer-events: none;
 }
 
+/* Editorial Copy Block Outside & Below Media Container (.Ihndud in Google Store template_card_slider) */
 .proto-carousel-body {
-  padding: 16px 6px 6px;
+  margin-top: 20px;
+  padding: 0 4px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
-  flex: 1;
 }
 
-.proto-carousel-title-row {
+.proto-carousel-eyebrow-row {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
+.proto-carousel-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--text-secondary);
+}
+
 .proto-carousel-title {
   font-family: var(--font-sans);
-  font-size: 19px;
+  font-size: 26px;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.2;
   color: var(--text-primary);
+  transition: color 0.24s ease;
+}
+
+.proto-carousel-card:hover .proto-carousel-title {
+  color: #86A8CF;
 }
 
 .proto-exp-now-badge {
@@ -6206,9 +6483,10 @@ body[data-theme="light"] .proto-carousel-card:hover {
 
 .proto-carousel-desc {
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--text-secondary);
+  max-width: 420px;
 }
 
 .proto-carousel-chips {
