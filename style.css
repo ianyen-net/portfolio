@@ -5740,15 +5740,15 @@ body[data-theme="light"] .validation-step-title {
 /* 4. Single Experience-Row Styled Interactive Prototypes Banner (`leomarlowe.framer.website` `.framer-13c0y3x` spec) */
 .proto-showcase-divider {
   width: 100%;
-  margin-top: 16px;
-  margin-bottom: -14px;
-  padding-top: 44px;
+  margin-top: 48px;
+  padding-top: 84px;
   scroll-margin-top: 96px;
   border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 36px;
 }
 
 .proto-exp-tray {
@@ -5855,8 +5855,9 @@ body[data-theme="light"] .proto-exp-mark {
 .proto-exp-title {
   font-family: var(--font-sans);
   font-size: 15px;
+  font-weight: 500;
   line-height: 1.4;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .proto-exp-period {
