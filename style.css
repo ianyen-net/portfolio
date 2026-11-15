@@ -6591,78 +6591,97 @@ body[data-theme="light"] .proto-stage-action-btn {
   border-color: var(--text-primary);
 }
 
-/* Sleek Black Device Frames (Phone & Desktop) */
+/* Studio Hardware Device Frames (Phone & Desktop — Matching Case Study Previews 1:1) */
 .proto-device-phone {
   position: relative;
   height: 100%;
-  aspect-ratio: 9 / 19.5;
-  padding: 2.5px;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #2A2D34 0%, #111318 45%, #07080B 100%);
-  box-shadow:
-    inset 0 1px 0.5px rgba(255, 255, 255, 0.24),
-    0 14px 32px -6px rgba(0, 0, 0, 0.55),
-    0 4px 12px -2px rgba(0, 0, 0, 0.35);
-  transition: transform 0.42s var(--ease-out-expo), box-shadow 0.42s var(--ease-out-expo);
+  aspect-ratio: 454 / 932;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  filter:
+    drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.26));
+  transition: transform 0.42s var(--ease-out-expo), filter 0.42s var(--ease-out-expo);
 }
 
-.proto-device-phone::before,
-.proto-device-phone::after {
+.proto-device-phone::before {
   display: none;
+}
+
+.proto-device-phone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/mocks/studio_phone_frame.png?v=134") center / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 4;
 }
 
 .proto-device-desktop {
   position: relative;
-  width: 92%;
-  aspect-ratio: 16 / 10;
-  padding: 2.5px;
-  border-radius: 18px;
-  background: linear-gradient(145deg, #2A2D34 0%, #111318 45%, #07080B 100%);
-  box-shadow:
-    inset 0 1px 0.5px rgba(255, 255, 255, 0.24),
-    0 14px 32px -6px rgba(0, 0, 0, 0.55),
-    0 4px 12px -2px rgba(0, 0, 0, 0.35);
-  transition: transform 0.42s var(--ease-out-expo), box-shadow 0.42s var(--ease-out-expo);
+  width: 96%;
+  aspect-ratio: 1251 / 764;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  filter:
+    drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.26));
+  transition: transform 0.42s var(--ease-out-expo), filter 0.42s var(--ease-out-expo);
+}
+
+.proto-device-desktop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/mocks/studio_desktop_frame.png?v=134") center / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 4;
 }
 
 body[data-theme="light"] .proto-device-phone,
 body[data-theme="light"] .proto-device-desktop {
-  box-shadow:
-    inset 0 1px 0.5px rgba(255, 255, 255, 0.28),
-    0 16px 34px -8px rgba(14, 31, 47, 0.26),
-    0 6px 14px -4px rgba(14, 31, 47, 0.14);
+  filter:
+    drop-shadow(0 16px 28px rgba(14, 31, 47, 0.24))
+    drop-shadow(0 5px 12px rgba(14, 31, 47, 0.14));
 }
 
 .proto-device-bezel {
-  width: 100%;
-  height: 100%;
-  padding: 5px;
-  background: #050507;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.proto-device-phone .proto-device-bezel {
-  border-radius: 25.5px;
-}
-
-.proto-device-desktop .proto-device-bezel {
-  border-radius: 15.5px;
-}
-
-.proto-device-screen {
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.proto-device-phone .proto-device-bezel,
+.proto-device-desktop .proto-device-bezel {
+  border-radius: 0;
+}
+
+.proto-device-screen {
+  position: absolute;
   overflow: hidden;
   background: #0B0C0E;
+  z-index: 1;
 }
 
 .proto-device-phone .proto-device-screen {
-  border-radius: 20.5px;
+  left: 3.30%;
+  top: 1.61%;
+  width: 92.73%;
+  height: 96.78%;
+  border-radius: 11.2% / 5.3%;
 }
 
 .proto-device-desktop .proto-device-screen {
-  border-radius: 10.5px;
+  left: 9.75%;
+  top: 3.53%;
+  width: 80.50%;
+  height: 82.98%;
+  border-radius: 1.6% 1.6% 0 0 / 2.5% 2.5% 0 0;
 }
 
 .proto-device-phone .proto-device-screen::after {
