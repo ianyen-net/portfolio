@@ -7269,7 +7269,7 @@ body[data-theme="light"] .proto-portal-tag {
   perspective: 1100px;
 }
 
-@keyframes protoCenterFloat {
+@keyframes protoPhoneFloat {
   0%, 100% {
     transform: translate3d(0, 0, 0);
   }
@@ -7299,9 +7299,9 @@ body[data-theme="light"] .proto-portal-tag {
     0 0 0 1px rgba(255, 255, 255, 0.05);
   overflow: hidden;
   font-family: var(--font-mono);
-  animation: protoCenterFloat 5s ease-in-out infinite;
+  animation: none;
+  transform: none;
   transition:
-    transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease,
     box-shadow 0.45s ease;
 }
@@ -7459,10 +7459,18 @@ body[data-theme="light"] .proto-code-terminal {
   transform: translate3d(-156px, 20px, 24px) rotate(-9deg) scale(0.94);
 }
 
+.proto-fan-device.is-left-phone .proto-device-phone {
+  animation: protoPhoneFloat 4.2s ease-in-out infinite;
+}
+
 .proto-fan-device.is-right-phone {
   height: 228px;
   z-index: 3;
   transform: translate3d(156px, 20px, 24px) rotate(9deg) scale(0.94);
+}
+
+.proto-fan-device.is-right-phone .proto-device-phone {
+  animation: protoPhoneFloat 4.2s ease-in-out 0.6s infinite;
 }
 
 .proto-directory-portal:hover .proto-fan-device.is-left-phone {
