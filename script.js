@@ -599,11 +599,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const aiHeroWord = document.querySelector('.hero-fraunces-title .hero-hover-word.is-ai-word');
+  let aiFreezeTimer = null;
+
+  const freezeAiWord = () => {
+    if (aiFreezeTimer) {
+      clearTimeout(aiFreezeTimer);
+      aiFreezeTimer = null;
+    }
+    if (aiHeroWord) {
+      aiHeroWord.classList.add('is-ai-frozen');
+    }
+  };
+
+  if (heroTorchFlash) {
+    heroTorchFlash.addEventListener('animationend', (e) => {
+      if (e.animationName === 'heroTopTorchPulse') {
+        freezeAiWord();
+      }
+    });
+  }
+
   const startRocketTorchTracker = (processSectionEl) => {
     if (!heroTorchFlash || !processSectionEl) return;
     if (activeRocketTrackRaf) {
       cancelAnimationFrame(activeRocketTrackRaf);
       activeRocketTrackRaf = null;
+    }
+    if (aiFreezeTimer) {
+      clearTimeout(aiFreezeTimer);
+      aiFreezeTimer = null;
+    }
+    if (aiHeroWord) {
+      aiHeroWord.classList.remove('is-ai-frozen');
     }
     resetBreakableHeroPieces();
     setRocketActionState(true);
@@ -625,9 +653,12 @@ document.addEventListener('DOMContentLoaded', () => {
         void heroTorchFlash.offsetWidth;
         heroTorchFlash.classList.add('is-flashing');
         triggerAvatarExplosionLook();
+        // Freeze the word "AI" in its hover state right after the 5.2s explosion effect finishes
+        aiFreezeTimer = setTimeout(freezeAiWord, 5200);
       } else {
         heroTorchFlash.classList.remove('is-flashing');
         heroTorchFlash.classList.add('is-outside-hero');
+        freezeAiWord();
       }
     };
 

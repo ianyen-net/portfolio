@@ -1297,16 +1297,17 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   text-shadow: 0 12px 28px rgba(134, 168, 207, 0.45);
 }
 
-/* Default resting state of ONLY the word "AI" uses its previous hover elevation & mauve tint */
-.hero-hover-word.is-ai-word {
+/* Normal hover state of the word "AI", AND its frozen resting state AFTER the rocket explosion finishes */
+.hero-hover-word.is-ai-word:hover,
+.hero-hover-word.is-ai-word.is-flash,
+.hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
   color: #C38EB4;
   text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
 }
 
-/* New interactive on-hover state for ONLY the word "AI" */
-.hero-hover-word.is-ai-word:hover,
-.hero-hover-word.is-ai-word.is-flash {
+/* Different interactive on-hover state for the word "AI" once it is frozen after the rocket explosion */
+.hero-hover-word.is-ai-word.is-ai-frozen:hover {
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
   color: #86A8CF;
   text-shadow:
@@ -5064,7 +5065,6 @@ body.is-loaded .load-reveal {
 
 .hero-fraunces-title > .hero-hover-word:nth-of-type(2),
 .hero-fraunces-title .hero-hover-word.is-ai-word {
-  animation-name: leoHeadlineWordAppearAI;
   animation-delay: 0.43s;
 }
 
