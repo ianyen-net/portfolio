@@ -7031,10 +7031,11 @@ body[data-theme="light"] .sonicare-shipped-badge {
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  gap: 36px;
-  padding: 40px 44px;
+  grid-template-columns: 0.88fr 1.12fr;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  min-height: 360px;
   border-radius: 28px;
   background: var(--nav-bg);
   border: 1px solid var(--border-subtle);
@@ -7077,8 +7078,10 @@ body[data-theme="light"] .proto-directory-portal:hover {
   z-index: 2;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 18px;
+  padding: 44px 36px 44px 44px;
 }
 
 .proto-portal-top-row {
@@ -7239,10 +7242,12 @@ body[data-theme="light"] .proto-portal-tag {
 .proto-portal-fan-stage {
   position: relative;
   z-index: 2;
-  height: 310px;
+  width: 100%;
+  min-height: 360px;
+  padding: 20px 20px 20px 8px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
   perspective: 1100px;
 }
 
@@ -7267,15 +7272,19 @@ body[data-theme="light"] .proto-portal-tag {
 .proto-code-terminal {
   position: relative;
   z-index: 2;
-  width: 356px;
-  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
   background: #0D1117;
   border: none;
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.68);
   overflow: hidden;
   font-family: var(--font-mono);
   animation: none;
-  transform: translateX(-34px);
+  transform: none;
   transition: box-shadow 0.45s ease;
 }
 
@@ -7291,8 +7300,8 @@ body[data-theme="light"] .proto-code-terminal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 9px 12px;
+  gap: 12px;
+  padding: 12px 16px;
   background: #161B22;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -7300,12 +7309,12 @@ body[data-theme="light"] .proto-code-terminal {
 .proto-terminal-dots {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .proto-terminal-dots .t-dot {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 
@@ -7316,13 +7325,13 @@ body[data-theme="light"] .proto-code-terminal {
 .proto-terminal-tabs {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .proto-terminal-tab {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 500;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
   color: #8B949E;
 }
@@ -7333,19 +7342,21 @@ body[data-theme="light"] .proto-code-terminal {
 }
 
 .proto-terminal-status {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   color: #3FB950;
   letter-spacing: 0.02em;
 }
 
 .proto-terminal-body {
-  padding: 12px 14px;
+  flex: 1;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 3.5px;
-  font-size: 11px;
-  line-height: 1.45;
+  justify-content: center;
+  gap: 5px;
+  font-size: 12.5px;
+  line-height: 1.5;
   color: #E6EDF3;
   white-space: pre;
   overflow: hidden;
@@ -7355,7 +7366,7 @@ body[data-theme="light"] .proto-code-terminal {
   display: flex;
   align-items: center;
   border-radius: 4px;
-  padding: 0 4px;
+  padding: 1px 6px;
 }
 
 .proto-terminal-body .code-line.is-highlight {
@@ -7365,9 +7376,9 @@ body[data-theme="light"] .proto-code-terminal {
 
 .proto-terminal-body .c-ln {
   color: #484F58;
-  margin-right: 10px;
+  margin-right: 12px;
   user-select: none;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .proto-terminal-body .c-kw { color: #FF7B72; }
@@ -7381,11 +7392,11 @@ body[data-theme="light"] .proto-code-terminal {
 .proto-terminal-cli {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
+  gap: 8px;
+  padding: 10px 18px;
   background: #090D11;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: #8B949E;
 }
 
@@ -7406,7 +7417,7 @@ body[data-theme="light"] .proto-code-terminal {
 
 .proto-terminal-cli .cli-cursor {
   width: 6px;
-  height: 12px;
+  height: 13px;
   background: #86A8CF;
   display: inline-block;
   animation: cliCursorBlink 1.05s steps(1) infinite;
@@ -7422,9 +7433,11 @@ body[data-theme="light"] .proto-code-terminal {
 }
 
 .proto-fan-device.is-single-phone {
-  height: 242px;
+  right: 34px;
+  bottom: 22px;
+  height: 262px;
   z-index: 3;
-  transform: translate3d(132px, 12px, 24px) rotate(6deg) scale(0.98);
+  transform: translate3d(0, 0, 24px) rotate(6deg) scale(0.98);
 }
 
 .proto-fan-device.is-single-phone .proto-device-phone {
@@ -7432,7 +7445,7 @@ body[data-theme="light"] .proto-code-terminal {
 }
 
 .proto-directory-portal:hover .proto-fan-device.is-single-phone {
-  transform: translate3d(146px, 4px, 36px) rotate(9deg) scale(1.03);
+  transform: translate3d(6px, -6px, 36px) rotate(8deg) scale(1.03);
 }
 
 .proto-device-screen .proto-rotating-video {
@@ -7457,42 +7470,47 @@ body[data-theme="light"] .proto-code-terminal {
 @media (max-width: 960px) {
   .proto-directory-portal {
     grid-template-columns: 1fr;
-    padding: 32px 28px;
-    gap: 28px;
+    min-height: auto;
+  }
+
+  .proto-portal-content {
+    padding: 32px 28px 12px;
   }
 
   .proto-portal-fan-stage {
-    height: 280px;
+    min-height: 320px;
+    padding: 16px 24px 28px;
   }
 }
 
 @media (max-width: 640px) {
   .proto-directory-portal {
-    padding: 26px 20px;
     border-radius: 22px;
   }
 
-  .proto-portal-fan-stage {
-    height: 240px;
+  .proto-portal-content {
+    padding: 26px 20px 10px;
   }
 
-  .proto-code-terminal {
-    width: 268px;
-    transform: translateX(-24px);
+  .proto-portal-fan-stage {
+    min-height: 270px;
+    padding: 12px 16px 20px;
   }
 
   .proto-terminal-body {
-    font-size: 9.2px;
-    padding: 9px 10px;
+    font-size: 10px;
+    padding: 12px 12px;
   }
 
   .proto-fan-device.is-single-phone {
-    height: 184px;
-    transform: translate3d(94px, 12px, 20px) rotate(6deg) scale(0.96);
+    right: 22px;
+    bottom: 18px;
+    height: 196px;
+    transform: translate3d(0, 0, 20px) rotate(6deg) scale(0.96);
   }
 
   .proto-directory-portal:hover .proto-fan-device.is-single-phone {
-    transform: translate3d(104px, 6px, 26px) rotate(8deg) scale(1);
+    transform: translate3d(4px, -4px, 26px) rotate(8deg) scale(1);
   }
 }
 
