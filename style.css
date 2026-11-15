@@ -4392,6 +4392,12 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
   display: block;
 }
 
+.case-hero-stage.is-wide-slide.is-sharekit-hero-scaled > video.sk-hero-full-img {
+  width: 80% !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
 /* Frameless ShareKit Annotated Mock (Full-width & Enlarged so labels are super readable) */
 .feature-row.is-annotated-principle {
   grid-template-columns: 1fr;
