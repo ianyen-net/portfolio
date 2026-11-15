@@ -4986,31 +4986,24 @@ body.is-loaded .load-reveal {
 @keyframes leoFadeRise10 {
   0% {
     opacity: 0.001;
-    filter: blur(8px);
-    transform: translate3d(0, 24px, 0) scale(0.96);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    filter: blur(0px);
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes leoHeadlineWordAppear {
   0% {
     opacity: 0.001;
-    filter: blur(12px);
-    transform: translate3d(0, 52px, 0) scale(0.88) rotate(3deg);
-  }
-  65% {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate3d(0, -6px, 0) scale(1.03) rotate(-0.8deg);
+    filter: blur(8px);
+    transform: translateY(16px);
   }
   100% {
     opacity: 1;
     filter: blur(0px);
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translateY(0);
   }
 }
 
@@ -5030,8 +5023,8 @@ body.is-loaded .load-reveal {
 }
 
 .hero-name-pill.jd-appear-title {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  will-change: transform, opacity;
+  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .hero-fraunces-title.jd-appear-title {
@@ -5039,17 +5032,36 @@ body.is-loaded .load-reveal {
 }
 
 .hero-fraunces-title .hero-hover-word {
-  animation: leoHeadlineWordAppear 0.92s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(0.18s + var(--word-idx, 0) * 0.11s);
+  animation: leoHeadlineWordAppear 0.75s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.36s;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(2) {
+  animation-delay: 0.43s;
+}
+
+.hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
+  animation-delay: 0.50s;
+}
+
+.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.57s;
+}
+
+.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
+  animation-delay: 0.64s;
 }
 
 .jd-appear-subtitle {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+  will-change: transform, opacity;
+  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
 }
 
 #process.jd-appear-subtitle {
-  animation-delay: 0.86s;
+  animation-delay: 0.85s;
 }
 
 /* ==========================================================================
