@@ -1031,7 +1031,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
 }
 
-/* Full Real Photo Reveal Layer on Avatar Hover + Post-Load Teaser Peek */
+/* Full Real Photo Reveal Layer on Avatar Hover + First-Scroll 2-Second Flash */
 .avatar-real-reveal {
   position: absolute;
   inset: 0;
@@ -1040,38 +1040,15 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   pointer-events: none;
   z-index: 3;
   opacity: 0;
+  background: #21485E;
   clip-path: circle(100% at 50% 50%);
   transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.avatar-stage.is-revealing-photo .avatar-real-reveal {
+.avatar-stage.is-revealing-photo .avatar-real-reveal,
+.avatar-stage.is-teasing-photo .avatar-real-reveal {
   opacity: 1;
   clip-path: circle(100% at 50% 50%);
-  animation: none;
-}
-
-/* Post-Explosion Momentary Reveal: smoothly reveals the full real person photo momentarily after the rocket explosion fades away */
-@keyframes avatarRealPhotoTeaser {
-  0% {
-    opacity: 0;
-    clip-path: circle(100% at 50% 50%);
-  }
-  18% {
-    opacity: 1;
-    clip-path: circle(100% at 50% 50%);
-  }
-  78% {
-    opacity: 1;
-    clip-path: circle(100% at 50% 50%);
-  }
-  100% {
-    opacity: 0;
-    clip-path: circle(100% at 50% 50%);
-  }
-}
-
-.avatar-stage.is-teasing-photo:not(.is-revealing-photo) .avatar-real-reveal {
-  animation: avatarRealPhotoTeaser 2.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .avatar-stage.is-transparent-gif .avatar-img-circle .avatar-real-reveal img {
@@ -1079,14 +1056,14 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.04);
+  transform: scale(1);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   filter: none;
 }
 
 .avatar-stage.is-revealing-photo .avatar-img-circle .avatar-real-reveal img,
 .avatar-stage.is-teasing-photo .avatar-img-circle .avatar-real-reveal img {
-  transform: scale(1.01);
+  transform: scale(1);
 }
 
 /* When the rocket top-border explosion happens, the celebratory avatar is slightly zoomed in (border stays identical to other avatar states) */

@@ -11,13 +11,10 @@
  * 7. Magnetic Ripple Buttons (`g(e)`): Cursor Pull + Entry-Point Radial Fill + Slot Text
  */
 
-// Immediately preload and decode all 5 avatar GIF variants before DOMContentLoaded
+// Immediately preload and decode the black hoodie avatar GIF and real photo before DOMContentLoaded
 const AVATAR_GIF_VARIANTS = [
-  'assets/avatar_var_1_blue_blink.gif?v=30',
   'assets/avatar_var_4_navy_hoodie.gif?v=29',
-  'assets/avatar_var_5_green_laptop.gif?v=29',
-  'assets/avatar_var_3_navy_victory.gif?v=30',
-  'assets/avatar_var_2_orange_funny.gif?v=29',
+  'assets/avatar_real_photo.jpg?v=153',
 ];
 const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
   const img = new Image();
@@ -237,84 +234,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const avatarStage = document.querySelector('.avatar-stage');
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
-    const avatarImg = avatarStage.querySelector('.avatar-img-circle img');
-    const explosionLookSrc = 'assets/avatar_lookup_amazed.gif?v=29';
-    let explosionLookTimer = null;
+    let firstScrollFlashDone = false;
+    let firstScrollFlashTimer = null;
 
-    // Default avatar starts on the smiling variant; each hover advances to the next variant and stays changed
-    const avatarVariants = [
-      'assets/avatar_var_1_blue_blink.gif?v=30',
-      'assets/avatar_var_4_navy_hoodie.gif?v=29',
-      'assets/avatar_var_5_green_laptop.gif?v=29',
-      'assets/avatar_var_3_navy_victory.gif?v=30',
-      'assets/avatar_var_2_orange_funny.gif?v=29',
-    ];
-    // Preload all variants (including explosion look-up) so switching is instant with zero flicker
-    [...avatarVariants, explosionLookSrc].forEach((src) => {
-      const preload = new Image();
-      preload.src = src;
-    });
-    let avatarVariantIdx = 0;
-
-    triggerAvatarExplosionLook = () => {
-      if (!avatarImg) return;
-      if (explosionLookTimer) {
-        clearTimeout(explosionLookTimer);
-        explosionLookTimer = null;
-      }
-      avatarImg.src = explosionLookSrc;
-      avatarStage.classList.add('is-looking-at-explosion');
-      if (tiltCard) {
-        tiltCard.style.transform = '';
-        tiltCard.animate(
-          [
-            { transform: 'scale(0.95) rotate(-2deg)' },
-            { transform: 'scale(1.04) rotate(1.5deg)' },
-            { transform: 'scale(1) rotate(0deg)' },
-          ],
-          { duration: 210, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-        );
-      }
-      explosionLookTimer = setTimeout(() => {
-        avatarStage.classList.remove('is-looking-at-explosion');
-        avatarImg.src = avatarVariants[avatarVariantIdx];
-        explosionLookTimer = null;
-      }, 4600);
-    };
-
-    const advanceAvatarVariant = () => {
-      if (!avatarImg) return;
-      if (explosionLookTimer) {
-        clearTimeout(explosionLookTimer);
-        explosionLookTimer = null;
-      }
-      avatarStage.classList.remove('is-looking-at-explosion');
-      avatarVariantIdx = (avatarVariantIdx + 1) % avatarVariants.length;
-      avatarImg.src = avatarVariants[avatarVariantIdx];
-      if (tiltCard) {
-        tiltCard.animate(
-          [
-            { transform: 'scale(0.92) rotate(-3deg)' },
-            { transform: 'scale(1.06) rotate(2deg)' },
-            { transform: 'scale(1.02) rotate(0deg)' },
-          ],
-          { duration: 340, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-        );
-      }
-    };
+    // Flash the real photo for 2 seconds the first time the user scrolls to the About section
+    const aboutSection = document.getElementById('about') || avatarStage;
+    if ('IntersectionObserver' in window) {
+      const aboutFlashObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !firstScrollFlashDone) {
+              firstScrollFlashDone = true;
+              aboutFlashObserver.disconnect();
+              avatarStage.classList.add('is-teasing-photo');
+              firstScrollFlashTimer = setTimeout(() => {
+                avatarStage.classList.remove('is-teasing-photo');
+                firstScrollFlashTimer = null;
+              }, 2000);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+      aboutFlashObserver.observe(aboutSection);
+    }
 
     const resetAvatarTilt = () => {
+      avatarStage.classList.remove('is-revealing-photo');
       if (tiltCard) {
         tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
     };
 
     avatarStage.addEventListener('mouseenter', () => {
-      advanceAvatarVariant();
-    });
-
-    avatarStage.addEventListener('click', () => {
-      advanceAvatarVariant();
+      if (firstScrollFlashTimer) {
+        clearTimeout(firstScrollFlashTimer);
+        firstScrollFlashTimer = null;
+        avatarStage.classList.remove('is-teasing-photo');
+      }
+      avatarStage.classList.add('is-revealing-photo');
     });
 
     avatarStage.addEventListener('mousemove', (e) => {
