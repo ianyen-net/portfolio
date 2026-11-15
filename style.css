@@ -749,7 +749,7 @@ body[data-theme="light"] .leo-nav-cta:hover {
 .hero-viewport-wrap {
   width: 100%;
   max-width: 1600px;
-  min-height: 820px;
+  min-height: 760px;
   height: auto;
   padding: 12px 16px 0;
   display: flex;
@@ -779,12 +779,12 @@ body[data-theme="light"] .hero-shell-outer {
   background: var(--bg-page);
   border: 1px solid var(--border-subtle);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: 108px 32px 38px;
+  padding: 136px 32px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 32px;
   overflow: hidden;
   transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
@@ -931,9 +931,9 @@ body[data-theme="light"] .hero-radial-glow {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 1140px;
+  max-width: 1280px;
   width: 100%;
-  gap: 20px;
+  gap: 26px;
 }
 
 /* Interactive Circular 3D Pixar Avatar Stage (White Circle in Light Mode, Dark Circle in Dark Mode) */
@@ -1195,7 +1195,7 @@ body[data-theme="light"] .avatar-action-btn:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 14px 7px 12px;
+  padding: 8px 18px 8px 14px;
   border-radius: 100px;
   background: rgba(14, 31, 47, 0.62);
   border: 1px solid rgba(225, 203, 215, 0.24);
@@ -1203,7 +1203,7 @@ body[data-theme="light"] .avatar-action-btn:hover {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.35);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 500;
   color: #E1CBD7;
   transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
@@ -1234,16 +1234,16 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
   color: inherit;
 }
 
-/* Bold Display Hero Headline (`Tanker` from `owen-gray.framer.website` — Strictly 2 Rows Max) */
+/* Bold Display Hero Headline (`Tanker` from `owen-gray.framer.website` — Enlarged, Strictly 2 Rows Max) */
 .hero-fraunces-title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5.5vw, 80px);
+  font-size: clamp(46px, 7.6vw, 108px);
   font-weight: 400;
-  line-height: 0.96;
+  line-height: 0.95;
   letter-spacing: 0.015em;
   text-transform: uppercase;
   color: var(--text-primary);
-  max-width: 1120px;
+  max-width: 1280px;
   white-space: nowrap;
 }
 
@@ -1301,15 +1301,15 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   text-shadow: 0 12px 28px rgba(134, 168, 207, 0.48);
 }
 
-/* Clean Subtitle Line (`.framer-xasqps` — NO cluttered chips underneath!) */
+/* Clean Subtitle Line (`.framer-xasqps` — Enlarged, NO cluttered chips underneath!) */
 .hero-subtitle-line {
   font-family: var(--font-sans);
-  font-size: 16.5px;
+  font-size: clamp(18px, 1.45vw, 21px);
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 1.55;
   color: var(--text-secondary);
-  max-width: 580px;
+  max-width: 680px;
   text-wrap: balance;
 }
 
@@ -1998,16 +1998,14 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   background: #DB8D8E;
 }
 
-/* Interactive Dunzo Colour Palette & Component Variants Specimen on sharing-design-system.html */
+/* Interactive Dunzo Colour Palette & Component Variants Specimen on sharing-design-system.html (No Outer Background Container) */
 .sk-dunzo-case-specimen {
   width: 100%;
-  border-radius: 24px;
-  padding: 24px;
-  background:
-    radial-gradient(85% 75% at 15% 15%, var(--sk-sys-glow, rgba(27, 110, 243, 0.18)) 0%, transparent 65%),
-    linear-gradient(180deg, #091525 0%, #07101C 100%);
-  border: 1px solid rgba(168, 199, 250, 0.16);
-  box-shadow: 0 24px 60px -16px rgba(4, 10, 20, 0.65);
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   color: #F1F5F9;
   font-family: var(--font-sans);
   box-sizing: border-box;
@@ -2171,15 +2169,15 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   font-size: 9.5px;
 }
 
-/* Bottom Live Component Variants Strip inside the Dunzo Specimen */
+/* Bottom Live Component Variants Strip inside the Dunzo Specimen (No Background Container) */
 .sk-dunzo-variants-bar {
-  border-radius: 18px;
-  padding: 16px 20px;
-  background: #0B1B30;
-  border: 1px solid rgba(138, 180, 248, 0.14);
+  border-radius: 0;
+  padding: 8px 0 0;
+  background: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .sk-dunzo-variants-top {
@@ -2191,14 +2189,14 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 .sk-dunzo-variants-row {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
 .sk-variant-elem-card {
-  border-radius: 14px;
-  padding: 12px 14px;
-  background: #081322;
-  border: 1px solid rgba(168, 199, 250, 0.10);
+  border-radius: 0;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -2206,10 +2204,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 
 .sk-variant-elem-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #8CA2BC;
+  color: var(--text-muted);
 }
 
 .sk-variant-elem-preview {
@@ -2847,11 +2845,11 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .about-editorial-split {
   width: 100%;
   max-width: 760px;
-  margin: 18px auto 0;
+  margin: 26px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
 }
 
 .about-bio-copy {
@@ -4368,10 +4366,12 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
 }
 
 .case-hero-stage.is-wide-slide > img,
+.case-hero-stage.is-wide-slide > video,
 .case-hero-stage.is-wide-slide > img.single-border-mock,
 .sk-hero-full-img {
   width: 100% !important;
   max-width: 100% !important;
+  max-height: none !important;
   height: auto !important;
   margin: 0 !important;
   border-radius: 24px;
