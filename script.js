@@ -933,8 +933,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   } else {
-    // Homepage password gate for Interactive Prototype links
-    const homepageProtoLinks = Array.from(document.querySelectorAll('a[href*="ianyen-net.github.io/"]'));
+    // Homepage password gate for individual Interactive Prototype links (excluding the Prototype Directory page itself)
+    const homepageProtoLinks = Array.from(
+      document.querySelectorAll('a[href*="ianyen-net.github.io/"]:not([href*="ianyen-net.github.io/prototypes"])')
+    );
     if (homepageProtoLinks.length) {
       let protoGate = document.getElementById('proto-password-gate');
       let pendingProtoUrl = null;
