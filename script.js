@@ -823,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
           </div>
           <div class="case-password-kicker">Protected Case Study</div>
-          <h2 class="case-password-title" id="case-gate-title">Enter Password</h2>
+          <h2 class="case-password-title" id="case-gate-title">Good stuff ahead</h2>
           <p class="case-password-desc">Enter the password to continue</p>
           <form class="case-password-form" id="case-password-form" autocomplete="off">
             <div class="case-password-input-wrap">
@@ -842,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </svg>
               </button>
             </div>
-            <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
+            <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">email me</a> to ask for it</p>
             <button type="submit" class="case-password-submit">
               <span>Continue</span>
               <span aria-hidden="true">→</span>
@@ -952,7 +952,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </svg>
             </div>
             <div class="case-password-kicker">Protected Prototype</div>
-            <h2 class="case-password-title" id="proto-gate-title">Enter Password</h2>
+            <h2 class="case-password-title" id="proto-gate-title">Good stuff ahead</h2>
             <p class="case-password-desc">Enter the password to launch this prototype</p>
             <form class="case-password-form" id="proto-password-form" autocomplete="off">
               <div class="case-password-input-wrap">
@@ -971,7 +971,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   </svg>
                 </button>
               </div>
-              <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">Email Ian</a> to ask for it</p>
+              <p class="case-password-help">Don’t have the password? <a href="mailto:ianyenyh@gmail.com?subject=Portfolio%20Access%20Request&amp;body=Hi%20Ian%2C%0A%0AI%27d%20love%20to%20request%20the%20password%20to%20view%20your%20portfolio%20case%20studies%20and%20prototypes.%0A%0AThanks!">email me</a> to ask for it</p>
               <button type="submit" class="case-password-submit">
                 <span>Continue</span>
                 <span aria-hidden="true">→</span>
