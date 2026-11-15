@@ -1297,11 +1297,24 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   text-shadow: 0 12px 28px rgba(134, 168, 207, 0.45);
 }
 
-.hero-hover-word:nth-of-type(2):hover,
-.hero-hover-word:nth-of-type(2).is-flash {
+/* Default resting state of the word "AI" uses its previous hover elevation & mauve tint */
+.hero-hover-word.is-ai-word,
+.hero-hover-word:nth-of-type(2) {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
   color: #C38EB4;
   text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
+}
+
+/* New interactive on-hover state for the word "AI" */
+.hero-hover-word.is-ai-word:hover,
+.hero-hover-word.is-ai-word.is-flash,
+.hero-hover-word:nth-of-type(2):hover,
+.hero-hover-word:nth-of-type(2).is-flash {
+  transform: translateY(-15px) scale(1.16) rotate(-4deg);
+  color: #86A8CF;
+  text-shadow:
+    0 0 22px rgba(134, 168, 207, 0.78),
+    0 16px 34px rgba(195, 142, 180, 0.58);
 }
 
 .hero-hover-word:nth-of-type(3):hover,
@@ -3029,8 +3042,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:nth-of-type(1) {
-  --word-base-color: #86A8CF;
-  --word-base-color-light: #86A8CF;
+  --word-base-color: #E5E7EB;
+  --word-base-color-light: #000000;
   --loop-color: #B8D4FF;
   --loop-color-light: #2563EB;
   --loop-glow: rgba(134, 168, 207, 0.75);
@@ -3038,8 +3051,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:nth-of-type(2) {
-  --word-base-color: #C38EB4;
-  --word-base-color-light: #C38EB4;
+  --word-base-color: #E5E7EB;
+  --word-base-color-light: #000000;
   --loop-color: #F0B8E0;
   --loop-color-light: #9333EA;
   --loop-glow: rgba(195, 142, 180, 0.78);
@@ -3047,8 +3060,8 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 }
 
 .leo-process-card:nth-of-type(3) {
-  --word-base-color: #E1CBD7;
-  --word-base-color-light: #0C1D4B;
+  --word-base-color: #E5E7EB;
+  --word-base-color-light: #000000;
   --loop-color: #FFFFFF;
   --loop-color-light: #4F46E5;
   --loop-glow: rgba(225, 203, 215, 0.82);
@@ -5007,6 +5020,19 @@ body.is-loaded .load-reveal {
   }
 }
 
+@keyframes leoHeadlineWordAppearAI {
+  0% {
+    opacity: 0.001;
+    filter: blur(8px);
+    transform: translateY(16px) scale(0.95) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(-8px) scale(1.07) rotate(1.5deg);
+  }
+}
+
 .jd-appear-avatar {
   will-change: transform, opacity;
   animation: leoAvatarAppear 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
@@ -5039,7 +5065,9 @@ body.is-loaded .load-reveal {
   animation-delay: 0.36s;
 }
 
-.hero-fraunces-title > .hero-hover-word:nth-of-type(2) {
+.hero-fraunces-title > .hero-hover-word:nth-of-type(2),
+.hero-fraunces-title .hero-hover-word.is-ai-word {
+  animation-name: leoHeadlineWordAppearAI;
   animation-delay: 0.43s;
 }
 
@@ -6239,21 +6267,17 @@ body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
   font-weight: 600;
 }
 
-/* Process Flow ("Design -> Prototype -> Launch") Consistent Palette Progression Across Dark and Light Themes */
-.leo-process-card:nth-of-type(1) .leo-process-title {
-  color: #86A8CF;
-}
-
-.leo-process-card:nth-of-type(2) .leo-process-title {
-  color: #C38EB4;
-}
-
+/* Process Flow ("Design -> Prototype -> Ship"): Very light grey in Dark Theme, Black in Light Theme */
+.leo-process-card:nth-of-type(1) .leo-process-title,
+.leo-process-card:nth-of-type(2) .leo-process-title,
 .leo-process-card:nth-of-type(3) .leo-process-title {
-  color: #E1CBD7;
+  color: #E5E7EB;
 }
 
+body[data-theme="light"] .leo-process-card:nth-of-type(1) .leo-process-title,
+body[data-theme="light"] .leo-process-card:nth-of-type(2) .leo-process-title,
 body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
-  color: #0C1D4B;
+  color: #000000;
 }
 
 .process-hand-arrow {
