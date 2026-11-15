@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=30" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=140">
+  <link rel="stylesheet" href="style.css?v=142">
 </head>
 <body data-theme="dark">
 
@@ -125,9 +125,9 @@
               <span class="pill-loc">Senior Product Designer &middot; Google NYC</span>
             </div>
 
-            <!-- Display Hero Headline (Julian David y: +90 -> 0 @ 1.0s delay + Interactive Hover Effect) -->
+            <!-- Display Hero Headline (Staggered Onload Reveal + Mobile 3-Row Wrap + Interactive Hover Effect) -->
             <h1 class="hero-fraunces-title jd-appear-title">
-              <span class="hero-hover-word">Designing</span> <span class="hero-hover-word">AI</span> <span class="hero-hover-word">products</span><br><span class="text-accent"><span class="hero-hover-word is-accent">people</span> <span class="hero-hover-word is-accent">trust.</span></span>
+              <span class="hero-hover-word" style="--word-idx: 0;">Designing</span> <br class="hero-mobile-break"><span class="hero-hover-word" style="--word-idx: 1;">AI</span> <span class="hero-hover-word" style="--word-idx: 2;">products</span><br><span class="text-accent"><span class="hero-hover-word is-accent" style="--word-idx: 3;">people</span> <span class="hero-hover-word is-accent" style="--word-idx: 4;">trust.</span></span>
             </h1>
 
             <!-- Clean Subtitle Line (Julian David y: +90 -> 0 @ 1.1s delay) -->
@@ -395,197 +395,131 @@
         </h2>
       </div>
 
-      <!-- Interactive Prototype Preview Carousel (Direct Click-to-Launch) -->
-      <div class="proto-carousel framer-reveal" style="--reveal-delay: 0.08s;" data-proto-carousel>
-        <div class="proto-carousel-viewport" data-proto-viewport>
-          <div class="proto-carousel-track" data-proto-track>
+      <!-- Single Interactive Prototype Directory Portal Card (Takes User to Prototype Directory Page) -->
+      <a href="https://ianyen-net.github.io/prototypes/" target="_blank" rel="noopener noreferrer" class="proto-directory-portal framer-reveal" style="--reveal-delay: 0.08s;" aria-label="Open Interactive Prototype Directory">
+        <div class="proto-portal-glow" aria-hidden="true"></div>
 
-            <!-- 01. Magic Cue -->
-            <a href="https://ianyen-net.github.io/magic-cue-contacts/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Magic Cue interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-phone">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
-                        <source src="assets/mocks/ai_brief_1_magic.mp4?v=119" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-                <span class="proto-stage-action-btn" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </span>
-              </div>
-              <div class="proto-carousel-body">
-                <div class="proto-carousel-eyebrow-row">
-                  <span class="proto-carousel-eyebrow">Pixel AI &middot; Android Messages</span>
-                  <span class="proto-exp-now-badge">
-                    <span class="pulse-dot-wrap" aria-hidden="true">
-                      <span class="pulse-dot-ring"></span>
-                      <span class="pulse-dot-core"></span>
-                    </span>
-                    <span>Live</span>
-                  </span>
-                </div>
-                <h3 class="proto-carousel-title">Magic Cue</h3>
-                <p class="proto-carousel-desc">Proactive contact sharing and save suggestions inside Android Messages and system notifications.</p>
-              </div>
-            </a>
+        <!-- Left Editorial & Interactive Icon Dock Column -->
+        <div class="proto-portal-content">
+          <div class="proto-portal-top-row">
+            <span class="proto-exp-now-badge">
+              <span class="pulse-dot-wrap" aria-hidden="true">
+                <span class="pulse-dot-ring"></span>
+                <span class="pulse-dot-core"></span>
+              </span>
+              <span>5 Live Prototypes</span>
+            </span>
 
-            <!-- 02. Prompt Sharing -->
-            <a href="https://ianyen-net.github.io/prompt-sharing/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Prompt Sharing interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-phone">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/sk_extended_demo_poster.jpg">
-                        <source src="assets/mocks/sk_extended_demo.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-                <span class="proto-stage-action-btn" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </span>
-              </div>
-              <div class="proto-carousel-body">
-                <div class="proto-carousel-eyebrow-row">
-                  <span class="proto-carousel-eyebrow">ShareKit Extended &middot; Gemini</span>
-                  <span class="proto-exp-now-badge">
-                    <span class="pulse-dot-wrap" aria-hidden="true">
-                      <span class="pulse-dot-ring"></span>
-                      <span class="pulse-dot-core"></span>
-                    </span>
-                    <span>Live</span>
-                  </span>
-                </div>
-                <h3 class="proto-carousel-title">Prompt Sharing</h3>
-                <p class="proto-carousel-desc">ShareKit Extended half sheet for previewing generated media and editing prompts before sharing from Gemini.</p>
-              </div>
-            </a>
+            <div class="proto-portal-icons" aria-hidden="true">
+              <!-- 1. Magic Cue -->
+              <span class="proto-portal-icon-tile" style="--tile-tint: #4A6B6C; --icon-i: 0;" title="Magic Cue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"></path>
+                </svg>
+              </span>
+              <!-- 2. Prompt Sharing -->
+              <span class="proto-portal-icon-tile" style="--tile-tint: #5B5F86; --icon-i: 1;" title="Prompt Sharing">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+              </span>
+              <!-- 3. Splitti Theme Generator -->
+              <span class="proto-portal-icon-tile" style="--tile-tint: #7D5BA6; --icon-i: 2;" title="Splitti Theme Generator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 4l7 4v8l-7 4-7-4V8l7-4z"></path>
+                  <path d="M12 12l7-4M12 12v8M12 12L5 8"></path>
+                </svg>
+              </span>
+              <!-- 4. Gemini x Contacts Sync -->
+              <span class="proto-portal-icon-tile" style="--tile-tint: #9A5F4A; --icon-i: 3;" title="Gemini × Contacts Sync">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M19 8v6M22 11h-6"></path>
+                </svg>
+              </span>
+              <!-- 5. Instant Curation -->
+              <span class="proto-portal-icon-tile" style="--tile-tint: #52796F; --icon-i: 4;" title="Instant Curation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                  <path d="M3 8l9 6 9-6"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
 
-            <!-- 03. Splitti Theme Generator (Studio Laptop Frame Matching Case Study Previews) -->
-            <a href="https://ianyen-net.github.io/splitti/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Splitti Theme Generator interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-desktop">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/e3505c_809e2df6d208413d8ba601accb7e0432f000.jpg">
-                        <source src="https://video.wixstatic.com/video/e3505c_809e2df6d208413d8ba601accb7e0432/1080p/mp4/file.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-                <span class="proto-stage-action-btn" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </span>
-              </div>
-              <div class="proto-carousel-body">
-                <div class="proto-carousel-eyebrow-row">
-                  <span class="proto-carousel-eyebrow">Design Systems &middot; Token Engine</span>
-                  <span class="proto-exp-now-badge">
-                    <span class="pulse-dot-wrap" aria-hidden="true">
-                      <span class="pulse-dot-ring"></span>
-                      <span class="pulse-dot-core"></span>
-                    </span>
-                    <span>Live</span>
-                  </span>
-                </div>
-                <h3 class="proto-carousel-title">Splitti Theme Generator</h3>
-                <p class="proto-carousel-desc">Multi-system ShareSheet theme generator and token inspector across Material 3, Geo, NotebookLM, and Gemini.</p>
-              </div>
-            </a>
+          <h3 class="proto-portal-title">Interactive Prototype Directory</h3>
+          <p class="proto-portal-desc">
+            Explore coded, click-through AI and design system prototypes built for user testing, engineering alignment, and 0-to-1 product validation.
+          </p>
 
-            <!-- 04. Gemini x Contacts Sync -->
-            <a href="https://ianyen-net.github.io/contacts-crud-remy/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Gemini Contacts Sync interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-phone">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_2_gemini_sync_poster.jpg">
-                        <source src="assets/mocks/ai_brief_2_gemini_sync.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-                <span class="proto-stage-action-btn" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </span>
-              </div>
-              <div class="proto-carousel-body">
-                <div class="proto-carousel-eyebrow-row">
-                  <span class="proto-carousel-eyebrow">Gemini &times; Contacts &middot; MCP Server</span>
-                  <span class="proto-exp-now-badge">
-                    <span class="pulse-dot-wrap" aria-hidden="true">
-                      <span class="pulse-dot-ring"></span>
-                      <span class="pulse-dot-core"></span>
-                    </span>
-                    <span>Live</span>
-                  </span>
-                </div>
-                <h3 class="proto-carousel-title">Gemini &times; Contacts Sync</h3>
-                <p class="proto-carousel-desc">Conversational contact creation and updates in Gemini with Human-in-the-Loop confirmation cards.</p>
-              </div>
-            </a>
+          <div class="proto-portal-tags" aria-hidden="true">
+            <span class="proto-portal-tag">Magic Cue</span>
+            <span class="proto-portal-tag">Prompt Sharing</span>
+            <span class="proto-portal-tag">Splitti Theme Generator</span>
+            <span class="proto-portal-tag">Gemini &times; Contacts</span>
+            <span class="proto-portal-tag">Instant Curation</span>
+          </div>
 
-            <!-- 05. Instant Curation -->
-            <a href="https://ianyen-net.github.io/instant-curation/" target="_blank" rel="noopener noreferrer" class="proto-carousel-card" aria-label="Launch Instant Curation interactive prototype">
-              <div class="proto-carousel-stage">
-                <div class="proto-device-desktop">
-                  <div class="proto-device-bezel">
-                    <div class="proto-device-screen">
-                      <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_proto_2_gmail_poster.jpg">
-                        <source src="assets/mocks/ai_proto_2_gmail.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-                <span class="proto-stage-action-btn" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </span>
-              </div>
-              <div class="proto-carousel-body">
-                <div class="proto-carousel-eyebrow-row">
-                  <span class="proto-carousel-eyebrow">Gmail &times; Contacts &middot; Provenance AI</span>
-                  <span class="proto-exp-now-badge">
-                    <span class="pulse-dot-wrap" aria-hidden="true">
-                      <span class="pulse-dot-ring"></span>
-                      <span class="pulse-dot-core"></span>
-                    </span>
-                    <span>Live</span>
-                  </span>
-                </div>
-                <h3 class="proto-carousel-title">Instant Curation</h3>
-                <p class="proto-carousel-desc">Source-attributed contact suggestions extracted from Gmail signatures with provenance traces upfront.</p>
-              </div>
-            </a>
-
+          <div class="proto-portal-cta-row">
+            <span class="proto-portal-cta">
+              <span class="slot-text-wrap">
+                <span class="slot-text-primary">Explore prototype directory</span>
+                <span class="slot-text-clone" aria-hidden="true">Explore prototype directory</span>
+              </span>
+              <svg class="proto-portal-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M7 7h10v10"></path>
+              </svg>
+            </span>
           </div>
         </div>
 
-        <div class="proto-carousel-controls">
-          <div class="proto-carousel-dots" role="tablist" aria-label="Prototype slides">
-            <button type="button" class="proto-carousel-dot is-active" data-proto-dot="0" aria-label="Go to Magic Cue"></button>
-            <button type="button" class="proto-carousel-dot" data-proto-dot="1" aria-label="Go to Prompt Sharing"></button>
-            <button type="button" class="proto-carousel-dot" data-proto-dot="2" aria-label="Go to Splitti Theme Generator"></button>
-            <button type="button" class="proto-carousel-dot" data-proto-dot="3" aria-label="Go to Gemini Contacts Sync"></button>
-            <button type="button" class="proto-carousel-dot" data-proto-dot="4" aria-label="Go to Instant Curation"></button>
+        <!-- Right Animated Multi-Device Fan Stage -->
+        <div class="proto-portal-fan-stage" aria-hidden="true">
+          <!-- Left Fanned Phone: Magic Cue -->
+          <div class="proto-fan-device is-left-phone">
+            <div class="proto-device-phone">
+              <div class="proto-device-bezel">
+                <div class="proto-device-screen">
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
+                    <source src="assets/mocks/ai_brief_1_magic.mp4?v=119" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="proto-carousel-arrows">
-            <button type="button" class="proto-carousel-btn" data-proto-prev aria-label="Previous prototype">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M19 12H5M12 19l-7-7 7-7"></path>
-              </svg>
-            </button>
-            <button type="button" class="proto-carousel-btn" data-proto-next aria-label="Next prototype">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
+          <!-- Center Featured Desktop: Instant Curation / Splitti -->
+          <div class="proto-fan-device is-center-desktop">
+            <div class="proto-device-desktop">
+              <div class="proto-device-bezel">
+                <div class="proto-device-screen">
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_proto_2_gmail_poster.jpg">
+                    <source src="assets/mocks/ai_proto_2_gmail.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Fanned Phone: Prompt Sharing -->
+          <div class="proto-fan-device is-right-phone">
+            <div class="proto-device-phone">
+              <div class="proto-device-bezel">
+                <div class="proto-device-screen">
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/sk_extended_demo_poster.jpg">
+                    <source src="assets/mocks/sk_extended_demo.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </section>
 
     <!-- ====================================================================
@@ -700,6 +634,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=128"></script>
+  <script src="script.js?v=142"></script>
 </body>
 </html>

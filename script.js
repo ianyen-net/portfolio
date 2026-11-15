@@ -538,9 +538,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const rocketRelaunchBtns = document.querySelectorAll('[data-rocket-relaunch]');
   let rocketIdleBtnTimer = null;
 
-  // Prepare breakable text pieces in the hero headline & subtitle so they part around the ascending rocket
+  // Prepare breakable text pieces in the hero headline & subtitle so they part around the ascending rocket,
+  // and trigger a staggered onload color-wave shimmer across the headline words right as they settle in
   const breakableHeroPieces = [];
-  document.querySelectorAll('.hero-fraunces-title .hero-hover-word').forEach((wordEl) => {
+  const heroHoverWords = Array.from(document.querySelectorAll('.hero-fraunces-title .hero-hover-word'));
+  heroHoverWords.forEach((wordEl, idx) => {
+    wordEl.style.setProperty('--word-idx', idx);
     const rawText = wordEl.textContent || '';
     if (!rawText) return;
     wordEl.textContent = '';
@@ -551,6 +554,15 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.appendChild(span);
       breakableHeroPieces.push(span);
     });
+
+    // Sequential onload wave pulse right as each word finishes its spring entrance
+    const flashStartMs = 920 + idx * 115;
+    setTimeout(() => {
+      wordEl.classList.add('is-flash');
+      setTimeout(() => {
+        wordEl.classList.remove('is-flash');
+      }, 360);
+    }, flashStartMs);
   });
 
   const subtitleEl = document.querySelector('.hero-subtitle-line');
