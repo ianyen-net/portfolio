@@ -7293,30 +7293,21 @@ body[data-theme="light"] .proto-portal-tag {
   width: 356px;
   border-radius: 16px;
   background: #0D1117;
-  border: 1px solid rgba(134, 168, 207, 0.26);
-  box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.68),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: none;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.68);
   overflow: hidden;
   font-family: var(--font-mono);
   animation: none;
   transform: none;
-  transition:
-    border-color 0.35s ease,
-    box-shadow 0.45s ease;
+  transition: box-shadow 0.45s ease;
 }
 
 body[data-theme="light"] .proto-code-terminal {
-  box-shadow:
-    0 22px 46px -12px rgba(14, 31, 47, 0.32),
-    0 0 0 1px rgba(14, 31, 47, 0.12);
+  box-shadow: 0 22px 46px -12px rgba(14, 31, 47, 0.32);
 }
 
 .proto-directory-portal:hover .proto-code-terminal {
-  border-color: rgba(134, 168, 207, 0.55);
-  box-shadow:
-    0 30px 60px -14px rgba(0, 0, 0, 0.78),
-    0 0 28px rgba(134, 168, 207, 0.18);
+  box-shadow: 0 30px 60px -14px rgba(0, 0, 0, 0.78);
 }
 
 .proto-terminal-header {
