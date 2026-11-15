@@ -6682,6 +6682,12 @@ body[data-theme="light"] .proto-device-desktop {
   width: 80.50%;
   height: 82.98%;
   border-radius: 1.6% 1.6% 0 0 / 2.5% 2.5% 0 0;
+  background: #FFFFFF;
+}
+
+.proto-device-desktop .proto-device-screen video {
+  object-fit: contain;
+  background: #FFFFFF;
 }
 
 .proto-device-phone .proto-device-screen::after {
