@@ -1231,7 +1231,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: inherit;
+  color: var(--text-secondary);
 }
 
 /* Bold Display Hero Headline (`Tanker` from `owen-gray.framer.website` — Enlarged, 2 Rows on Desktop, 3 Rows on Mobile) */
@@ -6240,7 +6240,7 @@ body[data-theme="light"] .hero-name-pill > span:first-of-type {
 }
 
 .hero-name-pill .pill-loc {
-  color: #C38EB4;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
