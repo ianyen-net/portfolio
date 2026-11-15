@@ -1192,4 +1192,32 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCarouselState();
     }
   }
+
+  /* =========================================================================
+     10. SINGLE PHONE PROTOTYPE ROTATOR (ROTATES EVERY 4 SECONDS)
+     ========================================================================= */
+  const protoRotator = document.querySelector('[data-proto-rotator]');
+  if (protoRotator) {
+    const videos = Array.from(protoRotator.querySelectorAll('[data-proto-video]'));
+    const tabs = Array.from(protoRotator.querySelectorAll('[data-proto-tab]'));
+    if (videos.length > 1) {
+      let currentIdx = 0;
+      setInterval(() => {
+        currentIdx = (currentIdx + 1) % videos.length;
+        videos.forEach((vid, i) => {
+          const isActive = i === currentIdx;
+          vid.classList.toggle('is-active', isActive);
+          if (isActive) {
+            try {
+              vid.currentTime = 0;
+              vid.play().catch(() => {});
+            } catch (e) {}
+          }
+        });
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle('is-active', i === currentIdx);
+        });
+      }, 4000);
+    }
+  }
 });

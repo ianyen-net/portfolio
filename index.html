@@ -20,7 +20,7 @@
   <link rel="preload" as="image" href="assets/avatar_var_5_green_laptop.gif?v=29" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_3_navy_victory.gif?v=30" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_var_2_orange_funny.gif?v=29" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=150">
+  <link rel="stylesheet" href="style.css?v=151">
 </head>
 <body data-theme="dark">
 
@@ -428,9 +428,9 @@
           </div>
         </div>
 
-        <!-- Right Animated Code Terminal + Live Prototype Snippets Stage -->
-        <div class="proto-portal-fan-stage" aria-hidden="true">
-          <!-- Center/Back Coding Terminal & IDE Window -->
+        <!-- Right Animated Code Terminal + Single Rotating Phone Prototype Stage -->
+        <div class="proto-portal-fan-stage" aria-hidden="true" data-proto-rotator>
+          <!-- Code Terminal & IDE Window -->
           <div class="proto-code-terminal">
             <div class="proto-terminal-header">
               <div class="proto-terminal-dots">
@@ -439,8 +439,9 @@
                 <span class="t-dot is-green"></span>
               </div>
               <div class="proto-terminal-tabs">
-                <span class="proto-terminal-tab is-active">magic-cue.tsx</span>
-                <span class="proto-terminal-tab">splitti-tokens.ts</span>
+                <span class="proto-terminal-tab is-active" data-proto-tab="0">magic-cue.tsx</span>
+                <span class="proto-terminal-tab" data-proto-tab="1">prompt-share.tsx</span>
+                <span class="proto-terminal-tab" data-proto-tab="2">gemini-sync.tsx</span>
               </div>
               <span class="proto-terminal-status">● vite:5173</span>
             </div>
@@ -466,26 +467,19 @@
             </div>
           </div>
 
-          <!-- Left Overlapping Phone Prototype Snippet: Magic Cue -->
-          <div class="proto-fan-device is-left-phone">
+          <!-- Single Overlapping Phone Prototype Snippet (Rotates Every 4 Seconds) -->
+          <div class="proto-fan-device is-single-phone">
             <div class="proto-device-phone">
               <div class="proto-device-bezel">
                 <div class="proto-device-screen">
-                  <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
+                  <video class="proto-rotating-video is-active" data-proto-video="0" autoplay muted loop playsinline preload="auto" poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=119">
                     <source src="assets/mocks/ai_brief_1_magic.mp4?v=119" type="video/mp4">
                   </video>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Overlapping Phone Prototype Snippet: Prompt Sharing -->
-          <div class="proto-fan-device is-right-phone">
-            <div class="proto-device-phone">
-              <div class="proto-device-bezel">
-                <div class="proto-device-screen">
-                  <video autoplay muted loop playsinline preload="metadata" poster="assets/mocks/sk_extended_demo_poster.jpg">
+                  <video class="proto-rotating-video" data-proto-video="1" autoplay muted loop playsinline preload="auto" poster="assets/mocks/sk_extended_demo_poster.jpg">
                     <source src="assets/mocks/sk_extended_demo.mp4" type="video/mp4">
+                  </video>
+                  <video class="proto-rotating-video" data-proto-video="2" autoplay muted loop playsinline preload="auto" poster="assets/mocks/ai_brief_2_gemini_sync_poster.jpg">
+                    <source src="assets/mocks/ai_brief_2_gemini_sync.mp4" type="video/mp4">
                   </video>
                 </div>
               </div>
@@ -607,6 +601,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=150"></script>
+  <script src="script.js?v=151"></script>
 </body>
 </html>
