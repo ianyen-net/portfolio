@@ -11,9 +11,10 @@
  * 7. Magnetic Ripple Buttons (`g(e)`): Cursor Pull + Entry-Point Radial Fill + Slot Text
  */
 
-// Immediately preload and decode the black hoodie avatar GIF and real photo before DOMContentLoaded
+// Immediately preload and decode the Apple Memoji avatars and real photo before DOMContentLoaded
 const AVATAR_GIF_VARIANTS = [
-  'assets/avatar_var_4_navy_hoodie.gif?v=29',
+  'assets/memoji_about_bust.png?v=180',
+  'assets/memoji_hero_sitting_wave.png?v=180',
   'assets/avatar_real_photo.jpg?v=153',
 ];
 const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {

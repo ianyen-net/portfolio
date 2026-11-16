@@ -1330,11 +1330,11 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   will-change: transform, color;
 }
 
-/* Cute 3D Avatar Climbing Out from Behind "Designing" and Holding Onto the Top of the Letter */
+/* Apple Memoji Sitting on Top of "Designing" and Waving */
 .hero-hover-word.is-designing-word {
   position: relative;
   isolation: isolate;
-  margin-top: 0.22em;
+  margin-top: 0.34em;
 }
 
 .hero-hover-word.is-designing-word .hero-word-text {
@@ -1343,86 +1343,37 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   display: inline-block;
 }
 
-.hero-climber-wrap {
+.hero-sitting-memoji {
   position: absolute;
-  left: 0.72em;
-  top: -0.68em;
-  width: 0.92em;
-  height: 0.92em;
+  left: 0.24em;
+  top: -0.78em;
+  width: 0.62em;
+  height: 1.07em;
   pointer-events: none;
   z-index: 4;
-}
-
-.hero-climber-body {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  transform-origin: 50% 90%;
+  transform-origin: 50% 62%;
   opacity: 0;
-  clip-path: inset(0 0 18% 0);
   animation:
-    heroAvatarClimbOut 1.15s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s 1 forwards,
-    heroAvatarHoldBob 3.2s ease-in-out 2.25s infinite;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.36));
+    heroSittingMemojiAppear 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 1.45s 1 forwards,
+    heroSittingMemojiWave 2.4s ease-in-out 2.25s infinite;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.38));
 }
 
-.hero-climber-img {
+.hero-sitting-memoji-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 
-.hero-climber-paws {
-  position: absolute;
-  left: 16%;
-  right: 16%;
-  bottom: 10%;
-  height: 0.17em;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  opacity: 0;
-  animation: heroClimberPawsGrab 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 1.22s 1 forwards;
-}
-
-.climber-paw {
-  width: 0.20em;
-  height: 0.15em;
-  border-radius: 50% 50% 44% 44%;
-  background: linear-gradient(180deg, #E2AC80 0%, #BA8156 100%);
-  border: 1.5px solid rgba(18, 22, 34, 0.45);
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.38),
-    inset 0 1px 0 rgba(255, 232, 210, 0.65);
-}
-
-.climber-paw.is-left {
-  transform: rotate(-10deg);
-}
-
-.climber-paw.is-right {
-  transform: rotate(10deg);
-}
-
-.hero-hover-word.is-designing-word:hover .hero-climber-img {
-  transform: translateY(-4px) rotate(-6deg) scale(1.06);
-  transition: transform 0.36s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes heroAvatarClimbOut {
+@keyframes heroSittingMemojiAppear {
   0% {
     opacity: 0;
-    transform: translate3d(0, 62%, 0) scale(0.55) rotate(-14deg);
+    transform: translate3d(0, -18%, 0) scale(0.55) rotate(-8deg);
   }
-  42% {
+  70% {
     opacity: 1;
-    transform: translate3d(-4%, 24%, 0) scale(0.88) rotate(-8deg);
-  }
-  74% {
-    opacity: 1;
-    transform: translate3d(3%, -8%, 0) scale(1.05) rotate(5deg);
+    transform: translate3d(0, 3%, 0) scale(1.05) rotate(3deg);
   }
   100% {
     opacity: 1;
@@ -1430,27 +1381,18 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   }
 }
 
-@keyframes heroAvatarHoldBob {
+@keyframes heroSittingMemojiWave {
   0%, 100% {
-    transform: translate3d(0, 0%, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0%, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0, -2%, 0) rotate(3.5deg);
   }
   50% {
-    transform: translate3d(0, -4%, 0) scale(1.02) rotate(2.5deg);
+    transform: translate3d(0, 0%, 0) rotate(-2deg);
   }
-}
-
-@keyframes heroClimberPawsGrab {
-  0% {
-    opacity: 0;
-    transform: translateY(-45%) scale(0.4);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(8%) scale(1.12);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%) scale(1);
+  75% {
+    transform: translate3d(0, -2%, 0) rotate(3deg);
   }
 }
 
@@ -5383,7 +5325,10 @@ body.is-loaded .load-reveal {
 }
 
 #process.jd-appear-subtitle {
-  animation-delay: 0.76s;
+  animation: none;
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 /* ==========================================================================

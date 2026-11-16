@@ -17,9 +17,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
-  <link rel="preload" as="image" href="assets/avatar_var_4_navy_hoodie.gif?v=29" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/memoji_about_bust.png?v=180" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/memoji_hero_sitting_wave.png?v=180" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=179">
+  <link rel="stylesheet" href="style.css?v=180">
 </head>
 <body data-theme="dark">
 
@@ -123,9 +124,14 @@
               <span class="pill-loc">Senior Product Designer &middot; Google NYC</span>
             </div>
 
-            <!-- Display Hero Headline (Mobile 3-Row Wrap + Interactive Hover Effect) -->
+            <!-- Display Hero Headline (Mobile 3-Row Wrap + Interactive Hover Effect + Apple Memoji Sitting on "Designing" & Waving) -->
             <h1 class="hero-fraunces-title jd-appear-title">
-              <span class="hero-hover-word">Designing</span> <br class="hero-mobile-break"><span class="hero-hover-word is-ai-word">AI</span> <span class="hero-hover-word">products</span><br><span class="text-accent"><span class="hero-hover-word is-accent">people</span> <span class="hero-hover-word is-accent">trust.</span></span>
+              <span class="hero-hover-word is-designing-word">
+                <span class="hero-word-text">Designing</span>
+                <span class="hero-sitting-memoji" aria-hidden="true">
+                  <img src="assets/memoji_hero_sitting_wave.png?v=180" alt="" class="hero-sitting-memoji-img" decoding="sync">
+                </span>
+              </span> <br class="hero-mobile-break"><span class="hero-hover-word is-ai-word">AI</span> <span class="hero-hover-word">products</span><br><span class="text-accent"><span class="hero-hover-word is-accent">people</span> <span class="hero-hover-word is-accent">trust.</span></span>
             </h1>
 
             <!-- Clean Subtitle Line (Julian David y: +90 -> 0 @ 1.1s delay) -->
@@ -500,11 +506,11 @@
       </h2>
 
       <div class="about-editorial-split">
-        <!-- Interactive Circular 3D Pixar Avatar Stage (Moved above text, below title) -->
-        <div class="avatar-stage is-transparent-gif framer-reveal" style="--reveal-delay: 0.08s;" aria-label="Ian Yen interactive avatar — hover to reveal photo">
+        <!-- Interactive Circular Apple Memoji Avatar Stage (Moved above text, below title) -->
+        <div class="avatar-stage is-transparent-gif framer-reveal" style="--reveal-delay: 0.08s;" aria-label="Ian Yen interactive avatar — alternates with real photo">
           <div class="avatar-tilt-card">
             <div class="avatar-img-circle" data-avatar-circle>
-              <img src="assets/avatar_var_4_navy_hoodie.gif?v=29" alt="Ian Yen animated 3D avatar" class="hero-transparent-gif" fetchpriority="high" decoding="sync" data-avatar-img>
+              <img src="assets/memoji_about_bust.png?v=180" alt="Ian Yen Apple Memoji avatar" class="hero-transparent-gif" fetchpriority="high" decoding="sync" data-avatar-img>
               <div class="avatar-real-reveal" aria-hidden="true">
                 <img src="assets/avatar_real_photo.jpg?v=153" alt="Ian Yen" fetchpriority="high" decoding="sync">
               </div>
@@ -592,6 +598,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=168"></script>
+  <script src="script.js?v=180"></script>
 </body>
 </html>
