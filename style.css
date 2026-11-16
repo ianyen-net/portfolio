@@ -1283,7 +1283,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 .hero-fraunces-title {
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'ROND' 85;
-  font-size: clamp(37px, 6.1vw, 86px);
+  font-size: clamp(39px, 6.4vw, 90px);
   font-weight: 900;
   line-height: 0.94;
   letter-spacing: -0.025em;
@@ -1308,7 +1308,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 
   .hero-fraunces-title {
     white-space: normal;
-    font-size: clamp(35px, 10.4vw, 53px);
+    font-size: clamp(37px, 10.9vw, 56px);
     line-height: 0.96;
   }
 
@@ -1870,7 +1870,7 @@ body[data-theme="light"] .hero-hover-word.is-accent.is-flash {
 .leo-h2 {
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 96, 'wght' 850, 'wdth' 98, 'ROND' 85;
-  font-size: clamp(35px, 4.6vw, 61px);
+  font-size: clamp(37px, 4.85vw, 64px);
   font-weight: 850;
   line-height: 0.96;
   letter-spacing: -0.02em;
@@ -2963,7 +2963,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   position: relative;
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 48, 'wght' 800, 'wdth' 98, 'ROND' 80;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 800;
   letter-spacing: -0.015em;
   text-transform: uppercase;
@@ -3508,7 +3508,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   z-index: 1;
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 36, 'wght' 750, 'wdth' 102, 'slnt' -6, 'ROND' 95;
-  font-size: clamp(18px, 1.76vw, 22px);
+  font-size: clamp(19px, 1.85vw, 23px);
   font-weight: 750;
   font-style: normal;
   line-height: 1.05;
@@ -4320,7 +4320,7 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
 .leo-footer-heading {
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 96, 'wght' 850, 'wdth' 98, 'ROND' 85;
-  font-size: clamp(38px, 5.4vw, 67px);
+  font-size: clamp(40px, 5.7vw, 70px);
   font-weight: 850;
   line-height: 0.96;
   letter-spacing: -0.02em;
