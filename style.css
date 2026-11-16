@@ -35,16 +35,16 @@
 :root,
 body,
 body[data-theme="dark"] {
-  /* Slide 324 Dark Theme (`Home` Color Light & Washer Mocks) — `#040A2F` Deep Midnight Navy Canvas, `#121942` Indigo Cards, `#A8C7FA` Periwinkle, `#C4EED0` Fitbit Mint & Graceful `#FDA0FC` Orchid-Purple Touches */
-  --bg-page: #040A2F;
-  --bg-surface: #0C143D;
-  --bg-elevated: #172259;
-  --bg-card: #0C143D;
+  /* Slide 324 Dark Theme with Black Background — `#000000` Pure Black Canvas, `#0E1015` Dark Surfaces, `#A8C7FA` Periwinkle, `#88E2AC` Fitbit Mint & Graceful `#FDA0FC` Orchid-Purple Touches */
+  --bg-page: #000000;
+  --bg-surface: #0E1015;
+  --bg-elevated: #171A24;
+  --bg-card: #0E1015;
   --text-primary: #F4F7FE;
   --text-secondary: #BCC7EB;
   --text-muted: #8E9ECF;
-  --border-subtle: rgba(168, 199, 250, 0.15);
-  --border-strong: rgba(168, 199, 250, 0.30);
+  --border-subtle: rgba(168, 199, 250, 0.14);
+  --border-strong: rgba(168, 199, 250, 0.28);
   --accent: #A8C7FA;
   --accent-saffron: #88E2AC;
   --accent-blush: #E7D5F1;
@@ -53,12 +53,12 @@ body[data-theme="dark"] {
   --accent-coral: #FDA0FC;
   --accent-lime: #C4EED0;
   --accent-soft: rgba(168, 199, 250, 0.16);
-  --nav-bg: rgba(10, 17, 54, 0.86);
+  --nav-bg: rgba(12, 14, 20, 0.88);
   --nav-hover-pill: rgba(168, 199, 250, 0.16);
   --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   --dot-grid-color: rgba(168, 199, 250, 0.09);
   --tooltip-bg: #F4F7FE;
-  --tooltip-text: #040A2F;
+  --tooltip-text: #000000;
 
   /* Google Sans Flex Expressive Variable + Google Sans Mono Typography */
   --font-display: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
