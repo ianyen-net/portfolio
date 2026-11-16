@@ -46,7 +46,7 @@ body[data-theme="dark"] {
   --border-subtle: rgba(168, 199, 250, 0.14);
   --border-strong: rgba(168, 199, 250, 0.28);
   --accent: #A8C7FA;
-  --accent-saffron: #E580DC;
+  --accent-saffron: #88E2AC;
   --accent-blush: #D3E3FD;
   --accent-navy: #040A2F;
   --accent-blue: #1C2D8C;
@@ -84,7 +84,7 @@ body[data-theme="light"] {
   --border-subtle: rgba(11, 87, 208, 0.11);
   --border-strong: rgba(11, 87, 208, 0.22);
   --accent: #0B57D0;
-  --accent-saffron: #B81D9E;
+  --accent-saffron: #146C2E;
   --accent-blush: #D3E3FD;
   --accent-navy: #040A2F;
   --accent-blue: #0B57D0;
@@ -582,12 +582,12 @@ body[data-theme="light"] .leo-nav-cta {
 }
 
 .leo-nav-cta .slot-text-clone {
-  color: #1A0419;
+  color: #072711;
 }
 
 .leo-nav-cta:hover {
-  background: #E580DC;
-  color: #1A0419;
+  background: #88E2AC;
+  color: #072711;
 }
 
 body[data-theme="light"] .leo-nav-cta .slot-text-clone {
@@ -1329,8 +1329,8 @@ body[data-theme="light"] .hero-hover-word.is-flash {
 .hero-hover-word.is-ai-word.is-flash,
 .hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
-  color: #E580DC;
-  text-shadow: 0 12px 28px rgba(229, 128, 220, 0.48);
+  color: #88E2AC;
+  text-shadow: 0 12px 28px rgba(136, 226, 172, 0.44);
 }
 
 .hero-hover-word.is-ai-word.is-ai-frozen {
@@ -1340,25 +1340,25 @@ body[data-theme="light"] .hero-hover-word.is-flash {
 body[data-theme="light"] .hero-hover-word.is-ai-word:hover,
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-flash,
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
-  color: #B81D9E;
-  text-shadow: 0 12px 28px rgba(184, 29, 158, 0.32);
+  color: #146C2E;
+  text-shadow: 0 12px 28px rgba(20, 108, 46, 0.28);
 }
 
 /* Different interactive on-hover state for the word "AI" once it is frozen */
 .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   animation: none;
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
-  color: #D5EE6B;
+  color: #A8C7FA;
   text-shadow:
-    0 0 22px rgba(213, 238, 107, 0.65),
-    0 16px 34px rgba(168, 199, 250, 0.48);
+    0 0 22px rgba(168, 199, 250, 0.65),
+    0 16px 34px rgba(136, 226, 172, 0.48);
 }
 
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   color: #0B57D0;
   text-shadow:
     0 0 22px rgba(11, 87, 208, 0.45),
-    0 16px 34px rgba(184, 29, 158, 0.35);
+    0 16px 34px rgba(20, 108, 46, 0.32);
 }
 
 .hero-hover-word:nth-of-type(3):hover,
@@ -1376,13 +1376,13 @@ body[data-theme="light"] .hero-hover-word:nth-of-type(3).is-flash {
 .hero-hover-word.is-accent:hover,
 .hero-hover-word.is-accent.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(1.5deg);
-  color: #E580DC;
-  text-shadow: 0 12px 28px rgba(229, 128, 220, 0.48);
+  color: #88E2AC;
+  text-shadow: 0 12px 28px rgba(136, 226, 172, 0.44);
 }
 
 body[data-theme="light"] .hero-hover-word.is-accent:hover,
 body[data-theme="light"] .hero-hover-word.is-accent.is-flash {
-  color: #B81D9E;
+  color: #146C2E;
 }
 
 .hero-hover-word.is-accent:last-of-type:hover,
@@ -3990,12 +3990,12 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-mauve {
-  background: #E580DC;
-  color: #1A0419;
+  background: #88E2AC;
+  color: #072711;
   border-color: transparent;
-  --btn-hover-fill: #F5A3EE;
-  --btn-hover-text: #1A0419;
-  box-shadow: 0 12px 28px -8px rgba(229, 128, 220, 0.42);
+  --btn-hover-fill: #C4EDD3;
+  --btn-hover-text: #072711;
+  box-shadow: 0 12px 28px -8px rgba(136, 226, 172, 0.38);
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-blush {
@@ -4026,12 +4026,12 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blue {
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-mauve {
-  background: #C2E7FF;
-  color: #001D35;
+  background: #C4EDD3;
+  color: #072711;
   border-color: transparent;
-  --btn-hover-fill: #A8C7FA;
-  --btn-hover-text: #040A2F;
-  box-shadow: 0 10px 24px -8px rgba(11, 87, 208, 0.20);
+  --btn-hover-fill: #146C2E;
+  --btn-hover-text: #FFFFFF;
+  box-shadow: 0 10px 24px -8px rgba(20, 108, 46, 0.20);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
@@ -6306,7 +6306,7 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 .case-password-kicker,
 .feature-num,
 .principle-num {
-  color: #E580DC;
+  color: #88E2AC;
 }
 
 body[data-theme="light"] .leo-section-label,
@@ -6316,15 +6316,15 @@ body[data-theme="light"] .proto-banner-label,
 body[data-theme="light"] .case-password-kicker,
 body[data-theme="light"] .feature-num,
 body[data-theme="light"] .principle-num {
-  color: #B81D9E;
+  color: #146C2E;
 }
 
 .case-eyebrow::before {
-  background: #E580DC;
+  background: #88E2AC;
 }
 
 body[data-theme="light"] .case-eyebrow::before {
-  background: #B81D9E;
+  background: #146C2E;
 }
 
 .metric-value,
@@ -6353,11 +6353,11 @@ body[data-theme="light"] .leo-exp-period {
 }
 
 .leo-work-card:hover .leo-work-metric {
-  color: #E580DC;
+  color: #88E2AC;
 }
 
 body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
-  color: #B81D9E;
+  color: #146C2E;
 }
 
 .leo-work-meta-dot {
@@ -7395,16 +7395,16 @@ body[data-theme="light"] .proto-portal-cta {
 }
 
 .proto-directory-portal:hover .proto-portal-cta {
-  background: #E580DC;
-  color: #1A0419;
+  background: #88E2AC;
+  color: #072711;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 16px 32px -8px rgba(229, 128, 220, 0.52);
+  box-shadow: 0 16px 32px -8px rgba(136, 226, 172, 0.45);
 }
 
 body[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #0842A0;
+  background: #146C2E;
   color: #FFFFFF;
-  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.52);
+  box-shadow: 0 16px 32px -8px rgba(20, 108, 46, 0.45);
 }
 
 .proto-directory-portal:hover .proto-portal-cta .slot-text-primary {
@@ -7413,7 +7413,7 @@ body[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
 
 .proto-directory-portal:hover .proto-portal-cta .slot-text-clone {
   transform: translateY(-125%);
-  color: #1A0419;
+  color: #072711;
 }
 
 body[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta .slot-text-clone {
