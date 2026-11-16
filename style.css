@@ -848,7 +848,7 @@ body[data-theme="light"] .hero-card-inner {
   z-index: 0;
 }
 
-/* Very Faded Hue Shadow in the Background of the Hero Card (`.framer-i8j31p` from leomarlowe.framer.website) */
+/* Very Faded Hue Shadow in the Background of the Hero Card */
 .hero-radial-glow {
   display: block;
   position: absolute;
@@ -859,9 +859,9 @@ body[data-theme="light"] .hero-card-inner {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(134, 168, 207, 0.14) 0%,
-    rgba(195, 142, 180, 0.065) 42%,
-    rgba(134, 168, 207, 0) 72%
+    rgba(168, 199, 250, 0.14) 0%,
+    rgba(136, 226, 172, 0.065) 42%,
+    rgba(168, 199, 250, 0) 72%
   );
   pointer-events: none;
   z-index: 0;
@@ -870,13 +870,13 @@ body[data-theme="light"] .hero-card-inner {
 body[data-theme="light"] .hero-radial-glow {
   background: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(134, 168, 207, 0.19) 0%,
-    rgba(195, 142, 180, 0.10) 42%,
-    rgba(134, 168, 207, 0) 72%
+    rgba(11, 87, 208, 0.12) 0%,
+    rgba(20, 108, 46, 0.07) 42%,
+    rgba(11, 87, 208, 0) 72%
   );
 }
 
-/* Torch-Like Gradient Top Border Explosion Flash (1/4 of the hero section, lingers for 5 seconds and disappears gradually, strictly only visible in the hero section, behind all hero elements) */
+/* Torch-Like Gradient Top Border Explosion Flash (Site Blue Palette + 1–2 Pops of Fitbit Mint/Lime Green) */
 .hero-top-torch-flash {
   position: absolute;
   top: 0;
@@ -894,28 +894,57 @@ body[data-theme="light"] .hero-radial-glow {
     linear-gradient(
       90deg,
       transparent 2%,
-      rgba(107, 155, 255, 0.95) 18%,
-      rgba(168, 85, 247, 1) 34%,
-      rgba(253, 224, 71, 1) 50%,
-      rgba(236, 72, 153, 1) 66%,
-      rgba(129, 140, 248, 0.95) 82%,
+      rgba(11, 87, 208, 0.92) 18%,
+      rgba(168, 199, 250, 1) 35%,
+      rgba(213, 238, 107, 1) 50%,
+      rgba(136, 226, 172, 1) 65%,
+      rgba(168, 199, 250, 0.95) 82%,
       transparent 98%
     ) top center / 100% 4px no-repeat,
-    /* Bright central impact burst at the rocket strike point */
+    /* Bright central impact burst at the rocket strike point (1–2 pops of Fitbit Mint & Lime Green) */
     radial-gradient(
       38% 145px at 50% 0%,
-      rgba(253, 224, 71, 0.76) 0%,
-      rgba(249, 115, 22, 0.54) 28%,
-      rgba(236, 72, 153, 0.40) 56%,
-      rgba(168, 85, 247, 0.20) 80%,
+      rgba(213, 238, 107, 0.78) 0%,
+      rgba(136, 226, 172, 0.58) 32%,
+      rgba(168, 199, 250, 0.42) 60%,
+      rgba(11, 87, 208, 0.20) 82%,
       transparent 100%
     ),
-    /* Expansive aurora torch bloom reaching 1/4 down the hero section */
+    /* Expansive aurora torch bloom reaching 1/4 down the hero section in the site's Periwinkle & Mint palette */
     radial-gradient(
       78% 100% at 50% 0%,
-      rgba(168, 85, 247, 0.46) 0%,
-      rgba(129, 140, 248, 0.32) 44%,
-      rgba(107, 155, 255, 0.16) 74%,
+      rgba(136, 226, 172, 0.42) 0%,
+      rgba(168, 199, 250, 0.34) 45%,
+      rgba(11, 87, 208, 0.16) 76%,
+      transparent 100%
+    );
+}
+
+body[data-theme="light"] .hero-top-torch-flash {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 2%,
+      rgba(11, 87, 208, 0.95) 18%,
+      rgba(20, 108, 46, 1) 36%,
+      rgba(136, 226, 172, 1) 50%,
+      rgba(11, 87, 208, 1) 66%,
+      rgba(168, 199, 250, 0.95) 82%,
+      transparent 98%
+    ) top center / 100% 4px no-repeat,
+    radial-gradient(
+      38% 145px at 50% 0%,
+      rgba(136, 226, 172, 0.72) 0%,
+      rgba(20, 108, 46, 0.38) 32%,
+      rgba(11, 87, 208, 0.32) 60%,
+      rgba(168, 199, 250, 0.18) 82%,
+      transparent 100%
+    ),
+    radial-gradient(
+      78% 100% at 50% 0%,
+      rgba(20, 108, 46, 0.28) 0%,
+      rgba(11, 87, 208, 0.24) 45%,
+      rgba(168, 199, 250, 0.14) 76%,
       transparent 100%
     );
 }
@@ -3101,27 +3130,27 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .leo-process-card:nth-of-type(1) {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
-  --loop-color: #B8D4FF;
-  --loop-color-light: #2563EB;
-  --loop-glow: rgba(134, 168, 207, 0.75);
+  --loop-color: #A8C7FA;
+  --loop-color-light: #0B57D0;
+  --loop-glow: rgba(168, 199, 250, 0.75);
   --word-flash-delay: 0.10s;
 }
 
 .leo-process-card:nth-of-type(2) {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
-  --loop-color: #F0B8E0;
-  --loop-color-light: #9333EA;
-  --loop-glow: rgba(195, 142, 180, 0.78);
+  --loop-color: #88E2AC;
+  --loop-color-light: #146C2E;
+  --loop-glow: rgba(136, 226, 172, 0.78);
   --word-flash-delay: 0.90s;
 }
 
 .leo-process-card:nth-of-type(3) {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
-  --loop-color: #FFFFFF;
-  --loop-color-light: #4F46E5;
-  --loop-glow: rgba(225, 203, 215, 0.82);
+  --loop-color: #D5EE6B;
+  --loop-color-light: #0B57D0;
+  --loop-glow: rgba(213, 238, 107, 0.78);
   --word-flash-delay: 1.70s;
 }
 
@@ -3405,33 +3434,33 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #6B9BFF;
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 0 8px 28px rgba(59, 130, 246, 0.48);
+  color: #A8C7FA;
+  text-shadow: 0 0 20px rgba(168, 199, 250, 0.6), 0 8px 28px rgba(11, 87, 208, 0.45);
 }
 
 .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #A855F7;
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.62), 0 8px 28px rgba(147, 51, 234, 0.48);
+  color: #88E2AC;
+  text-shadow: 0 0 20px rgba(136, 226, 172, 0.62), 0 8px 28px rgba(20, 108, 46, 0.48);
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #818CF8;
-  text-shadow: 0 0 20px rgba(129, 140, 248, 0.62), 0 8px 28px rgba(99, 102, 241, 0.48);
+  color: #D5EE6B;
+  text-shadow: 0 0 20px rgba(213, 238, 107, 0.62), 0 8px 28px rgba(136, 226, 172, 0.48);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #2563EB;
-  text-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+  color: #0B57D0;
+  text-shadow: 0 6px 20px rgba(11, 87, 208, 0.28);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(2):hover .leo-process-title {
-  color: #7C3AED;
-  text-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
+  color: #146C2E;
+  text-shadow: 0 6px 20px rgba(20, 108, 46, 0.28);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #4F46E5;
-  text-shadow: 0 6px 20px rgba(79, 70, 229, 0.28);
+  color: #0B57D0;
+  text-shadow: 0 6px 20px rgba(11, 87, 208, 0.28);
 }
 
 .process-hand-arrow {
