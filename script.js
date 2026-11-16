@@ -231,7 +231,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  let triggerAvatarExplosionLook = () => {};
+  const heroSittingMemoji = document.querySelector('.hero-sitting-memoji');
+  let sittingMemojiAmazedTimer = null;
+  let sittingMemojiAppearTimer = null;
+
+  let triggerAvatarExplosionLook = () => {
+    if (!heroSittingMemoji) return;
+    if (sittingMemojiAmazedTimer) {
+      clearTimeout(sittingMemojiAmazedTimer);
+      sittingMemojiAmazedTimer = null;
+    }
+    if (sittingMemojiAppearTimer) {
+      clearTimeout(sittingMemojiAppearTimer);
+      sittingMemojiAppearTimer = null;
+    }
+
+    if (!heroSittingMemoji.classList.contains('is-appeared')) {
+      // First explosion: appear naturally with motion right after the explosion bursts at the top, looking up & amazed at the overhead glow
+      sittingMemojiAppearTimer = setTimeout(() => {
+        heroSittingMemoji.classList.add('is-appeared', 'is-amazed');
+        sittingMemojiAmazedTimer = setTimeout(() => {
+          heroSittingMemoji.classList.remove('is-amazed');
+          sittingMemojiAmazedTimer = null;
+        }, 2350);
+      }, 340);
+    } else {
+      // Subsequent explosions: immediately look up and look amazed when the top explosion happens
+      heroSittingMemoji.classList.add('is-amazed');
+      sittingMemojiAmazedTimer = setTimeout(() => {
+        heroSittingMemoji.classList.remove('is-amazed');
+        sittingMemojiAmazedTimer = null;
+      }, 2600);
+    }
+  };
   const avatarStage = document.querySelector('.avatar-stage');
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
@@ -591,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         heroTorchFlash.classList.remove('is-flashing');
         heroTorchFlash.classList.add('is-outside-hero');
+        if (heroSittingMemoji) heroSittingMemoji.classList.add('is-appeared');
         freezeAiWord();
       }
     };
@@ -602,6 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
         torchFired = true;
         resetBreakableHeroPieces();
         heroTorchFlash.classList.remove('is-flashing');
+        if (heroSittingMemoji) heroSittingMemoji.classList.add('is-appeared');
         return;
       }
       const elapsed = performance.now() - startTrack;
