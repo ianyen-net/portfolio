@@ -232,36 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const heroSittingMemoji = document.querySelector('.hero-sitting-memoji');
-  let sittingMemojiAmazedTimer = null;
   let sittingMemojiAppearTimer = null;
 
   let triggerAvatarExplosionLook = () => {
     if (!heroSittingMemoji) return;
-    if (sittingMemojiAmazedTimer) {
-      clearTimeout(sittingMemojiAmazedTimer);
-      sittingMemojiAmazedTimer = null;
-    }
     if (sittingMemojiAppearTimer) {
       clearTimeout(sittingMemojiAppearTimer);
       sittingMemojiAppearTimer = null;
     }
 
     if (!heroSittingMemoji.classList.contains('is-appeared')) {
-      // First explosion: appear naturally with motion right after the explosion bursts at the top, looking up & amazed at the overhead glow
       sittingMemojiAppearTimer = setTimeout(() => {
-        heroSittingMemoji.classList.add('is-appeared', 'is-amazed');
-        sittingMemojiAmazedTimer = setTimeout(() => {
-          heroSittingMemoji.classList.remove('is-amazed');
-          sittingMemojiAmazedTimer = null;
-        }, 2350);
-      }, 340);
-    } else {
-      // Subsequent explosions: immediately look up and look amazed when the top explosion happens
-      heroSittingMemoji.classList.add('is-amazed');
-      sittingMemojiAmazedTimer = setTimeout(() => {
-        heroSittingMemoji.classList.remove('is-amazed');
-        sittingMemojiAmazedTimer = null;
-      }, 2600);
+        heroSittingMemoji.classList.add('is-appeared');
+        sittingMemojiAppearTimer = null;
+      }, 320);
     }
   };
   const avatarStage = document.querySelector('.avatar-stage');

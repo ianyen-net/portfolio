@@ -1330,7 +1330,7 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   will-change: transform, color;
 }
 
-/* Apple Memoji Sitting Naturally on the "S" of "DESIGNING" (10% Enlarged, Appears Naturally After Explosion, Slow Leg Motion + Amazed Look on Explosion) */
+/* Apple Memoji Sitting Naturally on the "S" of "DESIGNING" (10% Enlarged, Black Shirt + Blue Jeans, Waving Hand Only, Appears Naturally After Explosion) */
 .hero-hover-word.is-designing-word {
   position: relative;
   isolation: isolate;
@@ -1351,59 +1351,36 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   height: 1.64em;
   pointer-events: none;
   z-index: 4;
-  transform-origin: 50% 65.5%;
+  transform-origin: 50% 66.5%;
   opacity: 0;
-  transform: translate3d(0, -34%, 0) scale(0.68);
+  transform: translate3d(0, -18%, 0) scale(0.88);
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.42));
 }
 
 .hero-sitting-memoji.is-appeared {
-  animation: heroSittingMemojiNaturalAppear 0.78s cubic-bezier(0.22, 1.35, 0.36, 1) forwards;
+  animation: heroSittingMemojiNaturalAppear 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes heroSittingMemojiNaturalAppear {
   0% {
     opacity: 0;
-    transform: translate3d(0, -36%, 0) scale(0.68, 0.76);
+    transform: translate3d(0, -18%, 0) scale(0.88);
   }
-  58% {
+  70% {
     opacity: 1;
-    transform: translate3d(0, 3.5%, 0) scale(1.05, 0.94);
-  }
-  80% {
-    opacity: 1;
-    transform: translate3d(0, -1.5%, 0) scale(0.98, 1.02);
+    transform: translate3d(0, 1.5%, 0) scale(1);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0, 0%, 0) scale(1, 1);
+    transform: translate3d(0, 0%, 0) scale(1);
   }
 }
 
 .hero-sitting-memoji-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: opacity 0.16s ease;
-}
-
-.hero-sitting-memoji-img.is-idle-gif {
-  opacity: 1;
-}
-
-.hero-sitting-memoji-img.is-amazed-gif {
-  opacity: 0;
-}
-
-.hero-sitting-memoji.is-amazed .hero-sitting-memoji-img.is-idle-gif {
-  opacity: 0;
-}
-
-.hero-sitting-memoji.is-amazed .hero-sitting-memoji-img.is-amazed-gif {
-  opacity: 1;
 }
 
 .hero-hover-word:hover,
