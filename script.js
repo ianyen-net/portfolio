@@ -236,11 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     let isShowingRealPhoto = false;
 
-    // Alternate between the 3D black hoodie avatar and the real image every 4 seconds
+    // Alternate between the 3D black hoodie avatar and the real image every 3 seconds
     setInterval(() => {
       isShowingRealPhoto = !isShowingRealPhoto;
       avatarStage.classList.toggle('is-teasing-photo', isShowingRealPhoto);
-    }, 4000);
+    }, 3000);
 
     const resetAvatarTilt = () => {
       if (tiltCard) {
