@@ -35,30 +35,30 @@
 :root,
 body,
 body[data-theme="dark"] {
-  /* M3 Expressive Dark Theme (Reference Video + Slides 318–323) — Deep Midnight Indigo Canvas with Sky-Blue, Fitbit Mint & Lime Pops */
-  --bg-page: #070B19;
-  --bg-surface: #0F162B;
-  --bg-elevated: #172342;
-  --bg-card: #0F162B;
+  /* Slide 324 Dark Theme (`Home` Color Light & Washer Mocks) — `#040A2F` Deep Midnight Navy Canvas, `#121942` Indigo Cards, `#A8C7FA` Periwinkle, `#C4EED0` Fitbit Mint & Graceful `#FDA0FC` Orchid-Purple Touches */
+  --bg-page: #040A2F;
+  --bg-surface: #0C143D;
+  --bg-elevated: #172259;
+  --bg-card: #0C143D;
   --text-primary: #F4F7FE;
-  --text-secondary: #B9C8E4;
-  --text-muted: #8FA3C7;
-  --border-subtle: rgba(193, 229, 255, 0.14);
-  --border-strong: rgba(193, 229, 255, 0.28);
+  --text-secondary: #BCC7EB;
+  --text-muted: #8E9ECF;
+  --border-subtle: rgba(168, 199, 250, 0.15);
+  --border-strong: rgba(168, 199, 250, 0.30);
   --accent: #A8C7FA;
-  --accent-saffron: #68C489;
-  --accent-blush: #C1E5FF;
-  --accent-navy: #045575;
-  --accent-blue: #0A55D1;
-  --accent-coral: #F26B61;
-  --accent-lime: #D5EE6B;
+  --accent-saffron: #88E2AC;
+  --accent-blush: #E7D5F1;
+  --accent-navy: #040A2F;
+  --accent-blue: #293BA1;
+  --accent-coral: #FDA0FC;
+  --accent-lime: #C4EED0;
   --accent-soft: rgba(168, 199, 250, 0.16);
-  --nav-bg: rgba(13, 20, 39, 0.86);
-  --nav-hover-pill: rgba(193, 229, 255, 0.16);
+  --nav-bg: rgba(10, 17, 54, 0.86);
+  --nav-hover-pill: rgba(168, 199, 250, 0.16);
   --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --dot-grid-color: rgba(193, 229, 255, 0.09);
+  --dot-grid-color: rgba(168, 199, 250, 0.09);
   --tooltip-bg: #F4F7FE;
-  --tooltip-text: #070B19;
+  --tooltip-text: #040A2F;
 
   /* Google Sans Flex Expressive Variable + Google Sans Mono Typography */
   --font-display: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -74,30 +74,30 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
-  /* M3 Expressive Light Theme (Reference Video `#C1E6FD` / `#D2E2FC` Sky-Blue & Crisp White Cards + `#045575` Teal-Navy & `#4CA86A` Fitbit Green) */
-  --bg-page: #E6F2FC;
-  --bg-surface: #FFFFFF;
-  --bg-elevated: #D2E2FC;
-  --bg-card: #FFFFFF;
-  --text-primary: #07223B;
-  --text-secondary: #1E4363;
-  --text-muted: #4A6E8C;
-  --border-subtle: rgba(10, 85, 209, 0.12);
-  --border-strong: rgba(10, 85, 209, 0.24);
-  --accent: #0A55D1;
-  --accent-saffron: #0E6639;
-  --accent-blush: #C1E5FF;
-  --accent-navy: #045575;
-  --accent-blue: #0A55D1;
-  --accent-coral: #D93025;
-  --accent-lime: #8BB452;
-  --accent-soft: rgba(10, 85, 209, 0.14);
-  --nav-bg: rgba(255, 255, 255, 0.90);
-  --nav-hover-pill: rgba(10, 85, 209, 0.11);
-  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94);
-  --dot-grid-color: rgba(4, 85, 117, 0.09);
-  --tooltip-bg: #07223B;
-  --tooltip-text: #F4F7FE;
+  /* Slide 324 Light Theme (`Fitbit` Mock) — Pure `#FFFFFF` White Page Background, `#F0F4F9` Soft Slate-Blue Cards, `#0B57D0` Royal Blue, `#146C2E` Forest Green & `#C4EED0` Mint */
+  --bg-page: #FFFFFF;
+  --bg-surface: #F0F4F9;
+  --bg-elevated: #C2E7FF;
+  --bg-card: #F0F4F9;
+  --text-primary: #1F1F1F;
+  --text-secondary: #444746;
+  --text-muted: #5F6368;
+  --border-subtle: rgba(11, 87, 208, 0.10);
+  --border-strong: rgba(11, 87, 208, 0.22);
+  --accent: #0B57D0;
+  --accent-saffron: #146C2E;
+  --accent-blush: #E7D5F1;
+  --accent-navy: #040A2F;
+  --accent-blue: #0B57D0;
+  --accent-coral: #A24EA5;
+  --accent-lime: #C4EED0;
+  --accent-soft: rgba(11, 87, 208, 0.12);
+  --nav-bg: rgba(240, 244, 249, 0.90);
+  --nav-hover-pill: rgba(11, 87, 208, 0.10);
+  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --dot-grid-color: rgba(11, 87, 208, 0.08);
+  --tooltip-bg: #1F1F1F;
+  --tooltip-text: #FFFFFF;
 }
 
 *, *::before, *::after {
