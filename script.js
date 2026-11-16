@@ -234,46 +234,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const avatarStage = document.querySelector('.avatar-stage');
   if (avatarStage) {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
-    let firstScrollFlashDone = false;
-    let firstScrollFlashTimer = null;
+    let isShowingRealPhoto = false;
 
-    // Flash the real photo for 2 seconds the first time the user scrolls to the About section
-    const aboutSection = document.getElementById('about') || avatarStage;
-    if ('IntersectionObserver' in window) {
-      const aboutFlashObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !firstScrollFlashDone) {
-              firstScrollFlashDone = true;
-              aboutFlashObserver.disconnect();
-              avatarStage.classList.add('is-teasing-photo');
-              firstScrollFlashTimer = setTimeout(() => {
-                avatarStage.classList.remove('is-teasing-photo');
-                firstScrollFlashTimer = null;
-              }, 2000);
-            }
-          });
-        },
-        { threshold: 0.35 }
-      );
-      aboutFlashObserver.observe(aboutSection);
-    }
+    // Alternate between the 3D black hoodie avatar and the real image every 4 seconds
+    setInterval(() => {
+      isShowingRealPhoto = !isShowingRealPhoto;
+      avatarStage.classList.toggle('is-teasing-photo', isShowingRealPhoto);
+    }, 4000);
 
     const resetAvatarTilt = () => {
-      avatarStage.classList.remove('is-revealing-photo');
       if (tiltCard) {
         tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
       }
     };
-
-    avatarStage.addEventListener('mouseenter', () => {
-      if (firstScrollFlashTimer) {
-        clearTimeout(firstScrollFlashTimer);
-        firstScrollFlashTimer = null;
-        avatarStage.classList.remove('is-teasing-photo');
-      }
-      avatarStage.classList.add('is-revealing-photo');
-    });
 
     avatarStage.addEventListener('mousemove', (e) => {
       if (!tiltCard) return;
