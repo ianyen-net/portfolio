@@ -1022,7 +1022,6 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   background: transparent;
 }
 
-/* Rotating Disc Flip Transition Between 3D Avatar and Real Image */
 .avatar-stage.is-transparent-gif .avatar-img-circle > img.hero-transparent-gif {
   width: 94%;
   height: 94%;
@@ -1030,14 +1029,9 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   object-position: center bottom;
   transform: translateY(3px) scale(1.02);
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
-  transition: opacity 0.14s ease;
 }
 
-.avatar-stage.is-revealing-photo .avatar-img-circle > img.hero-transparent-gif,
-.avatar-stage.is-teasing-photo .avatar-img-circle > img.hero-transparent-gif {
-  opacity: 0;
-}
-
+/* Full Real Photo Reveal Layer on Avatar Hover + First-Scroll 2-Second Flash */
 .avatar-real-reveal {
   position: absolute;
   inset: 0;
@@ -1048,7 +1042,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   opacity: 0;
   background: #21485E;
   clip-path: circle(100% at 50% 50%);
-  transition: opacity 0.14s ease;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .avatar-stage.is-revealing-photo .avatar-real-reveal,
@@ -7256,7 +7250,7 @@ body[data-theme="light"] .proto-portal-tag {
   z-index: 2;
   width: 100%;
   min-height: 360px;
-  padding: 0;
+  padding: 20px 20px 20px 8px;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
@@ -7289,10 +7283,10 @@ body[data-theme="light"] .proto-portal-tag {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 0 27px 27px 0;
+  border-radius: 20px;
   background: #0D1117;
   border: none;
-  box-shadow: -16px 0 40px -12px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.68);
   overflow: hidden;
   font-family: var(--font-mono);
   animation: none;
@@ -7427,9 +7421,11 @@ body[data-theme="light"] .proto-code-terminal {
   font-weight: 500;
 }
 
-.proto-terminal-cli .cli-cursor {
+.proto-terminal-cli .cli-cursor,
+.proto-terminal-body .cli-cursor {
   width: 6px;
   height: 13px;
+  margin-left: 5px;
   background: #86A8CF;
   display: inline-block;
   animation: cliCursorBlink 1.05s steps(1) infinite;
@@ -7486,16 +7482,12 @@ body[data-theme="light"] .proto-code-terminal {
   }
 
   .proto-portal-content {
-    padding: 32px 28px 24px;
+    padding: 32px 28px 12px;
   }
 
   .proto-portal-fan-stage {
     min-height: 320px;
-    padding: 0;
-  }
-
-  .proto-code-terminal {
-    border-radius: 0 0 27px 27px;
+    padding: 16px 24px 28px;
   }
 }
 
@@ -7505,16 +7497,12 @@ body[data-theme="light"] .proto-code-terminal {
   }
 
   .proto-portal-content {
-    padding: 26px 20px 20px;
+    padding: 26px 20px 10px;
   }
 
   .proto-portal-fan-stage {
     min-height: 270px;
-    padding: 0;
-  }
-
-  .proto-code-terminal {
-    border-radius: 0 0 21px 21px;
+    padding: 12px 16px 20px;
   }
 
   .proto-terminal-body {
