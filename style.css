@@ -7,39 +7,65 @@
 @import url('https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('assets/fonts/GoogleSansFlex-Variable.ttf') format('truetype-variations');
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans Mono';
+  src: url('assets/fonts/GoogleSansMono-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans Mono';
+  src: url('assets/fonts/GoogleSansMono-Italic-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root,
 body,
 body[data-theme="dark"] {
-  /* Pinterest Palette (https://www.pinterest.com/pin/1037798307866505042/)
-     with Super Dark Midnight Blue Background in Dark Mode */
-  --bg-page: #030712;
-  --bg-surface: #071022;
-  --bg-elevated: #0D1B36;
-  --bg-card: #071022;
-  --text-primary: #F7F3F6;
-  --text-secondary: #B2C3D6;
-  --text-muted: #86A8CF;
-  --border-subtle: rgba(134, 168, 207, 0.16);
-  --border-strong: rgba(134, 168, 207, 0.30);
-  --accent: #86A8CF;
-  --accent-saffron: #C38EB4;
-  --accent-blush: #E1CBD7;
-  --accent-navy: #0C1D4B;
-  --accent-blue: #26425A;
-  --accent-soft: rgba(134, 168, 207, 0.16);
-  --nav-bg: rgba(3, 7, 18, 0.86);
-  --nav-hover-pill: rgba(134, 168, 207, 0.14);
-  --card-inner-shadow: inset 0 1px 0 rgba(225, 203, 215, 0.08);
-  --dot-grid-color: rgba(134, 168, 207, 0.09);
-  --tooltip-bg: #F7F3F6;
-  --tooltip-text: #030712;
+  /* M3 Expressive Dark Theme (Slides 318–323) — Deep Obsidian & Midnight Indigo Surfaces with Bold Expressive Pastels */
+  --bg-page: #0B0D17;
+  --bg-surface: #131524;
+  --bg-elevated: #1D2138;
+  --bg-card: #131524;
+  --text-primary: #F3F5FC;
+  --text-secondary: #B4BDD6;
+  --text-muted: #8E99BA;
+  --border-subtle: rgba(168, 199, 250, 0.14);
+  --border-strong: rgba(168, 199, 250, 0.28);
+  --accent: #A8C7FA;
+  --accent-saffron: #E580DC;
+  --accent-blush: #D3E3FD;
+  --accent-navy: #040A2F;
+  --accent-blue: #1C2D8C;
+  --accent-coral: #F26B61;
+  --accent-lime: #D5EE6B;
+  --accent-soft: rgba(168, 199, 250, 0.16);
+  --nav-bg: rgba(17, 19, 32, 0.86);
+  --nav-hover-pill: rgba(168, 199, 250, 0.16);
+  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --dot-grid-color: rgba(168, 199, 250, 0.09);
+  --tooltip-bg: #F3F5FC;
+  --tooltip-text: #0B0D17;
 
-  /* Owen Gray Bold Display + Expressive Script + Geist Typography */
-  --font-display: 'Tanker', 'Big Shoulders Display', 'Anton', sans-serif;
-  --font-script: 'Caveat', 'Instrument Serif', cursive;
-  --font-serif: 'Tanker', 'Big Shoulders Display', sans-serif;
-  --font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Google Sans Flex Expressive Variable + Google Sans Mono Typography */
+  --font-display: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Google Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -47,28 +73,30 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
-  /* Pinterest Palette (https://www.pinterest.com/pin/1037798307866505042/) — Soft Blush & Slate Light Mode */
-  --bg-page: #F8F4F7;
-  --bg-surface: #EFE6EC;
-  --bg-elevated: #E1CBD7;
+  /* M3 Expressive Light Theme (Slides 319–321 & 323) — Cool Ice-Lavender Canvas, Crisp White Cards & Saturated Royal Blue Pills */
+  --bg-page: #EEF2F9;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #DCE4F2;
   --bg-card: #FFFFFF;
-  --text-primary: #0E1F2F;
-  --text-secondary: #26425A;
-  --text-muted: #5B7896;
-  --border-subtle: rgba(14, 31, 47, 0.11);
-  --border-strong: rgba(14, 31, 47, 0.22);
-  --accent: #26425A;
-  --accent-saffron: #C38EB4;
-  --accent-blush: #E1CBD7;
-  --accent-navy: #0C1D4B;
-  --accent-blue: #86A8CF;
-  --accent-soft: rgba(134, 168, 207, 0.22);
-  --nav-bg: rgba(248, 244, 247, 0.86);
-  --nav-hover-pill: rgba(38, 66, 90, 0.08);
-  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
-  --dot-grid-color: rgba(38, 66, 90, 0.08);
-  --tooltip-bg: #0E1F2F;
-  --tooltip-text: #F7F3F6;
+  --text-primary: #111420;
+  --text-secondary: #3E4759;
+  --text-muted: #5E6A82;
+  --border-subtle: rgba(11, 87, 208, 0.11);
+  --border-strong: rgba(11, 87, 208, 0.22);
+  --accent: #0B57D0;
+  --accent-saffron: #B81D9E;
+  --accent-blush: #D3E3FD;
+  --accent-navy: #040A2F;
+  --accent-blue: #0B57D0;
+  --accent-coral: #D93025;
+  --accent-lime: #C3E04B;
+  --accent-soft: rgba(11, 87, 208, 0.14);
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-hover-pill: rgba(11, 87, 208, 0.10);
+  --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  --dot-grid-color: rgba(11, 87, 208, 0.08);
+  --tooltip-bg: #111420;
+  --tooltip-text: #F3F5FC;
 }
 
 *, *::before, *::after {
@@ -528,32 +556,38 @@ body[data-theme="light"] .theme-toggle-thumb {
 body[data-theme="light"] .leo-theme-toggle .icon-sun { display: none; }
 body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
 
-/* Nav CTA Pill ("Say hi" / "Resume") — Primary Light & Dark Blue Palette */
+/* Nav CTA Pill ("Say hi" / "Resume") — M3 Expressive Primary Pill */
 .leo-nav-cta {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 7px 14px;
+  padding: 7px 15px;
   border-radius: 999px;
-  background: var(--text-primary);
-  color: var(--bg-page);
+  background: #A8C7FA;
+  color: #040A2F;
   font-family: var(--font-sans);
+  font-variation-settings: 'opsz' 24, 'wght' 660, 'ROND' 80;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 660;
   letter-spacing: -0.01em;
   overflow: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body[data-theme="light"] .leo-nav-cta {
+  background: #0B57D0;
+  color: #FFFFFF;
+}
+
 .leo-nav-cta .slot-text-clone {
-  color: #0E1F2F;
+  color: #1A0419;
 }
 
 .leo-nav-cta:hover {
-  background: var(--accent);
-  color: #0E1F2F;
+  background: #E580DC;
+  color: #1A0419;
 }
 
 body[data-theme="light"] .leo-nav-cta .slot-text-clone {
@@ -561,7 +595,7 @@ body[data-theme="light"] .leo-nav-cta .slot-text-clone {
 }
 
 body[data-theme="light"] .leo-nav-cta:hover {
-  background: #26425A;
+  background: #0842A0;
   color: #FFFFFF;
 }
 
@@ -1211,13 +1245,14 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
   color: var(--text-secondary);
 }
 
-/* Bold Display Hero Headline (`Tanker` from `owen-gray.framer.website` — Enlarged, 2 Rows on Desktop, 3 Rows on Mobile) */
+/* Bold Expressive Display Hero Headline (`Google Sans Flex` M3 Expressive from Slides 318–323) */
 .hero-fraunces-title {
   font-family: var(--font-display);
+  font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'ROND' 85;
   font-size: clamp(46px, 7.6vw, 108px);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: 0.015em;
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
   color: var(--text-primary);
   max-width: 1280px;
@@ -1239,8 +1274,8 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 
   .hero-fraunces-title {
     white-space: normal;
-    font-size: clamp(46px, 13.8vw, 68px);
-    line-height: 0.98;
+    font-size: clamp(44px, 13vw, 66px);
+    line-height: 0.96;
   }
 
   .hero-fraunces-title .hero-mobile-break {
@@ -1249,11 +1284,11 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 }
 
 .hero-fraunces-title .text-accent {
-  color: #86A8CF;
+  color: #A8C7FA;
 }
 
 body[data-theme="light"] .hero-fraunces-title .text-accent {
-  color: #86A8CF;
+  color: #0B57D0;
 }
 
 /* Interactive On-Hover & First-Load Wave Effect on Hero Headline Words ("Designing AI products people trust.") */
@@ -1270,8 +1305,14 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 .hero-hover-word:hover,
 .hero-hover-word.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.5deg);
-  color: #86A8CF;
-  text-shadow: 0 12px 28px rgba(134, 168, 207, 0.45);
+  color: #A8C7FA;
+  text-shadow: 0 12px 28px rgba(168, 199, 250, 0.45);
+}
+
+body[data-theme="light"] .hero-hover-word:hover,
+body[data-theme="light"] .hero-hover-word.is-flash {
+  color: #0B57D0;
+  text-shadow: 0 12px 28px rgba(11, 87, 208, 0.28);
 }
 
 /* Normal hover state of the word "AI", AND its frozen resting state AFTER the rocket explosion finishes */
@@ -1279,38 +1320,62 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 .hero-hover-word.is-ai-word.is-flash,
 .hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
-  color: #C38EB4;
-  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
+  color: #E580DC;
+  text-shadow: 0 12px 28px rgba(229, 128, 220, 0.48);
+}
+
+body[data-theme="light"] .hero-hover-word.is-ai-word:hover,
+body[data-theme="light"] .hero-hover-word.is-ai-word.is-flash,
+body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
+  color: #B81D9E;
+  text-shadow: 0 12px 28px rgba(184, 29, 158, 0.32);
 }
 
 /* Different interactive on-hover state for the word "AI" once it is frozen after the rocket explosion */
 .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
-  color: #86A8CF;
+  color: #D5EE6B;
   text-shadow:
-    0 0 22px rgba(134, 168, 207, 0.78),
-    0 16px 34px rgba(195, 142, 180, 0.58);
+    0 0 22px rgba(213, 238, 107, 0.65),
+    0 16px 34px rgba(168, 199, 250, 0.48);
+}
+
+body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen:hover {
+  color: #0B57D0;
+  text-shadow:
+    0 0 22px rgba(11, 87, 208, 0.45),
+    0 16px 34px rgba(184, 29, 158, 0.35);
 }
 
 .hero-hover-word:nth-of-type(3):hover,
 .hero-hover-word:nth-of-type(3).is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1deg);
-  color: #E1CBD7;
-  text-shadow: 0 12px 28px rgba(225, 203, 215, 0.45);
+  color: #D3E3FD;
+  text-shadow: 0 12px 28px rgba(211, 227, 253, 0.45);
+}
+
+body[data-theme="light"] .hero-hover-word:nth-of-type(3):hover,
+body[data-theme="light"] .hero-hover-word:nth-of-type(3).is-flash {
+  color: #1C2D8C;
 }
 
 .hero-hover-word.is-accent:hover,
 .hero-hover-word.is-accent.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(1.5deg);
-  color: #C38EB4;
-  text-shadow: 0 12px 28px rgba(195, 142, 180, 0.48);
+  color: #E580DC;
+  text-shadow: 0 12px 28px rgba(229, 128, 220, 0.48);
+}
+
+body[data-theme="light"] .hero-hover-word.is-accent:hover,
+body[data-theme="light"] .hero-hover-word.is-accent.is-flash {
+  color: #B81D9E;
 }
 
 .hero-hover-word.is-accent:last-of-type:hover,
 .hero-hover-word.is-accent:last-of-type.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.2deg);
-  color: #86A8CF;
-  text-shadow: 0 12px 28px rgba(134, 168, 207, 0.48);
+  color: #A8C7FA;
+  text-shadow: 0 12px 28px rgba(168, 199, 250, 0.48);
 }
 
 /* Clean Subtitle Line (`.framer-xasqps` — Enlarged, NO cluttered chips underneath!) */
@@ -1635,24 +1700,26 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 
 .leo-h2 {
   font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96, 'wght' 850, 'wdth' 98, 'ROND' 85;
   font-size: clamp(44px, 5.8vw, 76px);
-  font-weight: 400;
+  font-weight: 850;
   line-height: 0.96;
-  letter-spacing: 0.015em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--text-primary);
   text-align: center;
-  max-width: 860px;
+  max-width: 880px;
   text-wrap: balance;
 }
 
 .leo-h2 .text-muted {
   font-family: var(--font-script);
-  font-size: 1.05em;
+  font-variation-settings: 'opsz' 96, 'wght' 700, 'wdth' 104, 'slnt' -10, 'ROND' 100;
+  font-size: 1.02em;
   text-transform: none;
-  letter-spacing: 0em;
+  letter-spacing: -0.015em;
   color: var(--accent-saffron);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .leo-range-label {
@@ -2726,9 +2793,10 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
 .leo-work-title {
   position: relative;
   font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-variation-settings: 'opsz' 48, 'wght' 800, 'wdth' 98, 'ROND' 80;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   line-height: 1.12;
   color: var(--text-primary);
@@ -3269,12 +3337,13 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .leo-process-title {
   position: relative;
   z-index: 1;
-  font-family: var(--font-script);
-  font-size: clamp(24px, 2.5vw, 31px);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36, 'wght' 750, 'wdth' 102, 'slnt' -6, 'ROND' 95;
+  font-size: clamp(22px, 2.2vw, 27px);
+  font-weight: 750;
   font-style: normal;
   line-height: 1.05;
-  letter-spacing: 0em;
+  letter-spacing: -0.015em;
   text-transform: none;
   color: var(--text-primary);
   margin: 0;
@@ -3811,27 +3880,29 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
 }
 
 /* ==========================================================================
-   8. REFINED ACTION & FOOTER BUTTONS (Centered + Subtle Stylistic Hover)
+   8. EXPRESSIVE ACTION & FOOTER BUTTONS (Slides 318–323 Pill Button System)
    ========================================================================== */
 .leo-magnetic-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
-  height: 46px;
+  padding: 0 28px;
+  height: 52px;
   border-radius: 999px;
-  background: var(--text-primary);
-  color: var(--bg-page);
-  border: 1px solid transparent;
+  background: #A8C7FA;
+  color: #040A2F;
+  border: 1.5px solid transparent;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
+  font-variation-settings: 'opsz' 24, 'wght' 680, 'ROND' 80;
+  font-size: 15px;
+  font-weight: 680;
   line-height: 1;
   letter-spacing: -0.01em;
   text-align: center;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: 0 10px 26px -8px rgba(168, 199, 250, 0.35);
   transition:
     transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.32s ease,
@@ -3840,12 +3911,18 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
     box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+body[data-theme="light"] .leo-magnetic-btn {
+  background: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 12px 26px -8px rgba(11, 87, 208, 0.38);
+}
+
 .leo-magnetic-btn::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: var(--btn-hover-fill, var(--nav-hover-pill));
+  background: var(--btn-hover-fill, transparent);
   opacity: 0;
   transform: scale(0.92);
   transition:
@@ -3859,18 +3936,20 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   transform: scale(1);
 }
 
-/* Primary Email Button Hover Effect (`ianyenyh@gmail.com`) */
+/* Primary Button Hover Effect */
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
-  transform: translateY(-2px);
-  background: var(--accent);
-  color: #030712;
+  transform: translateY(-2px) scale(1.02);
+  background: #D3E3FD;
+  color: #040A2F;
   border-color: transparent;
+  box-shadow: 0 16px 32px -8px rgba(168, 199, 250, 0.55);
 }
 
 body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
-  background: var(--accent);
+  background: #0842A0;
   color: #FFFFFF;
   border-color: transparent;
+  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.52);
 }
 
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover .leo-btn-label svg {
@@ -3878,46 +3957,76 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 }
 
 .leo-magnetic-btn.is-secondary {
-  --btn-hover-fill: rgba(134, 168, 207, 0.16);
-  --btn-hover-text: #86A8CF;
-  background: var(--bg-surface);
-  color: var(--text-primary);
-  border-color: var(--border-subtle);
+  --btn-hover-fill: rgba(168, 199, 250, 0.14);
+  --btn-hover-text: #FFFFFF;
+  background: #1D2138;
+  color: #F3F5FC;
+  border-color: rgba(168, 199, 250, 0.22);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
 }
 
+/* Slide 321 & 322 Expressive Multi-Tone Pill Buttons ("Email me", "Let's connect", "View resume") */
 .leo-magnetic-btn.is-secondary.is-palette-blue {
-  --btn-hover-fill: linear-gradient(135deg, rgba(134, 168, 207, 0.22) 0%, rgba(38, 66, 90, 0.34) 100%);
-  --btn-hover-text: #9BC0E8;
+  background: #A8C7FA;
+  color: #040A2F;
+  border-color: transparent;
+  --btn-hover-fill: #D3E3FD;
+  --btn-hover-text: #040A2F;
+  box-shadow: 0 12px 28px -8px rgba(168, 199, 250, 0.42);
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-mauve {
-  --btn-hover-fill: linear-gradient(135deg, rgba(195, 142, 180, 0.22) 0%, rgba(134, 168, 207, 0.16) 100%);
-  --btn-hover-text: #E1CBD7;
+  background: #E580DC;
+  color: #1A0419;
+  border-color: transparent;
+  --btn-hover-fill: #F5A3EE;
+  --btn-hover-text: #1A0419;
+  box-shadow: 0 12px 28px -8px rgba(229, 128, 220, 0.42);
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-blush {
-  --btn-hover-fill: linear-gradient(135deg, rgba(225, 203, 215, 0.20) 0%, rgba(195, 142, 180, 0.18) 100%);
-  --btn-hover-text: #F0DCE7;
+  background: #232A52;
+  color: #D3E3FD;
+  border-color: rgba(168, 199, 250, 0.28);
+  --btn-hover-fill: #2E386B;
+  --btn-hover-text: #FFFFFF;
+  box-shadow: 0 12px 28px -8px rgba(4, 10, 47, 0.55);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary {
-  --btn-hover-fill: rgba(38, 66, 90, 0.10);
-  --btn-hover-text: #26425A;
+  background: #DCE4F2;
+  color: #111420;
+  border-color: rgba(11, 87, 208, 0.16);
+  --btn-hover-fill: rgba(11, 87, 208, 0.12);
+  --btn-hover-text: #040A2F;
+  box-shadow: 0 8px 20px -8px rgba(11, 87, 208, 0.14);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blue {
-  --btn-hover-fill: linear-gradient(135deg, rgba(134, 168, 207, 0.34) 0%, rgba(225, 203, 215, 0.32) 100%);
-  --btn-hover-text: #0E1F2F;
+  background: #0B57D0;
+  color: #FFFFFF;
+  border-color: transparent;
+  --btn-hover-fill: #0842A0;
+  --btn-hover-text: #FFFFFF;
+  box-shadow: 0 12px 28px -8px rgba(11, 87, 208, 0.38);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-mauve {
-  --btn-hover-fill: linear-gradient(135deg, rgba(195, 142, 180, 0.30) 0%, rgba(225, 203, 215, 0.42) 100%);
-  --btn-hover-text: #0E1F2F;
+  background: #C2E7FF;
+  color: #001D35;
+  border-color: transparent;
+  --btn-hover-fill: #A8C7FA;
+  --btn-hover-text: #040A2F;
+  box-shadow: 0 10px 24px -8px rgba(11, 87, 208, 0.20);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
-  --btn-hover-fill: linear-gradient(135deg, rgba(225, 203, 215, 0.52) 0%, rgba(134, 168, 207, 0.26) 100%);
-  --btn-hover-text: #0E1F2F;
+  background: #E8F0FE;
+  color: #0B57D0;
+  border-color: rgba(11, 87, 208, 0.22);
+  --btn-hover-fill: #D3E3FD;
+  --btn-hover-text: #040A2F;
+  box-shadow: 0 10px 24px -8px rgba(11, 87, 208, 0.16);
 }
 
 /* Keep border 100% consistent on hover (no highlighted border) while rolling slot text & tinting icon */
@@ -4039,19 +4148,22 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
 
 .leo-footer-heading {
   font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96, 'wght' 850, 'wdth' 98, 'ROND' 85;
   font-size: clamp(48px, 6.8vw, 84px);
-  font-weight: 400;
+  font-weight: 850;
   line-height: 0.96;
-  letter-spacing: 0.015em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   color: #FFFFFF;
 }
 
 .leo-footer-heading .text-accent {
   font-family: var(--font-script);
+  font-variation-settings: 'opsz' 96, 'wght' 700, 'wdth' 104, 'slnt' -10, 'ROND' 100;
   text-transform: none;
-  font-size: 1.04em;
-  color: #E1CBD7;
+  letter-spacing: -0.015em;
+  font-size: 1.02em;
+  color: #A8C7FA;
 }
 
 .leo-footer-actions {
@@ -4234,10 +4346,11 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
 
 .case-title {
   font-family: var(--font-display);
-  font-size: clamp(46px, 6.2vw, 82px);
-  font-weight: 400;
-  line-height: 0.96;
-  letter-spacing: 0.015em;
+  font-variation-settings: 'opsz' 110, 'wght' 900, 'wdth' 96, 'ROND' 85;
+  font-size: clamp(44px, 6vw, 78px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 18px;
@@ -4573,10 +4686,11 @@ body[data-theme="light"] .share-icons-direct {
 
 .case-h2 {
   font-family: var(--font-display);
+  font-variation-settings: 'opsz' 84, 'wght' 850, 'wdth' 98, 'ROND' 85;
   font-size: clamp(34px, 4.4vw, 56px);
-  font-weight: 400;
+  font-weight: 850;
   line-height: 0.98;
-  letter-spacing: 0.015em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -4584,10 +4698,11 @@ body[data-theme="light"] .share-icons-direct {
 
 .case-h3 {
   font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48, 'wght' 800, 'wdth' 98, 'ROND' 80;
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.05;
-  letter-spacing: 0.015em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   color: var(--text-primary);
   margin: 28px 0 12px;
@@ -4595,16 +4710,17 @@ body[data-theme="light"] .share-icons-direct {
 
 .case-h3-italic {
   font-family: var(--font-script);
-  font-weight: 600;
-  font-size: clamp(28px, 3.4vw, 42px);
-  line-height: 1.1;
-  letter-spacing: 0em;
-  color: #86A8CF;
-  margin: -10px 0 22px;
+  font-variation-settings: 'opsz' 48, 'wght' 680, 'wdth' 102, 'slnt' -10, 'ROND' 100;
+  font-weight: 680;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #A8C7FA;
+  margin: -6px 0 22px;
 }
 
 body[data-theme="light"] .case-h3-italic {
-  color: #86A8CF;
+  color: #0B57D0;
 }
 
 .case-h4 {
@@ -6150,11 +6266,11 @@ body[data-theme="light"] .leo-fade-card {
 }
 
 .leo-fade-card .leo-footer-heading .text-accent {
-  color: #86A8CF;
+  color: #A8C7FA;
 }
 
 body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
-  color: #86A8CF;
+  color: #0B57D0;
 }
 
 .clientele-footer {
@@ -6167,13 +6283,7 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 }
 
 /* ==========================================================================
-   SYSTEMATIC TYPOGRAPHIC COLOR & BOLD HIERARCHY (CONSISTENT ACROSS DARK & LIGHT THEMES & ALL 4 CASE STUDIES)
-   Reference Palette (https://www.pinterest.com/pin/2181499817012571/):
-   - Level 1 (Primary Headings `.hero-fraunces-title`, `.leo-h2`, `.case-title`, `.case-h2`): #F7F3F6 (Dark) / #0E1F2F (Light)
-   - Level 2 (Secondary Script Titles `.case-h3-italic`, `.hero-fraunces-title .text-accent`): #86A8CF (Cornflower Blue in BOTH themes)
-   - Level 3 (Eyebrows, Section Labels & Index Numbers `.leo-section-label`, `.case-eyebrow`, `.feature-num`, `.principle-num`): #C38EB4 (Warm Mauve in BOTH themes)
-   - Level 4 (Quantitative Metrics, Data Labels & Chosen Captions `.metric-value`, `.metric-number`, `.leo-work-metric`, `.case-meta-label`, `.case-caption.is-accent`): #86A8CF (Cornflower Blue in BOTH themes)
-   - Level 5 (Subheadings, Card Titles & Inline Emphasis `.case-h4`, `.principle-title`, `.leo-work-title`, `strong`, `.is-sub-navy`, `.bio-highlight.is-navy`): #F7F3F6 (Dark) / #0C1D4B (Light) with identical `font-weight: 600`
+   SYSTEMATIC TYPOGRAPHIC COLOR & BOLD HIERARCHY (M3 EXPRESSIVE SLIDES 318–323)
    ========================================================================== */
 .leo-section-label,
 .case-eyebrow,
@@ -6182,11 +6292,25 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 .case-password-kicker,
 .feature-num,
 .principle-num {
-  color: #C38EB4;
+  color: #E580DC;
+}
+
+body[data-theme="light"] .leo-section-label,
+body[data-theme="light"] .case-eyebrow,
+body[data-theme="light"] .next-case-eyebrow,
+body[data-theme="light"] .proto-banner-label,
+body[data-theme="light"] .case-password-kicker,
+body[data-theme="light"] .feature-num,
+body[data-theme="light"] .principle-num {
+  color: #B81D9E;
 }
 
 .case-eyebrow::before {
-  background: #C38EB4;
+  background: #E580DC;
+}
+
+body[data-theme="light"] .case-eyebrow::before {
+  background: #B81D9E;
 }
 
 .metric-value,
@@ -6196,7 +6320,17 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 .case-meta-label,
 .case-caption.is-accent,
 .leo-exp-period {
-  color: #86A8CF;
+  color: #A8C7FA;
+}
+
+body[data-theme="light"] .metric-value,
+body[data-theme="light"] .metric-number,
+body[data-theme="light"] .leo-work-metric,
+body[data-theme="light"] .leo-range-label,
+body[data-theme="light"] .case-meta-label,
+body[data-theme="light"] .case-caption.is-accent,
+body[data-theme="light"] .leo-exp-period {
+  color: #0B57D0;
 }
 
 .leo-work-metric,
@@ -6205,11 +6339,19 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 }
 
 .leo-work-card:hover .leo-work-metric {
-  color: #C38EB4;
+  color: #E580DC;
+}
+
+body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
+  color: #B81D9E;
 }
 
 .leo-work-meta-dot {
-  background: #86A8CF;
+  background: #A8C7FA;
+}
+
+body[data-theme="light"] .leo-work-meta-dot {
+  background: #0B57D0;
 }
 
 /* Hero Name Pill — consistent bolding and location highlight across Dark and Light themes */
@@ -6219,7 +6361,7 @@ body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
 }
 
 body[data-theme="light"] .hero-name-pill > span:first-of-type {
-  color: #0C1D4B;
+  color: #040A2F;
 }
 
 .hero-name-pill .pill-loc {
@@ -6236,18 +6378,25 @@ body[data-theme="light"] .hero-name-pill > span:first-of-type {
 
 body[data-theme="light"] .hero-subtitle-line .is-sub-navy,
 body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
-  color: #0C1D4B;
+  color: #0B57D0;
 }
 
 .hero-subtitle-line .is-sub-blue,
 .hero-subtitle-line .is-sub-mauve,
 .about-bio-copy .bio-highlight.is-blue,
 .about-bio-copy .bio-highlight.is-mauve {
-  color: #86A8CF;
+  color: #A8C7FA;
   font-weight: 600;
 }
 
-/* Process Flow ("Design -> Prototype -> Ship"): Very light grey in Dark Theme, Black in Light Theme */
+body[data-theme="light"] .hero-subtitle-line .is-sub-blue,
+body[data-theme="light"] .hero-subtitle-line .is-sub-mauve,
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-blue,
+body[data-theme="light"] .about-bio-copy .bio-highlight.is-mauve {
+  color: #0B57D0;
+}
+
+/* Process Flow ("Prototype -> Measure -> Launch"): Very light grey in Dark Theme, Black in Light Theme */
 .leo-process-card:nth-of-type(1) .leo-process-title,
 .leo-process-card:nth-of-type(2) .leo-process-title,
 .leo-process-card:nth-of-type(3) .leo-process-title {
@@ -6261,7 +6410,11 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
 }
 
 .process-hand-arrow {
-  color: #86A8CF;
+  color: #A8C7FA;
+}
+
+body[data-theme="light"] .process-hand-arrow {
+  color: #0B57D0;
 }
 
 /* Subheadings, Experience Company, Photo Caption & Case Study Strong/Em Emphasis Across BOTH Themes */
@@ -7203,16 +7356,17 @@ body[data-theme="light"] .proto-portal-tag {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 46px;
-  padding: 0 22px;
+  height: 52px;
+  padding: 0 28px;
   border-radius: 999px;
-  background: var(--text-primary);
-  color: var(--bg-page);
+  background: #A8C7FA;
+  color: #040A2F;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
+  font-variation-settings: 'opsz' 24, 'wght' 680, 'ROND' 80;
+  font-size: 15px;
+  font-weight: 680;
   letter-spacing: -0.01em;
-  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 28px -8px rgba(168, 199, 250, 0.42);
   transition:
     background-color 0.28s ease,
     color 0.28s ease,
@@ -7220,11 +7374,23 @@ body[data-theme="light"] .proto-portal-tag {
     box-shadow 0.32s ease;
 }
 
+body[data-theme="light"] .proto-portal-cta {
+  background: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px -8px rgba(11, 87, 208, 0.38);
+}
+
 .proto-directory-portal:hover .proto-portal-cta {
-  background: #86A8CF;
-  color: #0E1F2F;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px -8px rgba(134, 168, 207, 0.5);
+  background: #E580DC;
+  color: #1A0419;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 32px -8px rgba(229, 128, 220, 0.52);
+}
+
+body[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
+  background: #0842A0;
+  color: #FFFFFF;
+  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.52);
 }
 
 .proto-directory-portal:hover .proto-portal-cta .slot-text-primary {
@@ -7233,7 +7399,11 @@ body[data-theme="light"] .proto-portal-tag {
 
 .proto-directory-portal:hover .proto-portal-cta .slot-text-clone {
   transform: translateY(-125%);
-  color: #0E1F2F;
+  color: #1A0419;
+}
+
+body[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta .slot-text-clone {
+  color: #FFFFFF;
 }
 
 .proto-portal-cta-arrow {
