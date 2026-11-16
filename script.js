@@ -472,14 +472,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Prepare breakable text pieces in the hero headline & subtitle so they part around the ascending rocket
   const breakableHeroPieces = [];
   document.querySelectorAll('.hero-fraunces-title .hero-hover-word').forEach((wordEl) => {
-    const rawText = wordEl.textContent || '';
+    const textTarget = wordEl.querySelector('.hero-word-text') || wordEl;
+    const rawText = (textTarget.textContent || '').trim();
     if (!rawText) return;
-    wordEl.textContent = '';
+    textTarget.textContent = '';
     Array.from(rawText).forEach((ch) => {
       const span = document.createElement('span');
       span.className = 'rocket-breakable-piece is-char';
       span.textContent = ch;
-      wordEl.appendChild(span);
+      textTarget.appendChild(span);
       breakableHeroPieces.push(span);
     });
   });
