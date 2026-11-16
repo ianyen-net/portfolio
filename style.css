@@ -1315,13 +1315,26 @@ body[data-theme="light"] .hero-hover-word.is-flash {
   text-shadow: 0 12px 28px rgba(11, 87, 208, 0.28);
 }
 
-/* Normal hover state of the word "AI", AND its frozen resting state AFTER the rocket explosion finishes */
+/* Normal hover state of the word "AI", AND its frozen resting state when the rocket explosion triggers */
+@keyframes aiFrozenSubtleFloat {
+  0%, 100% {
+    transform: translateY(-8px) scale(1.07) rotate(1.5deg);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.085) rotate(-0.8deg);
+  }
+}
+
 .hero-hover-word.is-ai-word:hover,
 .hero-hover-word.is-ai-word.is-flash,
 .hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
   color: #E580DC;
   text-shadow: 0 12px 28px rgba(229, 128, 220, 0.48);
+}
+
+.hero-hover-word.is-ai-word.is-ai-frozen {
+  animation: aiFrozenSubtleFloat 3.4s ease-in-out infinite;
 }
 
 body[data-theme="light"] .hero-hover-word.is-ai-word:hover,
@@ -1331,8 +1344,9 @@ body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
   text-shadow: 0 12px 28px rgba(184, 29, 158, 0.32);
 }
 
-/* Different interactive on-hover state for the word "AI" once it is frozen after the rocket explosion */
+/* Different interactive on-hover state for the word "AI" once it is frozen */
 .hero-hover-word.is-ai-word.is-ai-frozen:hover {
+  animation: none;
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
   color: #D5EE6B;
   text-shadow:
