@@ -840,16 +840,9 @@ body[data-theme="light"] .hero-card-inner {
   padding: 28px 0 6px;
 }
 
-/* Subtle Dot Grid Background (`.framer-eza4av`) */
+/* Hero Dot Grid Removed per User Request */
 .hero-dot-grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--dot-grid-color) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse 68% 60% at 50% 45%, #000 15%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 68% 60% at 50% 45%, #000 15%, transparent 100%);
-  pointer-events: none;
-  z-index: 0;
+  display: none !important;
 }
 
 /* Very Faded Hue Shadow in the Background of the Hero Card */
@@ -5235,90 +5228,109 @@ body.is-loaded .load-reveal {
 }
 
 /* ==========================================================================
-   10B-2. LEO MARLOWE (`https://leomarlowe.framer.website/`) FIRST-LOAD HERO CHOREOGRAPHY
-          - `qeh3f0` (Avatar Stage): opacity 0.001, scale(0.9) -> scale(1) @ 0.1s delay, 0.9s spring
-          - `1qt8vim` (Name Pill): opacity 0.001, y: +10px -> 0 @ 0.3s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
-          - `1txiwdh` (Headline Words): word-by-word opacity 0.001, blur(8px), y: +16px -> 0 @ 0.38s..0.66s stagger
-          - `xasqps` (Subtitle Line): opacity 0.001, y: +10px -> 0 @ 0.75s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
-          - `#process` (Process Flow): opacity 0.001, y: +10px -> 0 @ 0.85s delay, 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+   10B-2. PIXEL DROP M3 EXPRESSIVE FIRST-LOAD HERO CHOREOGRAPHY
+          - Elastic spring scale-pop, variable-font flex pulse & blur-clear
+            inspired by the Google Pixel Drop M3 Expressive intro animation
    ========================================================================== */
 @keyframes leoAvatarAppear {
   0% {
     opacity: 0.001;
-    transform: scale(0.9);
+    transform: scale(0.76) rotate(-6deg);
+    filter: blur(8px);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.06) rotate(2deg);
+    filter: blur(0px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
   }
 }
 
 @keyframes leoNavAppear {
   0% {
     opacity: 0.001;
-    transform: translateY(-10px);
+    transform: translateY(-22px) scale(0.92);
+    filter: blur(6px);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.02);
+    filter: blur(0px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
   }
 }
 
 @keyframes leoFadeRise10 {
   0% {
     opacity: 0.001;
-    transform: translateY(10px);
+    transform: translateY(20px) scale(0.92);
+    filter: blur(8px);
+  }
+  64% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.03);
+    filter: blur(0px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
   }
 }
 
 @keyframes leoHeadlineWordAppear {
   0% {
     opacity: 0.001;
-    filter: blur(8px);
-    transform: translateY(16px);
+    filter: blur(12px);
+    transform: translateY(28px) scale(0.78) rotate(-3deg);
+    font-variation-settings: 'opsz' 120, 'wght' 650, 'wdth' 88, 'slnt' 0, 'ROND' 100;
+  }
+  52% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(-7px) scale(1.06) rotate(1.2deg);
+    font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 103, 'slnt' -8, 'ROND' 100;
+  }
+  78% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(2px) scale(0.985) rotate(-0.4deg);
+    font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 95, 'slnt' -2, 'ROND' 88;
   }
   100% {
     opacity: 1;
     filter: blur(0px);
-    transform: translateY(0);
-  }
-}
-
-@keyframes leoHeadlineWordAppearAI {
-  0% {
-    opacity: 0.001;
-    filter: blur(8px);
-    transform: translateY(16px) scale(0.95) rotate(0deg);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(-8px) scale(1.07) rotate(1.5deg);
+    transform: translateY(0) scale(1) rotate(0deg);
+    font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'slnt' 0, 'ROND' 85;
   }
 }
 
 .jd-appear-avatar {
-  will-change: transform, opacity;
-  animation: leoAvatarAppear 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  will-change: transform, opacity, filter;
+  animation: leoAvatarAppear 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
 }
 
 .jd-appear-dock {
-  will-change: transform, opacity;
-  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
+  will-change: transform, opacity, filter;
+  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.78s both;
 }
 
 .jd-appear-nav {
-  will-change: transform, opacity;
-  animation: leoNavAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  will-change: transform, opacity, filter;
+  animation: leoNavAppear 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .hero-name-pill.jd-appear-title {
-  will-change: transform, opacity;
-  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  will-change: transform, opacity, filter;
+  animation: leoFadeRise10 0.80s cubic-bezier(0.22, 1, 0.36, 1) 0.20s both;
 }
 
 .hero-fraunces-title.jd-appear-title {
@@ -5326,37 +5338,38 @@ body.is-loaded .load-reveal {
 }
 
 .hero-fraunces-title .hero-hover-word {
-  animation: leoHeadlineWordAppear 0.75s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transform-origin: 50% 65%;
+  animation: leoHeadlineWordAppear 0.92s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 .hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.36s;
+  animation-delay: 0.26s;
 }
 
 .hero-fraunces-title > .hero-hover-word:nth-of-type(2),
 .hero-fraunces-title .hero-hover-word.is-ai-word {
-  animation-delay: 0.43s;
+  animation-delay: 0.34s;
 }
 
 .hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
-  animation-delay: 0.50s;
+  animation-delay: 0.42s;
 }
 
 .hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.57s;
+  animation-delay: 0.50s;
 }
 
 .hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
-  animation-delay: 0.64s;
+  animation-delay: 0.58s;
 }
 
 .jd-appear-subtitle {
-  will-change: transform, opacity;
-  animation: leoFadeRise10 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+  will-change: transform, opacity, filter;
+  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both;
 }
 
 #process.jd-appear-subtitle {
-  animation-delay: 0.85s;
+  animation-delay: 0.76s;
 }
 
 /* ==========================================================================
