@@ -7440,18 +7440,18 @@ body[data-theme="light"] .proto-code-terminal {
 
 .proto-fan-device.is-single-phone {
   right: 34px;
-  bottom: 22px;
-  height: 262px;
+  bottom: 18px;
+  height: 302px;
   z-index: 3;
-  transform: translate3d(0, 0, 24px) rotate(6deg) scale(0.98);
+  transform: translate3d(0, 0, 24px) rotate(0deg) scale(1);
 }
 
 .proto-fan-device.is-single-phone .proto-device-phone {
-  animation: protoPhoneFloat 4.2s ease-in-out infinite;
+  animation: none;
 }
 
 .proto-directory-portal:hover .proto-fan-device.is-single-phone {
-  transform: translate3d(6px, -6px, 36px) rotate(8deg) scale(1.03);
+  transform: translate3d(0, 0, 24px) rotate(0deg) scale(1);
 }
 
 .proto-device-screen .proto-rotating-video {
@@ -7510,13 +7510,13 @@ body[data-theme="light"] .proto-code-terminal {
 
   .proto-fan-device.is-single-phone {
     right: 22px;
-    bottom: 18px;
-    height: 196px;
-    transform: translate3d(0, 0, 20px) rotate(6deg) scale(0.96);
+    bottom: 16px;
+    height: 225px;
+    transform: translate3d(0, 0, 20px) rotate(0deg) scale(1);
   }
 
   .proto-directory-portal:hover .proto-fan-device.is-single-phone {
-    transform: translate3d(4px, -4px, 26px) rotate(8deg) scale(1);
+    transform: translate3d(0, 0, 20px) rotate(0deg) scale(1);
   }
 }
 
