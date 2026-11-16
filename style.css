@@ -1469,13 +1469,13 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 .hero-hover-word.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.5deg);
   color: #A8C7FA;
-  text-shadow: 0 12px 28px rgba(168, 199, 250, 0.45);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .hero-hover-word:hover,
 body[data-theme="light"] .hero-hover-word.is-flash {
   color: #0B57D0;
-  text-shadow: 0 12px 28px rgba(11, 87, 208, 0.28);
+  text-shadow: none;
 }
 
 /* Normal hover state of the word "AI", AND its frozen resting state when the rocket explosion triggers */
@@ -1493,7 +1493,7 @@ body[data-theme="light"] .hero-hover-word.is-flash {
 .hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
   color: #88E2AC;
-  text-shadow: 0 12px 28px rgba(136, 226, 172, 0.44);
+  text-shadow: none;
 }
 
 .hero-hover-word.is-ai-word.is-ai-frozen {
@@ -1504,7 +1504,7 @@ body[data-theme="light"] .hero-hover-word.is-ai-word:hover,
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-flash,
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
   color: #146C2E;
-  text-shadow: 0 12px 28px rgba(20, 108, 46, 0.28);
+  text-shadow: none;
 }
 
 /* Different interactive on-hover state for the word "AI" once it is frozen (graceful Slide 324 orchid-lilac touch) */
@@ -1512,23 +1512,19 @@ body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
   animation: none;
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
   color: #D37BD4;
-  text-shadow:
-    0 0 22px rgba(211, 123, 212, 0.58),
-    0 16px 34px rgba(151, 162, 228, 0.45);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   color: #A24EA5;
-  text-shadow:
-    0 0 22px rgba(162, 78, 165, 0.36),
-    0 16px 34px rgba(10, 85, 209, 0.28);
+  text-shadow: none;
 }
 
 .hero-hover-word:nth-of-type(3):hover,
 .hero-hover-word:nth-of-type(3).is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1deg);
   color: #E7D5F1;
-  text-shadow: 0 12px 28px rgba(211, 123, 212, 0.38);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .hero-hover-word:nth-of-type(3):hover,
@@ -1540,7 +1536,7 @@ body[data-theme="light"] .hero-hover-word:nth-of-type(3).is-flash {
 .hero-hover-word.is-accent.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(1.5deg);
   color: #88E2AC;
-  text-shadow: 0 12px 28px rgba(136, 226, 172, 0.44);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .hero-hover-word.is-accent:hover,
@@ -1552,7 +1548,7 @@ body[data-theme="light"] .hero-hover-word.is-accent.is-flash {
 .hero-hover-word.is-accent:last-of-type.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.2deg);
   color: #A8C7FA;
-  text-shadow: 0 12px 28px rgba(168, 199, 250, 0.48);
+  text-shadow: none;
 }
 
 /* Clean Subtitle Line (`.framer-xasqps` — Enlarged, NO cluttered chips underneath!) */
@@ -3542,14 +3538,12 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 @keyframes processTitleFlashOnce {
   0%, 100% {
     color: var(--word-base-color);
-    text-shadow: 0 0 0 transparent;
+    text-shadow: none;
     transform: translateY(0) scale(1);
   }
   45% {
     color: var(--loop-color);
-    text-shadow:
-      0 0 18px var(--loop-glow),
-      0 8px 28px var(--loop-glow);
+    text-shadow: none;
     transform: translateY(-2px) scale(1.06);
   }
 }
@@ -3557,44 +3551,44 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 @keyframes processTitleFlashOnceLight {
   0%, 100% {
     color: var(--word-base-color-light);
-    text-shadow: 0 0 0 transparent;
+    text-shadow: none;
     transform: translateY(0) scale(1);
   }
   45% {
     color: var(--loop-color-light);
-    text-shadow: 0 6px 22px rgba(124, 58, 237, 0.28);
+    text-shadow: none;
     transform: translateY(-2px) scale(1.06);
   }
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
   color: #A8C7FA;
-  text-shadow: 0 0 20px rgba(168, 199, 250, 0.6), 0 8px 28px rgba(11, 87, 208, 0.45);
+  text-shadow: none;
 }
 
 .leo-process-card:nth-of-type(2):hover .leo-process-title {
   color: #88E2AC;
-  text-shadow: 0 0 20px rgba(136, 226, 172, 0.62), 0 8px 28px rgba(20, 108, 46, 0.48);
+  text-shadow: none;
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
   color: #D37BD4;
-  text-shadow: 0 0 20px rgba(211, 123, 212, 0.58), 0 8px 28px rgba(151, 162, 228, 0.45);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
   color: #0B57D0;
-  text-shadow: 0 6px 20px rgba(11, 87, 208, 0.28);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(2):hover .leo-process-title {
   color: #146C2E;
-  text-shadow: 0 6px 20px rgba(20, 108, 46, 0.28);
+  text-shadow: none;
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-title {
   color: #8E3B91;
-  text-shadow: 0 6px 20px rgba(162, 78, 165, 0.28);
+  text-shadow: none;
 }
 
 .process-hand-arrow {
