@@ -885,7 +885,7 @@ body[data-theme="light"] .hero-radial-glow {
   );
 }
 
-/* Torch-Like Gradient Top Border Explosion Flash (Site Blue Palette + 1–2 Pops of Fitbit Mint/Lime Green) */
+/* Torch-Like Gradient Top Border Explosion Flash (Slide 324 Palette: Periwinkle Blue + Fitbit Mint + Graceful Touch of Orchid-Lilac) */
 .hero-top-torch-flash {
   position: absolute;
   top: 0;
@@ -903,28 +903,28 @@ body[data-theme="light"] .hero-radial-glow {
     linear-gradient(
       90deg,
       transparent 2%,
-      rgba(11, 87, 208, 0.92) 18%,
+      rgba(151, 162, 228, 0.92) 18%,
       rgba(168, 199, 250, 1) 35%,
-      rgba(213, 238, 107, 1) 50%,
-      rgba(136, 226, 172, 1) 65%,
-      rgba(168, 199, 250, 0.95) 82%,
+      rgba(136, 226, 172, 1) 50%,
+      rgba(211, 123, 212, 0.92) 66%,
+      rgba(155, 183, 255, 0.95) 82%,
       transparent 98%
     ) top center / 100% 4px no-repeat,
-    /* Bright central impact burst at the rocket strike point (1–2 pops of Fitbit Mint & Lime Green) */
+    /* Bright central impact burst at the rocket strike point */
     radial-gradient(
       38% 145px at 50% 0%,
-      rgba(213, 238, 107, 0.78) 0%,
-      rgba(136, 226, 172, 0.58) 32%,
-      rgba(168, 199, 250, 0.42) 60%,
-      rgba(11, 87, 208, 0.20) 82%,
+      rgba(136, 226, 172, 0.72) 0%,
+      rgba(168, 199, 250, 0.56) 34%,
+      rgba(211, 123, 212, 0.34) 62%,
+      rgba(151, 162, 228, 0.18) 84%,
       transparent 100%
     ),
-    /* Expansive aurora torch bloom reaching 1/4 down the hero section in the site's Periwinkle & Mint palette */
+    /* Expansive aurora torch bloom reaching 1/4 down the hero section */
     radial-gradient(
       78% 100% at 50% 0%,
-      rgba(136, 226, 172, 0.42) 0%,
-      rgba(168, 199, 250, 0.34) 45%,
-      rgba(11, 87, 208, 0.16) 76%,
+      rgba(168, 199, 250, 0.36) 0%,
+      rgba(136, 226, 172, 0.26) 44%,
+      rgba(211, 123, 212, 0.14) 76%,
       transparent 100%
     );
 }
@@ -934,26 +934,26 @@ body[data-theme="light"] .hero-top-torch-flash {
     linear-gradient(
       90deg,
       transparent 2%,
-      rgba(11, 87, 208, 0.95) 18%,
+      rgba(10, 85, 209, 0.95) 18%,
       rgba(20, 108, 46, 1) 36%,
       rgba(136, 226, 172, 1) 50%,
-      rgba(11, 87, 208, 1) 66%,
+      rgba(162, 78, 165, 0.88) 66%,
       rgba(168, 199, 250, 0.95) 82%,
       transparent 98%
     ) top center / 100% 4px no-repeat,
     radial-gradient(
       38% 145px at 50% 0%,
-      rgba(136, 226, 172, 0.72) 0%,
-      rgba(20, 108, 46, 0.38) 32%,
-      rgba(11, 87, 208, 0.32) 60%,
-      rgba(168, 199, 250, 0.18) 82%,
+      rgba(136, 226, 172, 0.68) 0%,
+      rgba(10, 85, 209, 0.34) 36%,
+      rgba(211, 123, 212, 0.26) 64%,
+      rgba(168, 199, 250, 0.16) 84%,
       transparent 100%
     ),
     radial-gradient(
       78% 100% at 50% 0%,
-      rgba(20, 108, 46, 0.28) 0%,
-      rgba(11, 87, 208, 0.24) 45%,
-      rgba(168, 199, 250, 0.14) 76%,
+      rgba(10, 85, 209, 0.24) 0%,
+      rgba(20, 108, 46, 0.18) 46%,
+      rgba(211, 123, 212, 0.12) 78%,
       transparent 100%
     );
 }
@@ -1507,33 +1507,33 @@ body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
   text-shadow: 0 12px 28px rgba(20, 108, 46, 0.28);
 }
 
-/* Different interactive on-hover state for the word "AI" once it is frozen */
+/* Different interactive on-hover state for the word "AI" once it is frozen (graceful Slide 324 orchid-lilac touch) */
 .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   animation: none;
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
-  color: #A8C7FA;
+  color: #D37BD4;
   text-shadow:
-    0 0 22px rgba(168, 199, 250, 0.65),
-    0 16px 34px rgba(136, 226, 172, 0.48);
+    0 0 22px rgba(211, 123, 212, 0.58),
+    0 16px 34px rgba(151, 162, 228, 0.45);
 }
 
 body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen:hover {
-  color: #0B57D0;
+  color: #A24EA5;
   text-shadow:
-    0 0 22px rgba(11, 87, 208, 0.45),
-    0 16px 34px rgba(20, 108, 46, 0.32);
+    0 0 22px rgba(162, 78, 165, 0.36),
+    0 16px 34px rgba(10, 85, 209, 0.28);
 }
 
 .hero-hover-word:nth-of-type(3):hover,
 .hero-hover-word:nth-of-type(3).is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1deg);
-  color: #D3E3FD;
-  text-shadow: 0 12px 28px rgba(211, 227, 253, 0.45);
+  color: #E7D5F1;
+  text-shadow: 0 12px 28px rgba(211, 123, 212, 0.38);
 }
 
 body[data-theme="light"] .hero-hover-word:nth-of-type(3):hover,
 body[data-theme="light"] .hero-hover-word:nth-of-type(3).is-flash {
-  color: #1C2D8C;
+  color: #8E3B91;
 }
 
 .hero-hover-word.is-accent:hover,
@@ -3282,9 +3282,9 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .leo-process-card:nth-of-type(3) {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
-  --loop-color: #D5EE6B;
-  --loop-color-light: #0B57D0;
-  --loop-glow: rgba(213, 238, 107, 0.78);
+  --loop-color: #E7D5F1;
+  --loop-color-light: #8E3B91;
+  --loop-glow: rgba(211, 123, 212, 0.72);
   --word-flash-delay: 1.70s;
 }
 
@@ -3578,8 +3578,8 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 }
 
 .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #D5EE6B;
-  text-shadow: 0 0 20px rgba(213, 238, 107, 0.62), 0 8px 28px rgba(136, 226, 172, 0.48);
+  color: #D37BD4;
+  text-shadow: 0 0 20px rgba(211, 123, 212, 0.58), 0 8px 28px rgba(151, 162, 228, 0.45);
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
@@ -3593,8 +3593,8 @@ body[data-theme="light"] .leo-process-card:nth-of-type(2):hover .leo-process-tit
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(3):hover .leo-process-title {
-  color: #0B57D0;
-  text-shadow: 0 6px 20px rgba(11, 87, 208, 0.28);
+  color: #8E3B91;
+  text-shadow: 0 6px 20px rgba(162, 78, 165, 0.28);
 }
 
 .process-hand-arrow {
@@ -4174,11 +4174,11 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-blush {
-  background: #232A52;
-  color: #D3E3FD;
-  border-color: rgba(168, 199, 250, 0.28);
-  --btn-hover-fill: #2E386B;
-  --btn-hover-text: #FFFFFF;
+  background: #22264A;
+  color: #E7D5F1;
+  border-color: rgba(211, 123, 212, 0.34);
+  --btn-hover-fill: #D37BD4;
+  --btn-hover-text: #1B071C;
   box-shadow: 0 12px 28px -8px rgba(4, 10, 47, 0.55);
 }
 
@@ -4210,12 +4210,12 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-mauve {
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
-  background: #E8F0FE;
-  color: #0B57D0;
-  border-color: rgba(11, 87, 208, 0.22);
-  --btn-hover-fill: #D3E3FD;
-  --btn-hover-text: #040A2F;
-  box-shadow: 0 10px 24px -8px rgba(11, 87, 208, 0.16);
+  background: #F3E5F6;
+  color: #6B236E;
+  border-color: rgba(162, 78, 165, 0.24);
+  --btn-hover-fill: #E7D5F1;
+  --btn-hover-text: #3A0E3D;
+  box-shadow: 0 10px 24px -8px rgba(162, 78, 165, 0.16);
 }
 
 /* Keep border 100% consistent on hover (no highlighted border) while rolling slot text & tinting icon */
