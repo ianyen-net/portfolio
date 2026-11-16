@@ -880,14 +880,14 @@ body[data-theme="light"] .hero-radial-glow {
   );
 }
 
-/* Torch-Like Gradient Top Border Explosion Flash (Full 25% of the hero section height, Vibrant & Less Faded in Dark Theme) */
+/* Torch-Like Gradient Top Border Explosion Flash (20% of the hero section height, Vibrant & Less Faded in Dark Theme) */
 .hero-top-torch-flash {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 36%;
-  min-height: 290px;
+  height: 20%;
+  min-height: 175px;
   pointer-events: none;
   z-index: 1;
   opacity: 0;
@@ -907,16 +907,16 @@ body[data-theme="light"] .hero-radial-glow {
     ) top center / 100% 6px no-repeat,
     /* Bright, saturated central impact burst at the rocket strike point */
     radial-gradient(
-      52% 245px at 50% 0%,
+      50% 165px at 50% 0%,
       rgba(136, 226, 172, 0.98) 0%,
       rgba(168, 199, 250, 0.90) 34%,
       rgba(211, 123, 212, 0.72) 64%,
       rgba(41, 59, 161, 0.45) 86%,
       transparent 100%
     ),
-    /* Vivid aurora torch bloom visibly illuminating the top 25% of the hero section */
+    /* Vivid aurora torch bloom visibly illuminating the top 20% of the hero section */
     radial-gradient(
-      92% 100% at 50% 0%,
+      88% 100% at 50% 0%,
       rgba(168, 199, 250, 0.78) 0%,
       rgba(136, 226, 172, 0.62) 44%,
       rgba(211, 123, 212, 0.44) 72%,
@@ -938,7 +938,7 @@ body[data-theme="light"] .hero-top-torch-flash {
       transparent 99%
     ) top center / 100% 5px no-repeat,
     radial-gradient(
-      48% 220px at 50% 0%,
+      48% 165px at 50% 0%,
       rgba(136, 226, 172, 0.78) 0%,
       rgba(10, 85, 209, 0.44) 38%,
       rgba(211, 123, 212, 0.34) 68%,
@@ -946,7 +946,7 @@ body[data-theme="light"] .hero-top-torch-flash {
       transparent 100%
     ),
     radial-gradient(
-      88% 100% at 50% 0%,
+      86% 100% at 50% 0%,
       rgba(10, 85, 209, 0.34) 0%,
       rgba(20, 108, 46, 0.26) 50%,
       rgba(211, 123, 212, 0.16) 78%,
