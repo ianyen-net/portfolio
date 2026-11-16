@@ -1345,6 +1345,7 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 .hero-hover-word.is-designing-word {
   position: relative;
   isolation: isolate;
+  margin-top: 0.22em;
 }
 
 .hero-hover-word.is-designing-word .hero-word-text {
