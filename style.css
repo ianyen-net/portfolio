@@ -1022,6 +1022,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   background: transparent;
 }
 
+/* Rotating Disc Flip Transition Between 3D Avatar and Real Image */
 .avatar-stage.is-transparent-gif .avatar-img-circle > img.hero-transparent-gif {
   width: 94%;
   height: 94%;
@@ -1029,9 +1030,14 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   object-position: center bottom;
   transform: translateY(3px) scale(1.02);
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
+  transition: opacity 0.14s ease;
 }
 
-/* Full Real Photo Reveal Layer on Avatar Hover + First-Scroll 2-Second Flash */
+.avatar-stage.is-revealing-photo .avatar-img-circle > img.hero-transparent-gif,
+.avatar-stage.is-teasing-photo .avatar-img-circle > img.hero-transparent-gif {
+  opacity: 0;
+}
+
 .avatar-real-reveal {
   position: absolute;
   inset: 0;
@@ -1042,7 +1048,7 @@ body[data-theme="light"] .avatar-stage.is-transparent-gif .avatar-tilt-card {
   opacity: 0;
   background: #21485E;
   clip-path: circle(100% at 50% 50%);
-  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.14s ease;
 }
 
 .avatar-stage.is-revealing-photo .avatar-real-reveal,

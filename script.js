@@ -236,11 +236,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = avatarStage.querySelector('.avatar-tilt-card');
     let isShowingRealPhoto = false;
 
-    // Alternate between the 3D black hoodie avatar and the real image every 4 seconds
-    setInterval(() => {
-      isShowingRealPhoto = !isShowingRealPhoto;
-      avatarStage.classList.toggle('is-teasing-photo', isShowingRealPhoto);
-    }, 4000);
+    // Alternate between the 3D black hoodie avatar and the real image every 4 seconds with a 3D rotating disc flip
+    const spinDiscAndSwap = () => {
+      if (tiltCard) {
+        tiltCard.animate(
+          [
+            { transform: 'rotateY(0deg) scale(1)' },
+            { transform: 'rotateY(90deg) scale(1.06)', offset: 0.5 },
+            { transform: 'rotateY(-90deg) scale(1.06)', offset: 0.501 },
+            { transform: 'rotateY(0deg) scale(1)' },
+          ],
+          { duration: 640, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
+      }
+      setTimeout(() => {
+        isShowingRealPhoto = !isShowingRealPhoto;
+        avatarStage.classList.toggle('is-teasing-photo', isShowingRealPhoto);
+      }, 320);
+    };
+
+    setInterval(spinDiscAndSwap, 4000);
 
     const resetAvatarTilt = () => {
       if (tiltCard) {
