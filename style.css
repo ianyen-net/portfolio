@@ -557,7 +557,7 @@ body[data-theme="light"] .theme-toggle-thumb {
 body[data-theme="light"] .leo-theme-toggle .icon-sun { display: none; }
 body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
 
-/* Nav CTA Pill ("Say hi" / "Resume") — Purple in both Dark & Light themes with distinct shades */
+/* Nav CTA Pill ("Say hi" / "Resume") — Green in Dark Theme, Purple in Light Theme */
 .leo-nav-cta {
   position: relative;
   z-index: 1;
@@ -566,8 +566,8 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   gap: 5px;
   padding: 7px 15px;
   border-radius: 999px;
-  background: #C084FC;
-  color: #1A052E;
+  background: #88E2AC;
+  color: #072711;
   font-family: var(--font-sans);
   font-variation-settings: 'opsz' 24, 'wght' 660, 'ROND' 80;
   font-size: 13px;
@@ -586,12 +586,12 @@ body[data-theme="light"] .leo-nav-cta {
 }
 
 .leo-nav-cta .slot-text-clone {
-  color: #1A052E;
+  color: #072711;
 }
 
 .leo-nav-cta:hover {
-  background: #D8B4FE;
-  color: #1A052E;
+  background: #68C489;
+  color: #072711;
 }
 
 body[data-theme="light"] .leo-nav-cta .slot-text-clone {

@@ -13,8 +13,8 @@
 
 // Immediately preload and decode the Apple Memoji avatars and real photo before DOMContentLoaded
 const AVATAR_GIF_VARIANTS = [
-  'assets/memoji_about_bust.png?v=197',
-  'assets/memoji_hero_sitting_wave.png?v=197',
+  'assets/memoji_about_bust.png?v=198',
+  'assets/memoji_hero_sitting_wave.png?v=198',
   'assets/avatar_real_photo.jpg?v=153',
 ];
 const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
