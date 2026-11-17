@@ -35,7 +35,7 @@
 :root,
 body,
 body[data-theme="dark"] {
-  /* Slide 324 Dark Theme with Black Background — `#000000` Pure Black Canvas, `#0E1015` Dark Surfaces, `#A8C7FA` Periwinkle, `#88E2AC` Fitbit Mint & Graceful `#FDA0FC` Orchid-Purple Touches */
+  /* Slide 324 Dark Theme with Black Background — `#000000` Pure Black Canvas, `#0E1015` Dark Surfaces, `#3186FF` Gemini Electric Blue, `#88E2AC` Fitbit Mint & Graceful `#FDA0FC` Orchid-Purple Touches */
   --bg-page: #000000;
   --bg-surface: #0E1015;
   --bg-elevated: #171A24;
@@ -43,20 +43,20 @@ body[data-theme="dark"] {
   --text-primary: #F4F7FE;
   --text-secondary: #BCC7EB;
   --text-muted: #8E9ECF;
-  --border-subtle: rgba(168, 199, 250, 0.14);
-  --border-strong: rgba(168, 199, 250, 0.28);
-  --accent: #A8C7FA;
+  --border-subtle: rgba(49, 134, 255, 0.16);
+  --border-strong: rgba(49, 134, 255, 0.32);
+  --accent: #3186FF;
   --accent-saffron: #88E2AC;
   --accent-blush: #E7D5F1;
   --accent-navy: #040A2F;
-  --accent-blue: #293BA1;
+  --accent-blue: #3186FF;
   --accent-coral: #FDA0FC;
   --accent-lime: #C4EED0;
-  --accent-soft: rgba(168, 199, 250, 0.16);
+  --accent-soft: rgba(49, 134, 255, 0.18);
   --nav-bg: rgba(12, 14, 20, 0.88);
-  --nav-hover-pill: rgba(168, 199, 250, 0.16);
+  --nav-hover-pill: rgba(49, 134, 255, 0.18);
   --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --dot-grid-color: rgba(168, 199, 250, 0.09);
+  --dot-grid-color: rgba(49, 134, 255, 0.11);
   --tooltip-bg: #F4F7FE;
   --tooltip-text: #000000;
 
@@ -557,7 +557,7 @@ body[data-theme="light"] .theme-toggle-thumb {
 body[data-theme="light"] .leo-theme-toggle .icon-sun { display: none; }
 body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
 
-/* Nav CTA Pill ("Say hi" / "Resume") — M3 Expressive Primary Pill */
+/* Nav CTA Pill ("Say hi" / "Resume") — Purple in both Dark & Light themes with distinct shades */
 .leo-nav-cta {
   position: relative;
   z-index: 1;
@@ -566,8 +566,8 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
   gap: 5px;
   padding: 7px 15px;
   border-radius: 999px;
-  background: #A8C7FA;
-  color: #040A2F;
+  background: #C084FC;
+  color: #1A052E;
   font-family: var(--font-sans);
   font-variation-settings: 'opsz' 24, 'wght' 660, 'ROND' 80;
   font-size: 13px;
@@ -581,17 +581,17 @@ body[data-theme="light"] .leo-theme-toggle .icon-moon { display: block; }
 }
 
 body[data-theme="light"] .leo-nav-cta {
-  background: #0A55D1;
+  background: #7C3AED;
   color: #FFFFFF;
 }
 
 .leo-nav-cta .slot-text-clone {
-  color: #072711;
+  color: #1A052E;
 }
 
 .leo-nav-cta:hover {
-  background: #68C489;
-  color: #072711;
+  background: #D8B4FE;
+  color: #1A052E;
 }
 
 body[data-theme="light"] .leo-nav-cta .slot-text-clone {
@@ -599,7 +599,7 @@ body[data-theme="light"] .leo-nav-cta .slot-text-clone {
 }
 
 body[data-theme="light"] .leo-nav-cta:hover {
-  background: #0842A0;
+  background: #6D28D9;
   color: #FFFFFF;
 }
 
@@ -856,9 +856,9 @@ body[data-theme="light"] .hero-card-inner {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(168, 199, 250, 0.14) 0%,
+    rgba(49, 134, 255, 0.14) 0%,
     rgba(136, 226, 172, 0.065) 42%,
-    rgba(168, 199, 250, 0) 72%
+    rgba(49, 134, 255, 0) 72%
   );
   pointer-events: none;
   z-index: 0;
@@ -892,7 +892,7 @@ body[data-theme="light"] .hero-radial-glow {
       90deg,
       transparent 1%,
       rgba(11, 87, 208, 1) 14%,
-      rgba(168, 199, 250, 1) 33%,
+      rgba(49, 134, 255, 1) 33%,
       rgba(136, 226, 172, 1) 50%,
       rgba(253, 160, 252, 1) 67%,
       rgba(155, 183, 255, 1) 86%,
@@ -902,7 +902,7 @@ body[data-theme="light"] .hero-radial-glow {
     radial-gradient(
       48% 125px at 50% 0%,
       rgba(136, 226, 172, 0.98) 0%,
-      rgba(168, 199, 250, 0.90) 34%,
+      rgba(49, 134, 255, 0.90) 34%,
       rgba(211, 123, 212, 0.72) 64%,
       rgba(41, 59, 161, 0.45) 86%,
       transparent 100%
@@ -910,7 +910,7 @@ body[data-theme="light"] .hero-radial-glow {
     /* Vivid aurora torch bloom visibly illuminating the top 15% of the hero section */
     radial-gradient(
       88% 100% at 50% 0%,
-      rgba(168, 199, 250, 0.78) 0%,
+      rgba(49, 134, 255, 0.78) 0%,
       rgba(136, 226, 172, 0.62) 44%,
       rgba(211, 123, 212, 0.44) 72%,
       rgba(41, 59, 161, 0.22) 88%,
@@ -927,7 +927,7 @@ body[data-theme="light"] .hero-top-torch-flash {
       rgba(20, 108, 46, 1) 35%,
       rgba(136, 226, 172, 1) 50%,
       rgba(162, 78, 165, 0.92) 66%,
-      rgba(168, 199, 250, 0.98) 85%,
+      rgba(49, 134, 255, 0.98) 85%,
       transparent 99%
     ) top center / 100% 5px no-repeat,
     radial-gradient(
@@ -935,7 +935,7 @@ body[data-theme="light"] .hero-top-torch-flash {
       rgba(136, 226, 172, 0.78) 0%,
       rgba(10, 85, 209, 0.44) 38%,
       rgba(211, 123, 212, 0.34) 68%,
-      rgba(168, 199, 250, 0.22) 88%,
+      rgba(49, 134, 255, 0.22) 88%,
       transparent 100%
     ),
     radial-gradient(
@@ -1311,7 +1311,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 }
 
 .hero-fraunces-title .text-accent {
-  color: #A8C7FA;
+  color: #3186FF;
 }
 
 body[data-theme="light"] .hero-fraunces-title .text-accent {
@@ -1386,7 +1386,7 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 .hero-hover-word:hover,
 .hero-hover-word.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.5deg);
-  color: #A8C7FA;
+  color: #3186FF;
   text-shadow: none;
 }
 
@@ -1410,7 +1410,7 @@ body[data-theme="light"] .hero-hover-word.is-flash {
 .hero-hover-word.is-ai-word.is-flash,
 .hero-hover-word.is-ai-word.is-ai-frozen {
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
-  color: #88E2AC;
+  color: #C084FC;
   text-shadow: none;
 }
 
@@ -1425,11 +1425,11 @@ body[data-theme="light"] .hero-hover-word.is-ai-word.is-ai-frozen {
   text-shadow: none;
 }
 
-/* Different interactive on-hover state for the word "AI" once it is frozen (graceful Slide 324 orchid-lilac touch) */
+/* Different interactive on-hover state for the word "AI" once it is frozen */
 .hero-hover-word.is-ai-word.is-ai-frozen:hover {
   animation: none;
   transform: translateY(-15px) scale(1.16) rotate(-4deg);
-  color: #D37BD4;
+  color: #88E2AC;
   text-shadow: none;
 }
 
@@ -1465,7 +1465,7 @@ body[data-theme="light"] .hero-hover-word.is-accent.is-flash {
 .hero-hover-word.is-accent:last-of-type:hover,
 .hero-hover-word.is-accent:last-of-type.is-flash {
   transform: translateY(-8px) scale(1.06) rotate(-1.2deg);
-  color: #A8C7FA;
+  color: #3186FF;
   text-shadow: none;
 }
 
@@ -2199,7 +2199,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   padding: 5px;
   border-radius: 999px;
   background: #0D1E33;
-  border: 1px solid rgba(168, 199, 250, 0.16);
+  border: 1px solid rgba(49, 134, 255, 0.16);
 }
 
 .sk-dunzo-case-tab {
@@ -2582,7 +2582,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-cover {
   padding: 3px 4px;
   border-radius: 999px;
   background: #0D1E33;
-  border: 1px solid rgba(168, 199, 250, 0.16);
+  border: 1px solid rgba(49, 134, 255, 0.16);
 }
 
 .sk-dunzo-pill {
@@ -3179,9 +3179,9 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
 .leo-process-card:nth-of-type(1) {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
-  --loop-color: #A8C7FA;
+  --loop-color: #3186FF;
   --loop-color-light: #0B57D0;
-  --loop-glow: rgba(168, 199, 250, 0.75);
+  --loop-glow: rgba(49, 134, 255, 0.75);
   --word-flash-delay: 0.10s;
 }
 
@@ -3482,7 +3482,7 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 }
 
 .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #A8C7FA;
+  color: #3186FF;
   text-shadow: none;
 }
 
@@ -3981,8 +3981,8 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   padding: 0 28px;
   height: 52px;
   border-radius: 999px;
-  background: #A8C7FA;
-  color: #040A2F;
+  background: #3186FF;
+  color: #FFFFFF;
   border: 1.5px solid transparent;
   font-family: var(--font-sans);
   font-variation-settings: 'opsz' 24, 'wght' 680, 'ROND' 80;
@@ -3993,7 +3993,7 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
   text-align: center;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 10px 26px -8px rgba(168, 199, 250, 0.35);
+  box-shadow: 0 10px 26px -8px rgba(49, 134, 255, 0.35);
   transition:
     transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.32s ease,
@@ -4034,10 +4034,10 @@ body[data-theme="light"] .leo-magnetic-btn {
 /* Primary Button Hover Effect */
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
   transform: translateY(-2px) scale(1.02);
-  background: #D3E3FD;
-  color: #040A2F;
+  background: #529BFF;
+  color: #FFFFFF;
   border-color: transparent;
-  box-shadow: 0 16px 32px -8px rgba(168, 199, 250, 0.55);
+  box-shadow: 0 16px 32px -8px rgba(49, 134, 255, 0.55);
 }
 
 body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
@@ -4052,22 +4052,22 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 }
 
 .leo-magnetic-btn.is-secondary {
-  --btn-hover-fill: rgba(168, 199, 250, 0.14);
+  --btn-hover-fill: rgba(49, 134, 255, 0.14);
   --btn-hover-text: #FFFFFF;
   background: #1D2138;
   color: #F3F5FC;
-  border-color: rgba(168, 199, 250, 0.22);
+  border-color: rgba(49, 134, 255, 0.22);
   box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
 }
 
 /* Slide 321 & 322 Expressive Multi-Tone Pill Buttons ("Email me", "Let's connect", "View resume") */
 .leo-magnetic-btn.is-secondary.is-palette-blue {
-  background: #A8C7FA;
-  color: #040A2F;
+  background: #3186FF;
+  color: #FFFFFF;
   border-color: transparent;
-  --btn-hover-fill: #D3E3FD;
-  --btn-hover-text: #040A2F;
-  box-shadow: 0 12px 28px -8px rgba(168, 199, 250, 0.42);
+  --btn-hover-fill: #529BFF;
+  --btn-hover-text: #FFFFFF;
+  box-shadow: 0 12px 28px -8px rgba(49, 134, 255, 0.42);
 }
 
 .leo-magnetic-btn.is-secondary.is-palette-mauve {
@@ -4258,7 +4258,7 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
   text-transform: none;
   letter-spacing: -0.015em;
   font-size: 1.02em;
-  color: #A8C7FA;
+  color: #3186FF;
 }
 
 .leo-footer-actions {
@@ -4810,7 +4810,7 @@ body[data-theme="light"] .share-icons-direct {
   font-size: clamp(24px, 2.8vw, 34px);
   line-height: 1.15;
   letter-spacing: -0.01em;
-  color: #A8C7FA;
+  color: #3186FF;
   margin: -6px 0 22px;
 }
 
@@ -6408,7 +6408,7 @@ body[data-theme="light"] .leo-fade-card {
 }
 
 .leo-fade-card .leo-footer-heading .text-accent {
-  color: #A8C7FA;
+  color: #3186FF;
 }
 
 body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
@@ -6462,7 +6462,7 @@ body[data-theme="light"] .case-eyebrow::before {
 .case-meta-label,
 .case-caption.is-accent,
 .leo-exp-period {
-  color: #A8C7FA;
+  color: #3186FF;
 }
 
 body[data-theme="light"] .metric-value,
@@ -6489,7 +6489,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
 }
 
 .leo-work-meta-dot {
-  background: #A8C7FA;
+  background: #3186FF;
 }
 
 body[data-theme="light"] .leo-work-meta-dot {
@@ -6527,7 +6527,7 @@ body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
 .hero-subtitle-line .is-sub-mauve,
 .about-bio-copy .bio-highlight.is-blue,
 .about-bio-copy .bio-highlight.is-mauve {
-  color: #A8C7FA;
+  color: #3186FF;
   font-weight: 600;
 }
 
@@ -6552,7 +6552,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
 }
 
 .process-hand-arrow {
-  color: #A8C7FA;
+  color: #3186FF;
 }
 
 body[data-theme="light"] .process-hand-arrow {
@@ -7502,14 +7502,14 @@ body[data-theme="light"] .proto-portal-tag {
   height: 52px;
   padding: 0 28px;
   border-radius: 999px;
-  background: #A8C7FA;
-  color: #040A2F;
+  background: #3186FF;
+  color: #FFFFFF;
   font-family: var(--font-sans);
   font-variation-settings: 'opsz' 24, 'wght' 680, 'ROND' 80;
   font-size: 15px;
   font-weight: 680;
   letter-spacing: -0.01em;
-  box-shadow: 0 12px 28px -8px rgba(168, 199, 250, 0.42);
+  box-shadow: 0 12px 28px -8px rgba(49, 134, 255, 0.42);
   transition:
     background-color 0.28s ease,
     color 0.28s ease,
