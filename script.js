@@ -27,10 +27,16 @@ const preloadedAvatarGifs = AVATAR_GIF_VARIANTS.map((src) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
-     1. THEME MANAGER (Default to Dark Mode as requested) & ON-LOAD REVEAL
+     1. THEME MANAGER (Default to Light/White Mode) & ON-LOAD REVEAL
      ========================================================================== */
-  const savedTheme = localStorage.getItem('ian-leo-theme') || 'dark';
+  try {
+    localStorage.removeItem('ian-leo-theme');
+  } catch (_) {}
+  const savedTheme = sessionStorage.getItem('ian-theme-session') || 'light';
   document.body.setAttribute('data-theme', savedTheme);
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+    btn.setAttribute('aria-checked', savedTheme === 'dark' ? 'true' : 'false');
+  });
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -40,10 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') || 'dark';
+      const current = document.body.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       document.body.setAttribute('data-theme', next);
-      localStorage.setItem('ian-leo-theme', next);
+      btn.setAttribute('aria-checked', next === 'dark' ? 'true' : 'false');
+      try {
+        sessionStorage.setItem('ian-theme-session', next);
+      } catch (_) {}
     });
   });
 
