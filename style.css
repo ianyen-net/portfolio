@@ -5224,29 +5224,23 @@ body.is-loaded .load-reveal {
     transform: translateY(14px) scale(0.95);
     font-variation-settings: 'opsz' 120, 'wght' 350, 'wdth' 102, 'slnt' 0, 'ROND' 0;
   }
-  20% {
+  24% {
     opacity: 1;
     filter: blur(0px);
     transform: translateY(0) scale(1);
     font-variation-settings: 'opsz' 120, 'wght' 420, 'wdth' 100, 'slnt' 0, 'ROND' 20;
   }
-  42% {
+  52% {
     opacity: 1;
     filter: blur(0px);
     transform: translateY(0) scale(1);
     font-variation-settings: 'opsz' 120, 'wght' 950, 'wdth' 104, 'slnt' 0, 'ROND' 0;
   }
-  66% {
+  78% {
     opacity: 1;
     filter: blur(0px);
     transform: translateY(0) scale(1);
-    font-variation-settings: 'opsz' 120, 'wght' 860, 'wdth' 86, 'slnt' -10, 'ROND' 100;
-  }
-  84% {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0) scale(1);
-    font-variation-settings: 'opsz' 120, 'wght' 540, 'wdth' 98, 'slnt' 0, 'ROND' 60;
+    font-variation-settings: 'opsz' 120, 'wght' 760, 'wdth' 88, 'slnt' -10, 'ROND' 100;
   }
   100% {
     opacity: 1;
