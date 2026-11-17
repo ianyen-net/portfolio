@@ -1345,10 +1345,10 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 
 .hero-sitting-memoji {
   position: absolute;
-  left: 0.94em;
-  top: -1.10em;
-  width: 1.11em;
-  height: 1.80em;
+  left: 0.89em;
+  top: -1.22em;
+  width: 1.22em;
+  height: 1.98em;
   pointer-events: none;
   z-index: 4;
   transform-origin: 50% 66.5%;
