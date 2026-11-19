@@ -873,47 +873,42 @@ body[data-theme="light"] .hero-radial-glow {
   );
 }
 
-/* Torch-Like Gradient Top Border Explosion Flash (15% of the hero section height, Vibrant & Less Faded in Dark Theme) */
+/* Torch-Like Gradient Top Border Explosion Flash (15% of the hero section height, Clean & Simple Tonal Blue Glow for Both Themes) */
 .hero-top-torch-flash {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 15%;
-  min-height: 130px;
+  min-height: 120px;
   pointer-events: none;
   z-index: 1;
   opacity: 0;
   transform-origin: 50% 0%;
   transition: opacity 0.25s ease;
   background:
-    /* Crisp glowing gradient border line right along the top edge */
+    /* Clean single-hue tonal top border line */
     linear-gradient(
       90deg,
-      transparent 1%,
-      rgba(11, 87, 208, 1) 14%,
-      rgba(49, 134, 255, 1) 33%,
-      rgba(136, 226, 172, 1) 50%,
-      rgba(253, 160, 252, 1) 67%,
-      rgba(155, 183, 255, 1) 86%,
-      transparent 99%
-    ) top center / 100% 6px no-repeat,
-    /* Bright, saturated central impact burst at the rocket strike point */
+      transparent 8%,
+      rgba(49, 134, 255, 0.35) 28%,
+      rgba(168, 199, 250, 0.78) 50%,
+      rgba(49, 134, 255, 0.35) 72%,
+      transparent 92%
+    ) top center / 100% 3px no-repeat,
+    /* Soft, restrained tonal blue central glow */
     radial-gradient(
-      48% 125px at 50% 0%,
-      rgba(136, 226, 172, 0.98) 0%,
-      rgba(49, 134, 255, 0.90) 34%,
-      rgba(211, 123, 212, 0.72) 64%,
-      rgba(41, 59, 161, 0.45) 86%,
+      46% 110px at 50% 0%,
+      rgba(168, 199, 250, 0.42) 0%,
+      rgba(49, 134, 255, 0.24) 48%,
+      rgba(11, 87, 208, 0.08) 80%,
       transparent 100%
     ),
-    /* Vivid aurora torch bloom visibly illuminating the top 15% of the hero section */
+    /* Subtle ambient top wash */
     radial-gradient(
-      88% 100% at 50% 0%,
-      rgba(49, 134, 255, 0.78) 0%,
-      rgba(136, 226, 172, 0.62) 44%,
-      rgba(211, 123, 212, 0.44) 72%,
-      rgba(41, 59, 161, 0.22) 88%,
+      80% 100% at 50% 0%,
+      rgba(49, 134, 255, 0.22) 0%,
+      rgba(11, 87, 208, 0.10) 56%,
       transparent 100%
     );
 }
@@ -922,27 +917,23 @@ body[data-theme="light"] .hero-top-torch-flash {
   background:
     linear-gradient(
       90deg,
-      transparent 1%,
-      rgba(10, 85, 209, 0.98) 15%,
-      rgba(20, 108, 46, 1) 35%,
-      rgba(136, 226, 172, 1) 50%,
-      rgba(162, 78, 165, 0.92) 66%,
-      rgba(49, 134, 255, 0.98) 85%,
-      transparent 99%
-    ) top center / 100% 5px no-repeat,
+      transparent 8%,
+      rgba(11, 87, 208, 0.24) 28%,
+      rgba(49, 134, 255, 0.58) 50%,
+      rgba(11, 87, 208, 0.24) 72%,
+      transparent 92%
+    ) top center / 100% 3px no-repeat,
     radial-gradient(
-      48% 125px at 50% 0%,
-      rgba(136, 226, 172, 0.78) 0%,
-      rgba(10, 85, 209, 0.44) 38%,
-      rgba(211, 123, 212, 0.34) 68%,
-      rgba(49, 134, 255, 0.22) 88%,
+      46% 110px at 50% 0%,
+      rgba(49, 134, 255, 0.26) 0%,
+      rgba(11, 87, 208, 0.14) 50%,
+      rgba(168, 199, 250, 0.06) 82%,
       transparent 100%
     ),
     radial-gradient(
-      86% 100% at 50% 0%,
-      rgba(10, 85, 209, 0.34) 0%,
-      rgba(20, 108, 46, 0.26) 50%,
-      rgba(211, 123, 212, 0.16) 78%,
+      80% 100% at 50% 0%,
+      rgba(11, 87, 208, 0.14) 0%,
+      rgba(49, 134, 255, 0.06) 56%,
       transparent 100%
     );
 }
