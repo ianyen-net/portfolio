@@ -4747,6 +4747,60 @@ body[data-theme="light"] .sk-annotated-mock .sk-annot-layer {
   filter: brightness(0.12);
 }
 
+/* ShareKit Governance Registry Terminal Card (Slide 87) */
+.sk-governance-registry {
+  background: #08090C;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 28px 32px;
+  margin: 24px 0 32px;
+  font-family: var(--font-mono, 'Google Sans Mono', 'Geist Mono', monospace);
+  font-size: 13.5px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 20px 48px -18px rgba(0, 0, 0, 0.45);
+}
+
+.sk-reg-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+
+.sk-reg-key {
+  color: rgba(255, 255, 255, 0.48);
+  font-weight: 500;
+}
+
+.sk-reg-val {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.sk-reg-key.is-highlight,
+.sk-reg-val.is-highlight {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.sk-reg-key.is-accent,
+.sk-reg-val.is-accent {
+  color: #F6D860;
+}
+
+@media (max-width: 640px) {
+  .sk-governance-registry {
+    padding: 20px;
+    font-size: 12px;
+  }
+  .sk-reg-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
 /* Frameless Share Icons for "Inconsistent entry points" (White in Dark Mode, Dark in Light Mode) */
 .share-icons-direct {
   width: 100%;
