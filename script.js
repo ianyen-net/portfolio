@@ -1211,4 +1211,72 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 4000);
     }
   }
+
+  /* =========================================================================
+     11. CONTACTS CASE STUDY BRIEF 3-VIDEO CAROUSEL (ROTATES EVERY 5 SECONDS)
+     ========================================================================= */
+  const briefCarousel = document.querySelector('[data-brief-carousel]');
+  if (briefCarousel) {
+    const slides = Array.from(briefCarousel.querySelectorAll('[data-brief-slide]'));
+    const dots = Array.from(briefCarousel.querySelectorAll('[data-brief-dot]'));
+    const labelEl = briefCarousel.querySelector('[data-brief-carousel-label]');
+
+    if (slides.length > 1) {
+      let activeSlideIdx = 0;
+      let briefTimer = null;
+
+      const showBriefSlide = (nextIdx) => {
+        activeSlideIdx = ((nextIdx % slides.length) + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          const isActive = i === activeSlideIdx;
+          slide.classList.toggle('is-active', isActive);
+          const vid = slide.querySelector('video');
+          if (vid && isActive) {
+            try {
+              vid.currentTime = 0;
+              vid.play().catch(() => {});
+            } catch (e) {}
+          }
+        });
+
+        dots.forEach((dot, i) => {
+          const isActive = i === activeSlideIdx;
+          dot.classList.remove('is-active');
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          if (isActive) {
+            // Restart 5s CSS progress fill animation
+            void dot.offsetWidth;
+            dot.classList.add('is-active');
+          }
+        });
+
+        if (labelEl) {
+          const newLabel = slides[activeSlideIdx].getAttribute('data-feature-label');
+          if (newLabel) {
+            labelEl.classList.add('is-switching');
+            setTimeout(() => {
+              labelEl.innerHTML = newLabel;
+              labelEl.classList.remove('is-switching');
+            }, 110);
+          }
+        }
+      };
+
+      const startBriefTimer = () => {
+        if (briefTimer) clearInterval(briefTimer);
+        briefTimer = setInterval(() => {
+          showBriefSlide(activeSlideIdx + 1);
+        }, 5000);
+      };
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          showBriefSlide(idx);
+          startBriefTimer();
+        });
+      });
+
+      startBriefTimer();
+    }
+  }
 });

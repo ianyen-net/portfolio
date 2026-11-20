@@ -28,7 +28,7 @@
 
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
-  <link rel="stylesheet" href="style.css?v=205">
+  <link rel="stylesheet" href="style.css?v=209">
 </head>
 <body data-theme="light" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='208984112481814036c6a8fb96017106d2c7ba8bf1b64c2ae5b44a5d7b283cec'){document.body.classList.remove('is-locked');}</script>
@@ -278,36 +278,50 @@
           <span class="feature-tag">PROTOTYPES I BUILT</span>
         </div>
 
-        <div class="brief-vertical-stack">
-          <div class="brief-stack-item framer-reveal">
-            <p class="case-caption">1 &middot; MAGIC CUE &amp; SAVE</p>
-            <div class="case-hero-stage is-brief-equal-stage">
-              <div class="device-frame is-equal-phone">
-                <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=19">
-                  <source src="assets/mocks/ai_brief_1_magic.mp4?v=19" type="video/mp4">
-                </video>
-              </div>
+        <div class="brief-video-carousel framer-reveal" data-brief-carousel>
+          <div class="brief-carousel-header">
+            <p class="case-caption brief-carousel-active-label" data-brief-carousel-label>1 &middot; MAGIC CUE &amp; SAVE</p>
+            <div class="brief-carousel-dots" role="tablist" aria-label="Feature video slides">
+              <button type="button" class="brief-carousel-dot is-active" data-brief-dot="0" aria-label="1 · Magic Cue & Save" aria-selected="true">
+                <span class="brief-dot-fill"></span>
+              </button>
+              <button type="button" class="brief-carousel-dot" data-brief-dot="1" aria-label="2 · Gemini x Contacts Sync" aria-selected="false">
+                <span class="brief-dot-fill"></span>
+              </button>
+              <button type="button" class="brief-carousel-dot" data-brief-dot="2" aria-label="3 · Gmail Contact Info Extraction" aria-selected="false">
+                <span class="brief-dot-fill"></span>
+              </button>
             </div>
           </div>
 
-          <div class="brief-stack-item framer-reveal">
-            <p class="case-caption">2 &middot; GEMINI x CONTACTS SYNC</p>
-            <div class="case-hero-stage is-brief-equal-stage">
-              <div class="device-frame is-equal-phone">
-                <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_2_gemini_sync_poster.jpg?v=19">
-                  <source src="assets/mocks/ai_brief_2_gemini_sync.mp4?v=19" type="video/mp4">
-                </video>
+          <div class="brief-carousel-stage">
+            <div class="brief-stack-item is-active" data-brief-slide="0" data-feature-label="1 &middot; MAGIC CUE &amp; SAVE">
+              <div class="case-hero-stage is-brief-equal-stage">
+                <div class="device-frame is-equal-phone">
+                  <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_1_magic_poster.jpg?v=19">
+                    <source src="assets/mocks/ai_brief_1_magic.mp4?v=19" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="brief-stack-item framer-reveal">
-            <p class="case-caption">3 &middot; GMAIL CONTACT INFO EXTRACTION</p>
-            <div class="case-hero-stage is-brief-equal-stage">
-              <div class="desktop-window-frame">
-                <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=19">
-                  <source src="assets/mocks/ai_proto_2_gmail.mp4?v=19" type="video/mp4">
-                </video>
+            <div class="brief-stack-item" data-brief-slide="1" data-feature-label="2 &middot; GEMINI x CONTACTS SYNC">
+              <div class="case-hero-stage is-brief-equal-stage">
+                <div class="device-frame is-equal-phone">
+                  <video autoplay muted loop playsinline poster="assets/mocks/ai_brief_2_gemini_sync_poster.jpg?v=19">
+                    <source src="assets/mocks/ai_brief_2_gemini_sync.mp4?v=19" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <div class="brief-stack-item" data-brief-slide="2" data-feature-label="3 &middot; GMAIL CONTACT INFO EXTRACTION">
+              <div class="case-hero-stage is-brief-equal-stage">
+                <div class="desktop-window-frame">
+                  <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=209">
+                    <source src="assets/mocks/ai_proto_2_gmail.mp4?v=209" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
@@ -388,7 +402,7 @@
           <div class="mock-col">
             <p class="case-caption">2 &middot; CONTACT CARD</p>
             <div class="device-frame">
-              <img src="assets/mocks/ai_val_2_profile.png?v=19" alt="Contact Card auto-saved details" loading="lazy">
+              <img src="assets/mocks/ai_val_2_profile.png?v=208" alt="Contact Card auto-saved details" loading="lazy">
             </div>
           </div>
           <div class="mock-col">
@@ -614,8 +628,8 @@
         </div>
 
         <div class="desktop-window-frame framer-reveal" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-          <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=16">
-            <source src="assets/mocks/ai_proto_2_gmail.mp4?v=16" type="video/mp4">
+          <video autoplay muted loop playsinline poster="assets/mocks/ai_proto_2_gmail_poster.jpg?v=209">
+            <source src="assets/mocks/ai_proto_2_gmail.mp4?v=209" type="video/mp4">
           </video>
         </div>
 
@@ -623,8 +637,8 @@
         <p class="case-body">To diagnose why users dismiss suggestions, we implemented an in-context feedback micro-survey that triggers immediately upon a dismissal event. Designed with lightweight interaction constraints to minimize cognitive load, the modal presents predefined categorical chips representing our core failure hypotheses, such as <em>"Confusing," "Inaccurate Data," and "Annoying",</em> paired with an optional open-text field for qualitative context. By aggregating the selected categories, we converted ambiguous drop-off points into quantifiable failure distributions, allowing our product and engineering teams to isolate whether friction stemmed from UI affordances, algorithmic accuracy, or intrusive cadence. We then paired these aggregated volume metrics with the open-text verbatims to systematically prioritize model prompt refinements and adjust user-prompting thresholds.</p>
 
         <div class="desktop-window-frame framer-reveal" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-          <video autoplay muted loop playsinline poster="assets/mocks/ai_model_wrong_poster.jpg?v=16">
-            <source src="assets/mocks/ai_model_wrong.mp4?v=16" type="video/mp4">
+          <video autoplay muted loop playsinline poster="assets/mocks/ai_model_wrong_poster.jpg?v=209">
+            <source src="assets/mocks/ai_model_wrong.mp4?v=209" type="video/mp4">
           </video>
         </div>
 
@@ -687,7 +701,7 @@
           <div class="mock-col">
             <p class="case-caption">MIDDLE CONFIDENCE</p>
             <div class="device-frame">
-              <img src="assets/mocks/ai_conf_3.png" alt="Middle Confidence" loading="lazy">
+              <img src="assets/mocks/ai_conf_3.png?v=209" alt="Middle Confidence" loading="lazy">
             </div>
           </div>
         </div>
@@ -781,6 +795,6 @@
   </footer>
 
 
-  <script src="script.js?v=202"></script>
+  <script src="script.js?v=209"></script>
 </body>
 </html>

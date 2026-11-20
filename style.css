@@ -4482,16 +4482,102 @@ body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blush {
   transform: none !important;
 }
 
-.brief-vertical-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin: 28px 0;
+.brief-video-carousel {
+  margin: 24px 0 32px;
 }
 
-.brief-stack-item .case-caption {
-  margin-top: 0;
-  margin-bottom: 10px;
+.brief-carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.brief-carousel-active-label {
+  margin: 0 !important;
+  text-align: left !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.brief-carousel-active-label.is-switching {
+  opacity: 0.25;
+  transform: translateY(-2px);
+}
+
+.brief-carousel-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brief-carousel-dot {
+  position: relative;
+  width: 28px;
+  height: 5px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1), background 0.22s ease;
+}
+
+body[data-theme="light"] .brief-carousel-dot {
+  background: rgba(14, 31, 47, 0.14);
+}
+
+.brief-carousel-dot.is-active {
+  width: 44px;
+}
+
+.brief-carousel-dot .brief-dot-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-blue, #3186FF);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.brief-carousel-dot.is-active .brief-dot-fill {
+  animation: briefCarouselProgress 5s linear 1 forwards;
+}
+
+@keyframes briefCarouselProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.brief-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+.brief-carousel-stage .brief-stack-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0) scale(0.985);
+  pointer-events: none;
+  z-index: 1;
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brief-carousel-stage .brief-stack-item.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+  z-index: 2;
 }
 
 .case-hero-stage.is-brief-equal-stage {
