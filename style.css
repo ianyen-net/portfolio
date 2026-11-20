@@ -5381,59 +5381,96 @@ body.is-loaded .load-reveal {
   }
 }
 
+@keyframes heroSubtleFirstAppear {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Subtle First Appearance on Initial Page Load (before anything starts to show) */
 .jd-appear-avatar {
-  will-change: transform, opacity, filter;
-  animation: leoAvatarAppear 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
 }
 
 .jd-appear-dock {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.78s both;
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
 }
 
 .jd-appear-nav {
-  will-change: transform, opacity, filter;
-  animation: leoNavAppear 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
 }
 
 .hero-name-pill.jd-appear-title {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.80s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .hero-fraunces-title.jd-appear-title {
-  animation: none;
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
 }
 
 .hero-fraunces-title .hero-hover-word {
   transform-origin: 50% 65%;
-  animation: leoHeadlineWordAppear 1.95s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.12s;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(2),
-.hero-fraunces-title .hero-hover-word.is-ai-word {
-  animation-delay: 0.18s;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
-  animation-delay: 0.24s;
-}
-
-.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.30s;
-}
-
-.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
-  animation-delay: 0.36s;
+  animation: none;
 }
 
 .jd-appear-subtitle {
+  will-change: transform, opacity;
+  animation: heroSubtleFirstAppear 0.58s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both;
+}
+
+/* Full Expressive Hero Entrance Effect — Triggered When Switching Themes */
+body.is-theme-switching .jd-appear-nav {
   will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both;
+  animation: leoNavAppear 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+body.is-theme-switching .hero-name-pill.jd-appear-title {
+  will-change: transform, opacity, filter;
+  animation: leoFadeRise10 0.80s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+body.is-theme-switching .hero-fraunces-title.jd-appear-title {
+  animation: none;
+}
+
+body.is-theme-switching .hero-fraunces-title .hero-hover-word {
+  animation: leoHeadlineWordAppear 1.95s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+body.is-theme-switching .hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.10s;
+}
+
+body.is-theme-switching .hero-fraunces-title > .hero-hover-word:nth-of-type(2),
+body.is-theme-switching .hero-fraunces-title .hero-hover-word.is-ai-word {
+  animation-delay: 0.16s;
+}
+
+body.is-theme-switching .hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
+  animation-delay: 0.22s;
+}
+
+body.is-theme-switching .hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
+  animation-delay: 0.28s;
+}
+
+body.is-theme-switching .hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
+  animation-delay: 0.34s;
+}
+
+body.is-theme-switching .jd-appear-subtitle {
+  will-change: transform, opacity, filter;
+  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
 }
 
 #process.jd-appear-subtitle {
