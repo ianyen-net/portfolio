@@ -44,30 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  let themeSwitchAnimTimer = null;
-  const triggerThemeSwitchHeroEffect = () => {
-    if (themeSwitchAnimTimer) {
-      clearTimeout(themeSwitchAnimTimer);
-      themeSwitchAnimTimer = null;
-    }
-    document.body.classList.remove('is-theme-switching');
-    void document.body.offsetWidth;
-    document.body.classList.add('is-theme-switching');
-    themeSwitchAnimTimer = setTimeout(() => {
-      document.body.classList.remove('is-theme-switching');
-      themeSwitchAnimTimer = null;
-    }, 2450);
-  };
-
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const current = document.body.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       document.body.setAttribute('data-theme', next);
-      document.querySelectorAll('[data-theme-toggle]').forEach((b) => {
-        b.setAttribute('aria-checked', next === 'dark' ? 'true' : 'false');
-      });
-      triggerThemeSwitchHeroEffect();
+      btn.setAttribute('aria-checked', next === 'dark' ? 'true' : 'false');
       try {
         sessionStorage.setItem('ian-theme-session', next);
       } catch (_) {}
