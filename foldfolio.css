@@ -1360,6 +1360,18 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
 /* ==========================================================================
    CLOSING PHONE: DARK "INCOMING CALL" BACK COVER
    ========================================================================== */
+/* During zoom-out (before 3D fold-shut), hide the footer 3D device's own border so ONLY the sticky browser bezel shrinks down — zero double border! */
+#fold-footer-runway:not(.is-folding-shut) .fold-face,
+#fold-footer-runway:not(.is-folding-shut) .fold-bezel {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+#fold-footer-runway:not(.is-folding-shut) .fold-screen {
+  border-radius: 0;
+}
+
 .fold-closing-inside-left,
 .fold-closing-inside-right {
   width: 100%;
