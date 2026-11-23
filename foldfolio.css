@@ -663,21 +663,9 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   z-index: 6;
 }
 
-/* Metallic Hinge Spine Bridging Left & Right Halves During 3D Unfold */
+/* No thick physical bar — continuous foldable OLED glass meeting cleanly at the crease (matches foldfolio.framer.website) */
 .fold-hinge-spine {
-  position: absolute;
-  left: 497px;
-  top: 2px;
-  bottom: 2px;
-  width: 6px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, var(--ff-chassis-edge) 50%, rgba(0, 0, 0, 0.35) 100%);
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-.fold-device-track.is-unfolding .fold-hinge-spine {
-  opacity: 1;
+  display: none;
 }
 
 .fold-face {
@@ -794,15 +782,15 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px 0 0 34px; }
 .fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
 
-/* Subtle Spine Crease Shading When Open */
+/* Whisper-Subtle Foldable OLED Crease Shading (matches foldfolio.framer.website) */
 .fold-half.is-left .fold-face.is-inside .fold-screen::after {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 28px;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08));
+  width: 18px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.045) 100%);
   pointer-events: none;
   z-index: 10;
 }
@@ -812,8 +800,8 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   top: 0;
   left: 0;
   bottom: 0;
-  width: 24px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.07), transparent);
+  width: 18px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.045) 0%, transparent 100%);
   pointer-events: none;
   z-index: 10;
 }
@@ -911,14 +899,14 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   justify-content: center;
   gap: 20px;
   padding: 64px 38px 40px;
-  background: #F0F0EE;
-  border-left: 1px solid rgba(17, 17, 17, 0.06);
+  background: #F4F4F2;
+  border-left: none;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel,
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
-  background: #16171B;
-  border-left-color: rgba(255, 255, 255, 0.06);
+  background: #141519;
+  border-left: none;
 }
 
 /* Keep the backlit studio lock screen crisp & high-contrast in BOTH light & dark themes */
