@@ -1364,17 +1364,18 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
 .fold-closing-inside-right {
   width: 100%;
   height: 100%;
-  background: #0B0B0B;
-  color: #F4F7FE;
+  background: var(--bg-page, #F8F7F6);
+  color: var(--text-primary, #111111);
   padding: 64px 38px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 .fold-closing-inside-right {
-  background: #111216;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-page, #F8F7F6);
+  border-left: none;
   justify-content: center;
 }
 
@@ -1385,14 +1386,14 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   line-height: 0.88;
   text-transform: uppercase;
   margin: 0;
-  color: #FFFFFF;
+  color: var(--text-primary, #111111);
 }
 
 .fold-closing-inside-sub {
   font-family: var(--ff-font-sans);
   font-size: 14.5px;
   line-height: 1.5;
-  color: #9AA4B8;
+  color: var(--text-secondary, #4A4D52);
   margin: 0;
 }
 
