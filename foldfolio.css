@@ -146,18 +146,23 @@ body[data-theme="light"] .theme-toggle-thumb {
 body.is-fold-mode .leo-nav-cta {
   background: #0B57D0;
   color: #FFFFFF;
+  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 body.is-fold-mode .leo-nav-cta:hover {
   background: #0842A0;
   color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(11, 87, 208, 0.5);
 }
 body.is-fold-mode[data-theme="dark"] .leo-nav-cta {
   background: #3186FF;
   color: #FFFFFF;
 }
 body.is-fold-mode[data-theme="dark"] .leo-nav-cta:hover {
-  background: #4A96FF;
+  background: #559CFF;
   color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(49, 134, 255, 0.55);
 }
 body.is-fold-mode .leo-nav-cta .slot-text-clone {
   color: #FFFFFF;
@@ -181,16 +186,19 @@ body.is-fold-mode[data-theme="dark"] .bio-highlight.is-navy {
   color: #FFFFFF;
 }
 
-/* Prototype Library CTA button in crisp editorial black (light) / white (dark) */
+/* Prototype Library CTA button: editorial black at rest -> signature blue on hover */
 body.is-fold-mode[data-theme="light"] .proto-portal-cta {
   background: #111111;
   color: #FFFFFF;
   box-shadow: 0 12px 26px -8px rgba(17, 17, 17, 0.28);
+  transition: background 0.24s ease, color 0.24s ease, transform 0.24s ease, box-shadow 0.24s ease;
 }
-body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #2A2C30;
+body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta,
+body.is-fold-mode[data-theme="light"] .proto-portal-cta:hover {
+  background: #0B57D0;
   color: #FFFFFF;
-  box-shadow: 0 16px 30px -8px rgba(17, 17, 17, 0.36);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.45);
 }
 body.is-fold-mode[data-theme="light"] .proto-portal-cta .slot-text-clone {
   color: #FFFFFF;
@@ -199,14 +207,17 @@ body.is-fold-mode[data-theme="dark"] .proto-portal-cta {
   background: #FFFFFF;
   color: #0B0B0B;
   box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.45);
+  transition: background 0.24s ease, color 0.24s ease, transform 0.24s ease, box-shadow 0.24s ease;
 }
-body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #E2E4E8;
-  color: #0B0B0B;
-  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.55);
+body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal-cta,
+body.is-fold-mode[data-theme="dark"] .proto-portal-cta:hover {
+  background: #3186FF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(49, 134, 255, 0.5);
 }
 body.is-fold-mode[data-theme="dark"] .proto-portal-cta .slot-text-clone {
-  color: #0B0B0B;
+  color: #FFFFFF;
 }
 /* Remove outer background container around Prototype Library card so it floats seamlessly on the page */
 body.is-fold-mode .proto-directory-portal,
@@ -1274,15 +1285,19 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   justify-content: center;
   text-decoration: none;
   box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.16);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
-.fold-lock-icon-btn:hover {
-  transform: scale(1.07);
-  background: #FFFFFF;
+.fold-lock-icon-btn:hover,
+body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  background: #0B57D0;
+  border-color: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 10px 22px -6px rgba(11, 87, 208, 0.45);
 }
 
 .fold-unfold-pill {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
   padding: 10px 22px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
@@ -1293,11 +1308,15 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   font-weight: 500;
   cursor: pointer;
   box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.14);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
-.fold-unfold-pill:hover {
-  transform: translateY(-1px);
-  background: #FFFFFF;
+.fold-unfold-pill:hover,
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
+  transform: translateY(-2px);
+  background: #0B57D0;
+  border-color: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.45);
 }
 
 .fold-projects-pill {
@@ -1312,11 +1331,14 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   border: 1px solid rgba(17, 17, 17, 0.08);
   background: rgba(255, 255, 255, 0.92);
   color: #111111;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 .fold-projects-pill:hover {
-  transform: translate3d(-50%, -1px, 2px);
-  background: #FFFFFF;
+  transform: translate3d(-50%, -2px, 2px);
+  background: #0B57D0;
+  border-color: #0B57D0;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .fold-projects-pill {
   background: rgba(255, 255, 255, 0.14);
@@ -1325,7 +1347,11 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill {
   box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
-  background: rgba(255, 255, 255, 0.22);
+  transform: translate3d(-50%, -2px, 2px);
+  background: #3186FF;
+  border-color: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(49, 134, 255, 0.5);
 }
 
 /* ==========================================================================
@@ -1416,6 +1442,69 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+.fold-cta-dark:hover {
+  background: #0B57D0;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.42);
+}
+body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
+  background: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(49, 134, 255, 0.48);
+}
+
+/* Closing dark cover CTA buttons */
+.fold-connect-btn-primary,
+.fold-connect-btn-secondary,
+.fold-connect-btn-tertiary {
+  width: 100%;
+  max-width: 340px;
+  justify-content: center;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.fold-connect-btn-primary,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-primary {
+  background: #FFFFFF;
+  color: #111111;
+  padding: 15px 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.fold-connect-btn-primary:hover,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-primary:hover {
+  background: #3186FF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(49, 134, 255, 0.55);
+}
+.fold-connect-btn-secondary,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  padding: 14px 22px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.fold-connect-btn-tertiary,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-tertiary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  padding: 14px 22px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.fold-connect-btn-secondary:hover,
+.fold-connect-btn-tertiary:hover,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-secondary:hover,
+body.is-fold-mode[data-theme="dark"] .fold-connect-btn-tertiary:hover {
+  background: rgba(49, 134, 255, 0.22);
+  border-color: rgba(49, 134, 255, 0.65);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(49, 134, 255, 0.45);
 }
 
 .fold-cta-light {
