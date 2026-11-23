@@ -163,11 +163,9 @@ body.is-fold-mode .leo-nav-cta .slot-text-clone {
   color: #FFFFFF;
 }
 
-body.is-fold-mode .leo-h2 .text-muted {
-  color: var(--text-muted) !important;
-}
+body.is-fold-mode .leo-h2 .text-muted,
 body.is-fold-mode .leo-h2 .text-muted.is-blue {
-  color: var(--accent) !important;
+  color: var(--text-muted) !important;
 }
 
 body.is-fold-mode .leo-work-metric {
