@@ -748,15 +748,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
     const trayRect = processTrayEl.getBoundingClientRect();
     if (trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60) {
-      rocketTorchScheduled = true;
-      processSectionEl.classList.add('is-visible', 'is-rocket-launched');
-      startRocketTorchTracker(processSectionEl);
+      relaunchProcessRocket();
     }
   };
 
-  setTimeout(() => {
-    checkAndLaunchProcessRocket();
-  }, 850);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      checkAndLaunchProcessRocket();
+    });
+  });
 
   window.addEventListener('scroll', checkAndLaunchProcessRocket, { passive: true });
   window.addEventListener('resize', checkAndLaunchProcessRocket, { passive: true });

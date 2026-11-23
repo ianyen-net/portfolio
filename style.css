@@ -5427,66 +5427,22 @@ body.is-loaded .load-reveal {
   }
 }
 
-.jd-appear-avatar {
-  will-change: transform, opacity, filter;
-  animation: leoAvatarAppear 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
-}
-
-.jd-appear-dock {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.78s both;
-}
-
-.jd-appear-nav {
-  will-change: transform, opacity, filter;
-  animation: leoNavAppear 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
-}
-
-.hero-name-pill.jd-appear-title {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.80s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
-}
-
-.hero-fraunces-title.jd-appear-title {
-  animation: none;
-}
-
-.hero-fraunces-title .hero-hover-word {
-  transform-origin: 50% 65%;
-  animation: leoHeadlineWordAppear 1.95s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.12s;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(2),
-.hero-fraunces-title .hero-hover-word.is-ai-word {
-  animation-delay: 0.18s;
-}
-
-.hero-fraunces-title > .hero-hover-word:nth-of-type(3) {
-  animation-delay: 0.24s;
-}
-
-.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(1) {
-  animation-delay: 0.30s;
-}
-
-.hero-fraunces-title .text-accent .hero-hover-word:nth-of-type(2) {
-  animation-delay: 0.36s;
-}
-
-.jd-appear-subtitle {
-  will-change: transform, opacity, filter;
-  animation: leoFadeRise10 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both;
-}
-
+.jd-appear-avatar,
+.jd-appear-dock,
+.jd-appear-nav,
+.hero-name-pill.jd-appear-title,
+.hero-fraunces-title.jd-appear-title,
+.hero-fraunces-title .hero-hover-word,
+.jd-appear-subtitle,
 #process.jd-appear-subtitle {
   animation: none;
   opacity: 1;
   transform: none;
   filter: none;
+}
+
+.hero-fraunces-title .hero-hover-word {
+  transform-origin: 50% 65%;
 }
 
 /* ==========================================================================
