@@ -199,13 +199,17 @@
       }
 
       // ======================================================================
-      // PHASE B: CLOSING FOOTER (0 -> 0.46 Zoom Out, 0.46 -> 1.00 3D Fold Shut to Closed "Let's Build Something Good.")
+      // PHASE B: CLOSING FOOTER (Appears immediately as you scroll past About -> Zoom Out -> 3D Fold Shut)
       // ======================================================================
       let zoomOutT = 0;
       if (footerRunway && footViewport && footTrack && footCloseFlap) {
-        zoomOutT = easeInOutCubic(clamp(pFoot / 0.46, 0, 1));
-        const foldCloseT = easeInOutCubic(clamp((pFoot - 0.46) / 0.50, 0, 1));
-        const portalOutT = clamp(1 - pFoot / 0.24, 0, 1);
+        const footRect = footerRunway.getBoundingClientRect();
+        // Start zooming out as soon as the footer enters the bottom half of the viewport (eliminates blank gap!)
+        const preEntryT = clamp((vh - footRect.top) / (vh * 0.85), 0, 1);
+        const combinedZoomT = clamp(preEntryT * 0.35 + (pFoot / 0.44) * 0.65, 0, 1);
+        zoomOutT = easeInOutCubic(combinedZoomT);
+        const foldCloseT = easeInOutCubic(clamp((pFoot - 0.40) / 0.54, 0, 1));
+        const portalOutT = clamp(1 - preEntryT * 1.6, 0, 1);
 
         const currentFootScale = lerp(scaleToCover, baseScale, zoomOutT);
         const footShiftX = lerp(0, 250, foldCloseT);
@@ -239,7 +243,7 @@
           footWordR.style.opacity = fWordOpacity.toFixed(3);
         }
 
-        const footChromeAlpha = clamp((zoomOutT - 0.35) * 1.8, 0, 1);
+        const footChromeAlpha = clamp((zoomOutT - 0.25) * 1.8, 0, 1);
         if (footChromeTop) footChromeTop.style.opacity = footChromeAlpha.toFixed(3);
 
         if (footPortal) {
