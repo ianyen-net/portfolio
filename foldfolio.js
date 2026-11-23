@@ -244,11 +244,10 @@
       if (heroChromeTop) heroChromeTop.style.opacity = heroChromeAlpha.toFixed(3);
       if (heroFinishPill) heroFinishPill.style.opacity = heroChromeAlpha.toFixed(3);
 
-      // "Scroll to see projects" pill fades in once unfolded and fades out on zoom-in
+      // "Scroll to see projects" pill glides in cleanly only once the 3D fold is completely flat (prevents Z-clipping)
       if (projectsBtn) {
-        const projectsAlpha = clamp((unfoldT - 0.78) / 0.22, 0, 1) * clamp(1 - zoomInT * 2.8, 0, 1);
-        projectsBtn.style.opacity = projectsAlpha.toFixed(3);
-        projectsBtn.style.pointerEvents = projectsAlpha > 0.2 ? 'auto' : 'none';
+        const showProjects = unfoldT >= 0.96 && zoomInT <= 0.08;
+        projectsBtn.classList.toggle('is-visible', showProjects);
       }
 
       // Portal smoothly dissolves into the full-screen portfolio background
@@ -308,11 +307,10 @@
         const footChromeAlpha = clamp((zoomOutT - 0.45) * 2.0, 0, 1);
         if (footChromeTop) footChromeTop.style.opacity = footChromeAlpha.toFixed(3);
 
-        // "Scroll to connect" pill visible on opened closing spread, fades out as flap folds shut
+        // "Scroll to connect" pill visible only while closing spread is flat (glides out before 3D flap swings forward)
         if (connectBtn) {
-          const connectAlpha = clamp(1 - foldCloseT * 3.5, 0, 1);
-          connectBtn.style.opacity = connectAlpha.toFixed(3);
-          connectBtn.style.pointerEvents = connectAlpha > 0.2 ? 'auto' : 'none';
+          const showConnect = pFoot >= 0.02 && foldCloseT <= 0.015;
+          connectBtn.classList.toggle('is-visible', showConnect);
         }
 
         if (footPortal) {

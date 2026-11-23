@@ -1394,7 +1394,7 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
   position: absolute;
   left: 50%;
   bottom: 34px;
-  transform: translate3d(-50%, 0, 2px);
+  transform: translate3d(-50%, 8px, 8px);
   z-index: 30;
   white-space: nowrap;
   opacity: 0;
@@ -1402,10 +1402,15 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
   border: 1px solid rgba(17, 17, 17, 0.08);
   background: rgba(255, 255, 255, 0.92);
   color: #111111;
-  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  transition: opacity 0.26s cubic-bezier(0.22, 1, 0.36, 1), transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
-.fold-projects-pill:hover {
-  transform: translate3d(-50%, -2px, 2px);
+.fold-projects-pill.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0, 8px);
+}
+.fold-projects-pill.is-visible:hover {
+  transform: translate3d(-50%, -2px, 8px);
   background: #1F3B9B;
   border-color: #1F3B9B;
   color: #FFFFFF;
@@ -1417,8 +1422,8 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill {
   color: #F6F6F5;
   box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.45);
 }
-body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill:hover {
-  transform: translate3d(-50%, -2px, 2px);
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill.is-visible:hover {
+  transform: translate3d(-50%, -2px, 8px);
   background: #3186FF;
   border-color: #3186FF;
   color: #FFFFFF;
