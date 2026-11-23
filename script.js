@@ -149,30 +149,88 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    let activeNavItem = null;
+    let hasPillPosition = false;
+
+    const movePillTo = (item, instant = false) => {
+      if (!item) {
+        navHighlight.style.opacity = '0';
+        hasPillPosition = false;
+        return;
+      }
+      const navRect = nav.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      targetX = itemRect.left - navRect.left;
+      targetW = itemRect.width;
+
+      if (instant || !hasPillPosition) {
+        curX = targetX;
+        curW = targetW;
+        velX = 0;
+        velW = 0;
+        navHighlight.style.transform = `translate3d(${curX}px, 0, 0)`;
+        navHighlight.style.width = `${Math.max(0, curW)}px`;
+        hasPillPosition = true;
+      }
+      navHighlight.style.opacity = '1';
+      if (!rafId) rafId = requestAnimationFrame(animateNavPill);
+    };
+
     const hoverTargets = nav.querySelectorAll('[data-nav-hover]');
     hoverTargets.forEach((item) => {
       item.addEventListener('mouseenter', () => {
-        const navRect = nav.getBoundingClientRect();
-        const itemRect = item.getBoundingClientRect();
-        targetX = itemRect.left - navRect.left;
-        targetW = itemRect.width;
-
-        if (!isHovered) {
-          curX = targetX;
-          curW = targetW;
-          velX = 0;
-          velW = 0;
-          isHovered = true;
-        }
-        navHighlight.style.opacity = '1';
-        if (!rafId) rafId = requestAnimationFrame(animateNavPill);
+        isHovered = true;
+        movePillTo(item);
       });
     });
 
     nav.addEventListener('mouseleave', () => {
       isHovered = false;
-      navHighlight.style.opacity = '0';
+      if (activeNavItem) {
+        movePillTo(activeNavItem);
+      } else {
+        navHighlight.style.opacity = '0';
+        hasPillPosition = false;
+      }
     });
+
+    // Scroll-spy: highlight the active section tab in its hover state while scrolling
+    const navSectionPairs = Array.from(nav.querySelectorAll('.leo-nav-link[href^="#"]'))
+      .map((link) => {
+        const id = link.getAttribute('href').slice(1);
+        const section = id ? document.getElementById(id) : null;
+        return section ? { link, section } : null;
+      })
+      .filter(Boolean);
+
+    const updateActiveNavSection = () => {
+      if (!navSectionPairs.length) return;
+      const probeY = window.innerHeight * 0.38;
+      let matched = null;
+
+      for (const pair of navSectionPairs) {
+        const rect = pair.section.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) {
+          matched = pair.link;
+          break;
+        }
+      }
+
+      if (matched !== activeNavItem) {
+        if (activeNavItem) activeNavItem.classList.remove('active');
+        activeNavItem = matched;
+        if (activeNavItem) activeNavItem.classList.add('active');
+        if (!isHovered) {
+          movePillTo(activeNavItem);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', updateActiveNavSection, { passive: true });
+    window.addEventListener('resize', () => {
+      if (!isHovered && activeNavItem) movePillTo(activeNavItem, true);
+    }, { passive: true });
+    updateActiveNavSection();
   }
 
   // Live NYC Time Clock (`America/New_York`)

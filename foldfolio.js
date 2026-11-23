@@ -203,6 +203,13 @@
       if (heroChromeTop) heroChromeTop.style.opacity = heroChromeAlpha.toFixed(3);
       if (heroFinishPill) heroFinishPill.style.opacity = heroChromeAlpha.toFixed(3);
 
+      // "Scroll to see projects" pill fades in once unfolded and fades out on zoom-in
+      if (projectsBtn) {
+        const projectsAlpha = clamp((unfoldT - 0.78) / 0.22, 0, 1) * clamp(1 - zoomInT * 2.8, 0, 1);
+        projectsBtn.style.opacity = projectsAlpha.toFixed(3);
+        projectsBtn.style.pointerEvents = projectsAlpha > 0.2 ? 'auto' : 'none';
+      }
+
       // Portal smoothly dissolves into the full-screen portfolio background
       if (heroPortal) {
         heroPortal.style.opacity = portalInT.toFixed(3);
