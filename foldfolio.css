@@ -712,10 +712,6 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 }
 .fold-half.is-close-flap .fold-face.is-dark-cover {
   transform: rotateY(180deg) translateZ(0.6px);
-  border-radius: 46px 0 0 46px;
-  padding: 4px 0 4px 4px;
-}
-.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover {
   border-radius: 46px;
   padding: 4px;
 }
@@ -752,10 +748,6 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   padding: 8px;
 }
 .fold-half.is-close-flap .fold-face.is-dark-cover .fold-bezel {
-  border-radius: 42px 0 0 42px;
-  padding: 8px 0 8px 8px;
-}
-.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover .fold-bezel {
   border-radius: 42px;
   padding: 8px;
 }
@@ -779,8 +771,7 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-left .fold-face.is-inside .fold-screen { border-radius: 34px 0 0 34px; }
 .fold-half.is-left .fold-face.is-cover .fold-screen { border-radius: 0 34px 34px 0; }
 .fold-half.is-left.is-closed-corners .fold-face.is-cover .fold-screen { border-radius: 34px; }
-.fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px 0 0 34px; }
-.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
+.fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
 
 /* Whisper-Subtle Foldable OLED Crease Shading (matches foldfolio.framer.website) */
 .fold-half.is-left .fold-face.is-inside .fold-screen::after {
