@@ -1387,6 +1387,32 @@ body[data-theme="light"] .hero-hover-word.is-flash {
   text-shadow: none;
 }
 
+/* Expressive variable-font shape morph on "AI" during the Prototype -> Measure -> Launch count */
+@keyframes aiWordShapeMorph {
+  0% {
+    font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'slnt' 0, 'ROND' 85;
+  }
+  20% {
+    font-variation-settings: 'opsz' 120, 'wght' 350, 'wdth' 106, 'slnt' 0, 'ROND' 0;
+  }
+  44% {
+    font-variation-settings: 'opsz' 120, 'wght' 950, 'wdth' 108, 'slnt' 0, 'ROND' 0;
+  }
+  68% {
+    font-variation-settings: 'opsz' 120, 'wght' 720, 'wdth' 84, 'slnt' -10, 'ROND' 100;
+  }
+  86% {
+    font-variation-settings: 'opsz' 120, 'wght' 950, 'wdth' 102, 'slnt' -4, 'ROND' 50;
+  }
+  100% {
+    font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'slnt' 0, 'ROND' 85;
+  }
+}
+
+.hero-hover-word.is-ai-word.is-ai-morphing {
+  animation: aiWordShapeMorph 2.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Normal hover state of the word "AI", AND its frozen resting state when the rocket explosion triggers */
 @keyframes aiFrozenSubtleFloat {
   0%, 100% {

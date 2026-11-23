@@ -566,8 +566,16 @@ document.addEventListener('DOMContentLoaded', () => {
       aiFreezeTimer = null;
     }
     if (aiHeroWord) {
+      aiHeroWord.classList.remove('is-ai-morphing');
       aiHeroWord.classList.add('is-ai-frozen');
     }
+  };
+
+  const startAiWordMorph = () => {
+    if (!aiHeroWord) return;
+    aiHeroWord.classList.remove('is-ai-frozen', 'is-ai-morphing');
+    void aiHeroWord.offsetWidth;
+    aiHeroWord.classList.add('is-ai-morphing');
   };
 
   if (heroTorchFlash) {
@@ -713,6 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.animation = '';
     });
     processSection.classList.add('is-visible', 'is-rocket-launched');
+    startAiWordMorph();
 
     startRocketTorchTracker(processSection);
   };
