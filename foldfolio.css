@@ -982,7 +982,7 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-portrait-fade {
   display: none;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-time {
-  color: #3186FF;
+  color: #F6F6F5;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
   color: #F6F6F5;
@@ -1010,11 +1010,11 @@ body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
   );
 }
 body.is-fold-mode[data-theme="dark"] .fold-intro-icon {
-  background: linear-gradient(145deg, #FFFFFF 0%, #E2E5EC 100%);
-  color: #111111;
+  background: linear-gradient(145deg, #4B97FF 0%, #2472E8 100%);
+  color: #FFFFFF;
   box-shadow:
-    0 4px 10px -3px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 6px 14px -4px rgba(49, 134, 255, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
 body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
@@ -1062,7 +1062,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   font-size: 102px;
   line-height: 0.84;
   letter-spacing: -0.015em;
-  color: #1F3B9B;
+  color: #111111;
 }
 
 .fold-lock-sub {
@@ -1125,7 +1125,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #24262B 0%, #0E0F12 100%);
+  background: linear-gradient(145deg, #2849B8 0%, #1F3B9B 100%);
   color: #FFFFFF;
   font-family: var(--ff-font-mono);
   font-size: 9.5px;
@@ -1134,8 +1134,8 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   text-transform: uppercase;
   text-shadow: none;
   box-shadow:
-    0 4px 10px -3px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    0 6px 14px -4px rgba(31, 59, 155, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .fold-intro-text {
@@ -1449,7 +1449,7 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill.is-vis
   pointer-events: none;
 }
 .fold-inside-statusbar [data-fold-clock] {
-  color: var(--accent);
+  color: inherit;
 }
 
 .fold-inside-left-panel {
