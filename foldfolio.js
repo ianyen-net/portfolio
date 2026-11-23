@@ -144,7 +144,7 @@
       const pFoot = footerRunway ? getRunwayProgress(footerRunway) : 0;
 
       // Toggle floating portfolio navbar when zoomed inside the opened phone
-      const insidePhone = pHero >= 0.86 && pFoot <= 0.04;
+      const insidePhone = pHero >= 0.86 && pFoot <= 0.10;
       document.body.classList.toggle('is-inside-phone', insidePhone);
 
       // ======================================================================
@@ -154,8 +154,8 @@
       const zoomInT = easeInOutCubic(clamp((pHero - 0.48) / 0.48, 0, 1));
       const portalInT = easeOutCubic(clamp((pHero - 0.72) / 0.24, 0, 1));
 
-      // Scale needed for the 1000x684 device to touch the furthest browser wall
-      const scaleToCover = Math.max(vw / 1000, vh / 684);
+      // Scale where the 1000x684 device's inner screen completely fills the viewport (outer bezel sits cleanly off-screen)
+      const scaleToCover = Math.max(vw / 948, vh / 632) * 1.06;
       const currentHeroScale = lerp(baseScale, scaleToCover, zoomInT);
 
       // Translate assembly from centered-right-half (-250px) to centered-tablet (0px)
@@ -199,20 +199,24 @@
       }
 
       // ======================================================================
-      // PHASE B: CLOSING FOOTER (Seamless Camera Pull-Back from Fullscreen -> Opened Device -> 3D Fold Shut)
+      // PHASE B: CLOSING FOOTER (Borderless entry -> Keep scrolling to Zoom Out -> 3D Fold Shut)
       // ======================================================================
       let zoomOutT = 0;
       let currentFootScale = scaleToCover;
       if (footerRunway && footViewport && footTrack && footCloseFlap) {
-        // Starts at exact fullscreen (scaleToCover) matching the About canvas, then pulls back smoothly into the opened device!
-        zoomOutT = easeInOutCubic(clamp(pFoot / 0.46, 0, 1));
-        const foldCloseT = easeInOutCubic(clamp((pFoot - 0.48) / 0.50, 0, 1));
+        // Hold at borderless fullscreen until pFoot > 0.10 so no device frame appears prematurely as you scroll past About
+        zoomOutT = easeInOutCubic(clamp((pFoot - 0.10) / 0.40, 0, 1));
+        const foldCloseT = easeInOutCubic(clamp((pFoot - 0.52) / 0.46, 0, 1));
 
         currentFootScale = lerp(scaleToCover, baseScale, zoomOutT);
         const footShiftX = lerp(0, 250, foldCloseT);
 
         footViewport.style.transform = `scale(${currentFootScale.toFixed(4)})`;
         footTrack.style.transform = `translate3d(${footShiftX.toFixed(2)}px, 0, 0)`;
+
+        // Hide the 3D device's own outer bezel while completely zoomed in so no edge ever peeks in prematurely
+        const footBezelAlpha = clamp((zoomOutT - 0.02) / 0.12, 0, 1);
+        footViewport.style.setProperty('--foot-bezel-reveal', footBezelAlpha.toFixed(3));
 
         const closeAngle = lerp(0, -180, foldCloseT);
         footCloseFlap.style.transform = `rotateY(${closeAngle.toFixed(2)}deg)`;
@@ -226,7 +230,7 @@
         const fShadowScaleX = lerp(1.0, 0.5, foldCloseT);
         if (footShadow) {
           footShadow.style.transform = `translateX(-50%) scaleX(${fShadowScaleX.toFixed(3)})`;
-          footShadow.style.opacity = clamp((zoomOutT - 0.25) * 1.6, 0, 1).toFixed(3);
+          footShadow.style.opacity = clamp((zoomOutT - 0.30) * 1.6, 0, 1).toFixed(3);
         }
 
         const fWordOffset = (1 - foldCloseT) * 460;
@@ -243,7 +247,6 @@
         const footChromeAlpha = clamp((zoomOutT - 0.45) * 2.0, 0, 1);
         if (footChromeTop) footChromeTop.style.opacity = footChromeAlpha.toFixed(3);
 
-        // No opaque blank curtain — the theme-matched fullscreen device IS the canvas!
         if (footPortal) {
           footPortal.style.opacity = '0';
         }
@@ -268,7 +271,7 @@
         } else {
           setBezelRect(0, padX, padY, 42, 34);
         }
-      } else if (pFoot > 0.04 && pFoot < 0.46) {
+      } else if (pFoot > 0.10 && pFoot < 0.50) {
         const liveW = 1000 * currentFootScale;
         const liveH = 684 * currentFootScale;
         const padX = Math.max(0, (vw - liveW) * 0.5);
