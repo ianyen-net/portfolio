@@ -599,6 +599,23 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   z-index: 6;
 }
 
+/* Metallic Hinge Spine Bridging Left & Right Halves During 3D Unfold */
+.fold-hinge-spine {
+  position: absolute;
+  left: 497px;
+  top: 2px;
+  bottom: 2px;
+  width: 6px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, var(--ff-chassis-edge) 50%, rgba(0, 0, 0, 0.35) 100%);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.fold-device-track.is-unfolding .fold-hinge-spine {
+  opacity: 1;
+}
+
 .fold-face {
   position: absolute;
   inset: 0;
@@ -607,12 +624,14 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   background: var(--ff-chassis-grad);
   padding: 4px;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.72), inset 0 -1px 2px rgba(0, 0, 0, 0.25);
+  transition: border-radius 0.22s ease;
 }
 
-/* Corner rounding per half */
+/* Corner rounding per half — keep spine corners straight during 3D fold to prevent hinge gap/clipping */
 .fold-half.is-right .fold-face {
   border-radius: 0 46px 46px 0;
   padding-left: 0;
+  transform: translateZ(0px);
 }
 .fold-half.is-right.is-closed-corners .fold-face {
   border-radius: 46px;
@@ -622,9 +641,14 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-left .fold-face.is-inside {
   border-radius: 46px 0 0 46px;
   padding-right: 0;
+  transform: translateZ(0.6px);
 }
 .fold-half.is-left .fold-face.is-cover {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(0.6px);
+  border-radius: 0 46px 46px 0;
+  padding: 4px 4px 4px 0;
+}
+.fold-half.is-left.is-closed-corners .fold-face.is-cover {
   border-radius: 46px;
   padding: 4px;
 }
@@ -632,9 +656,14 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-close-flap .fold-face.is-inside-back {
   border-radius: 0 46px 46px 0;
   padding-left: 0;
+  transform: translateZ(0.6px);
 }
 .fold-half.is-close-flap .fold-face.is-dark-cover {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(0.6px);
+  border-radius: 46px 0 0 46px;
+  padding: 4px 0 4px 4px;
+}
+.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover {
   border-radius: 46px;
   padding: 4px;
 }
@@ -647,6 +676,7 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   background: #050505;
   padding: 8px;
   overflow: hidden;
+  transition: border-radius 0.22s ease;
 }
 
 .fold-half.is-right .fold-bezel {
@@ -661,8 +691,19 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   border-radius: 42px 0 0 42px;
   padding-right: 0;
 }
-.fold-half.is-left .fold-face.is-cover .fold-bezel,
+.fold-half.is-left .fold-face.is-cover .fold-bezel {
+  border-radius: 0 42px 42px 0;
+  padding: 8px 8px 8px 0;
+}
+.fold-half.is-left.is-closed-corners .fold-face.is-cover .fold-bezel {
+  border-radius: 42px;
+  padding: 8px;
+}
 .fold-half.is-close-flap .fold-face.is-dark-cover .fold-bezel {
+  border-radius: 42px 0 0 42px;
+  padding: 8px 0 8px 8px;
+}
+.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover .fold-bezel {
   border-radius: 42px;
   padding: 8px;
 }
@@ -678,13 +719,16 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   height: 100%;
   overflow: hidden;
   background: #FFFFFF;
+  transition: border-radius 0.22s ease;
 }
 
 .fold-half.is-right .fold-screen { border-radius: 0 34px 34px 0; }
 .fold-half.is-right.is-closed-corners .fold-screen { border-radius: 34px; }
 .fold-half.is-left .fold-face.is-inside .fold-screen { border-radius: 34px 0 0 34px; }
-.fold-half.is-left .fold-face.is-cover .fold-screen,
-.fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
+.fold-half.is-left .fold-face.is-cover .fold-screen { border-radius: 0 34px 34px 0; }
+.fold-half.is-left.is-closed-corners .fold-face.is-cover .fold-screen { border-radius: 34px; }
+.fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px 0 0 34px; }
+.fold-half.is-close-flap.is-closed-corners .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
 
 /* Subtle Spine Crease Shading When Open */
 .fold-half.is-left .fold-face.is-inside .fold-screen::after {
@@ -774,7 +818,130 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
     0 20px 44px -14px rgba(0, 0, 0, 0.65),
     0 0 0 1.5px rgba(255, 255, 255, 0.14);
 }
-body.is-fold-mode[data-theme="dark"] .fold-notif-card {
+body.is-fold-mode[data-theme="dark"] /* Intro Glass Card on Front Lock Screen */
+.fold-intro-glass {
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.16) 100%);
+  backdrop-filter: blur(12px) saturate(185%);
+  -webkit-backdrop-filter: blur(12px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    0 8px 22px -10px rgba(0, 0, 0, 0.14);
+  font-family: var(--ff-font-sans);
+  font-size: 13.5px;
+  line-height: 1.48;
+  font-weight: 500;
+  color: #111111;
+  text-align: center;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #F6F6F5;
+}
+
+/* Opened Left Panel — Work History Team List */
+.fold-history-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.fold-history-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fold-history-co {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.10);
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-co {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.fold-history-co-name {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-co-name {
+  color: #F6F6F5;
+}
+
+.fold-history-co-dates {
+  font-family: var(--ff-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6B7078;
+}
+
+.fold-history-teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fold-history-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ff-font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #1F2226;
+  line-height: 1.3;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-team {
+  color: #E2E5EC;
+}
+
+.fold-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ff-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #146C2E;
+  background: rgba(47, 203, 104, 0.14);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.fold-current-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2FCB68;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-current-badge {
+  color: #88E2AC;
+  background: rgba(47, 203, 104, 0.18);
+}
+
+.fold-notif-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%);
   border-color: rgba(255, 255, 255, 0.16);
   color: #F6F6F5;
@@ -834,6 +1001,129 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Intro Glass Card on Front Lock Screen */
+.fold-intro-glass {
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.16) 100%);
+  backdrop-filter: blur(12px) saturate(185%);
+  -webkit-backdrop-filter: blur(12px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    0 8px 22px -10px rgba(0, 0, 0, 0.14);
+  font-family: var(--ff-font-sans);
+  font-size: 13.5px;
+  line-height: 1.48;
+  font-weight: 500;
+  color: #111111;
+  text-align: center;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #F6F6F5;
+}
+
+/* Opened Left Panel — Work History Team List */
+.fold-history-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.fold-history-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fold-history-co {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.10);
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-co {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.fold-history-co-name {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-co-name {
+  color: #F6F6F5;
+}
+
+.fold-history-co-dates {
+  font-family: var(--ff-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6B7078;
+}
+
+.fold-history-teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fold-history-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ff-font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #1F2226;
+  line-height: 1.3;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-history-team {
+  color: #E2E5EC;
+}
+
+.fold-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ff-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #146C2E;
+  background: rgba(47, 203, 104, 0.14);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.fold-current-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2FCB68;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-current-badge {
+  color: #88E2AC;
+  background: rgba(47, 203, 104, 0.18);
 }
 
 .fold-notif-card {

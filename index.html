@@ -34,7 +34,7 @@
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=234">
-  <link rel="stylesheet" href="foldfolio.css?v=235">
+  <link rel="stylesheet" href="foldfolio.css?v=236">
 </head>
 <body data-theme="light">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -141,9 +141,10 @@
           <div class="fold-floor-shadow" aria-hidden="true"></div>
 
           <div class="fold-device-track">
+            <div class="fold-hinge-spine" aria-hidden="true"></div>
             <!-- LEFT HINGED HALF (Swings open 180deg -> 0deg; Back face is Front Lock Screen Cover!) -->
-            <div class="fold-half is-left">
-              <!-- Inside Left Panel (Revealed as phone unfolds) -->
+            <div class="fold-half is-left is-closed-corners">
+              <!-- Inside Left Panel (Work History — Team Names Only) -->
               <div class="fold-face is-inside">
                 <div class="fold-bezel">
                   <div class="fold-screen">
@@ -151,15 +152,41 @@
                       <span data-fold-clock>13:52</span>
                       <span></span>
                     </div>
-                    <div class="fold-inside-left-panel">
-                      <span class="fold-inside-kicker">SENIOR PRODUCT DESIGNER &mdash; GOOGLE NYC</span>
-                      <div class="fold-inside-hero-copy">
-                        <h1 class="fold-inside-name">IAN YEN</h1>
-                        <p class="fold-inside-tagline">Designing AI products people trust. 7 years taking products from zero to launch across Android, iOS, desktop and wearable.</p>
-                        <div class="fold-inside-ctas">
-                          <a href="#work" class="fold-cta-dark">See the work ↗</a>
-                          <a href="#contact" class="fold-cta-light">Say hi</a>
+                    <div class="fold-inside-left-panel" style="padding: 58px 36px 36px;">
+                      <div>
+                        <span class="fold-inside-kicker">EXPERIENCE &middot; TEAMS</span>
+                        <h1 class="fold-inside-name" style="font-size:74px;margin-top:6px;">IAN YEN</h1>
+                      </div>
+
+                      <div class="fold-history-groups">
+                        <div class="fold-history-group">
+                          <div class="fold-history-co">
+                            <span class="fold-history-co-name">Google</span>
+                            <span class="fold-history-co-dates">2021 - Present</span>
+                          </div>
+                          <ul class="fold-history-teams">
+                            <li class="fold-history-team"><span>Agentic Messaging</span><span class="fold-current-badge">Current</span></li>
+                            <li class="fold-history-team"><span>Google Growth</span><span class="fold-current-badge">Current</span></li>
+                            <li class="fold-history-team"><span>Ecosystem Growth &middot; Sharing Design System</span></li>
+                            <li class="fold-history-team"><span>Contact Intelligence in Gemini</span></li>
+                            <li class="fold-history-team"><span>Contact Data Workflow</span></li>
+                          </ul>
                         </div>
+
+                        <div class="fold-history-group">
+                          <div class="fold-history-co">
+                            <span class="fold-history-co-name">Philips</span>
+                            <span class="fold-history-co-dates">2020 - 2021</span>
+                          </div>
+                          <ul class="fold-history-teams">
+                            <li class="fold-history-team"><span>Sonicare App</span></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="fold-inside-ctas" style="margin-top: 8px;">
+                        <a href="#work" class="fold-cta-dark">See the work ↗</a>
+                        <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-light">Resume ↗</a>
                       </div>
                     </div>
                   </div>
@@ -181,32 +208,9 @@
                       </div>
 
                       <div class="fold-lock-bottom">
-                        <a href="#work" class="fold-notif-card">
-                          <span class="fold-notif-thumb" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                              <path d="M12 7v4"></path>
-                              <path d="M10 9h4"></path>
-                            </svg>
-                          </span>
-                          <div class="fold-notif-meta">
-                            <span class="fold-notif-title">Agentic Messaging</span>
-                            <span class="fold-notif-desc">GOOGLE &middot; CURRENT TEAM</span>
-                          </div>
-                        </a>
-
-                        <a href="#work" class="fold-notif-card">
-                          <span class="fold-notif-thumb is-alt" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                              <polyline points="16 7 22 7 22 13"></polyline>
-                            </svg>
-                          </span>
-                          <div class="fold-notif-meta">
-                            <span class="fold-notif-title">Ecosystem Growth</span>
-                            <span class="fold-notif-desc">GOOGLE &middot; CURRENT TEAM</span>
-                          </div>
-                        </a>
+                        <div class="fold-intro-glass">
+                          7 years of experience taking products from zero to launch across Android, iOS, desktop and wearable.
+                        </div>
 
                         <div class="fold-lock-actions">
                           <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-lock-icon-btn" aria-label="LinkedIn">
@@ -559,6 +563,7 @@
           <div class="fold-floor-shadow" aria-hidden="true"></div>
 
           <div class="fold-device-track">
+            <div class="fold-hinge-spine" aria-hidden="true"></div>
             <!-- LEFT BASE HALF (Visible as we zoom out before the right flap closes over it) -->
             <div class="fold-half is-left">
               <div class="fold-face is-inside">
@@ -582,7 +587,7 @@
                       <div style="display:flex;flex-direction:column;gap:12px;">
                         <a href="mailto:ianyenyh@gmail.com" class="fold-cta-dark" style="background:#FFFFFF;color:#111111;justify-content:center;">Email me ↗</a>
                         <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.12);color:#FFFFFF;justify-content:center;">LinkedIn</a>
-                        <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;">View resume</a>
+                        <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;">View resume</a>
                       </div>
                     </div>
                   </div>
@@ -601,7 +606,7 @@
                       <div class="fold-call-bottom" style="gap:12px;width:100%;">
                         <a href="mailto:ianyenyh@gmail.com" class="fold-cta-dark" style="width:100%;max-width:340px;background:#FFFFFF;color:#111111;justify-content:center;padding:15px 22px;font-size:14.5px;font-weight:600;">Email me ↗</a>
                         <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="width:100%;max-width:340px;background:rgba(255,255,255,0.12);color:#FFFFFF;justify-content:center;padding:14px 22px;font-size:14px;">LinkedIn ↗</a>
-                        <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="width:100%;max-width:340px;background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;padding:14px 22px;font-size:14px;">View resume ↗</a>
+                        <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="width:100%;max-width:340px;background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;padding:14px 22px;font-size:14px;">View resume ↗</a>
 
                         <div class="fold-call-links" style="margin-top:14px;">
                           <a href="mailto:ianyenyh@gmail.com">IANYENYH@GMAIL.COM</a>
@@ -625,6 +630,6 @@
   </main>
 
   <script src="script.js?v=220"></script>
-  <script src="foldfolio.js?v=235"></script></script>
+  <script src="foldfolio.js?v=236"></script></script></script>
 </body>
 </html>

@@ -166,7 +166,10 @@
       // 3D Hinge on Left Half: 180deg (closed front cover) -> 0deg (flat open)
       const openAngle = lerp(180, 0, unfoldT);
       heroLeftHalf.style.transform = `rotateY(${openAngle.toFixed(2)}deg)`;
-      heroRightHalf.classList.toggle('is-closed-corners', unfoldT < 0.06);
+      const isHeroClosed = unfoldT < 0.025;
+      heroRightHalf.classList.toggle('is-closed-corners', isHeroClosed);
+      heroLeftHalf.classList.toggle('is-closed-corners', isHeroClosed);
+      heroTrack.classList.toggle('is-unfolding', unfoldT >= 0.025 && zoomInT < 0.2);
 
       // Floor shadow widens as phone opens, fades as we zoom in
       const shadowScaleX = lerp(0.5, 1.0, unfoldT);
@@ -212,8 +215,11 @@
 
         const closeAngle = lerp(0, -180, foldCloseT);
         footCloseFlap.style.transform = `rotateY(${closeAngle.toFixed(2)}deg)`;
+        const isFootClosed = foldCloseT > 0.96;
+        footCloseFlap.classList.toggle('is-closed-corners', isFootClosed);
+        footTrack.classList.toggle('is-unfolding', foldCloseT > 0.02 && !isFootClosed);
         if (footLeftHalf) {
-          footLeftHalf.style.opacity = foldCloseT > 0.96 ? '0' : '1';
+          footLeftHalf.style.opacity = isFootClosed ? '0' : '1';
         }
 
         const fShadowScaleX = lerp(1.0, 0.5, foldCloseT);
