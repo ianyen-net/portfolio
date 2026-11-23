@@ -324,9 +324,10 @@
       // from (0,0) all the way down to the exact opened device frame before 3D fold!
       // ======================================================================
       const isMobile = vw < 768;
+      const baseOuterR = isMobile ? 22 : 34;
       const baseInnerR = isMobile ? 16 : 26;
       if (insidePhone) {
-        setBezelRect(1, 0, 0, 0, baseInnerR);
+        setBezelRect(1, 0, 0, baseOuterR, baseInnerR);
       } else if (pHero > 0.48 && pHero < 0.86) {
         const liveW = 1000 * currentHeroScale;
         const liveH = 684 * currentHeroScale;
@@ -334,20 +335,19 @@
         const padY = Math.max(0, (vh - liveH) * 0.5);
         const fillRatio = Math.max(liveW / vw, liveH / vh);
         const bezelAlpha = clamp((fillRatio - 0.94) / 0.06, 0, 1);
-        const outerR = Math.min(padX, padY) > 1 ? 34 * openScale : 0;
-        setBezelRect(bezelAlpha, padX, padY, outerR, baseInnerR);
+        setBezelRect(bezelAlpha, padX, padY, baseOuterR, baseInnerR);
       } else if (pFoot > 0.08 && pFoot < 0.53) {
         // Interpolate bezel smoothly from browser walls (0, 0) to exact 1000x684 * openScale device bounds
         const targetPadX = Math.max(0, (vw - 1000 * openScale) * 0.5);
         const targetPadY = Math.max(0, (vh - 684 * openScale) * 0.5);
         const padX = lerp(0, targetPadX, zoomOutT);
         const padY = lerp(0, targetPadY, zoomOutT);
-        const outerR = lerp(0, 44 * openScale, zoomOutT);
+        const outerR = lerp(baseOuterR, 44 * openScale, zoomOutT);
         const innerR = lerp(baseInnerR, 34 * openScale, zoomOutT);
         const handoffFade = pFoot >= 0.50 ? clamp(1 - (pFoot - 0.50) / 0.03, 0, 1) : 1;
         setBezelRect(handoffFade, padX, padY, outerR, innerR);
       } else {
-        setBezelRect(0, 0, 0, 0, baseInnerR);
+        setBezelRect(0, 0, 0, baseOuterR, baseInnerR);
       }
     };
 
