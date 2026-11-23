@@ -9,8 +9,8 @@
   <meta property="og:description" content="Ian Yen | Senior Product Designer at Google NYC. Designing AI products people trust across Agentic Messaging, People Platform & Ecosystem Growth.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ianyen.net">
-  <meta property="og:image" content="https://ianyen.net/assets/og-preview.png?v=214">
-  <meta property="og:image:secure_url" content="https://ianyen.net/assets/og-preview.png?v=214">
+  <meta property="og:image" content="https://ianyen.net/assets/og-preview.png?v=232">
+  <meta property="og:image:secure_url" content="https://ianyen.net/assets/og-preview.png?v=232">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -18,24 +18,27 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ian Yen | Senior Product Designer">
   <meta name="twitter:description" content="Ian Yen | Senior Product Designer at Google NYC. Designing AI products people trust across Agentic Messaging, People Platform & Ecosystem Growth.">
-  <meta name="twitter:image" content="https://ianyen.net/assets/og-preview.png?v=214">
-  <meta name="thumbnail" content="https://ianyen.net/favicon-512.png?v=192">
-  <link rel="icon" href="favicon.png?v=192" type="image/png" sizes="64x64">
-  <link rel="icon" href="favicon-192.png?v=192" type="image/png" sizes="192x192">
-  <link rel="icon" href="favicon-512.png?v=192" type="image/png" sizes="512x512">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=192">
+  <meta name="twitter:image" content="https://ianyen.net/assets/og-preview.png?v=232">
+  <meta name="thumbnail" content="https://ianyen.net/favicon-512.png?v=230">
+  <link rel="icon" href="favicon.png?v=230" type="image/png" sizes="64x64">
+  <link rel="icon" href="favicon-192.png?v=230" type="image/png" sizes="192x192">
+  <link rel="icon" href="favicon-512.png?v=230" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=230">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Sofia+Sans+Extra+Condensed:wght@800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
+  <link rel="preload" as="image" href="assets/ian_foldfolio_circle.jpg?v=229" fetchpriority="high">
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/memoji_o_head.gif?v=222" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=222">
+  <link rel="stylesheet" href="foldfolio.css?v=231">
 </head>
 <body data-theme="light">
+  <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
+  <div class="fold-viewport-bezel-frame" aria-hidden="true"></div>
 
   <!-- ====================================================================
        1. FLOATING TOP PILL NAV BAR & TOP-RIGHT CONTROLS
@@ -86,17 +89,8 @@
       </a>
     </nav>
 
-    <!-- Top-Right Time & Sun/Moon Mode Switcher Toggle -->
+    <!-- Top-Right Sun/Moon Mode Switcher Toggle -->
     <div class="top-right-controls">
-      <div class="leo-nav-clock" title="Current time in New York City">
-        <span class="pulse-dot-wrap" aria-hidden="true">
-          <span class="pulse-dot-ring"></span>
-          <span class="pulse-dot-core"></span>
-        </span>
-        <span class="leo-nav-clock-tz">NYC</span>
-        <span data-nyc-time>12:00</span>
-      </div>
-
       <button type="button" class="theme-toggle-switch" role="switch" aria-checked="false" data-theme-toggle aria-label="Toggle Light and Dark Mode" title="Switch theme">
         <span class="theme-toggle-option is-sun" aria-hidden="true">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -117,145 +111,165 @@
   <main id="top" class="leo-page">
 
     <!-- ====================================================================
-         2. HERO SECTION (`.framer-1bpb68h` -> `.framer-3ke7q3` -> `.framer-mwp2xd` in leomarlowe.framer.website)
-            - Center-aligned interactive animated 3D Pixar GIF avatar (`ian-dean-avatar.gif`)
-            - Smooth staggered first-load entrance choreography
-            - Refined "Jump to a project" spring magnification dock (`Kt`)
+         2. FOLDFOLIO HERO SECTION (3D Foldable Phone -> Unfold -> Zoom Into Fullscreen)
          ==================================================================== -->
-    <section class="hero-viewport-wrap" aria-label="Introduction">
-      <div class="hero-shell-outer">
-        <div class="hero-card-inner">
-          <!-- Top Border Torch-Like Gradient Flash triggered when the Ship rocket reaches the top of the hero section -->
-          <div class="hero-top-torch-flash" aria-hidden="true"></div>
-          <div class="hero-radial-glow" aria-hidden="true"></div>
+    <section class="fold-runway" id="fold-hero-runway" aria-label="Introduction">
+      <div class="fold-sticky-stage">
+        <!-- Ambient Background Modes -->
+        <div class="fold-ambient-layer" aria-hidden="true">
+          <div class="fold-ambient-glow"></div>
+          <div class="fold-ambient-orbit">
+            <div class="fold-orbit-ring r1"></div>
+            <div class="fold-orbit-ring r2"></div>
+            <div class="fold-orbit-ring r3"></div>
+          </div>
+        </div>
 
-          <div class="hero-center-stack">
-            <!-- Hero Name & Location Line (Julian David y: +90 -> 0 @ 1.0s delay) -->
-            <div class="hero-name-pill jd-appear-title">
-              <span>Ian Yen</span>
-              <span class="pill-sep" aria-hidden="true"></span>
-              <span class="pill-loc">Senior Product Designer &middot; Google NYC</span>
+        <!-- Top Studio Wordmark -->
+        <div class="fold-chrome-top">
+          <a href="#top" class="fold-wordmark">IAN YEN<sup>&reg;</sup></a>
+        </div>
+
+        <!-- Giant Condensed Backdrop Typography ("IAN" / "YEN") -->
+        <div class="fold-backdrop-names" aria-hidden="true">
+          <span class="fold-bg-word is-left">IAN</span>
+          <span class="fold-bg-word is-right">YEN</span>
+        </div>
+
+        <!-- 3D Foldable Phone Assembly -->
+        <div class="fold-device-viewport">
+          <div class="fold-floor-shadow" aria-hidden="true"></div>
+
+          <div class="fold-device-track">
+            <!-- LEFT HINGED HALF (Swings open 180deg -> 0deg; Back face is Front Lock Screen Cover!) -->
+            <div class="fold-half is-left">
+              <!-- Inside Left Panel (Revealed as phone unfolds) -->
+              <div class="fold-face is-inside">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-inside-statusbar" aria-hidden="true">
+                      <span data-fold-clock>13:52</span>
+                      <span></span>
+                    </div>
+                    <div class="fold-inside-left-panel">
+                      <span class="fold-inside-kicker">SENIOR PRODUCT DESIGNER &mdash; GOOGLE NYC</span>
+                      <div class="fold-inside-hero-copy">
+                        <h1 class="fold-inside-name">IAN YEN</h1>
+                        <p class="fold-inside-tagline">Designing AI products people trust. 7 years taking products from zero to launch across Android, iOS, desktop and wearable.</p>
+                        <div class="fold-inside-ctas">
+                          <a href="#work" class="fold-cta-dark">See the work ↗</a>
+                          <a href="#contact" class="fold-cta-light">Say hi</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Front Lock Screen Cover (Visible when phone is closed at scroll = 0) -->
+              <div class="fold-face is-cover">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-lock-screen">
+                      <div class="fold-lock-top">
+                        <div class="fold-lock-time" data-fold-clock>13:52</div>
+                        <div class="fold-lock-sub">Senior Product Designer &middot; Google NYC</div>
+                      </div>
+
+                      <div class="fold-lock-avatar-wrap">
+                        <img src="assets/ian_foldfolio_circle.jpg?v=229" alt="Ian Yen editorial portrait" class="fold-lock-avatar-img" decoding="sync">
+                      </div>
+
+                      <div class="fold-lock-bottom">
+                        <a href="#work" class="fold-notif-card">
+                          <span class="fold-notif-thumb" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                              <path d="M12 7v4"></path>
+                              <path d="M10 9h4"></path>
+                            </svg>
+                          </span>
+                          <div class="fold-notif-meta">
+                            <span class="fold-notif-title">Agentic Messaging</span>
+                            <span class="fold-notif-desc">GOOGLE &middot; CURRENT TEAM</span>
+                          </div>
+                        </a>
+
+                        <a href="#work" class="fold-notif-card">
+                          <span class="fold-notif-thumb is-alt" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                              <polyline points="16 7 22 7 22 13"></polyline>
+                            </svg>
+                          </span>
+                          <div class="fold-notif-meta">
+                            <span class="fold-notif-title">Ecosystem Growth</span>
+                            <span class="fold-notif-desc">GOOGLE &middot; CURRENT TEAM</span>
+                          </div>
+                        </a>
+
+                        <div class="fold-lock-actions">
+                          <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-lock-icon-btn" aria-label="LinkedIn">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                              <rect x="2" y="9" width="4" height="12"></rect>
+                              <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                          </a>
+
+                          <button type="button" class="fold-unfold-pill" id="fold-unfold-btn">Scroll to unfold</button>
+
+                          <a href="mailto:ianyenyh@gmail.com" class="fold-lock-icon-btn" aria-label="Email Ian">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                              <path d="M4 7.5l8 5.5 8-5.5"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- Display Hero Headline (Mobile 3-Row Wrap + Interactive Hover Effect + Avatar Head as the "O" in "PEOPLE") -->
-            <h1 class="hero-fraunces-title jd-appear-title">
-              <span class="hero-hover-word is-designing-word">Designing</span> <br class="hero-mobile-break"><span class="hero-hover-word is-ai-word">AI</span> <span class="hero-hover-word">products</span><br><span class="text-accent"><span class="hero-hover-word is-accent is-people-word" aria-label="people">pe<span class="hero-o-avatar" aria-hidden="true"><img src="assets/memoji_o_head.gif?v=222" alt="" class="hero-o-avatar-img" decoding="sync"></span>ple</span> <span class="hero-hover-word is-accent">trust.</span></span>
-            </h1>
-
-            <!-- Clean Subtitle Line (Julian David y: +90 -> 0 @ 1.1s delay) -->
-            <p class="hero-subtitle-line jd-appear-subtitle">
-              7 years of experience taking products from zero to launch across Android, iOS, desktop and wearable.
-            </p>
-          </div>
-
-          <!-- ====================================================================
-               2B. PROCESS FLOW ("Prototype -> Measure -> Launch" Inside Hero Card)
-               ==================================================================== -->
-          <div class="hero-process-wrap jd-appear-subtitle" id="process">
-            <div class="leo-process-tray" role="region" aria-label="How I approach my work: Prototype, Measure, Launch">
-              <div class="leo-process-card">
-                <h3 class="leo-process-title" data-text="Prototype">Prototype</h3>
+            <!-- RIGHT BASE HALF (Inside Right Portrait Panel) -->
+            <div class="fold-half is-right is-closed-corners">
+              <div class="fold-side-buttons" aria-hidden="true">
+                <span class="fold-side-btn is-vol"></span>
+                <span class="fold-side-btn is-pwr"></span>
               </div>
-
-              <!-- Handwritten Arched Arrow 1 (Prototype -> Measure) -->
-              <svg class="process-hand-arrow is-first" viewBox="0 0 120 42" fill="none" aria-hidden="true">
-                <path d="M6 28 C 34 8, 78 8, 108 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="140" stroke-dashoffset="0"/>
-                <path d="M97 14 C 103 18, 108 21, 111 24 C 105 25, 99 28, 94 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-
-              <div class="leo-process-card">
-                <h3 class="leo-process-title" data-text="Measure">Measure</h3>
-              </div>
-
-              <!-- Handwritten Looping Arrow 2 (Measure -> Launch) -->
-              <svg class="process-hand-arrow is-second" viewBox="0 0 120 42" fill="none" aria-hidden="true">
-                <path d="M6 18 C 36 36, 78 34, 108 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M95 12 C 102 14, 107 15, 111 16 C 107 21, 103 26, 99 30" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-
-              <div class="leo-process-card is-accent is-ship-card">
-                <h3 class="leo-process-title" data-text="Launch">Launch</h3>
-                <button type="button" class="rocket-relaunch-btn" data-rocket-relaunch aria-label="Launch rocket" title="Launch rocket">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-                  </svg>
-                </button>
-                <!-- Cute Retro Rocket Vector with Launchpad Smoke & Thruster Plume (launches once when "Launch" flashes) -->
-                <span class="ship-rocket-stage" aria-hidden="true">
-                  <!-- Billowing Launchpad Smoke Cloud at the base of "Launch" -->
-                  <svg class="ship-launch-smoke" viewBox="0 0 120 44" fill="none">
-                    <circle class="smoke-puff p1" cx="60" cy="30" r="11" fill="rgba(226, 232, 240, 0.92)"/>
-                    <circle class="smoke-puff p2" cx="44" cy="32" r="9.5" fill="rgba(241, 245, 249, 0.88)"/>
-                    <circle class="smoke-puff p3" cx="76" cy="32" r="9.5" fill="rgba(241, 245, 249, 0.88)"/>
-                    <circle class="smoke-puff p4" cx="30" cy="35" r="7.5" fill="rgba(203, 213, 225, 0.78)"/>
-                    <circle class="smoke-puff p5" cx="90" cy="35" r="7.5" fill="rgba(203, 213, 225, 0.78)"/>
-                    <rect class="smoke-pad-line" x="22" y="38" width="76" height="2.6" rx="1.3" fill="rgba(226, 232, 240, 0.85)"/>
-                  </svg>
-
-                  <!-- Ascending Rocket + Trailing Exhaust Smoke Puffs -->
-                  <span class="ship-rocket-launch">
-                    <svg class="ship-rocket-svg" viewBox="0 0 80 150" fill="none">
-                      <!-- Trailing Exhaust Smoke Plume under the flame -->
-                      <g class="rocket-exhaust-plume">
-                        <circle class="plume-puff c1" cx="40" cy="118" r="7.5" fill="rgba(226, 232, 240, 0.78)"/>
-                        <circle class="plume-puff c2" cx="35" cy="128" r="9" fill="rgba(203, 213, 225, 0.62)"/>
-                        <circle class="plume-puff c3" cx="45" cy="133" r="8.5" fill="rgba(226, 232, 240, 0.52)"/>
-                        <circle class="plume-puff c4" cx="39" cy="142" r="10.5" fill="rgba(148, 163, 184, 0.36)"/>
-                      </g>
-
-                      <!-- Thruster Flame (Orange outer + Yellow inner teardrop) -->
-                      <g class="rocket-flame-outer">
-                        <path d="M40 118 C33.5 107, 30.5 97, 34.5 91 C36.5 87.5, 43.5 87.5, 45.5 91 C49.5 97, 46.5 107, 40 118 Z" fill="#EA7B26" stroke="#BA5212" stroke-width="1"/>
-                      </g>
-                      <g class="rocket-flame-core">
-                        <path d="M40 111 C35.8 103, 33.8 96.5, 36.5 92 C38 89.5, 42 89.5, 43.5 92 C46.2 96.5, 44.2 103, 40 111 Z" fill="#F9BE33"/>
-                      </g>
-
-                      <!-- Blue Wing Struts (Connecting fuselage to side pods) -->
-                      <g class="rocket-side-booster-left">
-                        <path d="M22 68 H32 L34.5 80 H22 Z" fill="#3B6BB5" stroke="#1E3F73" stroke-width="1"/>
-                        <!-- Left Vertical Fin Pod -->
-                        <path d="M20.5 56 C17.5 64, 17.5 81, 20.5 89.5 C21.2 91.2, 22.2 91.2, 22.8 89.5 C25.2 81, 25.2 64, 22.8 56 Z" fill="#BA1212" stroke="#730808" stroke-width="1" stroke-linejoin="round"/>
-                        <line x1="21.6" y1="58" x2="21.6" y2="88" stroke="#E04343" stroke-width="1" stroke-linecap="round"/>
-                      </g>
-
-                      <g class="rocket-side-booster-right">
-                        <path d="M48 68 H58 L58 80 H45.5 Z" fill="#3B6BB5" stroke="#1E3F73" stroke-width="1"/>
-                        <!-- Right Vertical Fin Pod -->
-                        <path d="M57.2 56 C54.8 64, 54.8 81, 57.2 89.5 C57.8 91.2, 58.8 91.2, 59.5 89.5 C62.5 81, 62.5 64, 59.5 56 Z" fill="#BA1212" stroke="#730808" stroke-width="1" stroke-linejoin="round"/>
-                        <line x1="58.4" y1="58" x2="58.4" y2="88" stroke="#E04343" stroke-width="1" stroke-linecap="round"/>
-                      </g>
-
-                      <!-- Red Base Skirt -->
-                      <path d="M31.5 80 H48.5 L45.5 88.5 H34.5 Z" fill="#C91616" stroke="#7F0909" stroke-width="1" stroke-linejoin="round"/>
-
-                      <!-- Main Fuselage (Pale Sky-Blue Rounded Body) -->
-                      <path d="M40 6 C25.5 18, 22.5 39, 24.5 58 C25.8 68, 28.5 75, 31.5 80 H48.5 C51.5 75, 54.2 68, 55.5 58 C57.5 39, 54.5 18, 40 6 Z" fill="#BDD7E7" stroke="#7A9BB0" stroke-width="1.1" stroke-linejoin="round"/>
-
-                      <!-- Red Nose Cone with Curved Bottom Seam & Gloss Highlight -->
-                      <path d="M40 6 C32 12.8, 27.5 21, 25.8 29 C34.5 32.5, 45.5 32.5, 54.2 29 C52.5 21, 48 12.8, 40 6 Z" fill="#CC1414" stroke="#7F0909" stroke-width="1" stroke-linejoin="round"/>
-                      <path d="M38.8 9.5 C33.5 14.8, 29.8 21.2, 28.2 27.5" stroke="#F26D6D" stroke-width="1.6" stroke-linecap="round"/>
-
-                      <!-- Circular Porthole Window (Cobalt Ring + Sky Glass + Gloss Oval) -->
-                      <circle cx="40" cy="45" r="11.5" fill="#3B6BB5" stroke="#1E3F73" stroke-width="1.1"/>
-                      <circle cx="40" cy="45" r="8" fill="#8EC5EA" stroke="#234982" stroke-width="0.9"/>
-                      <ellipse cx="37" cy="41.8" rx="3.2" ry="1.8" transform="rotate(-32 37 41.8)" fill="#CBE6F8"/>
-
-                      <!-- Center Dorsal Fin Pod -->
-                      <path d="M40 65 C36.8 74, 36.8 91, 40 99.5 C43.2 91, 43.2 74, 40 65 Z" fill="#BA1212" stroke="#730808" stroke-width="1" stroke-linejoin="round"/>
-                      <line x1="40" y1="68" x2="40" y2="96.5" stroke="#E04343" stroke-width="1" stroke-linecap="round"/>
-                    </svg>
-                  </span>
-                </span>
+              <div class="fold-face">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-inside-statusbar" aria-hidden="true">
+                      <span></span>
+                      <span style="display:inline-flex;align-items:center;gap:6px;">
+                        <span>5G</span>
+                        <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.75" y="0.75" width="17.5" height="9.5" rx="2.5" stroke="#111" stroke-width="1.3"/><rect x="2.6" y="2.6" width="13.8" height="5.8" rx="1.2" fill="#111"/><path d="M20 3.6v3.8" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
+                      </span>
+                    </div>
+                    <div class="fold-inside-right-panel" style="display:flex;align-items:center;justify-content:center;background:#F0F2F1;">
+                      <div class="fold-lock-avatar-wrap" style="width:280px;height:280px;">
+                        <img src="assets/ian_foldfolio_circle.jpg?v=229" alt="Ian Yen" class="fold-lock-avatar-img" decoding="sync">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Seamless Zoom-In Portal Overlay -->
+        <div class="fold-zoom-portal" aria-hidden="true"></div>
       </div>
     </section>
+
+    <!-- ====================================================================
+         FULLSCREEN PORTFOLIO INTERIOR (Inside the Opened Foldable Phone)
+         ==================================================================== -->
+    <div class="fold-portfolio-interior">
 
     <!-- ====================================================================
          3. SELECTED WORK SECTION (`.framer-1dksjnv` & `Ot` Work Cards)
@@ -514,18 +528,6 @@
       </h2>
 
       <div class="about-editorial-split">
-        <!-- Interactive Circular Apple Memoji Avatar Stage (Moved above text, below title) -->
-        <div class="avatar-stage is-transparent-gif framer-reveal" style="--reveal-delay: 0.08s;" aria-label="Ian Yen interactive avatar, alternates with real photo">
-          <div class="avatar-tilt-card">
-            <div class="avatar-img-circle" data-avatar-circle>
-              <img src="assets/memoji_about_bust.gif?v=202" alt="Ian Yen Apple Memoji avatar" class="hero-transparent-gif" fetchpriority="high" decoding="sync" data-avatar-img>
-              <div class="avatar-real-reveal" aria-hidden="true">
-                <img src="assets/avatar_real_photo.jpg?v=153" alt="Ian Yen" fetchpriority="high" decoding="sync">
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="about-bio-copy framer-reveal" style="--reveal-delay: 0.12s;">
           <p>
             I'm Ian, a product designer who enjoys <span class="bio-highlight is-navy">turning ambiguous problems into actionable solutions</span> in a fast paced environment. I'm also a first-gen immigrant. Getting here required persistence, adaptability, and a willingness to figure things out without a clear playbook. That experience has shaped how I work: I'm comfortable navigating uncertainty, aligning people with different perspectives, and turning fuzzy visions into clear, user-centered product direction.
@@ -534,78 +536,74 @@
       </div>
     </section>
 
+    </div><!-- /.fold-portfolio-interior -->
+
     <!-- ====================================================================
-         5. "LET'S BUILD SOMETHING GOOD." MENU-STYLED CARD (Homepage Only)
+         5. CLOSING FOLDFOLIO FOOTER (Zoom Out Into Opened Device — Ends on "Let's Build Something Good.")
          ==================================================================== -->
-    <section class="leo-section no-top-border" id="contact" style="padding-top: 32px; padding-bottom: 16px;">
-      <div class="leo-fade-card framer-reveal">
-        <div class="leo-footer-invite">
-          <!-- Heading -->
-          <h2 class="leo-footer-heading">
-            Let’s build <span class="text-accent">something good.</span>
-          </h2>
+    <section class="fold-runway is-footer-runway" id="fold-footer-runway" aria-label="Contact">
+      <div class="fold-sticky-stage" id="contact">
+        <!-- Top Studio Wordmark -->
+        <div class="fold-chrome-top">
+          <a href="#top" class="fold-wordmark">IAN YEN<sup>&reg;</sup></a>
+        </div>
 
-          <!-- Primary Actions -->
-          <div class="leo-footer-actions">
-            <a href="mailto:ianyenyh@gmail.com" class="leo-magnetic-btn is-secondary is-palette-blue">
-              <span class="leo-btn-label">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="3.5"></rect>
-                  <path d="M4 7.5l8 5.5 8-5.5"></path>
-                </svg>
-                <span class="slot-text-wrap">
-                  <span class="slot-text-primary">Email me</span>
-                  <span class="slot-text-clone" aria-hidden="true">Email me</span>
-                </span>
-              </span>
-            </a>
+        <!-- Opened Foldable Phone Showing "Let's Build Something Good." -->
+        <div class="fold-device-viewport">
+          <div class="fold-floor-shadow" aria-hidden="true"></div>
 
-            <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="leo-magnetic-btn is-secondary is-palette-mauve">
-              <span class="leo-btn-label">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-                <span class="slot-text-wrap">
-                  <span class="slot-text-primary">Let’s connect</span>
-                  <span class="slot-text-clone" aria-hidden="true">Let’s connect</span>
-                </span>
-              </span>
-            </a>
+          <div class="fold-device-track">
+            <!-- LEFT HALF -->
+            <div class="fold-half is-left">
+              <div class="fold-face is-inside">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-closing-inside-left">
+                      <span class="fold-inside-kicker" style="color:rgba(255,255,255,0.5);">NEXT STEP</span>
+                      <div>
+                        <h2 class="fold-closing-inside-title">LET'S BUILD<br>SOMETHING<br>GOOD.</h2>
+                      </div>
+                      <p class="fold-closing-inside-sub">Senior Product Designer at Google NYC. Open to connecting on AI products, design systems, and 0-to-1 craft.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="leo-magnetic-btn is-secondary is-palette-blush">
-              <span class="leo-btn-label">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                <span class="slot-text-wrap">
-                  <span class="slot-text-primary">View resume</span>
-                  <span class="slot-text-clone" aria-hidden="true">View resume</span>
-                </span>
-              </span>
-            </a>
+            <!-- RIGHT HALF -->
+            <div class="fold-half is-right">
+              <div class="fold-side-buttons" aria-hidden="true">
+                <span class="fold-side-btn is-vol"></span>
+                <span class="fold-side-btn is-pwr"></span>
+              </div>
+              <div class="fold-face">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-closing-inside-right">
+                      <div style="display:flex;flex-direction:column;gap:12px;">
+                        <a href="mailto:ianyenyh@gmail.com" class="fold-cta-dark" style="background:#FFFFFF;color:#111111;justify-content:center;">Email me ↗</a>
+                        <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.12);color:#FFFFFF;justify-content:center;">LinkedIn</a>
+                        <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;">View resume</a>
+                      </div>
+                      <div style="margin-top:28px;font-family:var(--ff-font-mono);font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.06em;">
+                        &copy; 2026 IAN YEN &middot; IANYENYH@GMAIL.COM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Seamless Zoom-Out Portal Overlay -->
+        <div class="fold-zoom-portal" aria-hidden="true"></div>
       </div>
     </section>
 
   </main>
 
-  <!-- ====================================================================
-       6. MINIMAL SINGLE-LINE FOOTER
-       ==================================================================== -->
-  <footer class="clientele-footer">
-    <div class="clientele-footer-credits">
-      <span>&copy; 2026 Ian Yen</span>
-      <span class="clientele-footer-dot" aria-hidden="true"></span>
-      <span>Created by <a href="#top">Ian Yen</a></span>
-    </div>
-  </footer>
-
   <script src="script.js?v=220"></script>
+  <script src="foldfolio.js?v=231"></script>
 </body>
 </html>

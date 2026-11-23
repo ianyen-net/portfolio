@@ -1,0 +1,1587 @@
+/* ==========================================================================
+   FOLDFOLIO HERO & CLOSING FOLDABLE PHONE INTERACTION (LOCAL BUILD)
+   - Clones https://foldfolio.framer.website/ aesthetic & 3D hinge mechanics
+   - Zooms INTO fullscreen portfolio on unfold; zooms OUT & folds shut after About
+   ========================================================================== */
+
+:root {
+  --ff-canvas: #F8F7F6;
+  --ff-ink: #111111;
+  --ff-muted: #5F6368;
+  --ff-lock-bg: #F0F2F1;
+  --ff-font-cond: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --ff-font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ff-font-mono: 'Geist Mono', ui-monospace, monospace;
+  --ff-chassis-grad: linear-gradient(135deg, #F7F5F1 0%, #DCD9D3 32%, #A6A29B 72%, #6F6B65 100%);
+  --ff-chassis-edge: #9A968F;
+  --ff-scale: 1;
+}
+
+/* Chassis Metallic Finishes */
+body[data-fold-finish="titanium"] {
+  --ff-chassis-grad: linear-gradient(135deg, #F7F5F1 0%, #DCD9D3 32%, #A6A29B 72%, #6F6B65 100%);
+  --ff-chassis-edge: #9A968F;
+}
+body[data-fold-finish="graphite"] {
+  --ff-chassis-grad: linear-gradient(135deg, #6A6A6E 0%, #3E3E42 38%, #222225 76%, #141416 100%);
+  --ff-chassis-edge: #35353A;
+}
+body[data-fold-finish="coral"] {
+  --ff-chassis-grad: linear-gradient(135deg, #F2B5A5 0%, #D98E79 38%, #B86D58 76%, #824433 100%);
+  --ff-chassis-edge: #B86D58;
+}
+body[data-fold-finish="sage"] {
+  --ff-chassis-grad: linear-gradient(135deg, #D5DDD2 0%, #B1BEB0 38%, #859485 76%, #576357 100%);
+  --ff-chassis-edge: #859485;
+}
+
+/* ==========================================================================
+   FOLDFOLIO COLOR SCHEME & TYPOGRAPHY OVERRIDE ACROSS ENTIRE HOMEPAGE
+   - Light: #F8F7F6 warm studio paper, #FFFFFF cards, #111111 obsidian ink
+   - Dark:  #0B0B0B Foldfolio OLED black, #141416 cards, #F6F6F5 paper ink
+   - Display: Sofia Sans Extra Condensed (800 / 900) | Body: Geist | Mono: Geist Mono
+   ========================================================================== */
+body.is-fold-mode,
+body.is-fold-mode[data-theme="light"] {
+  --bg-page: #F8F7F6;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EFECE7;
+  --bg-card: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #4A4D52;
+  --text-muted: #767A82;
+  --border-subtle: rgba(17, 17, 17, 0.08);
+  --border-strong: rgba(17, 17, 17, 0.18);
+  --accent: #111111;
+  --accent-blue: #111111;
+  --accent-saffron: #6E727A;
+  --accent-coral: #555860;
+  --accent-soft: rgba(17, 17, 17, 0.07);
+  --nav-bg: rgba(255, 255, 255, 0.90);
+  --nav-hover-pill: rgba(17, 17, 17, 0.07);
+  --font-display: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-script: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-serif: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body.is-fold-mode[data-theme="dark"] {
+  --ff-canvas: #0B0B0B;
+  --ff-ink: #F6F6F5;
+  --ff-muted: #9A9EA6;
+  --bg-page: #0B0B0B;
+  --bg-surface: #141416;
+  --bg-elevated: #1E1E22;
+  --bg-card: #141416;
+  --text-primary: #F6F6F5;
+  --text-secondary: #A6A9B0;
+  --text-muted: #767A82;
+  --border-subtle: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --accent: #FFFFFF;
+  --accent-blue: #FFFFFF;
+  --accent-saffron: #9A9EA6;
+  --accent-coral: #B8BCC4;
+  --accent-soft: rgba(255, 255, 255, 0.10);
+  --nav-bg: rgba(16, 16, 18, 0.90);
+  --nav-hover-pill: rgba(255, 255, 255, 0.10);
+}
+
+/* Full dark mode coverage across Foldfolio hero, runways, backdrop typography, swatches, and interior */
+body.is-fold-mode[data-theme="dark"] .fold-runway,
+body.is-fold-mode[data-theme="dark"] .fold-sticky-stage {
+  background: #0B0B0B;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-bg-word {
+  color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-wordmark {
+  color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-finish-pill {
+  background: rgba(22, 22, 26, 0.88);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-swatch.is-active {
+  box-shadow: 0 0 0 2px #141416, 0 0 0 3.5px #FFFFFF;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-inside-left-panel {
+  background: #121215;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-inside-name,
+body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar {
+  color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-inside-tagline,
+body.is-fold-mode[data-theme="dark"] .fold-inside-kicker {
+  color: #A6A9B0;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-cta-dark {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-cta-light {
+  background: rgba(255, 255, 255, 0.12);
+  color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-floor-shadow {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 80%);
+}
+
+/* Harmonize interactive accents inside portfolio with Foldfolio monochrome editorial palette */
+body.is-fold-mode .leo-nav-cta {
+  background: #111111;
+  color: #FFFFFF;
+}
+body.is-fold-mode[data-theme="dark"] .leo-nav-cta {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+
+body.is-fold-mode .leo-h2 .text-muted,
+body.is-fold-mode .leo-h2 .text-muted.is-blue {
+  color: var(--text-muted) !important;
+}
+
+body.is-fold-mode .leo-work-metric {
+  color: var(--text-primary);
+}
+
+body.is-fold-mode .bio-highlight.is-navy {
+  background: rgba(17, 17, 17, 0.08);
+  color: #111111;
+}
+body.is-fold-mode[data-theme="dark"] .bio-highlight.is-navy {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
+/* Override Prototype Library CTA button & hover colors (neutralizing old blue/green palette) */
+body.is-fold-mode[data-theme="light"] .proto-portal-cta {
+  background: #111111;
+  color: #FFFFFF;
+  box-shadow: 0 12px 26px -8px rgba(17, 17, 17, 0.28);
+}
+body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
+  background: #2A2C30;
+  color: #FFFFFF;
+  box-shadow: 0 16px 30px -8px rgba(17, 17, 17, 0.36);
+}
+body.is-fold-mode[data-theme="dark"] .proto-portal-cta {
+  background: #FFFFFF;
+  color: #0B0B0B;
+  box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.45);
+}
+body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal-cta {
+  background: #E2E4E8;
+  color: #0B0B0B;
+  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.55);
+}
+body.is-fold-mode .proto-directory-portal:hover {
+  border-color: var(--border-strong);
+}
+
+body.is-fold-mode .pulse-dot-core,
+body.is-fold-mode .pulse-dot-ring {
+  background: #2FCB68;
+}
+
+body.is-fold-mode .leo-h2 {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-size: clamp(52px, 6.2vw, 86px);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+body.is-fold-mode .leo-h2 .text-muted {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+body.is-fold-mode .leo-section-label {
+  font-family: var(--ff-font-mono);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+body.is-fold-mode .leo-work-title {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-size: 32px;
+  line-height: 0.96;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+body.is-fold-mode .leo-work-meta-line,
+body.is-fold-mode .proto-portal-desc,
+body.is-fold-mode .about-bio-copy p,
+body.is-fold-mode .leo-nav-link,
+body.is-fold-mode .leo-nav-cta {
+  font-family: var(--ff-font-sans);
+  font-variation-settings: normal;
+}
+
+body.is-fold-mode .leo-nav-clock,
+body.is-fold-mode .work-card-chip,
+body.is-fold-mode .proto-exp-now-badge {
+  font-family: var(--ff-font-mono);
+}
+
+/* ==========================================================================
+   EDGE-ANCHORING VIEWPORT DEVICE BEZEL
+   - Tracks the expanding phone frame during zoom-in and sticks to browser edges
+     the exact instant each border reaches the browser viewport walls!
+   ========================================================================== */
+.fold-viewport-bezel-frame {
+  position: fixed;
+  top: var(--bezel-top, 0px);
+  right: var(--bezel-right, 0px);
+  bottom: var(--bezel-bottom, 0px);
+  left: var(--bezel-left, 0px);
+  pointer-events: none;
+  z-index: 94;
+  opacity: 0;
+  border-radius: var(--bezel-outer-r, 0px);
+  border: 5px solid var(--ff-chassis-edge);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 0 0 200vmax var(--ff-canvas);
+  will-change: top, right, bottom, left, opacity;
+}
+
+.fold-viewport-bezel-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--bezel-inner-r, 26px);
+  box-shadow:
+    0 0 0 14px #050505,
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+body.is-fold-mode.is-inside-phone .fold-viewport-bezel-frame {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+/* Keep previous floating top nav visible across the entire page */
+body.is-fold-mode .leo-nav-wrapper {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  top: 22px;
+  z-index: 98;
+}
+
+/* ==========================================================================
+   RUNWAYS & STICKY STAGES
+   ========================================================================== */
+.fold-runway {
+  position: relative;
+  width: 100%;
+  height: 270vh;
+  z-index: 30;
+  background: var(--ff-canvas);
+}
+
+.fold-runway.is-footer-runway {
+  height: 170vh;
+  z-index: 30;
+}
+
+.fold-sticky-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ff-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Ambient Background Modes (Basic / Glow / Orbit) */
+.fold-ambient-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.6s ease;
+}
+
+.fold-ambient-glow {
+  position: absolute;
+  inset: -15%;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+  background:
+    radial-gradient(46% 42% at 28% 36%, rgba(49, 134, 255, 0.16) 0%, transparent 68%),
+    radial-gradient(42% 44% at 74% 62%, rgba(226, 149, 120, 0.17) 0%, transparent 68%),
+    radial-gradient(36% 36% at 52% 24%, rgba(168, 199, 250, 0.18) 0%, transparent 70%);
+  filter: blur(28px);
+}
+
+.fold-ambient-orbit {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fold-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+}
+.fold-orbit-ring.r1 { width: 640px; height: 640px; animation: ffOrbitSpin 28s linear infinite; }
+.fold-orbit-ring.r2 { width: 920px; height: 920px; border-style: dashed; border-color: rgba(17, 17, 17, 0.07); animation: ffOrbitSpin 44s linear infinite reverse; }
+.fold-orbit-ring.r3 { width: 1220px; height: 1220px; border-color: rgba(17, 17, 17, 0.045); }
+.fold-orbit-ring::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111111;
+  opacity: 0.35;
+}
+
+@keyframes ffOrbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body[data-fold-bg="glow"] .fold-ambient-glow { opacity: 1; }
+body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
+
+/* ==========================================================================
+   STAGE CHROME (Wordmark, Ambient Pill, Finish Swatches)
+   ========================================================================== */
+.fold-chrome-top {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 40;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.fold-wordmark {
+  pointer-events: auto;
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  color: var(--ff-ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.fold-wordmark sup {
+  font-size: 11px;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.fold-bg-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.fold-bg-btn {
+  border: none;
+  background: transparent;
+  color: #444;
+  font-family: var(--ff-font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.fold-bg-btn.is-active {
+  background: #111111;
+  color: #FFFFFF;
+}
+
+.fold-finish-pill {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(12px);
+  transition: opacity 0.3s ease;
+}
+
+.fold-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fold-swatch:hover { transform: scale(1.14); }
+.fold-swatch.is-active {
+  box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3.5px #111111;
+}
+.fold-swatch[data-finish="titanium"] { background: linear-gradient(135deg, #F7F5F1, #A6A29B); }
+.fold-swatch[data-finish="graphite"] { background: linear-gradient(135deg, #5A5A60, #1B1B1D); }
+.fold-swatch[data-finish="coral"] { background: linear-gradient(135deg, #F2B5A5, #B86D58); }
+.fold-swatch[data-finish="sage"] { background: linear-gradient(135deg, #D5DDD2, #7E8E7E); }
+
+/* ==========================================================================
+   GIANT BACKDROP TYPOGRAPHY ("IAN" / "YEN")
+   ========================================================================== */
+.fold-backdrop-names {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fold-bg-word {
+  position: absolute;
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: clamp(180px, 26vw, 370px);
+  line-height: 0.78;
+  letter-spacing: -0.01em;
+  color: #111111;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+  white-space: nowrap;
+}
+
+.fold-bg-word.is-left {
+  right: calc(50% + 235px * var(--ff-scale));
+}
+
+.fold-bg-word.is-right {
+  left: calc(50% + 235px * var(--ff-scale));
+}
+
+/* ==========================================================================
+   3D FOLDABLE DEVICE ASSEMBLY (1000 x 684 base)
+   ========================================================================== */
+.fold-device-viewport {
+  position: relative;
+  width: 1000px;
+  height: 684px;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  z-index: 15;
+  perspective: 2800px;
+  transform-style: preserve-3d;
+}
+
+/* Floor Shadows */
+.fold-floor-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  width: 900px;
+  height: 36px;
+  transform: translateX(-50%) scaleX(0.5);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(17, 17, 17, 0.22) 0%, rgba(17, 17, 17, 0.06) 52%, transparent 78%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.fold-device-track {
+  position: relative;
+  width: 1000px;
+  height: 684px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Physical Side Buttons on Right Chassis Edge */
+.fold-side-buttons {
+  position: absolute;
+  right: -3px;
+  top: 148px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 2;
+  pointer-events: none;
+}
+.fold-side-btn {
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--ff-chassis-edge);
+}
+.fold-side-btn.is-vol { height: 56px; }
+.fold-side-btn.is-pwr { height: 34px; }
+
+/* Shared Half-Chassis Styling */
+.fold-half {
+  position: absolute;
+  top: 0;
+  width: 500px;
+  height: 684px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.fold-half.is-right {
+  left: 500px;
+  z-index: 2;
+}
+
+.fold-half.is-left {
+  left: 0;
+  transform-origin: 100% 50%;
+  z-index: 4;
+}
+
+.fold-half.is-close-flap {
+  left: 500px;
+  transform-origin: 0% 50%;
+  z-index: 6;
+}
+
+.fold-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--ff-chassis-grad);
+  padding: 4px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.72), inset 0 -1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Corner rounding per half */
+.fold-half.is-right .fold-face {
+  border-radius: 0 46px 46px 0;
+  padding-left: 0;
+}
+.fold-half.is-right.is-closed-corners .fold-face {
+  border-radius: 46px;
+  padding-left: 4px;
+}
+
+.fold-half.is-left .fold-face.is-inside {
+  border-radius: 46px 0 0 46px;
+  padding-right: 0;
+}
+.fold-half.is-left .fold-face.is-cover {
+  transform: rotateY(180deg);
+  border-radius: 46px;
+  padding: 4px;
+}
+
+.fold-half.is-close-flap .fold-face.is-inside-back {
+  border-radius: 0 46px 46px 0;
+  padding-left: 0;
+}
+.fold-half.is-close-flap .fold-face.is-dark-cover {
+  transform: rotateY(180deg);
+  border-radius: 46px;
+  padding: 4px;
+}
+
+/* Inner Black Bezel */
+.fold-bezel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.fold-half.is-right .fold-bezel {
+  border-radius: 0 42px 42px 0;
+  padding-left: 0;
+}
+.fold-half.is-right.is-closed-corners .fold-bezel {
+  border-radius: 42px;
+  padding-left: 8px;
+}
+.fold-half.is-left .fold-face.is-inside .fold-bezel {
+  border-radius: 42px 0 0 42px;
+  padding-right: 0;
+}
+.fold-half.is-left .fold-face.is-cover .fold-bezel,
+.fold-half.is-close-flap .fold-face.is-dark-cover .fold-bezel {
+  border-radius: 42px;
+  padding: 8px;
+}
+.fold-half.is-close-flap .fold-face.is-inside-back .fold-bezel {
+  border-radius: 0 42px 42px 0;
+  padding-left: 0;
+}
+
+/* Screen Viewport Inside Bezel */
+.fold-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.fold-half.is-right .fold-screen { border-radius: 0 34px 34px 0; }
+.fold-half.is-right.is-closed-corners .fold-screen { border-radius: 34px; }
+.fold-half.is-left .fold-face.is-inside .fold-screen { border-radius: 34px 0 0 34px; }
+.fold-half.is-left .fold-face.is-cover .fold-screen,
+.fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
+
+/* Subtle Spine Crease Shading When Open */
+.fold-half.is-left .fold-face.is-inside .fold-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08));
+  pointer-events: none;
+  z-index: 10;
+}
+.fold-half.is-right .fold-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 24px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.07), transparent);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   FRONT COVER LOCK SCREEN (HERO STATE)
+   ========================================================================== */
+.fold-lock-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--ff-lock-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 24px 24px;
+  overflow: hidden;
+}
+
+.fold-lock-avatar-wrap {
+  position: relative;
+  z-index: 3;
+  width: 186px;
+  height: 186px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ECEEED;
+  box-shadow:
+    0 18px 40px -14px rgba(17, 17, 17, 0.22),
+    0 0 0 1px rgba(17, 17, 17, 0.08);
+  flex-shrink: 0;
+}
+
+.fold-lock-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 14%;
+  display: block;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
+  background: #0F1012;
+}
+body.is-fold-mode[data-theme="dark"] .fold-lock-time,
+body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
+  color: #F6F6F5;
+}
+body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
+  box-shadow:
+    0 20px 44px -14px rgba(0, 0, 0, 0.65),
+    0 0 0 1.5px rgba(255, 255, 255, 0.14);
+}
+body.is-fold-mode[data-theme="dark"] .fold-notif-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #F6F6F5;
+}
+body.is-fold-mode[data-theme="dark"] .fold-notif-title {
+  color: #F6F6F5;
+}
+body.is-fold-mode[data-theme="dark"] .fold-notif-desc {
+  color: #A6A9B0;
+}
+body.is-fold-mode[data-theme="dark"] .fold-notif-thumb {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+body.is-fold-mode[data-theme="dark"] .fold-notif-thumb.is-alt {
+  background: #D4D6DC;
+  color: #0B0B0B;
+}
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
+body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #F6F6F5;
+}
+
+.fold-lock-top {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fold-lock-time {
+  font-family: var(--ff-font-cond);
+  font-weight: 800;
+  font-size: 112px;
+  line-height: 0.84;
+  letter-spacing: -0.015em;
+  color: #111111;
+}
+
+.fold-lock-sub {
+  margin-top: 8px;
+  font-family: var(--ff-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: -0.005em;
+}
+
+.fold-lock-bottom {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fold-notif-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.16) 100%);
+  backdrop-filter: blur(10px) saturate(185%);
+  -webkit-backdrop-filter: blur(10px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.16),
+    0 8px 22px -10px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  color: #111111;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.fold-notif-card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.26) 100%);
+}
+
+.fold-notif-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #111111;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.fold-notif-thumb.is-alt {
+  background: #2C2F34;
+}
+
+.fold-notif-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.fold-notif-title {
+  font-family: var(--ff-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.2;
+}
+
+.fold-notif-desc {
+  font-family: var(--ff-font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: #55595E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fold-lock-actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.fold-lock-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.fold-lock-icon-btn:hover {
+  transform: scale(1.07);
+  background: #FFFFFF;
+}
+
+.fold-unfold-pill {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  color: #111111;
+  font-family: var(--ff-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.fold-unfold-pill:hover {
+  transform: translateY(-1px);
+  background: #FFFFFF;
+}
+
+/* ==========================================================================
+   INSIDE OPENED SPREAD (LEFT & RIGHT HALVES OF 976x660 TABLET)
+   ========================================================================== */
+.fold-inside-statusbar {
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ff-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #111111;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.fold-inside-left-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #F6F6F5;
+  padding: 68px 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fold-inside-kicker {
+  font-family: var(--ff-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #55595E;
+}
+
+.fold-inside-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fold-inside-name {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 112px;
+  line-height: 0.84;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0;
+}
+
+.fold-inside-tagline {
+  font-family: var(--ff-font-sans);
+  font-size: 15.5px;
+  line-height: 1.48;
+  color: #2C2F33;
+  max-width: 340px;
+  margin: 0;
+}
+
+.fold-inside-ctas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.fold-cta-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #111111;
+  color: #FFFFFF;
+  font-family: var(--ff-font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fold-cta-light {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.07);
+  color: #111111;
+  font-family: var(--ff-font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.fold-inside-right-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--ff-lock-bg);
+  overflow: hidden;
+}
+
+.fold-inside-right-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  display: block;
+}
+
+/* Smooth White/Theme Portal Overlay During Zoom-In & Zoom-Out */
+.fold-zoom-portal {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-page, #FFFFFF);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 35;
+  will-change: opacity;
+}
+
+/* ==========================================================================
+   CLOSING PHONE: DARK "INCOMING CALL" BACK COVER
+   ========================================================================== */
+.fold-closing-inside-left,
+.fold-closing-inside-right {
+  width: 100%;
+  height: 100%;
+  background: #0B0B0B;
+  color: #F4F7FE;
+  padding: 64px 38px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fold-closing-inside-right {
+  background: #111216;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  justify-content: center;
+}
+
+.fold-closing-inside-title {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 84px;
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.fold-closing-inside-sub {
+  font-family: var(--ff-font-sans);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #9AA4B8;
+  margin: 0;
+}
+
+.fold-call-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #0B0B0B;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 58px 28px 34px;
+  text-align: center;
+}
+
+.fold-call-name {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 82px;
+  line-height: 0.86;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.fold-call-sub {
+  margin-top: 12px;
+  font-family: var(--ff-font-sans);
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.fold-call-avatar {
+  width: 158px;
+  height: 158px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--ff-lock-bg);
+  box-shadow: 0 18px 42px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.fold-call-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  display: block;
+}
+
+.fold-call-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.fold-slide-talk {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 64px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: var(--ff-font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.fold-slide-talk:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.015);
+}
+
+.fold-slide-knob {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #2FCB68;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(47, 203, 104, 0.4);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fold-slide-talk:hover .fold-slide-knob {
+  transform: translateX(12px);
+}
+
+.fold-call-email {
+  font-family: var(--ff-font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+}
+.fold-call-email:hover {
+  color: #FFFFFF;
+}
+
+.fold-call-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-font-sans);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.48);
+}
+.fold-call-links a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+}
+.fold-call-links a:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   FULLSCREEN PORTFOLIO WRAPPER (INSIDE THE OPENED PHONE)
+   ========================================================================== */
+/* Harmonize "Let's build something good." card & buttons with Foldfolio palette */
+body.is-fold-mode .leo-footer-heading {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-size: clamp(54px, 6.4vw, 88px);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+body.is-fold-mode .leo-footer-heading .text-accent {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+body.is-fold-mode .leo-magnetic-btn.is-secondary {
+  background: #111111;
+  color: #FFFFFF;
+  border-color: transparent;
+  font-family: var(--ff-font-sans);
+}
+body.is-fold-mode .leo-magnetic-btn.is-secondary:hover {
+  background: #2A2C30;
+  color: #FFFFFF;
+}
+body.is-fold-mode[data-theme="dark"] .leo-magnetic-btn.is-secondary {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+body.is-fold-mode[data-theme="dark"] .leo-magnetic-btn.is-secondary:hover {
+  background: #E2E4E8;
+  color: #0B0B0B;
+}
+body.is-fold-mode .clientele-footer {
+  background: transparent;
+  padding-bottom: 36px;
+}
+
+.fold-portfolio-interior {
+  position: relative;
+  z-index: 20;
+  background: var(--bg-page);
+  padding: 84px 22px 24px;
+}
+
+@media (max-width: 760px) {
+  .fold-chrome-top {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  .fold-bg-word {
+    font-size: 120px;
+  }
+}
+
+/* ==========================================================================
+   CASE STUDY LEAF PAGES & PASSWORD PROTECTION DIALOGS (FOLDFOLIO DESIGN SYSTEM)
+   - Matches homepage: #F8F7F6 light / #0B0B0B dark, Sofia Sans Extra Condensed +
+     Geist + Geist Mono, with tasteful pops of color preserved for accents
+   ========================================================================== */
+body.case-study-body,
+body.case-study-body[data-theme="light"] {
+  --bg-page: #F8F7F6;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F1EFEA;
+  --bg-card: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #4A4D52;
+  --text-muted: #767A82;
+  --border-subtle: rgba(17, 17, 17, 0.08);
+  --border-strong: rgba(17, 17, 17, 0.18);
+  --accent: #0B57D0;
+  --accent-blue: #0B57D0;
+  --accent-saffron: #146C2E;
+  --accent-soft: rgba(11, 87, 208, 0.09);
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --nav-hover-pill: rgba(17, 17, 17, 0.07);
+  --font-display: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-script: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-serif: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body.case-study-body[data-theme="dark"] {
+  --bg-page: #0B0B0B;
+  --bg-surface: #141416;
+  --bg-elevated: #1D1E22;
+  --bg-card: #141416;
+  --text-primary: #F6F6F5;
+  --text-secondary: #A6A9B0;
+  --text-muted: #767A82;
+  --border-subtle: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --accent: #3186FF;
+  --accent-blue: #3186FF;
+  --accent-saffron: #2FCB68;
+  --accent-soft: rgba(49, 134, 255, 0.14);
+  --nav-bg: rgba(16, 16, 18, 0.92);
+  --nav-hover-pill: rgba(255, 255, 255, 0.10);
+}
+
+body.case-study-body .case-section.alt-bg {
+  background: #F1EFEA;
+}
+body.case-study-body[data-theme="dark"] .case-section.alt-bg {
+  background: #101012;
+}
+
+/* Display Typography Across Leaf Pages */
+body.case-study-body .case-title {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-size: clamp(54px, 7.2vw, 96px);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+body.case-study-body .case-h2 {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+  font-size: clamp(44px, 5.4vw, 72px);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+body.case-study-body .case-h3,
+body.case-study-body .case-h3-italic,
+body.case-study-body .next-case-title {
+  font-family: var(--ff-font-cond);
+  font-weight: 800;
+  font-variation-settings: normal;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  line-height: 0.96;
+}
+
+body.case-study-body .case-h3-italic {
+  font-size: clamp(32px, 3.6vw, 48px);
+  color: var(--accent);
+}
+
+body.case-study-body .case-h4,
+body.case-study-body .principle-title,
+body.case-study-body .validation-step-title {
+  font-family: var(--ff-font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+body.case-study-body .case-body,
+body.case-study-body .case-subtitle,
+body.case-study-body .case-list,
+body.case-study-body .case-meta-value,
+body.case-study-body .metric-label,
+body.case-study-body .principle-desc,
+body.case-study-body .validation-step-desc,
+body.case-study-body .leo-nav-link,
+body.case-study-body .leo-nav-cta {
+  font-family: var(--ff-font-sans);
+  font-variation-settings: normal;
+}
+
+body.case-study-body .case-eyebrow,
+body.case-study-body .case-caption,
+body.case-study-body .case-meta-label,
+body.case-study-body .feature-tag,
+body.case-study-body .next-case-eyebrow,
+body.case-study-body .leo-nav-clock {
+  font-family: var(--ff-font-mono);
+}
+
+body.case-study-body .metric-value,
+body.case-study-body .feature-num,
+body.case-study-body .principle-num {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-variation-settings: normal;
+}
+
+/* Primary CTAs & Nav CTA match Foldfolio obsidian/white pill style */
+body.case-study-body .leo-nav-cta,
+body.case-study-body .btn.btn-primary {
+  background: #111111;
+  color: #FFFFFF;
+  border-color: transparent;
+}
+body.case-study-body .leo-nav-cta:hover,
+body.case-study-body .btn.btn-primary:hover {
+  background: #2A2C30;
+  color: #FFFFFF;
+}
+body.case-study-body[data-theme="dark"] .leo-nav-cta,
+body.case-study-body[data-theme="dark"] .btn.btn-primary {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+body.case-study-body[data-theme="dark"] .leo-nav-cta:hover,
+body.case-study-body[data-theme="dark"] .btn.btn-primary:hover {
+  background: #E2E4E8;
+  color: #0B0B0B;
+}
+
+/* Next Case Study Card in Foldfolio Obsidian */
+body.case-study-body .next-case-banner {
+  background: transparent;
+  border: none;
+}
+
+body.case-study-body .next-case-inner {
+  background: #111111;
+  color: #FFFFFF;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  border-radius: 28px;
+  box-shadow: 0 20px 48px -18px rgba(17, 17, 17, 0.24);
+}
+
+body.case-study-body[data-theme="dark"] .next-case-inner {
+  background: #141416;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 52px -18px rgba(0, 0, 0, 0.65);
+}
+
+body.case-study-body .next-case-eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.case-study-body .next-case-title {
+  color: #FFFFFF;
+  font-size: clamp(44px, 5vw, 68px);
+}
+
+body.case-study-body .next-case-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--ff-font-sans);
+}
+
+body.case-study-body .next-case-inner .btn-light {
+  background: #FFFFFF;
+  color: #111111;
+  font-family: var(--ff-font-sans);
+  font-weight: 600;
+}
+
+body.case-study-body .next-case-inner .btn-light:hover {
+  background: #E4E6EA;
+  color: #111111;
+}
+
+/* ==========================================================================
+   PASSWORD PROTECTION DIALOG (FOLDFOLIO EDITORIAL STYLE)
+   ========================================================================== */
+body.case-study-body .case-password-gate {
+  background: rgba(248, 247, 246, 0.86);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+}
+body.case-study-body[data-theme="dark"] .case-password-gate {
+  background: rgba(11, 11, 11, 0.86);
+}
+
+body.case-study-body .case-password-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 17, 17, 0.10);
+  border-radius: 28px;
+  box-shadow: 0 24px 64px -18px rgba(17, 17, 17, 0.18);
+  font-family: var(--ff-font-sans);
+}
+body.case-study-body[data-theme="dark"] .case-password-card {
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 28px 68px -18px rgba(0, 0, 0, 0.72);
+}
+
+body.case-study-body .case-password-icon {
+  background: #F4F3F0;
+  color: #111111;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+}
+body.case-study-body[data-theme="dark"] .case-password-icon {
+  background: #1E1F24;
+  color: #F6F6F5;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.case-study-body .case-password-kicker {
+  font-family: var(--ff-font-mono);
+  letter-spacing: 0.09em;
+  color: var(--accent);
+}
+
+body.case-study-body .case-password-title {
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 0.9;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+body.case-study-body .case-password-desc,
+body.case-study-body .case-password-help,
+body.case-study-body .case-password-back {
+  font-family: var(--ff-font-sans);
+  color: var(--text-secondary);
+}
+
+body.case-study-body .case-password-input {
+  font-family: var(--ff-font-sans);
+  background: #F8F7F6;
+  border: 1.5px solid rgba(17, 17, 17, 0.12);
+  color: #111111;
+  border-radius: 14px;
+}
+body.case-study-body .case-password-input:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08);
+}
+body.case-study-body[data-theme="dark"] .case-password-input {
+  background: #0B0B0B;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #F6F6F5;
+}
+body.case-study-body[data-theme="dark"] .case-password-input:focus {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.10);
+}
+
+body.case-study-body .case-password-submit {
+  font-family: var(--ff-font-sans);
+  font-weight: 600;
+  background: #111111;
+  color: #FFFFFF;
+  border-radius: 999px;
+}
+body.case-study-body .case-password-submit:hover {
+  background: #2A2C30;
+}
+body.case-study-body[data-theme="dark"] .case-password-submit {
+  background: #FFFFFF;
+  color: #0B0B0B;
+}
+body.case-study-body[data-theme="dark"] .case-password-submit:hover {
+  background: #E2E4E8;
+}
