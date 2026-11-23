@@ -52,11 +52,11 @@ body.is-fold-mode[data-theme="light"] {
   --text-muted: #767A82;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-strong: rgba(17, 17, 17, 0.18);
-  --accent: #111111;
-  --accent-blue: #111111;
+  --accent: #0B57D0;
+  --accent-blue: #0B57D0;
   --accent-saffron: #6E727A;
   --accent-coral: #555860;
-  --accent-soft: rgba(17, 17, 17, 0.07);
+  --accent-soft: rgba(11, 87, 208, 0.09);
   --nav-bg: rgba(255, 255, 255, 0.90);
   --nav-hover-pill: rgba(17, 17, 17, 0.07);
   --font-display: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
@@ -79,11 +79,11 @@ body.is-fold-mode[data-theme="dark"] {
   --text-muted: #767A82;
   --border-subtle: rgba(255, 255, 255, 0.10);
   --border-strong: rgba(255, 255, 255, 0.22);
-  --accent: #FFFFFF;
-  --accent-blue: #FFFFFF;
+  --accent: #3186FF;
+  --accent-blue: #3186FF;
   --accent-saffron: #9A9EA6;
   --accent-coral: #B8BCC4;
-  --accent-soft: rgba(255, 255, 255, 0.10);
+  --accent-soft: rgba(49, 134, 255, 0.14);
   --nav-bg: rgba(16, 16, 18, 0.90);
   --nav-hover-pill: rgba(255, 255, 255, 0.10);
 }
@@ -96,9 +96,6 @@ body.is-fold-mode[data-theme="dark"] .fold-sticky-stage {
 
 body.is-fold-mode[data-theme="dark"] .fold-bg-word {
   color: #F6F6F5;
-}
-body.is-fold-mode[data-theme="dark"] .fold-bg-word.is-right {
-  color: #3B67A8;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-wordmark {
@@ -142,23 +139,36 @@ body.is-fold-mode[data-theme="dark"] .fold-floor-shadow {
   background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 80%);
 }
 
-/* Harmonize interactive accents inside portfolio with Foldfolio monochrome editorial palette */
+/* Harmonize interactive accents with case study signature blue (#0B57D0 light / #3186FF dark) */
 body.is-fold-mode .leo-nav-cta {
-  background: #111111;
+  background: #0B57D0;
+  color: #FFFFFF;
+}
+body.is-fold-mode .leo-nav-cta:hover {
+  background: #0842A0;
   color: #FFFFFF;
 }
 body.is-fold-mode[data-theme="dark"] .leo-nav-cta {
-  background: #FFFFFF;
-  color: #0B0B0B;
+  background: #3186FF;
+  color: #FFFFFF;
+}
+body.is-fold-mode[data-theme="dark"] .leo-nav-cta:hover {
+  background: #4A96FF;
+  color: #FFFFFF;
+}
+body.is-fold-mode .leo-nav-cta .slot-text-clone {
+  color: #FFFFFF;
 }
 
-body.is-fold-mode .leo-h2 .text-muted,
-body.is-fold-mode .leo-h2 .text-muted.is-blue {
+body.is-fold-mode .leo-h2 .text-muted {
   color: var(--text-muted) !important;
+}
+body.is-fold-mode .leo-h2 .text-muted.is-blue {
+  color: var(--accent) !important;
 }
 
 body.is-fold-mode .leo-work-metric {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 body.is-fold-mode .bio-highlight.is-navy {
@@ -170,26 +180,29 @@ body.is-fold-mode[data-theme="dark"] .bio-highlight.is-navy {
   color: #FFFFFF;
 }
 
-/* Override Prototype Library CTA button & hover colors (neutralizing old blue/green palette) */
+/* Prototype Library CTA button using signature case-study blue */
 body.is-fold-mode[data-theme="light"] .proto-portal-cta {
-  background: #111111;
+  background: #0B57D0;
   color: #FFFFFF;
-  box-shadow: 0 12px 26px -8px rgba(17, 17, 17, 0.28);
+  box-shadow: 0 12px 26px -8px rgba(11, 87, 208, 0.34);
 }
 body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #2A2C30;
+  background: #0842A0;
   color: #FFFFFF;
-  box-shadow: 0 16px 30px -8px rgba(17, 17, 17, 0.36);
+  box-shadow: 0 16px 30px -8px rgba(11, 87, 208, 0.44);
 }
 body.is-fold-mode[data-theme="dark"] .proto-portal-cta {
-  background: #FFFFFF;
-  color: #0B0B0B;
-  box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.45);
+  background: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 12px 26px -8px rgba(49, 134, 255, 0.38);
 }
 body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #E2E4E8;
-  color: #0B0B0B;
-  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.55);
+  background: #4A96FF;
+  color: #FFFFFF;
+  box-shadow: 0 16px 30px -8px rgba(49, 134, 255, 0.48);
+}
+body.is-fold-mode .proto-portal-cta .slot-text-clone {
+  color: #FFFFFF;
 }
 /* Remove outer background container around Prototype Library card so it floats seamlessly on the page */
 body.is-fold-mode .proto-directory-portal,
@@ -535,7 +548,6 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 
 .fold-bg-word.is-right {
   left: calc(50% + 235px * var(--ff-scale));
-  color: #1B365D;
 }
 
 /* ==========================================================================
@@ -928,7 +940,9 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
 body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
   background: #FFFFFF;
 }
-body.is-fold-mode[data-theme="dark"] .fold-lock-time,
+body.is-fold-mode[data-theme="dark"] .fold-lock-time {
+  color: #0B57D0;
+}
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
   color: #111111;
 }
@@ -970,7 +984,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   font-size: 102px;
   line-height: 0.84;
   letter-spacing: -0.015em;
-  color: #111111;
+  color: #0B57D0;
 }
 
 .fold-lock-sub {
@@ -1290,6 +1304,9 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
   color: #111111;
   z-index: 12;
   pointer-events: none;
+}
+.fold-inside-statusbar [data-fold-clock] {
+  color: var(--accent);
 }
 
 .fold-inside-left-panel {
