@@ -905,8 +905,20 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   transition: background 0.35s ease;
 }
 
-body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel {
-  background: #0F1012;
+.fold-inside-right-panel.is-history-panel {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  padding: 64px 38px 40px;
+  background: #F0F0EE;
+  border-left: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel,
+body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
+  background: #16171B;
+  border-left-color: rgba(255, 255, 255, 0.06);
 }
 
 /* Keep the backlit studio lock screen crisp & high-contrast in BOTH light & dark themes */

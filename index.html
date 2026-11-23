@@ -34,7 +34,7 @@
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=234">
-  <link rel="stylesheet" href="foldfolio.css?v=245">
+  <link rel="stylesheet" href="foldfolio.css?v=246">
 </head>
 <body data-theme="light">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -145,7 +145,7 @@
             <div class="fold-hinge-spine" aria-hidden="true"></div>
             <!-- LEFT HINGED HALF (Swings open 180deg -> 0deg; Back face is Front Lock Screen Cover!) -->
             <div class="fold-half is-left is-closed-corners">
-              <!-- Inside Left Panel (Work History — Team Names Only) -->
+              <!-- Inside Left Panel (Name, Role Labels & CTAs) -->
               <div class="fold-face is-inside">
                 <div class="fold-bezel">
                   <div class="fold-screen">
@@ -153,41 +153,15 @@
                       <span data-fold-clock>13:52</span>
                       <span></span>
                     </div>
-                    <div class="fold-inside-left-panel" style="padding: 58px 36px 36px;">
-                      <div>
-                        <span class="fold-inside-kicker">EXPERIENCE &middot; TEAMS</span>
-                        <h1 class="fold-inside-name" style="font-size:74px;margin-top:6px;">IAN YEN</h1>
-                      </div>
-
-                      <div class="fold-history-groups">
-                        <div class="fold-history-group">
-                          <div class="fold-history-co">
-                            <span class="fold-history-co-name">Google</span>
-                            <span class="fold-history-co-dates">2021 - Present</span>
-                          </div>
-                          <ul class="fold-history-teams">
-                            <li class="fold-history-team"><span>Agentic Messaging</span><span class="fold-current-badge">Current</span></li>
-                            <li class="fold-history-team"><span>Google Growth</span><span class="fold-current-badge">Current</span></li>
-                            <li class="fold-history-team"><span>Ecosystem Growth &middot; Sharing Design System</span></li>
-                            <li class="fold-history-team"><span>Contact Intelligence in Gemini</span></li>
-                            <li class="fold-history-team"><span>Contact Data Workflow</span></li>
-                          </ul>
+                    <div class="fold-inside-left-panel" style="padding: 64px 38px 40px;">
+                      <span class="fold-inside-kicker">SENIOR PRODUCT DESIGNER &middot; GOOGLE NYC</span>
+                      <div class="fold-inside-hero-copy">
+                        <h1 class="fold-inside-name" style="font-size:112px;">IAN YEN</h1>
+                        <p class="fold-inside-tagline">Designing AI products people trust.</p>
+                        <div class="fold-inside-ctas" style="margin-top: 8px;">
+                          <a href="#work" class="fold-cta-dark">See the work ↗</a>
+                          <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-light">Resume ↗</a>
                         </div>
-
-                        <div class="fold-history-group">
-                          <div class="fold-history-co">
-                            <span class="fold-history-co-name">Philips</span>
-                            <span class="fold-history-co-dates">2020 - 2021</span>
-                          </div>
-                          <ul class="fold-history-teams">
-                            <li class="fold-history-team"><span>Sonicare App</span></li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div class="fold-inside-ctas" style="margin-top: 8px;">
-                        <a href="#work" class="fold-cta-dark">See the work ↗</a>
-                        <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-light">Resume ↗</a>
                       </div>
                     </div>
                   </div>
@@ -253,9 +227,33 @@
                         <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.75" y="0.75" width="17.5" height="9.5" rx="2.5" stroke="#111" stroke-width="1.3"/><rect x="2.6" y="2.6" width="13.8" height="5.8" rx="1.2" fill="#111"/><path d="M20 3.6v3.8" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
                       </span>
                     </div>
-                    <div class="fold-inside-right-panel">
-                      <div class="fold-lock-avatar-wrap" style="width:280px;height:280px;">
-                        <img src="assets/ian_hero_cutout.png?v=233" alt="Ian Yen" class="fold-lock-avatar-img" decoding="sync">
+                    <div class="fold-inside-right-panel is-history-panel">
+                      <span class="fold-inside-kicker">EXPERIENCE &middot; TEAMS</span>
+
+                      <div class="fold-history-groups">
+                        <div class="fold-history-group">
+                          <div class="fold-history-co">
+                            <span class="fold-history-co-name">Google</span>
+                            <span class="fold-history-co-dates">2021 - Present</span>
+                          </div>
+                          <ul class="fold-history-teams">
+                            <li class="fold-history-team"><span>Agentic Messaging</span><span class="fold-current-badge">Current</span></li>
+                            <li class="fold-history-team"><span>Google Growth</span><span class="fold-current-badge">Current</span></li>
+                            <li class="fold-history-team"><span>Ecosystem Growth &middot; Sharing Design System</span></li>
+                            <li class="fold-history-team"><span>Contact Intelligence in Gemini</span></li>
+                            <li class="fold-history-team"><span>Contact Data Workflow</span></li>
+                          </ul>
+                        </div>
+
+                        <div class="fold-history-group">
+                          <div class="fold-history-co">
+                            <span class="fold-history-co-name">Philips</span>
+                            <span class="fold-history-co-dates">2020 - 2021</span>
+                          </div>
+                          <ul class="fold-history-teams">
+                            <li class="fold-history-team"><span>Sonicare App</span></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
