@@ -1343,8 +1343,8 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   pointer-events: none;
   z-index: 4;
   transform-origin: 50% 66.5%;
-  opacity: 0;
-  transform: translate3d(0, -18%, 0) scale(0.88);
+  opacity: 1;
+  transform: translate3d(0, 0%, 0) scale(1);
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.42));
 }
 
@@ -5432,7 +5432,6 @@ body.is-loaded .load-reveal {
 .jd-appear-nav,
 .hero-name-pill.jd-appear-title,
 .hero-fraunces-title.jd-appear-title,
-.hero-fraunces-title .hero-hover-word,
 .jd-appear-subtitle,
 #process.jd-appear-subtitle {
   animation: none;
