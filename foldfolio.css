@@ -188,8 +188,27 @@ body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal
   color: #0B0B0B;
   box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.55);
 }
-body.is-fold-mode .proto-directory-portal:hover {
-  border-color: var(--border-strong);
+/* Remove outer background container around Prototype Library card so it floats seamlessly on the page */
+body.is-fold-mode .proto-directory-portal,
+body.is-fold-mode[data-theme="light"] .proto-directory-portal,
+body.is-fold-mode[data-theme="dark"] .proto-directory-portal {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
+}
+body.is-fold-mode .proto-directory-portal:hover,
+body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover,
+body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+body.is-fold-mode .proto-portal-content {
+  padding-left: 0;
 }
 
 body.is-fold-mode .pulse-dot-core,
@@ -771,6 +790,7 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-left .fold-face.is-inside .fold-screen { border-radius: 34px 0 0 34px; }
 .fold-half.is-left .fold-face.is-cover .fold-screen { border-radius: 0 34px 34px 0; }
 .fold-half.is-left.is-closed-corners .fold-face.is-cover .fold-screen { border-radius: 34px; }
+.fold-half.is-close-flap .fold-face.is-inside-back .fold-screen { border-radius: 0 34px 34px 0; }
 .fold-half.is-close-flap .fold-face.is-dark-cover .fold-screen { border-radius: 34px; }
 
 /* Whisper-Subtle Foldable OLED Crease Shading (matches foldfolio.framer.website) */
