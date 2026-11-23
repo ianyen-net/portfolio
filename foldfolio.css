@@ -69,19 +69,19 @@ body.is-fold-mode[data-theme="light"] {
 body.is-fold-mode[data-theme="dark"] {
   --ff-canvas: #0B0B0B;
   --ff-ink: #F6F6F5;
-  --ff-muted: #9A9EA6;
+  --ff-muted: #9DD2FF;
   --bg-page: #0B0B0B;
   --bg-surface: #141416;
   --bg-elevated: #1E1E22;
   --bg-card: #141416;
   --text-primary: #F6F6F5;
-  --text-secondary: #A6A9B0;
-  --text-muted: #767A82;
+  --text-secondary: #C5D4E8;
+  --text-muted: #9DD2FF;
   --border-subtle: rgba(255, 255, 255, 0.10);
   --border-strong: rgba(255, 255, 255, 0.22);
   --accent: #3186FF;
   --accent-blue: #3186FF;
-  --accent-saffron: #9A9EA6;
+  --accent-saffron: #9DD2FF;
   --accent-coral: #B8BCC4;
   --accent-soft: rgba(49, 134, 255, 0.14);
   --nav-bg: rgba(16, 16, 18, 0.90);
@@ -122,7 +122,7 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar {
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-tagline,
 body.is-fold-mode[data-theme="dark"] .fold-inside-kicker {
-  color: #A6A9B0;
+  color: #9DD2FF;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-cta-dark {
@@ -1037,7 +1037,7 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar svg rect[fill] {
   fill: #F6F6F5;
 }
 body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
-  color: #9A9EA6;
+  color: #9DD2FF;
 }
 
 .fold-lock-top {
@@ -1967,8 +1967,8 @@ body.case-study-body[data-theme="dark"] {
   --bg-elevated: #1D1E22;
   --bg-card: #141416;
   --text-primary: #F6F6F5;
-  --text-secondary: #A6A9B0;
-  --text-muted: #767A82;
+  --text-secondary: #C5D4E8;
+  --text-muted: #9DD2FF;
   --border-subtle: rgba(255, 255, 255, 0.10);
   --border-strong: rgba(255, 255, 255, 0.22);
   --accent: #3186FF;
