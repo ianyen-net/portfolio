@@ -74,7 +74,7 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
-  /* Slide 324 Light Theme (`Fitbit` Mock) — Pure `#FFFFFF` White Page Background, `#F0F4F9` Soft Slate-Blue Cards, `#0B57D0` Royal Blue, `#146C2E` Forest Green & `#C4EED0` Mint */
+  /* Slide 324 Light Theme (`Fitbit` Mock) — Pure `#FFFFFF` White Page Background, `#F0F4F9` Soft Slate-Blue Cards, `#1F3B9B` Royal Blue, `#146C2E` Forest Green & `#C4EED0` Mint */
   --bg-page: #FFFFFF;
   --bg-surface: #F0F4F9;
   --bg-elevated: #C2E7FF;
@@ -82,20 +82,20 @@ body[data-theme="light"] {
   --text-primary: #1F1F1F;
   --text-secondary: #444746;
   --text-muted: #5F6368;
-  --border-subtle: rgba(11, 87, 208, 0.10);
-  --border-strong: rgba(11, 87, 208, 0.22);
-  --accent: #0B57D0;
+  --border-subtle: rgba(31, 59, 155, 0.10);
+  --border-strong: rgba(31, 59, 155, 0.22);
+  --accent: #1F3B9B;
   --accent-saffron: #146C2E;
   --accent-blush: #E7D5F1;
   --accent-navy: #040A2F;
-  --accent-blue: #0B57D0;
+  --accent-blue: #1F3B9B;
   --accent-coral: #A24EA5;
   --accent-lime: #C4EED0;
-  --accent-soft: rgba(11, 87, 208, 0.12);
+  --accent-soft: rgba(31, 59, 155, 0.12);
   --nav-bg: rgba(240, 244, 249, 0.90);
-  --nav-hover-pill: rgba(11, 87, 208, 0.10);
+  --nav-hover-pill: rgba(31, 59, 155, 0.10);
   --card-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  --dot-grid-color: rgba(11, 87, 208, 0.08);
+  --dot-grid-color: rgba(31, 59, 155, 0.08);
   --tooltip-bg: #1F1F1F;
   --tooltip-text: #FFFFFF;
 }
@@ -864,9 +864,9 @@ body[data-theme="light"] .hero-card-inner {
 body[data-theme="light"] .hero-radial-glow {
   background: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(11, 87, 208, 0.12) 0%,
+    rgba(31, 59, 155, 0.12) 0%,
     rgba(20, 108, 46, 0.07) 42%,
-    rgba(11, 87, 208, 0) 72%
+    rgba(31, 59, 155, 0) 72%
   );
 }
 
@@ -898,14 +898,14 @@ body[data-theme="light"] .hero-radial-glow {
       68% 185px at 50% 0%,
       rgba(168, 199, 250, 0.42) 0%,
       rgba(49, 134, 255, 0.24) 48%,
-      rgba(11, 87, 208, 0.08) 80%,
+      rgba(31, 59, 155, 0.08) 80%,
       transparent 100%
     ),
     /* Subtle ambient top wash */
     radial-gradient(
       115% 100% at 50% 0%,
       rgba(49, 134, 255, 0.22) 0%,
-      rgba(11, 87, 208, 0.10) 56%,
+      rgba(31, 59, 155, 0.10) 56%,
       transparent 100%
     );
 }
@@ -915,21 +915,21 @@ body[data-theme="light"] .hero-top-torch-flash {
     linear-gradient(
       90deg,
       transparent 4%,
-      rgba(11, 87, 208, 0.24) 22%,
+      rgba(31, 59, 155, 0.24) 22%,
       rgba(49, 134, 255, 0.58) 50%,
-      rgba(11, 87, 208, 0.24) 78%,
+      rgba(31, 59, 155, 0.24) 78%,
       transparent 96%
     ) top center / 100% 3px no-repeat,
     radial-gradient(
       68% 185px at 50% 0%,
       rgba(49, 134, 255, 0.26) 0%,
-      rgba(11, 87, 208, 0.14) 50%,
+      rgba(31, 59, 155, 0.14) 50%,
       rgba(168, 199, 250, 0.06) 82%,
       transparent 100%
     ),
     radial-gradient(
       115% 100% at 50% 0%,
-      rgba(11, 87, 208, 0.14) 0%,
+      rgba(31, 59, 155, 0.14) 0%,
       rgba(49, 134, 255, 0.06) 56%,
       transparent 100%
     );
@@ -1303,7 +1303,7 @@ body[data-theme="light"] .hero-name-pill .pill-sep {
 }
 
 body[data-theme="light"] .hero-fraunces-title .text-accent {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 /* Interactive On-Hover & First-Load Wave Effect on Hero Headline Words ("Designing AI products people trust.") */
@@ -1371,7 +1371,7 @@ body[data-theme="light"] .hero-o-avatar {
 
 body[data-theme="light"] .hero-hover-word:hover,
 body[data-theme="light"] .hero-hover-word.is-flash {
-  color: #0B57D0;
+  color: #1F3B9B;
   text-shadow: none;
 }
 
@@ -3185,7 +3185,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-meta-dot {
   --word-base-color: #E5E7EB;
   --word-base-color-light: #000000;
   --loop-color: #3186FF;
-  --loop-color-light: #0B57D0;
+  --loop-color-light: #1F3B9B;
   --loop-glow: rgba(49, 134, 255, 0.75);
   --word-flash-delay: 0.10s;
 }
@@ -3502,7 +3502,7 @@ body[data-theme="light"] #process.is-rocket-launched .leo-process-title {
 }
 
 body[data-theme="light"] .leo-process-card:nth-of-type(1):hover .leo-process-title {
-  color: #0B57D0;
+  color: #1F3B9B;
   text-shadow: none;
 }
 
@@ -4012,9 +4012,9 @@ body[data-theme="light"] .leo-exp-role-card:hover .leo-exp-period {
 }
 
 body[data-theme="light"] .leo-magnetic-btn {
-  background: #0B57D0;
+  background: #1F3B9B;
   color: #FFFFFF;
-  box-shadow: 0 12px 26px -8px rgba(11, 87, 208, 0.38);
+  box-shadow: 0 12px 26px -8px rgba(31, 59, 155, 0.38);
 }
 
 .leo-magnetic-btn::before {
@@ -4046,10 +4046,10 @@ body[data-theme="light"] .leo-magnetic-btn {
 }
 
 body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover {
-  background: #0842A0;
+  background: #162B75;
   color: #FFFFFF;
   border-color: transparent;
-  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.52);
+  box-shadow: 0 16px 32px -8px rgba(31, 59, 155, 0.52);
 }
 
 .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hover .leo-btn-label svg {
@@ -4096,19 +4096,19 @@ body[data-theme="light"] .leo-magnetic-btn:not(.is-secondary):not(.is-icon):hove
 body[data-theme="light"] .leo-magnetic-btn.is-secondary {
   background: #DCE4F2;
   color: #111420;
-  border-color: rgba(11, 87, 208, 0.16);
-  --btn-hover-fill: rgba(11, 87, 208, 0.12);
+  border-color: rgba(31, 59, 155, 0.16);
+  --btn-hover-fill: rgba(31, 59, 155, 0.12);
   --btn-hover-text: #040A2F;
-  box-shadow: 0 8px 20px -8px rgba(11, 87, 208, 0.14);
+  box-shadow: 0 8px 20px -8px rgba(31, 59, 155, 0.14);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-blue {
-  background: #0B57D0;
+  background: #1F3B9B;
   color: #FFFFFF;
   border-color: transparent;
-  --btn-hover-fill: #0842A0;
+  --btn-hover-fill: #162B75;
   --btn-hover-text: #FFFFFF;
-  box-shadow: 0 12px 28px -8px rgba(11, 87, 208, 0.38);
+  box-shadow: 0 12px 28px -8px rgba(31, 59, 155, 0.38);
 }
 
 body[data-theme="light"] .leo-magnetic-btn.is-secondary.is-palette-mauve {
@@ -5006,7 +5006,7 @@ body[data-theme="light"] .share-icons-direct {
 }
 
 body[data-theme="light"] .case-h3-italic {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 .case-h4 {
@@ -6600,7 +6600,7 @@ body[data-theme="light"] .leo-fade-card {
 }
 
 body[data-theme="light"] .leo-fade-card .leo-footer-heading .text-accent {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 .clientele-footer {
@@ -6660,7 +6660,7 @@ body[data-theme="light"] .leo-range-label,
 body[data-theme="light"] .case-meta-label,
 body[data-theme="light"] .case-caption.is-accent,
 body[data-theme="light"] .leo-exp-period {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 .leo-work-metric,
@@ -6681,7 +6681,7 @@ body[data-theme="light"] .leo-work-card:hover .leo-work-metric {
 }
 
 body[data-theme="light"] .leo-work-meta-dot {
-  background: #0B57D0;
+  background: #1F3B9B;
 }
 
 /* Hero Name Pill — consistent bolding and location highlight across Dark and Light themes */
@@ -6708,7 +6708,7 @@ body[data-theme="light"] .hero-name-pill > span:first-of-type {
 
 body[data-theme="light"] .hero-subtitle-line .is-sub-navy,
 body[data-theme="light"] .about-bio-copy .bio-highlight.is-navy {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 .hero-subtitle-line .is-sub-blue,
@@ -6723,7 +6723,7 @@ body[data-theme="light"] .hero-subtitle-line .is-sub-blue,
 body[data-theme="light"] .hero-subtitle-line .is-sub-mauve,
 body[data-theme="light"] .about-bio-copy .bio-highlight.is-blue,
 body[data-theme="light"] .about-bio-copy .bio-highlight.is-mauve {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 /* Process Flow ("Prototype -> Measure -> Launch"): Very light grey in Dark Theme, Black in Light Theme */
@@ -6744,7 +6744,7 @@ body[data-theme="light"] .leo-process-card:nth-of-type(3) .leo-process-title {
 }
 
 body[data-theme="light"] .process-hand-arrow {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 /* Subheadings, Experience Company, Photo Caption & Case Study Strong/Em Emphasis Across BOTH Themes */

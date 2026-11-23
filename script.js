@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     localStorage.removeItem('ian-leo-theme');
   } catch (_) {}
-  const savedTheme = sessionStorage.getItem('ian-theme-session') || 'light';
+  const savedTheme = sessionStorage.getItem('ian-theme-session') || 'dark';
   document.body.setAttribute('data-theme', savedTheme);
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.setAttribute('aria-checked', savedTheme === 'dark' ? 'true' : 'false');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') || 'light';
+      const current = document.body.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       document.body.setAttribute('data-theme', next);
       btn.setAttribute('aria-checked', next === 'dark' ? 'true' : 'false');

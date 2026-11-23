@@ -7,7 +7,7 @@
 :root {
   --ff-canvas: #F8F7F6;
   --ff-ink: #111111;
-  --ff-muted: #454950;
+  --ff-muted: #192967;
   --ff-lock-bg: #F0F2F1;
   --ff-font-cond: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
   --ff-font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -48,15 +48,15 @@ body.is-fold-mode[data-theme="light"] {
   --bg-elevated: #EFECE7;
   --bg-card: #FFFFFF;
   --text-primary: #111111;
-  --text-secondary: #36393F;
-  --text-muted: #52565E;
+  --text-secondary: #192967;
+  --text-muted: #192967;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-strong: rgba(17, 17, 17, 0.18);
-  --accent: #0B57D0;
-  --accent-blue: #0B57D0;
+  --accent: #1F3B9B;
+  --accent-blue: #1F3B9B;
   --accent-saffron: #6E727A;
   --accent-coral: #555860;
-  --accent-soft: rgba(11, 87, 208, 0.09);
+  --accent-soft: rgba(31, 59, 155, 0.09);
   --nav-bg: rgba(255, 255, 255, 0.90);
   --nav-hover-pill: rgba(17, 17, 17, 0.07);
   --font-display: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
@@ -139,20 +139,20 @@ body.is-fold-mode[data-theme="dark"] .fold-floor-shadow {
   background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 80%);
 }
 
-/* Harmonize interactive accents with case study signature blue (#0B57D0 light / #3186FF dark) */
+/* Harmonize interactive accents with case study signature blue (#1F3B9B light / #3186FF dark) */
 body[data-theme="light"] .theme-toggle-thumb {
   background: #111111;
 }
 body.is-fold-mode .leo-nav-cta {
-  background: #0B57D0;
+  background: #1F3B9B;
   color: #FFFFFF;
   transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 body.is-fold-mode .leo-nav-cta:hover {
-  background: #0842A0;
+  background: #162B75;
   color: #FFFFFF;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px -6px rgba(11, 87, 208, 0.5);
+  box-shadow: 0 8px 20px -6px rgba(31, 59, 155, 0.5);
 }
 body.is-fold-mode[data-theme="dark"] .leo-nav-cta {
   background: #3186FF;
@@ -195,10 +195,10 @@ body.is-fold-mode[data-theme="light"] .proto-portal-cta {
 }
 body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta,
 body.is-fold-mode[data-theme="light"] .proto-portal-cta:hover {
-  background: #0B57D0;
+  background: #1F3B9B;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px -8px rgba(11, 87, 208, 0.45);
+  box-shadow: 0 16px 32px -8px rgba(31, 59, 155, 0.45);
 }
 body.is-fold-mode[data-theme="light"] .proto-portal-cta .slot-text-clone {
   color: #FFFFFF;
@@ -1055,7 +1055,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   font-size: 102px;
   line-height: 0.84;
   letter-spacing: -0.015em;
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 
 .fold-lock-sub {
@@ -1196,7 +1196,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-name {
   font-size: 10.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #4A4E56;
+  color: #192967;
 }
 
 .fold-history-teams {
@@ -1310,7 +1310,7 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   font-weight: 500;
   letter-spacing: 0.055em;
   text-transform: uppercase;
-  color: #3E4249;
+  color: #192967;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1341,10 +1341,10 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
 }
 .fold-lock-icon-btn:hover {
   transform: translateY(-2px) scale(1.06);
-  background: #0B57D0;
-  border-color: #0B57D0;
+  background: #1F3B9B;
+  border-color: #1F3B9B;
   color: #FFFFFF;
-  box-shadow: 0 10px 22px -6px rgba(11, 87, 208, 0.45);
+  box-shadow: 0 10px 22px -6px rgba(31, 59, 155, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
   transform: translateY(-2px) scale(1.06);
@@ -1370,10 +1370,10 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
 }
 .fold-unfold-pill:hover {
   transform: translateY(-2px);
-  background: #0B57D0;
-  border-color: #0B57D0;
+  background: #1F3B9B;
+  border-color: #1F3B9B;
   color: #FFFFFF;
-  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.45);
+  box-shadow: 0 10px 24px -6px rgba(31, 59, 155, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
   transform: translateY(-2px);
@@ -1399,10 +1399,10 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
 }
 .fold-projects-pill:hover {
   transform: translate3d(-50%, -2px, 2px);
-  background: #0B57D0;
-  border-color: #0B57D0;
+  background: #1F3B9B;
+  border-color: #1F3B9B;
   color: #FFFFFF;
-  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.45);
+  box-shadow: 0 10px 24px -6px rgba(31, 59, 155, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill {
   background: rgba(255, 255, 255, 0.14);
@@ -1457,7 +1457,7 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill:hover 
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #3E4249;
+  color: #192967;
 }
 
 .fold-inside-hero-copy {
@@ -1509,10 +1509,10 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill:hover 
   transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 .fold-cta-dark:hover {
-  background: #0B57D0;
+  background: #1F3B9B;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.42);
+  box-shadow: 0 10px 24px -6px rgba(31, 59, 155, 0.42);
 }
 body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
   background: #3186FF;
@@ -1553,11 +1553,11 @@ body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
   border: 1px solid #111111;
 }
 .fold-call-bottom .fold-connect-btn-primary:hover {
-  background: #0B57D0;
-  border-color: #0B57D0;
+  background: #1F3B9B;
+  border-color: #1F3B9B;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(11, 87, 208, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(31, 59, 155, 0.45);
 }
 .fold-call-bottom .fold-connect-btn-secondary {
   background: rgba(17, 17, 17, 0.08);
@@ -1575,11 +1575,11 @@ body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
 }
 .fold-call-bottom .fold-connect-btn-secondary:hover,
 .fold-call-bottom .fold-connect-btn-tertiary:hover {
-  background: #0B57D0;
-  border-color: #0B57D0;
+  background: #1F3B9B;
+  border-color: #1F3B9B;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.42);
+  box-shadow: 0 10px 24px -6px rgba(31, 59, 155, 0.42);
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-primary {
@@ -1833,15 +1833,15 @@ body.is-fold-mode[data-theme="dark"] .fold-call-name {
   gap: 14px;
   font-family: var(--ff-font-sans);
   font-size: 12px;
-  color: #4A4E56;
+  color: #192967;
 }
 .fold-call-links a {
-  color: #36393F;
+  color: #192967;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 .fold-call-links a:hover {
-  color: #0B57D0;
+  color: #1F3B9B;
 }
 body.is-fold-mode[data-theme="dark"] .fold-call-links {
   color: rgba(255, 255, 255, 0.56);
@@ -1944,14 +1944,14 @@ body.case-study-body[data-theme="light"] {
   --bg-elevated: #F1EFEA;
   --bg-card: #FFFFFF;
   --text-primary: #111111;
-  --text-secondary: #36393F;
-  --text-muted: #52565E;
+  --text-secondary: #192967;
+  --text-muted: #192967;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-strong: rgba(17, 17, 17, 0.18);
-  --accent: #0B57D0;
-  --accent-blue: #0B57D0;
+  --accent: #1F3B9B;
+  --accent-blue: #1F3B9B;
   --accent-saffron: #146C2E;
-  --accent-soft: rgba(11, 87, 208, 0.09);
+  --accent-soft: rgba(31, 59, 155, 0.09);
   --nav-bg: rgba(255, 255, 255, 0.92);
   --nav-hover-pill: rgba(17, 17, 17, 0.07);
   --font-display: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
