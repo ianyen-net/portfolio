@@ -955,21 +955,73 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
   border-left: none;
 }
 
-/* Keep the backlit studio lock screen crisp & high-contrast in BOTH light & dark themes */
+/* Theme-reactive Hero Lock Screen (Dark Mode switches lock screen, glass banner, and buttons to dark studio mode) */
 body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
-  background: #FFFFFF;
+  background: #0D0E12;
+}
+body.is-fold-mode[data-theme="dark"] .fold-lock-portrait-full {
+  filter: brightness(0.84) contrast(1.10);
+}
+body.is-fold-mode[data-theme="dark"] .fold-lock-portrait-fade {
+  top: 0;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #0D0E12 0%,
+    rgba(13, 14, 18, 0.94) 22%,
+    rgba(13, 14, 18, 0.16) 52%,
+    rgba(13, 14, 18, 0.72) 84%,
+    #0D0E12 100%
+  );
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-time {
-  color: #0B57D0;
+  color: #3186FF;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
+  color: #F6F6F5;
+}
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(22, 24, 30, 0.72) 0%,
+    rgba(14, 15, 20, 0.62) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #F6F6F5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 12px 28px -10px rgba(0, 0, 0, 0.55);
+}
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.02) 45%,
+    transparent 70%
+  );
+}
+body.is-fold-mode[data-theme="dark"] .fold-intro-icon {
+  background: linear-gradient(145deg, #FFFFFF 0%, #E2E5EC 100%);
   color: #111111;
+  box-shadow:
+    0 4px 10px -3px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
 body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
-  background: rgba(255, 255, 255, 0.90);
-  border-color: rgba(255, 255, 255, 0.95);
-  color: #111111;
+  background: rgba(22, 24, 30, 0.80);
+  border-color: rgba(255, 255, 255, 0.20);
+  color: #F6F6F5;
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.55);
+}
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover,
+body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
+  background: #3186FF;
+  border-color: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(49, 134, 255, 0.52);
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
   background: radial-gradient(70% 70% at 50% 42%, #242730 0%, #14161B 100%);
@@ -1287,13 +1339,19 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.16);
   transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
-.fold-lock-icon-btn:hover,
-body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
+.fold-lock-icon-btn:hover {
   transform: translateY(-2px) scale(1.06);
   background: #0B57D0;
   border-color: #0B57D0;
   color: #FFFFFF;
   box-shadow: 0 10px 22px -6px rgba(11, 87, 208, 0.45);
+}
+body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  background: #3186FF;
+  border-color: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 10px 22px -6px rgba(49, 134, 255, 0.52);
 }
 
 .fold-unfold-pill {
@@ -1310,13 +1368,19 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn:hover {
   box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.14);
   transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
-.fold-unfold-pill:hover,
-body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
+.fold-unfold-pill:hover {
   transform: translateY(-2px);
   background: #0B57D0;
   border-color: #0B57D0;
   color: #FFFFFF;
   box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.45);
+}
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill:hover {
+  transform: translateY(-2px);
+  background: #3186FF;
+  border-color: #3186FF;
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px -6px rgba(49, 134, 255, 0.52);
 }
 
 .fold-projects-pill {
@@ -1471,7 +1535,7 @@ body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
   transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-/* Closing dark cover CTA buttons (placed after .fold-cta-dark & .fold-cta-light so high contrast holds in BOTH light & dark themes) */
+/* Closing cover CTA buttons (theme-reactive: light studio in light mode, dark obsidian in dark mode) */
 .fold-call-bottom .fold-connect-btn-primary,
 .fold-call-bottom .fold-connect-btn-secondary,
 .fold-call-bottom .fold-connect-btn-tertiary {
@@ -1480,47 +1544,70 @@ body.is-fold-mode[data-theme="dark"] .fold-cta-dark:hover {
   justify-content: center;
   transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
-.fold-call-bottom .fold-connect-btn-primary,
-body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-primary {
-  background: #FFFFFF;
-  color: #111111;
+.fold-call-bottom .fold-connect-btn-primary {
+  background: #111111;
+  color: #FFFFFF;
   padding: 15px 22px;
   font-size: 14.5px;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid #111111;
 }
-.fold-call-bottom .fold-connect-btn-primary:hover,
+.fold-call-bottom .fold-connect-btn-primary:hover {
+  background: #0B57D0;
+  border-color: #0B57D0;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(11, 87, 208, 0.45);
+}
+.fold-call-bottom .fold-connect-btn-secondary {
+  background: rgba(17, 17, 17, 0.08);
+  color: #111111;
+  padding: 14px 22px;
+  font-size: 14px;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+}
+.fold-call-bottom .fold-connect-btn-tertiary {
+  background: rgba(17, 17, 17, 0.05);
+  color: #111111;
+  padding: 14px 22px;
+  font-size: 14px;
+  border: 1px solid rgba(17, 17, 17, 0.10);
+}
+.fold-call-bottom .fold-connect-btn-secondary:hover,
+.fold-call-bottom .fold-connect-btn-tertiary:hover {
+  background: #0B57D0;
+  border-color: #0B57D0;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(11, 87, 208, 0.42);
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-primary {
+  background: #FFFFFF;
+  color: #111111;
+  border-color: rgba(255, 255, 255, 0.9);
+}
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-primary:hover {
   background: #3186FF;
   border-color: #3186FF;
   color: #FFFFFF;
-  transform: translateY(-2px);
   box-shadow: 0 12px 28px -6px rgba(49, 134, 255, 0.55);
 }
-.fold-call-bottom .fold-connect-btn-secondary,
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-secondary {
   background: rgba(255, 255, 255, 0.14);
   color: #FFFFFF;
-  padding: 14px 22px;
-  font-size: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.18);
 }
-.fold-call-bottom .fold-connect-btn-tertiary,
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-tertiary {
   background: rgba(255, 255, 255, 0.10);
   color: #FFFFFF;
-  padding: 14px 22px;
-  font-size: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.14);
 }
-.fold-call-bottom .fold-connect-btn-secondary:hover,
-.fold-call-bottom .fold-connect-btn-tertiary:hover,
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-secondary:hover,
 body.is-fold-mode[data-theme="dark"] .fold-call-bottom .fold-connect-btn-tertiary:hover {
   background: #3186FF;
   border-color: #3186FF;
   color: #FFFFFF;
-  transform: translateY(-2px);
   box-shadow: 0 10px 24px -6px rgba(49, 134, 255, 0.5);
 }
 
@@ -1621,14 +1708,20 @@ body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-sh
   position: relative;
   width: 100%;
   height: 100%;
-  background: #0B0B0B;
-  color: #FFFFFF;
+  background: radial-gradient(85% 65% at 50% 18%, #F4F6FA 0%, #E7EBF2 100%);
+  color: #111111;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 58px 28px 34px;
   text-align: center;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-call-screen {
+  background: radial-gradient(85% 65% at 50% 18%, #16181F 0%, #0A0B0E 100%);
+  color: #FFFFFF;
 }
 
 .fold-call-name {
@@ -1638,8 +1731,13 @@ body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-sh
   line-height: 0.86;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #111111;
   margin: 0;
+  transition: color 0.35s ease;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-call-name {
+  color: #FFFFFF;
 }
 
 .fold-call-sub {
@@ -1735,14 +1833,24 @@ body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-sh
   gap: 14px;
   font-family: var(--ff-font-sans);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.48);
+  color: #4A4E56;
 }
 .fold-call-links a {
-  color: rgba(255, 255, 255, 0.65);
+  color: #36393F;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 .fold-call-links a:hover {
-  color: #FFFFFF;
+  color: #0B57D0;
+}
+body.is-fold-mode[data-theme="dark"] .fold-call-links {
+  color: rgba(255, 255, 255, 0.56);
+}
+body.is-fold-mode[data-theme="dark"] .fold-call-links a {
+  color: rgba(255, 255, 255, 0.72);
+}
+body.is-fold-mode[data-theme="dark"] .fold-call-links a:hover {
+  color: #3186FF;
 }
 
 /* ==========================================================================
