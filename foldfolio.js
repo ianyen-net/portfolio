@@ -86,9 +86,9 @@
     const computeBaseScale = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const maxW = (vw - 64) / 1000;
-      const maxH = (vh - 190) / 684;
-      baseScale = Math.min(1.02, Math.max(0.32, Math.min(maxW, maxH)));
+      const maxW = (vw - 48) / 1000;
+      const maxH = (vh - 150) / 684;
+      baseScale = Math.min(1.12, Math.max(0.35, Math.min(maxW, maxH) * 1.10));
       document.documentElement.style.setProperty('--ff-scale', baseScale.toFixed(4));
     };
     computeBaseScale();

@@ -825,13 +825,52 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--ff-lock-bg);
+  background: #F4F5F4;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 24px 24px;
+  padding: 40px 24px 24px;
   overflow: hidden;
+}
+
+/* Full-bleed backlit side-profile portrait matching foldfolio.framer.website */
+.fold-lock-portrait-full {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 138px;
+  width: 100%;
+  height: calc(100% - 138px);
+  object-fit: cover;
+  object-position: 50% 18%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fold-lock-portrait-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 136px;
+  height: 54px;
+  background: linear-gradient(180deg, #F4F5F4 0%, rgba(244, 245, 244, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fold-inside-right-panel.is-full-portrait {
+  padding: 0;
+  background: #F4F5F4;
+  overflow: hidden;
+}
+
+.fold-inside-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 24%;
+  display: block;
 }
 
 .fold-lock-avatar-wrap {
@@ -869,12 +908,29 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel {
   background: #0F1012;
 }
 
+/* Keep the backlit studio lock screen crisp & high-contrast in both light & dark themes */
 body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
-  background: #0F1012;
+  background: #F4F5F4;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-time,
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
-  color: #F6F6F5;
+  color: #111111;
+}
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.44) 0%,
+    rgba(255, 255, 255, 0.16) 48%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.72);
+  color: #111111;
+}
+body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
+body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: #111111;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
   background: radial-gradient(70% 70% at 50% 42%, #242730 0%, #14161B 100%);

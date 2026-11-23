@@ -30,11 +30,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Sofia+Sans+Extra+Condensed:wght@800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
-  <link rel="preload" as="image" href="assets/ian_hero_cutout.png?v=233" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/ian_profile_bw.jpg?v=240" fetchpriority="high">
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=234">
-  <link rel="stylesheet" href="foldfolio.css?v=239">
+  <link rel="stylesheet" href="foldfolio.css?v=240">
 </head>
 <body data-theme="light">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -194,27 +194,23 @@
                 </div>
               </div>
 
-              <!-- Front Lock Screen Cover (Visible when phone is closed at scroll = 0) -->
+              <!-- Front Lock Screen Cover (Visible when phone is closed at scroll = 0 — matches foldfolio.framer.website) -->
               <div class="fold-face is-cover">
                 <div class="fold-bezel">
                   <div class="fold-screen">
                     <div class="fold-lock-screen">
+                      <img src="assets/ian_profile_bw.jpg?v=240" alt="Ian Yen editorial side-profile portrait" class="fold-lock-portrait-full" decoding="sync">
+                      <div class="fold-lock-portrait-fade" aria-hidden="true"></div>
+
                       <div class="fold-lock-top">
-                        <div class="fold-lock-time" data-fold-clock>13:52</div>
+                        <div class="fold-lock-time" data-fold-clock>14:45</div>
                         <div class="fold-lock-sub">Senior Product Designer &middot; Google NYC</div>
                       </div>
 
-                      <div class="fold-lock-center">
-                        <div class="fold-lock-avatar-wrap">
-                          <img src="assets/ian_hero_cutout.png?v=233" alt="Ian Yen portrait" class="fold-lock-avatar-img" decoding="sync">
-                        </div>
-
+                      <div class="fold-lock-bottom">
                         <div class="fold-intro-glass">
                           7 years of experience taking products from zero to launch across Android, iOS, desktop and wearable.
                         </div>
-                      </div>
-
-                      <div class="fold-lock-bottom">
 
                         <div class="fold-lock-actions">
                           <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-lock-icon-btn" aria-label="LinkedIn">
@@ -257,10 +253,8 @@
                         <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.75" y="0.75" width="17.5" height="9.5" rx="2.5" stroke="#111" stroke-width="1.3"/><rect x="2.6" y="2.6" width="13.8" height="5.8" rx="1.2" fill="#111"/><path d="M20 3.6v3.8" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
                       </span>
                     </div>
-                    <div class="fold-inside-right-panel">
-                      <div class="fold-lock-avatar-wrap" style="width:280px;height:280px;">
-                        <img src="assets/ian_hero_cutout.png?v=233" alt="Ian Yen" class="fold-lock-avatar-img" decoding="sync">
-                      </div>
+                    <div class="fold-inside-right-panel is-full-portrait">
+                      <img src="assets/ian_profile_bw.jpg?v=240" alt="Ian Yen" class="fold-inside-portrait-img" decoding="sync">
                     </div>
                   </div>
                 </div>
@@ -631,6 +625,6 @@
   </main>
 
   <script src="script.js?v=220"></script>
-  <script src="foldfolio.js?v=238"></script></script></script></script>
+  <script src="foldfolio.js?v=240"></script></script></script></script>
 </body>
 </html>
