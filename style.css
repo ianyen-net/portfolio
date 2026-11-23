@@ -340,7 +340,7 @@ body[data-theme="light"] .theme-toggle-option.is-moon {
 }
 
 body[data-theme="light"] .theme-toggle-thumb {
-  background: var(--accent);
+  background: #111111;
   transform: translateX(0px);
 }
 
