@@ -181,29 +181,32 @@ body.is-fold-mode[data-theme="dark"] .bio-highlight.is-navy {
   color: #FFFFFF;
 }
 
-/* Prototype Library CTA button using signature case-study blue */
+/* Prototype Library CTA button in crisp editorial black (light) / white (dark) */
 body.is-fold-mode[data-theme="light"] .proto-portal-cta {
-  background: #0B57D0;
+  background: #111111;
   color: #FFFFFF;
-  box-shadow: 0 12px 26px -8px rgba(11, 87, 208, 0.34);
+  box-shadow: 0 12px 26px -8px rgba(17, 17, 17, 0.28);
 }
 body.is-fold-mode[data-theme="light"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #0842A0;
+  background: #2A2C30;
   color: #FFFFFF;
-  box-shadow: 0 16px 30px -8px rgba(11, 87, 208, 0.44);
+  box-shadow: 0 16px 30px -8px rgba(17, 17, 17, 0.36);
+}
+body.is-fold-mode[data-theme="light"] .proto-portal-cta .slot-text-clone {
+  color: #FFFFFF;
 }
 body.is-fold-mode[data-theme="dark"] .proto-portal-cta {
-  background: #3186FF;
-  color: #FFFFFF;
-  box-shadow: 0 12px 26px -8px rgba(49, 134, 255, 0.38);
+  background: #FFFFFF;
+  color: #0B0B0B;
+  box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.45);
 }
 body.is-fold-mode[data-theme="dark"] .proto-directory-portal:hover .proto-portal-cta {
-  background: #4A96FF;
-  color: #FFFFFF;
-  box-shadow: 0 16px 30px -8px rgba(49, 134, 255, 0.48);
+  background: #E2E4E8;
+  color: #0B0B0B;
+  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.55);
 }
-body.is-fold-mode .proto-portal-cta .slot-text-clone {
-  color: #FFFFFF;
+body.is-fold-mode[data-theme="dark"] .proto-portal-cta .slot-text-clone {
+  color: #0B0B0B;
 }
 /* Remove outer background container around Prototype Library card so it floats seamlessly on the page */
 body.is-fold-mode .proto-directory-portal,
