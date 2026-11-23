@@ -545,6 +545,70 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   will-change: transform, opacity;
 }
 
+/* Subtle Organic Hero Floating Motion (Device + IAN/YEN Typography + Floor Shadow) */
+@keyframes ffDeviceFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotateZ(0.35deg);
+  }
+}
+
+@keyframes ffWordFloatLeft {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, 7px, 0);
+  }
+}
+
+@keyframes ffWordFloatRight {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes ffShadowBreath {
+  0%, 100% {
+    filter: blur(8px);
+    opacity: 0.92;
+  }
+  50% {
+    filter: blur(11px);
+    opacity: 0.68;
+  }
+}
+
+.fold-float-device {
+  width: 1000px;
+  height: 684px;
+  transform-style: preserve-3d;
+  animation: ffDeviceFloat 5.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.fold-bg-word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.fold-bg-word.is-left .fold-bg-word-inner {
+  animation: ffWordFloatLeft 6.4s ease-in-out infinite;
+}
+
+.fold-bg-word.is-right .fold-bg-word-inner {
+  animation: ffWordFloatRight 6.8s ease-in-out -1.4s infinite;
+}
+
+.fold-floor-shadow.is-floating-shadow {
+  animation: ffShadowBreath 5.6s ease-in-out infinite;
+}
+
 .fold-device-track {
   position: relative;
   width: 1000px;
@@ -829,19 +893,28 @@ body.is-fold-mode[data-theme="dark"] /* Centered Avatar + Liquid Glass Intro Sta
   gap: 16px;
 }
 
-/* Intro Liquid Glass Notification Style */
+/* True Apple Liquid Glass Intro Banner */
 .fold-intro-glass {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  padding: 14px 18px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.28) 100%);
-  backdrop-filter: blur(16px) saturate(190%);
-  -webkit-backdrop-filter: blur(16px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.78);
+  padding: 15px 20px;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.44) 0%,
+    rgba(255, 255, 255, 0.16) 48%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  backdrop-filter: blur(22px) saturate(210%) brightness(1.06);
+  -webkit-backdrop-filter: blur(22px) saturate(210%) brightness(1.06);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.25),
-    0 12px 28px -10px rgba(17, 17, 17, 0.16);
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.96),
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.34),
+    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
+    0 14px 32px -12px rgba(17, 17, 17, 0.20),
+    0 2px 6px rgba(17, 17, 17, 0.05);
   font-family: var(--ff-font-sans);
   font-size: 13.5px;
   line-height: 1.48;
@@ -850,13 +923,42 @@ body.is-fold-mode[data-theme="dark"] /* Centered Avatar + Liquid Glass Intro Sta
   text-align: center;
 }
 
+.fold-intro-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.12) 38%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
 body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.07) 100%);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 52%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.28);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 12px 28px -10px rgba(0, 0, 0, 0.48);
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.42),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
+    0 16px 36px -12px rgba(0, 0, 0, 0.65);
   color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 65%
+  );
 }
 
 /* Opened Left Panel — Work History Team List */
@@ -1030,19 +1132,28 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   gap: 16px;
 }
 
-/* Intro Liquid Glass Notification Style */
+/* True Apple Liquid Glass Intro Banner */
 .fold-intro-glass {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  padding: 14px 18px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.28) 100%);
-  backdrop-filter: blur(16px) saturate(190%);
-  -webkit-backdrop-filter: blur(16px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.78);
+  padding: 15px 20px;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.44) 0%,
+    rgba(255, 255, 255, 0.16) 48%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  backdrop-filter: blur(22px) saturate(210%) brightness(1.06);
+  -webkit-backdrop-filter: blur(22px) saturate(210%) brightness(1.06);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.25),
-    0 12px 28px -10px rgba(17, 17, 17, 0.16);
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.96),
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.34),
+    inset 1.5px 0 1px rgba(255, 255, 255, 0.45),
+    0 14px 32px -12px rgba(17, 17, 17, 0.20),
+    0 2px 6px rgba(17, 17, 17, 0.05);
   font-family: var(--ff-font-sans);
   font-size: 13.5px;
   line-height: 1.48;
@@ -1051,13 +1162,42 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   text-align: center;
 }
 
+.fold-intro-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.12) 38%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
 body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.07) 100%);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 52%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.28);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 12px 28px -10px rgba(0, 0, 0, 0.48);
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.42),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
+    0 16px 36px -12px rgba(0, 0, 0, 0.65);
   color: #F6F6F5;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 65%
+  );
 }
 
 /* Opened Left Panel — Work History Team List */
