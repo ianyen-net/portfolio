@@ -202,15 +202,17 @@
       // PHASE B: CLOSING FOOTER (Sticky Browser Bezel Shrinks Down -> Seamless Handoff to 3D Fold Shut)
       // ======================================================================
       let zoomOutT = 0;
-      let currentFootScale = scaleToCover;
+      // Fit cleanly inside viewport (never wider/taller than browser!) so text is 100% visible while zoomed in
+      const footStartScale = Math.min((vw - 72) / 1000, (vh - 110) / 684);
+      let currentFootScale = footStartScale;
       let isFooterFolding = false;
       if (footerRunway && footViewport && footTrack && footCloseFlap) {
-        zoomOutT = easeInOutCubic(clamp((pFoot - 0.10) / 0.40, 0, 1));
+        zoomOutT = easeInOutCubic(clamp((pFoot - 0.08) / 0.42, 0, 1));
         const foldCloseT = easeInOutCubic(clamp((pFoot - 0.52) / 0.46, 0, 1));
         isFooterFolding = pFoot >= 0.50;
         footerRunway.classList.toggle('is-folding-shut', isFooterFolding);
 
-        currentFootScale = lerp(scaleToCover, baseScale, zoomOutT);
+        currentFootScale = lerp(footStartScale, baseScale, zoomOutT);
         const footShiftX = lerp(0, 250, foldCloseT);
 
         footViewport.style.transform = `scale(${currentFootScale.toFixed(4)})`;
@@ -228,7 +230,7 @@
         const fShadowScaleX = lerp(1.0, 0.5, foldCloseT);
         if (footShadow) {
           footShadow.style.transform = `translateX(-50%) scaleX(${fShadowScaleX.toFixed(3)})`;
-          footShadow.style.opacity = clamp((zoomOutT - 0.30) * 1.6, 0, 1).toFixed(3);
+          footShadow.style.opacity = clamp((zoomOutT - 0.35) * 1.6, 0, 1).toFixed(3);
         }
 
         const fWordOffset = (1 - foldCloseT) * 460;
@@ -253,7 +255,7 @@
       // ======================================================================
       // EDGE-ANCHORING VIEWPORT BEZEL HANDOFF
       // Uses the SAME sticky bezel wrapped around the browser to shrink smoothly
-      // all the way down to the opened device size before handing off to the 3D fold!
+      // from (0,0) all the way down to the exact opened device frame before 3D fold!
       // ======================================================================
       if (insidePhone) {
         setBezelRect(1, 0, 0, 0, 26);
@@ -269,12 +271,12 @@
         } else {
           setBezelRect(0, padX, padY, 42, 34);
         }
-      } else if (pFoot > 0.10 && !isFooterFolding) {
-        // Keep the sticky browser bezel visible the ENTIRE zoom-out, shrinking cleanly into the exact 1000x684 * baseScale frame!
-        const liveW = 1000 * currentFootScale;
-        const liveH = 684 * currentFootScale;
-        const padX = Math.max(0, (vw - liveW) * 0.5);
-        const padY = Math.max(0, (vh - liveH) * 0.5);
+      } else if (pFoot > 0.08 && !isFooterFolding) {
+        // Interpolate bezel smoothly from browser walls (0, 0) to exact 1000x684 * baseScale device bounds!
+        const targetPadX = Math.max(0, (vw - 1000 * baseScale) * 0.5);
+        const targetPadY = Math.max(0, (vh - 684 * baseScale) * 0.5);
+        const padX = lerp(0, targetPadX, zoomOutT);
+        const padY = lerp(0, targetPadY, zoomOutT);
         const outerR = lerp(0, 44 * baseScale, zoomOutT);
         const innerR = lerp(26, 34 * baseScale, zoomOutT);
         setBezelRect(1, padX, padY, outerR, innerR);
