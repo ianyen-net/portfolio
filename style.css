@@ -1321,57 +1321,36 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
   will-change: transform, color;
 }
 
-/* Apple Memoji Sitting Naturally on the "S" of "DESIGNING" (10% Enlarged, Black Shirt + Blue Jeans, Waving Hand Only, Appears Naturally After Explosion) */
+/* Inline Apple Memoji Head Replacing the "O" in "PEOPLE" */
 .hero-hover-word.is-designing-word {
   position: relative;
   isolation: isolate;
-  margin-top: 0.62em;
 }
 
-.hero-hover-word.is-designing-word .hero-word-text {
+.hero-o-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.86em;
+  height: 0.86em;
+  vertical-align: baseline;
   position: relative;
-  z-index: 2;
-  display: inline-block;
-}
-
-.hero-sitting-memoji {
-  position: absolute;
-  left: 0.77em;
-  top: -1.49em;
-  width: 1.474em;
-  height: 2.40em;
+  top: 0.09em;
+  margin: 0 -0.02em;
   pointer-events: none;
-  z-index: 4;
-  transform-origin: 50% 66.5%;
-  opacity: 1;
-  transform: translate3d(0, 0%, 0) scale(1);
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.42));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.24));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-sitting-memoji.is-appeared {
-  animation: heroSittingMemojiNaturalAppear 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes heroSittingMemojiNaturalAppear {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -18%, 0) scale(0.88);
-  }
-  70% {
-    opacity: 1;
-    transform: translate3d(0, 1.5%, 0) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0%, 0) scale(1);
-  }
-}
-
-.hero-sitting-memoji-img {
+.hero-o-avatar-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.hero-hover-word.is-people-word:hover .hero-o-avatar {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .hero-hover-word:hover,

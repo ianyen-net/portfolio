@@ -499,15 +499,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const breakableHeroPieces = [];
   document.querySelectorAll('.hero-fraunces-title .hero-hover-word').forEach((wordEl) => {
     const textTarget = wordEl.querySelector('.hero-word-text') || wordEl;
-    const rawText = (textTarget.textContent || '').trim();
-    if (!rawText) return;
-    textTarget.textContent = '';
-    Array.from(rawText).forEach((ch) => {
-      const span = document.createElement('span');
-      span.className = 'rocket-breakable-piece is-char';
-      span.textContent = ch;
-      textTarget.appendChild(span);
-      breakableHeroPieces.push(span);
+    const nodes = Array.from(textTarget.childNodes);
+    if (!nodes.length) return;
+    textTarget.innerHTML = '';
+    nodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const rawText = node.textContent || '';
+        Array.from(rawText).forEach((ch) => {
+          const span = document.createElement('span');
+          span.className = 'rocket-breakable-piece is-char';
+          span.textContent = ch;
+          textTarget.appendChild(span);
+          breakableHeroPieces.push(span);
+        });
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        node.classList.add('rocket-breakable-piece', 'is-char');
+        textTarget.appendChild(node);
+        breakableHeroPieces.push(node);
+      }
     });
   });
 
