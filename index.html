@@ -30,11 +30,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Sofia+Sans+Extra+Condensed:wght@800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
-  <link rel="preload" as="image" href="assets/ian_foldfolio_circle.jpg?v=229" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/ian_hero_cutout.png?v=233" fetchpriority="high">
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=222">
-  <link rel="stylesheet" href="foldfolio.css?v=231">
+  <link rel="stylesheet" href="foldfolio.css?v=233">
 </head>
 <body data-theme="light">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -177,7 +177,7 @@
                       </div>
 
                       <div class="fold-lock-avatar-wrap">
-                        <img src="assets/ian_foldfolio_circle.jpg?v=229" alt="Ian Yen editorial portrait" class="fold-lock-avatar-img" decoding="sync">
+                        <img src="assets/ian_hero_cutout.png?v=233" alt="Ian Yen portrait" class="fold-lock-avatar-img" decoding="sync">
                       </div>
 
                       <div class="fold-lock-bottom">
@@ -249,9 +249,9 @@
                         <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.75" y="0.75" width="17.5" height="9.5" rx="2.5" stroke="#111" stroke-width="1.3"/><rect x="2.6" y="2.6" width="13.8" height="5.8" rx="1.2" fill="#111"/><path d="M20 3.6v3.8" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
                       </span>
                     </div>
-                    <div class="fold-inside-right-panel" style="display:flex;align-items:center;justify-content:center;background:#F0F2F1;">
+                    <div class="fold-inside-right-panel">
                       <div class="fold-lock-avatar-wrap" style="width:280px;height:280px;">
-                        <img src="assets/ian_foldfolio_circle.jpg?v=229" alt="Ian Yen" class="fold-lock-avatar-img" decoding="sync">
+                        <img src="assets/ian_hero_cutout.png?v=233" alt="Ian Yen" class="fold-lock-avatar-img" decoding="sync">
                       </div>
                     </div>
                   </div>
@@ -539,7 +539,7 @@
     </div><!-- /.fold-portfolio-interior -->
 
     <!-- ====================================================================
-         5. CLOSING FOLDFOLIO FOOTER (Zoom Out Into Opened Device — Ends on "Let's Build Something Good.")
+         5. CLOSING FOLDFOLIO FOOTER (Zoom Out -> 3D Fold Shut to Closed "Let's Build Something Good." Device)
          ==================================================================== -->
     <section class="fold-runway is-footer-runway" id="fold-footer-runway" aria-label="Contact">
       <div class="fold-sticky-stage" id="contact">
@@ -548,21 +548,24 @@
           <a href="#top" class="fold-wordmark">IAN YEN<sup>&reg;</sup></a>
         </div>
 
-        <!-- Opened Foldable Phone Showing "Let's Build Something Good." -->
+        <!-- Giant Condensed Backdrop Typography ("IAN" / "YEN") -->
+        <div class="fold-backdrop-names" aria-hidden="true">
+          <span class="fold-bg-word is-left">IAN</span>
+          <span class="fold-bg-word is-right">YEN</span>
+        </div>
+
+        <!-- 3D Closing Foldable Phone Assembly -->
         <div class="fold-device-viewport">
           <div class="fold-floor-shadow" aria-hidden="true"></div>
 
           <div class="fold-device-track">
-            <!-- LEFT HALF -->
+            <!-- LEFT BASE HALF (Visible as we zoom out before the right flap closes over it) -->
             <div class="fold-half is-left">
               <div class="fold-face is-inside">
                 <div class="fold-bezel">
                   <div class="fold-screen">
-                    <div class="fold-closing-inside-left">
-                      <span class="fold-inside-kicker" style="color:rgba(255,255,255,0.5);">NEXT STEP</span>
-                      <div>
-                        <h2 class="fold-closing-inside-title">LET'S BUILD<br>SOMETHING<br>GOOD.</h2>
-                      </div>
+                    <div class="fold-closing-inside-left" style="justify-content:center;gap:18px;">
+                      <h2 class="fold-closing-inside-title">LET'S BUILD<br>SOMETHING<br>GOOD.</h2>
                       <p class="fold-closing-inside-sub">Senior Product Designer at Google NYC. Open to connecting on AI products, design systems, and 0-to-1 craft.</p>
                     </div>
                   </div>
@@ -570,13 +573,10 @@
               </div>
             </div>
 
-            <!-- RIGHT HALF -->
-            <div class="fold-half is-right">
-              <div class="fold-side-buttons" aria-hidden="true">
-                <span class="fold-side-btn is-vol"></span>
-                <span class="fold-side-btn is-pwr"></span>
-              </div>
-              <div class="fold-face">
+            <!-- RIGHT CLOSING FLAP (Swings across 0deg -> -180deg to close into the "Let's Build Something Good." cover!) -->
+            <div class="fold-half is-close-flap">
+              <!-- Inside Right Panel (Visible while zoomed out before folding shut) -->
+              <div class="fold-face is-inside-back">
                 <div class="fold-bezel">
                   <div class="fold-screen">
                     <div class="fold-closing-inside-right">
@@ -585,8 +585,31 @@
                         <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.12);color:#FFFFFF;justify-content:center;">LinkedIn</a>
                         <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;">View resume</a>
                       </div>
-                      <div style="margin-top:28px;font-family:var(--ff-font-mono);font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.06em;">
-                        &copy; 2026 IAN YEN &middot; IANYENYH@GMAIL.COM
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Closed Cover Screen: "Let's Build Something Good." -->
+              <div class="fold-face is-dark-cover">
+                <div class="fold-bezel">
+                  <div class="fold-screen">
+                    <div class="fold-call-screen" style="justify-content:space-between;padding:58px 34px 36px;">
+                      <div style="text-align:center;">
+                        <h2 class="fold-call-name" style="font-size:74px;line-height:0.88;">LET'S BUILD<br>SOMETHING GOOD.</h2>
+                        <p class="fold-call-sub" style="margin-top:16px;line-height:1.5;max-width:340px;margin-left:auto;margin-right:auto;">Senior Product Designer at Google NYC. Open to connecting on AI products, design systems, and 0-to-1 craft.</p>
+                      </div>
+
+                      <div class="fold-call-bottom" style="gap:12px;width:100%;">
+                        <a href="mailto:ianyenyh@gmail.com" class="fold-cta-dark" style="width:100%;max-width:340px;background:#FFFFFF;color:#111111;justify-content:center;padding:15px 22px;font-size:14.5px;font-weight:600;">Email me ↗</a>
+                        <a href="https://www.linkedin.com/in/ian-yen/" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="width:100%;max-width:340px;background:rgba(255,255,255,0.12);color:#FFFFFF;justify-content:center;padding:14px 22px;font-size:14px;">Let's connect on LinkedIn</a>
+                        <a href="assets/Ian_Yen_Resume.pdf?v=206" target="_blank" rel="noopener noreferrer" class="fold-cta-light" style="width:100%;max-width:340px;background:rgba(255,255,255,0.08);color:#FFFFFF;justify-content:center;padding:14px 22px;font-size:14px;">View resume ↗</a>
+
+                        <div class="fold-call-links" style="margin-top:14px;">
+                          <a href="mailto:ianyenyh@gmail.com">IANYENYH@GMAIL.COM</a>
+                          <span>&middot;</span>
+                          <span>&copy; 2026 Ian Yen</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -604,6 +627,6 @@
   </main>
 
   <script src="script.js?v=220"></script>
-  <script src="foldfolio.js?v=231"></script>
+  <script src="foldfolio.js?v=233"></script>
 </body>
 </html>

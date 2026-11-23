@@ -196,20 +196,41 @@
       }
 
       // ======================================================================
-      // PHASE B: CLOSING FOOTER (0 -> 1.00 Zoom Out Into Opened Device — Ends on "Let's Build Something Good.")
+      // PHASE B: CLOSING FOOTER (0 -> 0.46 Zoom Out, 0.46 -> 1.00 3D Fold Shut to Closed "Let's Build Something Good.")
       // ======================================================================
       let zoomOutT = 0;
-      if (footerRunway && footViewport && footTrack) {
-        zoomOutT = easeInOutCubic(clamp(pFoot / 0.88, 0, 1));
-        const portalOutT = clamp(1 - pFoot / 0.30, 0, 1);
+      if (footerRunway && footViewport && footTrack && footCloseFlap) {
+        zoomOutT = easeInOutCubic(clamp(pFoot / 0.46, 0, 1));
+        const foldCloseT = easeInOutCubic(clamp((pFoot - 0.46) / 0.50, 0, 1));
+        const portalOutT = clamp(1 - pFoot / 0.24, 0, 1);
 
         const currentFootScale = lerp(scaleToCover, baseScale, zoomOutT);
-        footViewport.style.transform = `scale(${currentFootScale.toFixed(4)})`;
-        footTrack.style.transform = 'translate3d(0px, 0, 0)';
+        const footShiftX = lerp(0, 250, foldCloseT);
 
+        footViewport.style.transform = `scale(${currentFootScale.toFixed(4)})`;
+        footTrack.style.transform = `translate3d(${footShiftX.toFixed(2)}px, 0, 0)`;
+
+        const closeAngle = lerp(0, -180, foldCloseT);
+        footCloseFlap.style.transform = `rotateY(${closeAngle.toFixed(2)}deg)`;
+        if (footLeftHalf) {
+          footLeftHalf.style.opacity = foldCloseT > 0.96 ? '0' : '1';
+        }
+
+        const fShadowScaleX = lerp(1.0, 0.5, foldCloseT);
         if (footShadow) {
-          footShadow.style.transform = 'translateX(-50%) scaleX(1)';
+          footShadow.style.transform = `translateX(-50%) scaleX(${fShadowScaleX.toFixed(3)})`;
           footShadow.style.opacity = clamp(zoomOutT * 1.4, 0, 1).toFixed(3);
+        }
+
+        const fWordOffset = (1 - foldCloseT) * 460;
+        const fWordOpacity = clamp((foldCloseT - 0.15) * 1.4, 0, 1);
+        if (footWordL) {
+          footWordL.style.transform = `translate3d(${(-fWordOffset).toFixed(1)}px, 0, 0)`;
+          footWordL.style.opacity = fWordOpacity.toFixed(3);
+        }
+        if (footWordR) {
+          footWordR.style.transform = `translate3d(${fWordOffset.toFixed(1)}px, 0, 0)`;
+          footWordR.style.opacity = fWordOpacity.toFixed(3);
         }
 
         const footChromeAlpha = clamp((zoomOutT - 0.35) * 1.8, 0, 1);
@@ -239,7 +260,7 @@
         } else {
           setBezelRect(0, padX, padY, 42, 34);
         }
-      } else if (pFoot > 0.14 && pFoot < 0.90) {
+      } else if (pFoot > 0.14 && pFoot < 0.46) {
         const liveScale = lerp(scaleToCover, baseScale, zoomOutT);
         const liveW = 1000 * liveScale;
         const liveH = 684 * liveScale;
