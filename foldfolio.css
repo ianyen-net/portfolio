@@ -2057,9 +2057,11 @@ body.is-fold-mode .clientele-footer {
 
 .fold-portfolio-interior {
   position: relative;
-  z-index: 20;
+  z-index: 32;
+  margin-top: -45vh;
   background: var(--bg-page);
   padding: 84px 22px 24px;
+  will-change: opacity;
 }
 
 @media (max-width: 760px) {
@@ -2087,6 +2089,7 @@ body.is-fold-mode .clientele-footer {
       inset 0 0 0 1px rgba(255, 255, 255, 0.09);
   }
   .fold-portfolio-interior {
+    margin-top: -32vh;
     padding: 76px 14px 20px;
   }
 }

@@ -146,6 +146,10 @@
     const heroChromeTop = heroRunway.querySelector('.fold-chrome-top');
     const heroFinishPill = heroRunway.querySelector('.fold-finish-pill');
     const heroPortal = heroRunway.querySelector('.fold-zoom-portal');
+    const heroResumeLeft = heroRunway.querySelector('.fold-inside-left-panel');
+    const heroResumeRight = heroRunway.querySelector('.fold-inside-right-panel');
+    const heroStatusBars = heroRunway.querySelectorAll('.fold-inside-statusbar');
+    const portfolioInterior = document.querySelector('.fold-portfolio-interior');
 
     // DOM References — Footer
     const footStage = footerRunway ? footerRunway.querySelector('.fold-sticky-stage') : null;
@@ -251,8 +255,29 @@
       }
 
       // Portal smoothly dissolves into the full-screen portfolio background
+      // while Resume content glides up & fades out and "Work I'm proud of" rises in simultaneously
+      const resumeExitT = easeInOutCubic(clamp((pHero - 0.50) / 0.34, 0, 1));
+      const resumeShiftY = -resumeExitT * 64;
+      const resumeOpacity = clamp(1 - resumeExitT * 1.15, 0, 1);
+      if (heroResumeLeft) {
+        heroResumeLeft.style.transform = `translate3d(0, ${resumeShiftY.toFixed(1)}px, 0)`;
+        heroResumeLeft.style.opacity = resumeOpacity.toFixed(3);
+      }
+      if (heroResumeRight) {
+        heroResumeRight.style.transform = `translate3d(0, ${resumeShiftY.toFixed(1)}px, 0)`;
+        heroResumeRight.style.opacity = resumeOpacity.toFixed(3);
+      }
+      heroStatusBars.forEach((sb) => {
+        sb.style.opacity = clamp(1 - resumeExitT * 1.4, 0, 1).toFixed(3);
+      });
+
       if (heroPortal) {
         heroPortal.style.opacity = portalInT.toFixed(3);
+      }
+
+      if (portfolioInterior) {
+        const workEnterT = easeOutCubic(clamp((pHero - 0.64) / 0.24, 0, 1));
+        portfolioInterior.style.opacity = workEnterT.toFixed(3);
       }
 
       // ======================================================================
