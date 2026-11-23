@@ -91,6 +91,16 @@
       });
     }
 
+    const connectBtn = document.getElementById('fold-connect-btn');
+    if (connectBtn) {
+      connectBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight - window.innerHeight,
+          behavior: 'smooth',
+        });
+      });
+    }
+
     // 5. Compute responsive scales (desktop keeps 1:1; mobile gives closed phone full legibility and smoothly fits unfolded tablet)
     let openScale = 1;
     let closedScale = 1;
@@ -297,6 +307,13 @@
 
         const footChromeAlpha = clamp((zoomOutT - 0.45) * 2.0, 0, 1);
         if (footChromeTop) footChromeTop.style.opacity = footChromeAlpha.toFixed(3);
+
+        // "Scroll to connect" pill visible on opened closing spread, fades out as flap folds shut
+        if (connectBtn) {
+          const connectAlpha = clamp(1 - foldCloseT * 3.5, 0, 1);
+          connectBtn.style.opacity = connectAlpha.toFixed(3);
+          connectBtn.style.pointerEvents = connectAlpha > 0.2 ? 'auto' : 'none';
+        }
 
         if (footPortal) {
           footPortal.style.opacity = '0';
