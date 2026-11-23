@@ -88,6 +88,16 @@ body.is-fold-mode[data-theme="dark"] {
   --nav-hover-pill: rgba(255, 255, 255, 0.10);
 }
 
+/* Subtle atmospheric studio gradient for Light Mode background (matches dark mode depth, tuned for light theme) */
+body.is-fold-mode[data-theme="light"],
+body.is-fold-mode[data-theme="light"] .fold-runway,
+body.is-fold-mode[data-theme="light"] .fold-sticky-stage,
+body.is-fold-mode[data-theme="light"] .fold-portfolio-interior {
+  background:
+    radial-gradient(88% 52% at 50% 0%, rgba(31, 59, 155, 0.045) 0%, rgba(157, 210, 255, 0.03) 40%, transparent 74%),
+    linear-gradient(180deg, #FBFAF8 0%, #F3F5F9 52%, #F8F7F6 100%);
+}
+
 /* Full dark mode coverage across Foldfolio hero, runways, backdrop typography, swatches, and interior */
 body.is-fold-mode[data-theme="dark"] .fold-runway,
 body.is-fold-mode[data-theme="dark"] .fold-sticky-stage {
@@ -957,21 +967,21 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
 
 /* Theme-reactive Hero Lock Screen (Dark Mode switches lock screen, glass banner, and buttons to dark studio mode) */
 body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
-  background: #0D0E12;
+  background: #111318;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-portrait-full {
-  filter: brightness(0.84) contrast(1.10);
+  filter: brightness(0.90) contrast(1.05);
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-portrait-fade {
   top: 0;
   height: 100%;
   background: linear-gradient(
     180deg,
-    #0D0E12 0%,
-    rgba(13, 14, 18, 0.94) 22%,
-    rgba(13, 14, 18, 0.16) 52%,
-    rgba(13, 14, 18, 0.72) 84%,
-    #0D0E12 100%
+    #111318 0%,
+    rgba(17, 19, 24, 0.56) 20%,
+    rgba(17, 19, 24, 0.06) 50%,
+    rgba(17, 19, 24, 0.34) 84%,
+    rgba(17, 19, 24, 0.68) 100%
   );
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-time {
@@ -1708,7 +1718,7 @@ body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-sh
   position: relative;
   width: 100%;
   height: 100%;
-  background: radial-gradient(85% 65% at 50% 18%, #F4F6FA 0%, #E7EBF2 100%);
+  background: radial-gradient(85% 65% at 50% 20%, #F5F6F9 0%, #EFF1F5 100%);
   color: #111111;
   display: flex;
   flex-direction: column;
@@ -1720,7 +1730,7 @@ body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-sh
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-screen {
-  background: radial-gradient(85% 65% at 50% 18%, #16181F 0%, #0A0B0E 100%);
+  background: radial-gradient(85% 65% at 50% 20%, #13151B 0%, #0E1014 100%);
   color: #FFFFFF;
 }
 
