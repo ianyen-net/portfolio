@@ -206,13 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateActiveNavSection = () => {
       if (!navSectionPairs.length) return;
       const probeY = window.innerHeight * 0.38;
-      let matched = null;
+      const firstRect = navSectionPairs[0].section.getBoundingClientRect();
+      const lastRect = navSectionPairs[navSectionPairs.length - 1].section.getBoundingClientRect();
 
-      for (const pair of navSectionPairs) {
-        const rect = pair.section.getBoundingClientRect();
-        if (rect.top <= probeY && rect.bottom > probeY) {
-          matched = pair.link;
-          break;
+      let matched = null;
+      if (firstRect.top <= probeY && lastRect.bottom > probeY) {
+        for (const pair of navSectionPairs) {
+          if (pair.section.getBoundingClientRect().top <= probeY) {
+            matched = pair.link;
+          }
         }
       }
 
