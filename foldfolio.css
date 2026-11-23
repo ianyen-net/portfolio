@@ -7,7 +7,7 @@
 :root {
   --ff-canvas: #F8F7F6;
   --ff-ink: #111111;
-  --ff-muted: #5F6368;
+  --ff-muted: #454950;
   --ff-lock-bg: #F0F2F1;
   --ff-font-cond: 'Sofia Sans Extra Condensed', 'Big Shoulders Display', sans-serif;
   --ff-font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -48,8 +48,8 @@ body.is-fold-mode[data-theme="light"] {
   --bg-elevated: #EFECE7;
   --bg-card: #FFFFFF;
   --text-primary: #111111;
-  --text-secondary: #4A4D52;
-  --text-muted: #767A82;
+  --text-secondary: #36393F;
+  --text-muted: #52565E;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-strong: rgba(17, 17, 17, 0.18);
   --accent: #0B57D0;
@@ -1130,7 +1130,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-name {
   font-size: 10.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #6B7078;
+  color: #4A4E56;
 }
 
 .fold-history-teams {
@@ -1244,7 +1244,7 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   font-weight: 500;
   letter-spacing: 0.055em;
   text-transform: uppercase;
-  color: #55595E;
+  color: #3E4249;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1364,7 +1364,7 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #55595E;
+  color: #3E4249;
 }
 
 .fold-inside-hero-copy {
@@ -1740,8 +1740,8 @@ body.case-study-body[data-theme="light"] {
   --bg-elevated: #F1EFEA;
   --bg-card: #FFFFFF;
   --text-primary: #111111;
-  --text-secondary: #4A4D52;
-  --text-muted: #767A82;
+  --text-secondary: #36393F;
+  --text-muted: #52565E;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-strong: rgba(17, 17, 17, 0.18);
   --accent: #0B57D0;
