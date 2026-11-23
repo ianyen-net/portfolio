@@ -485,6 +485,23 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   margin-left: 1px;
 }
 
+.case-study-wordmark {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  z-index: 1001;
+}
+body.case-study-body[data-theme="dark"] .case-study-wordmark {
+  color: #F6F6F5;
+}
+@media (max-width: 960px) {
+  .case-study-wordmark {
+    display: none;
+  }
+}
+
 .fold-bg-pill {
   pointer-events: auto;
   display: inline-flex;
