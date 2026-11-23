@@ -996,23 +996,23 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   border-radius: 20px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.84) 0%,
-    rgba(248, 248, 248, 0.74) 100%
+    rgba(255, 255, 255, 0.54) 0%,
+    rgba(248, 248, 248, 0.42) 100%
   );
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
     inset 0 -1px 0 rgba(17, 17, 17, 0.04),
-    0 10px 28px -10px rgba(0, 0, 0, 0.22),
-    0 2px 6px -2px rgba(0, 0, 0, 0.08);
+    0 10px 26px -10px rgba(0, 0, 0, 0.20),
+    0 2px 6px -2px rgba(0, 0, 0, 0.06);
   font-family: var(--ff-font-sans);
   font-size: 13px;
   line-height: 1.42;
   font-weight: 500;
   color: #111111;
-  text-shadow: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
   text-align: center;
 }
 
@@ -1023,8 +1023,8 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   border-radius: inherit;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
     transparent 70%
   );
   pointer-events: none;
