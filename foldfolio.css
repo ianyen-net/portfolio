@@ -909,7 +909,7 @@ body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel {
   background: #0F1012;
 }
 
-/* Keep the backlit studio lock screen crisp & high-contrast in both light & dark themes */
+/* Keep the backlit studio lock screen crisp & high-contrast in BOTH light & dark themes */
 body.is-fold-mode[data-theme="dark"] .fold-lock-screen {
   background: #F4F5F4;
 }
@@ -917,20 +917,10 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-time,
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
   color: #111111;
 }
-body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.14) 100%
-  );
-  border-color: rgba(255, 255, 255, 0.55);
-  color: #111111;
-}
 body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
 body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.90);
+  border-color: rgba(255, 255, 255, 0.95);
   color: #111111;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
@@ -939,206 +929,15 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-avatar-wrap {
     0 20px 44px -14px rgba(0, 0, 0, 0.65),
     0 0 0 1.5px rgba(255, 255, 255, 0.14);
 }
-body.is-fold-mode[data-theme="dark"] /* Centered Avatar + Liquid Glass Intro Stack */
-.fold-lock-center {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar svg rect[stroke],
+body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar svg path[stroke] {
+  stroke: #F6F6F5;
 }
-
-/* Ultra-Sheer Liquid Glass Intro Banner (maximizes portrait visibility) */
-.fold-intro-glass {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding: 13px 18px;
-  border-radius: 22px;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.14) 100%
-  );
-  backdrop-filter: blur(7px) saturate(160%);
-  -webkit-backdrop-filter: blur(7px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.72),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.22),
-    0 10px 24px -10px rgba(17, 17, 17, 0.16);
-  font-family: var(--ff-font-sans);
-  font-size: 13px;
-  line-height: 1.44;
-  font-weight: 500;
-  color: #111111;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.65);
-  text-align: center;
+body.is-fold-mode[data-theme="dark"] .fold-inside-statusbar svg rect[fill] {
+  fill: #F6F6F5;
 }
-
-.fold-intro-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.26) 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    transparent 65%
-  );
-  pointer-events: none;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.05) 52%,
-    rgba(255, 255, 255, 0.12) 100%
-  );
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.42),
-    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
-    0 16px 36px -12px rgba(0, 0, 0, 0.65);
-  color: #F6F6F5;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    transparent 65%
-  );
-}
-
-/* Opened Left Panel — Work History Team List */
-.fold-history-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 8px;
-}
-
-.fold-history-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.fold-history-co {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.10);
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-history-co {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-.fold-history-co-name {
-  font-family: var(--ff-font-cond);
-  font-weight: 900;
-  font-size: 28px;
-  line-height: 0.9;
-  text-transform: uppercase;
-  color: #111111;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-history-co-name {
-  color: #F6F6F5;
-}
-
-.fold-history-co-dates {
-  font-family: var(--ff-font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6B7078;
-}
-
-.fold-history-teams {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.fold-history-team {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--ff-font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: #1F2226;
-  line-height: 1.3;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-history-team {
-  color: #E2E5EC;
-}
-
-.fold-current-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--ff-font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #146C2E;
-  background: rgba(47, 203, 104, 0.14);
-  padding: 2px 7px;
-  border-radius: 999px;
-}
-
-.fold-current-badge::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #2FCB68;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-current-badge {
-  color: #88E2AC;
-  background: rgba(47, 203, 104, 0.18);
-}
-
-.fold-notif-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%);
-  border-color: rgba(255, 255, 255, 0.16);
-  color: #F6F6F5;
-}
-body.is-fold-mode[data-theme="dark"] .fold-notif-title {
-  color: #F6F6F5;
-}
-body.is-fold-mode[data-theme="dark"] .fold-notif-desc {
-  color: #A6A9B0;
-}
-body.is-fold-mode[data-theme="dark"] .fold-notif-thumb {
-  background: #FFFFFF;
-  color: #0B0B0B;
-}
-body.is-fold-mode[data-theme="dark"] .fold-notif-thumb.is-alt {
-  background: #D4D6DC;
-  color: #0B0B0B;
-}
-body.is-fold-mode[data-theme="dark"] .fold-unfold-pill,
-body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #F6F6F5;
+body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
+  color: #9A9EA6;
 }
 
 .fold-lock-top {
@@ -1177,18 +976,7 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   gap: 8px;
 }
 
-/* Centered Avatar + Liquid Glass Intro Stack */
-.fold-lock-center {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Ultra-Sheer Liquid Glass Intro Banner (maximizes portrait visibility) */
+/* Sheer Smoked Liquid Glass Intro Banner — high contrast in BOTH light & dark themes */
 .fold-intro-glass {
   position: relative;
   overflow: hidden;
@@ -1197,23 +985,23 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   border-radius: 22px;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.14) 100%
+    rgba(17, 18, 20, 0.42) 0%,
+    rgba(17, 18, 20, 0.24) 55%,
+    rgba(17, 18, 20, 0.34) 100%
   );
-  backdrop-filter: blur(7px) saturate(160%);
-  -webkit-backdrop-filter: blur(7px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.42);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.72),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.22),
-    0 10px 24px -10px rgba(17, 17, 17, 0.16);
+    inset 0 1px 1px rgba(255, 255, 255, 0.48),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.14),
+    0 10px 26px -10px rgba(0, 0, 0, 0.32);
   font-family: var(--ff-font-sans);
   font-size: 13px;
   line-height: 1.44;
   font-weight: 500;
-  color: #111111;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.65);
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   text-align: center;
 }
 
@@ -1224,35 +1012,11 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
   border-radius: inherit;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.26) 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    transparent 65%
-  );
-  pointer-events: none;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.05) 52%,
-    rgba(255, 255, 255, 0.12) 100%
-  );
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.42),
-    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
-    0 16px 36px -12px rgba(0, 0, 0, 0.65);
-  color: #F6F6F5;
-}
-
-body.is-fold-mode[data-theme="dark"] .fold-intro-glass::before {
-  background: linear-gradient(
-    180deg,
     rgba(255, 255, 255, 0.22) 0%,
     rgba(255, 255, 255, 0.04) 40%,
     transparent 65%
   );
+  pointer-events: none;
 }
 
 /* Opened Left Panel — Work History Team List */
