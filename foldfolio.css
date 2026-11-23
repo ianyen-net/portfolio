@@ -1221,6 +1221,25 @@ body.is-fold-mode[data-theme="dark"] .fold-current-badge {
   background: #FFFFFF;
 }
 
+.fold-inside-left-panel .fold-projects-pill {
+  align-self: flex-start;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: #111111;
+}
+.fold-inside-left-panel .fold-projects-pill:hover {
+  background: #FFFFFF;
+}
+body.is-fold-mode[data-theme="dark"] .fold-inside-left-panel .fold-projects-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #F6F6F5;
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.45);
+}
+body.is-fold-mode[data-theme="dark"] .fold-inside-left-panel .fold-projects-pill:hover {
+  background: rgba(255, 255, 255, 0.20);
+}
+
 /* ==========================================================================
    INSIDE OPENED SPREAD (LEFT & RIGHT HALVES OF 976x660 TABLET)
    ========================================================================== */

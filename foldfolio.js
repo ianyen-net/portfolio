@@ -70,10 +70,20 @@
       btn.addEventListener('click', () => setFinish(btn.getAttribute('data-finish')));
     });
 
-    // 4. "Scroll to unfold" button & "See the work" smooth scroll
+    // 4. "Scroll to unfold" opens Team History spread; "Scroll to see projects" scrolls to #work
     const unfoldBtn = document.getElementById('fold-unfold-btn');
     if (unfoldBtn) {
       unfoldBtn.addEventListener('click', () => {
+        const heroTop = heroRunway.getBoundingClientRect().top + window.scrollY;
+        const scrollable = Math.max(1, heroRunway.offsetHeight - window.innerHeight);
+        const unfoldTargetY = heroTop + scrollable * 0.48;
+        window.scrollTo({ top: unfoldTargetY, behavior: 'smooth' });
+      });
+    }
+
+    const projectsBtn = document.getElementById('fold-projects-btn');
+    if (projectsBtn) {
+      projectsBtn.addEventListener('click', () => {
         const workEl = document.getElementById('work');
         if (workEl) {
           workEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
