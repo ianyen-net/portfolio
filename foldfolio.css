@@ -97,6 +97,9 @@ body.is-fold-mode[data-theme="dark"] .fold-sticky-stage {
 body.is-fold-mode[data-theme="dark"] .fold-bg-word {
   color: #F6F6F5;
 }
+body.is-fold-mode[data-theme="dark"] .fold-bg-word.is-right {
+  color: #3B67A8;
+}
 
 body.is-fold-mode[data-theme="dark"] .fold-wordmark {
   color: #F6F6F5;
@@ -532,6 +535,7 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 
 .fold-bg-word.is-right {
   left: calc(50% + 235px * var(--ff-scale));
+  color: #1B365D;
 }
 
 /* ==========================================================================
