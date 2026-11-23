@@ -671,11 +671,118 @@ body.case-study-body[data-theme="dark"] .case-study-wordmark {
   }
 }
 
+/* ==========================================================================
+   STAGGERED HERO ON-LOAD CHOREOGRAPHY (Badgefolio-inspired sequenced entrance)
+   ========================================================================== */
+@keyframes ffEnterFadeDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ffEnterDevice {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ffEnterWordLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(42px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ffEnterWordRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-42px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ffEnterPortrait {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ffEnterNotifPop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ffEnterFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fold-entrance-wrap {
+  width: 1000px;
+  height: 684px;
+  transform-style: preserve-3d;
+  animation: ffEnterDevice 0.78s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+#fold-hero-runway .fold-wordmark {
+  animation: ffEnterFadeDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+#fold-hero-runway .fold-lock-top {
+  animation: ffEnterFadeDown 0.56s cubic-bezier(0.22, 1, 0.36, 1) 0.40s both;
+}
+
+#fold-hero-runway .fold-lock-portrait-full {
+  animation: ffEnterPortrait 0.72s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+}
+
+#fold-hero-runway .fold-intro-glass {
+  animation: ffEnterNotifPop 0.60s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+}
+
+#fold-hero-runway .fold-lock-actions {
+  animation: ffEnterFadeUp 0.54s cubic-bezier(0.22, 1, 0.36, 1) 0.76s both;
+}
+
 .fold-float-device {
   width: 1000px;
   height: 684px;
   transform-style: preserve-3d;
-  animation: ffDeviceFloat 5.6s ease-in-out infinite;
+  animation: ffDeviceFloat 5.6s ease-in-out 0.95s infinite;
   will-change: transform;
 }
 .fold-float-device.is-settled {
@@ -688,16 +795,35 @@ body.case-study-body[data-theme="dark"] .case-study-wordmark {
   will-change: transform;
 }
 
-.fold-bg-word.is-left .fold-bg-word-inner {
-  animation: ffWordFloatLeft 6.4s ease-in-out infinite;
+#fold-hero-runway .fold-bg-word.is-left .fold-bg-word-inner {
+  animation:
+    ffEnterWordLeft 0.74s cubic-bezier(0.16, 1, 0.3, 1) 0.26s both,
+    ffWordFloatLeft 6.4s ease-in-out 1.05s infinite;
 }
 
-.fold-bg-word.is-right .fold-bg-word-inner {
-  animation: ffWordFloatRight 6.8s ease-in-out -1.4s infinite;
+#fold-hero-runway .fold-bg-word.is-right .fold-bg-word-inner {
+  animation:
+    ffEnterWordRight 0.74s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both,
+    ffWordFloatRight 6.8s ease-in-out 1.15s infinite;
 }
 
 .fold-floor-shadow.is-floating-shadow {
-  animation: ffShadowBreath 5.6s ease-in-out infinite;
+  animation: ffShadowBreath 5.6s ease-in-out 0.95s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fold-entrance-wrap,
+  #fold-hero-runway .fold-wordmark,
+  #fold-hero-runway .fold-lock-top,
+  #fold-hero-runway .fold-lock-portrait-full,
+  #fold-hero-runway .fold-intro-glass,
+  #fold-hero-runway .fold-lock-actions,
+  #fold-hero-runway .fold-bg-word.is-left .fold-bg-word-inner,
+  #fold-hero-runway .fold-bg-word.is-right .fold-bg-word-inner,
+  .fold-float-device,
+  .fold-floor-shadow.is-floating-shadow {
+    animation: none !important;
+  }
 }
 
 .fold-device-track {
