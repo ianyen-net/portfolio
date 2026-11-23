@@ -91,19 +91,41 @@
       });
     }
 
-    // 5. Compute responsive base scale so the 1000x684 unfolded tablet always fits nicely
-    let baseScale = 1;
-    const computeBaseScale = () => {
+    // 5. Compute responsive scales (desktop keeps 1:1; mobile gives closed phone full legibility and smoothly fits unfolded tablet)
+    let openScale = 1;
+    let closedScale = 1;
+    let lastVw = 0;
+    let lastVh = 0;
+    const computeBaseScale = (force = false) => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const maxW = (vw - 48) / 1000;
-      const maxH = (vh - 150) / 684;
-      baseScale = Math.min(1.12, Math.max(0.35, Math.min(maxW, maxH) * 1.10));
-      document.documentElement.style.setProperty('--ff-scale', baseScale.toFixed(4));
+      // Ignore small vertical resizes from mobile browser URL bar show/hide while scrolling
+      if (!force && vw === lastVw && Math.abs(vh - lastVh) < 120) return;
+      lastVw = vw;
+      lastVh = vh;
+
+      const isMobile = vw < 768;
+      if (isMobile) {
+        const maxOpenW = (vw - 24) / 1000;
+        const maxOpenH = (vh - 130) / 684;
+        openScale = Math.max(0.28, Math.min(maxOpenW, maxOpenH));
+
+        const maxClosedW = (vw - 44) / 500;
+        const maxClosedH = (vh - 160) / 684;
+        closedScale = Math.min(0.86, Math.max(openScale, Math.min(maxClosedW, maxClosedH)));
+      } else {
+        const maxW = (vw - 56) / 1000;
+        const maxH = (vh - 136) / 684;
+        openScale = Math.min(1.10, Math.max(0.42, Math.min(maxW, maxH) * 1.06));
+        closedScale = openScale;
+      }
+      document.documentElement.style.setProperty('--ff-scale', closedScale.toFixed(4));
     };
-    computeBaseScale();
+    computeBaseScale(true);
 
     // DOM References — Hero
+    const heroStage = heroRunway.querySelector('.fold-sticky-stage');
+    const heroFloatDevice = heroRunway.querySelector('.fold-float-device');
     const heroViewport = heroRunway.querySelector('.fold-device-viewport');
     const heroTrack = heroRunway.querySelector('.fold-device-track');
     const heroLeftHalf = heroRunway.querySelector('.fold-half.is-left');
@@ -116,6 +138,7 @@
     const heroPortal = heroRunway.querySelector('.fold-zoom-portal');
 
     // DOM References — Footer
+    const footStage = footerRunway ? footerRunway.querySelector('.fold-sticky-stage') : null;
     const footViewport = footerRunway ? footerRunway.querySelector('.fold-device-viewport') : null;
     const footTrack = footerRunway ? footerRunway.querySelector('.fold-device-track') : null;
     const footCloseFlap = footerRunway ? footerRunway.querySelector('.fold-half.is-close-flap') : null;
@@ -130,9 +153,10 @@
     // DOM References — Edge-Anchoring Viewport Bezel
     const viewportBezel = document.querySelector('.fold-viewport-bezel-frame');
 
-    const getRunwayProgress = (el) => {
+    const getRunwayProgress = (el, stageEl) => {
       const rect = el.getBoundingClientRect();
-      const scrollable = Math.max(1, el.offsetHeight - window.innerHeight);
+      const stageH = stageEl ? stageEl.offsetHeight : window.innerHeight;
+      const scrollable = Math.max(1, el.offsetHeight - stageH);
       return clamp(-rect.top / scrollable, 0, 1);
     };
 
@@ -149,13 +173,18 @@
 
     const renderFrame = () => {
       const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const pHero = getRunwayProgress(heroRunway);
-      const pFoot = footerRunway ? getRunwayProgress(footerRunway) : 0;
+      const vh = heroStage ? heroStage.offsetHeight : window.innerHeight;
+      const pHero = getRunwayProgress(heroRunway, heroStage);
+      const pFoot = footerRunway ? getRunwayProgress(footerRunway, footStage) : 0;
 
       // Toggle floating portfolio navbar when zoomed inside the opened phone
-      const insidePhone = pHero >= 0.86 && pFoot <= 0.10;
+      const insidePhone = pHero >= 0.86 && pFoot <= 0.08;
       document.body.classList.toggle('is-inside-phone', insidePhone);
+
+      // Pause idle float once user starts scrolling so 3D fold & bezel alignment are rock-steady
+      if (heroFloatDevice) {
+        heroFloatDevice.classList.toggle('is-settled', pHero > 0.012);
+      }
 
       // ======================================================================
       // PHASE A: OPENING HERO (0 -> 0.48 Unfold, 0.48 -> 1.00 Zoom & Anchor Bezel)
@@ -164,9 +193,10 @@
       const zoomInT = easeInOutCubic(clamp((pHero - 0.48) / 0.48, 0, 1));
       const portalInT = easeOutCubic(clamp((pHero - 0.72) / 0.24, 0, 1));
 
-      // Scale where the 1000x684 device's inner screen completely fills the viewport (outer bezel sits cleanly off-screen)
+      // Scale smoothly from closedScale -> openScale during unfold, then openScale -> scaleToCover on zoom-in
       const scaleToCover = Math.max(vw / 948, vh / 632) * 1.06;
-      const currentHeroScale = lerp(baseScale, scaleToCover, zoomInT);
+      const unfoldScale = lerp(closedScale, openScale, unfoldT);
+      const currentHeroScale = lerp(unfoldScale, scaleToCover, zoomInT);
 
       // Translate assembly from centered-right-half (-250px) to centered-tablet (0px)
       const heroShiftX = lerp(-250, 0, unfoldT);
@@ -176,15 +206,16 @@
       // 3D Hinge on Left Half: 180deg (closed front cover) -> 0deg (flat open)
       const openAngle = lerp(180, 0, unfoldT);
       heroLeftHalf.style.transform = `rotateY(${openAngle.toFixed(2)}deg)`;
-      const isHeroClosed = unfoldT < 0.025;
+      const isHeroClosed = unfoldT < 0.02;
       heroRightHalf.classList.toggle('is-closed-corners', isHeroClosed);
       heroLeftHalf.classList.toggle('is-closed-corners', isHeroClosed);
-      heroTrack.classList.toggle('is-unfolding', unfoldT >= 0.025 && zoomInT < 0.2);
+      heroRightHalf.style.visibility = unfoldT < 0.01 ? 'hidden' : 'visible';
+      heroTrack.classList.toggle('is-unfolding', unfoldT >= 0.02 && zoomInT < 0.2);
 
       // Floor shadow widens as phone opens, fades as we zoom in
       const shadowScaleX = lerp(0.5, 1.0, unfoldT);
       heroShadow.style.transform = `translateX(-50%) scaleX(${shadowScaleX.toFixed(3)})`;
-      heroShadow.style.opacity = (1 - zoomInT * 2.2).toFixed(3);
+      heroShadow.style.opacity = clamp(1 - zoomInT * 2.2, 0, 1).toFixed(3);
 
       // Backdrop IAN / YEN slide outward as phone unfolds
       const wordOffset = unfoldT * 460;
@@ -219,8 +250,9 @@
       // PHASE B: CLOSING FOOTER (Sticky Browser Bezel Shrinks Down -> Seamless Handoff to 3D Fold Shut)
       // ======================================================================
       let zoomOutT = 0;
-      // Fit cleanly inside viewport (never wider/taller than browser!) so text is 100% visible while zoomed in
-      const footStartScale = Math.min((vw - 72) / 1000, (vh - 110) / 684);
+      // Always start larger than openScale so zoom-out smoothly shrinks on both desktop & mobile
+      const fitStartScale = Math.min((vw - 48) / 1000, (vh - 100) / 684);
+      const footStartScale = Math.max(openScale * 1.14, fitStartScale);
       let currentFootScale = footStartScale;
       let isFooterFolding = false;
       if (footerRunway && footViewport && footTrack && footCloseFlap) {
@@ -229,7 +261,8 @@
         isFooterFolding = pFoot >= 0.50;
         footerRunway.classList.toggle('is-folding-shut', isFooterFolding);
 
-        currentFootScale = lerp(footStartScale, baseScale, zoomOutT);
+        const baseFootScale = lerp(footStartScale, openScale, zoomOutT);
+        currentFootScale = lerp(baseFootScale, closedScale, foldCloseT);
         const footShiftX = lerp(0, 250, foldCloseT);
 
         footViewport.style.transform = `scale(${currentFootScale.toFixed(4)})`;
@@ -237,11 +270,12 @@
 
         const closeAngle = lerp(0, -180, foldCloseT);
         footCloseFlap.style.transform = `rotateY(${closeAngle.toFixed(2)}deg)`;
-        const isFootClosed = foldCloseT > 0.96;
+        const isFootClosed = foldCloseT > 0.97;
         footCloseFlap.classList.toggle('is-closed-corners', isFootClosed);
         footTrack.classList.toggle('is-unfolding', foldCloseT > 0.02 && !isFootClosed);
         if (footLeftHalf) {
           footLeftHalf.style.opacity = isFootClosed ? '0' : '1';
+          footLeftHalf.style.visibility = isFootClosed ? 'hidden' : 'visible';
         }
 
         const fShadowScaleX = lerp(1.0, 0.5, foldCloseT);
@@ -274,31 +308,31 @@
       // Uses the SAME sticky bezel wrapped around the browser to shrink smoothly
       // from (0,0) all the way down to the exact opened device frame before 3D fold!
       // ======================================================================
+      const isMobile = vw < 768;
+      const baseInnerR = isMobile ? 16 : 26;
       if (insidePhone) {
-        setBezelRect(1, 0, 0, 0, 26);
+        setBezelRect(1, 0, 0, 0, baseInnerR);
       } else if (pHero > 0.48 && pHero < 0.86) {
         const liveW = 1000 * currentHeroScale;
         const liveH = 684 * currentHeroScale;
         const padX = Math.max(0, (vw - liveW) * 0.5);
         const padY = Math.max(0, (vh - liveH) * 0.5);
-        const touched = liveW >= vw - 2 || liveH >= vh - 2;
-        if (touched) {
-          const outerR = Math.min(padX, padY) > 1 ? 34 : 0;
-          setBezelRect(1, padX, padY, outerR, 26);
-        } else {
-          setBezelRect(0, padX, padY, 42, 34);
-        }
-      } else if (pFoot > 0.08 && !isFooterFolding) {
-        // Interpolate bezel smoothly from browser walls (0, 0) to exact 1000x684 * baseScale device bounds!
-        const targetPadX = Math.max(0, (vw - 1000 * baseScale) * 0.5);
-        const targetPadY = Math.max(0, (vh - 684 * baseScale) * 0.5);
+        const fillRatio = Math.max(liveW / vw, liveH / vh);
+        const bezelAlpha = clamp((fillRatio - 0.94) / 0.06, 0, 1);
+        const outerR = Math.min(padX, padY) > 1 ? 34 * openScale : 0;
+        setBezelRect(bezelAlpha, padX, padY, outerR, baseInnerR);
+      } else if (pFoot > 0.08 && pFoot < 0.53) {
+        // Interpolate bezel smoothly from browser walls (0, 0) to exact 1000x684 * openScale device bounds
+        const targetPadX = Math.max(0, (vw - 1000 * openScale) * 0.5);
+        const targetPadY = Math.max(0, (vh - 684 * openScale) * 0.5);
         const padX = lerp(0, targetPadX, zoomOutT);
         const padY = lerp(0, targetPadY, zoomOutT);
-        const outerR = lerp(0, 44 * baseScale, zoomOutT);
-        const innerR = lerp(26, 34 * baseScale, zoomOutT);
-        setBezelRect(1, padX, padY, outerR, innerR);
+        const outerR = lerp(0, 44 * openScale, zoomOutT);
+        const innerR = lerp(baseInnerR, 34 * openScale, zoomOutT);
+        const handoffFade = pFoot >= 0.50 ? clamp(1 - (pFoot - 0.50) / 0.03, 0, 1) : 1;
+        setBezelRect(handoffFade, padX, padY, outerR, innerR);
       } else {
-        setBezelRect(0, 0, 0, 0, 26);
+        setBezelRect(0, 0, 0, 0, baseInnerR);
       }
     };
 
@@ -313,9 +347,15 @@
 
     window.addEventListener('scroll', scheduleRender, { passive: true });
     window.addEventListener('resize', () => {
-      computeBaseScale();
+      computeBaseScale(false);
       scheduleRender();
     }, { passive: true });
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        computeBaseScale(true);
+        scheduleRender();
+      }, 150);
+    });
 
     renderFrame();
   });

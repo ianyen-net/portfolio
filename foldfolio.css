@@ -112,7 +112,7 @@ body.is-fold-mode[data-theme="dark"] .fold-swatch.is-active {
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-left-panel {
-  background: #121215;
+  background: #16181E;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-name,
@@ -352,7 +352,8 @@ body.is-fold-mode .leo-nav-wrapper {
   top: 0;
   width: 100%;
   height: 100vh;
-  padding-top: 56px;
+  height: 100dvh;
+  padding-top: 0;
   overflow: hidden;
   background: var(--ff-canvas);
   display: flex;
@@ -629,6 +630,10 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   animation: ffDeviceFloat 5.6s ease-in-out infinite;
   will-change: transform;
 }
+.fold-float-device.is-settled {
+  animation: none;
+  transform: translate3d(0, 0, 0);
+}
 
 .fold-bg-word-inner {
   display: inline-block;
@@ -714,7 +719,6 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   background: var(--ff-chassis-grad);
   padding: 4px;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.72), inset 0 -1px 2px rgba(0, 0, 0, 0.25);
-  transition: border-radius 0.22s ease;
 }
 
 /* Corner rounding per half — keep spine corners straight during 3D fold to prevent hinge gap/clipping */
@@ -731,10 +735,10 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-left .fold-face.is-inside {
   border-radius: 46px 0 0 46px;
   padding-right: 0;
-  transform: translateZ(0.6px);
+  transform: translateZ(1.5px);
 }
 .fold-half.is-left .fold-face.is-cover {
-  transform: rotateY(180deg) translateZ(0.6px);
+  transform: rotateY(180deg) translateZ(1.5px);
   border-radius: 0 46px 46px 0;
   padding: 4px 4px 4px 0;
 }
@@ -746,10 +750,10 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
 .fold-half.is-close-flap .fold-face.is-inside-back {
   border-radius: 0 46px 46px 0;
   padding-left: 0;
-  transform: translateZ(0.6px);
+  transform: translateZ(1.5px);
 }
 .fold-half.is-close-flap .fold-face.is-dark-cover {
-  transform: rotateY(180deg) translateZ(0.6px);
+  transform: rotateY(180deg) translateZ(1.5px);
   border-radius: 46px;
   padding: 4px;
 }
@@ -929,13 +933,13 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   justify-content: center;
   gap: 20px;
   padding: 64px 38px 40px;
-  background: #F4F4F2;
+  background: #E8EBF0;
   border-left: none;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel,
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
-  background: #141519;
+  background: #1A1D24;
   border-left: none;
 }
 
@@ -1316,7 +1320,7 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #F6F6F5;
+  background: #EEF0F4;
   padding: 68px 40px 44px;
   display: flex;
   flex-direction: column;
@@ -1439,7 +1443,7 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
 .fold-closing-inside-right {
   width: 100%;
   height: 100%;
-  background: var(--bg-page, #F8F7F6);
+  background: #EEF0F4;
   color: var(--text-primary, #111111);
   padding: 64px 38px 40px;
   display: flex;
@@ -1449,9 +1453,16 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
 }
 
 .fold-closing-inside-right {
-  background: var(--bg-page, #F8F7F6);
+  background: #E8EBF0;
   border-left: none;
   justify-content: center;
+}
+
+body.is-fold-mode[data-theme="dark"] .fold-closing-inside-left {
+  background: #16181E;
+}
+body.is-fold-mode[data-theme="dark"] .fold-closing-inside-right {
+  background: #1A1D24;
 }
 
 .fold-closing-inside-title {
@@ -1652,13 +1663,30 @@ body.is-fold-mode .clientele-footer {
 }
 
 @media (max-width: 760px) {
+  .fold-runway {
+    height: 230vh;
+  }
+  .fold-runway.is-footer-runway {
+    height: 190vh;
+  }
   .fold-chrome-top {
     top: 16px;
     left: 16px;
     right: 16px;
   }
   .fold-bg-word {
-    font-size: 120px;
+    font-size: 112px;
+  }
+  .fold-viewport-bezel-frame {
+    border-width: 3px;
+  }
+  .fold-viewport-bezel-frame::after {
+    box-shadow:
+      0 0 0 8px #050505,
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+  .fold-portfolio-interior {
+    padding: 76px 14px 20px;
   }
 }
 
