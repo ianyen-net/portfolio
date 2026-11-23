@@ -1017,7 +1017,10 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
   border-radius: 20px;
   background: linear-gradient(
     180deg,
@@ -1033,12 +1036,42 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
     0 10px 26px -10px rgba(0, 0, 0, 0.20),
     0 2px 6px -2px rgba(0, 0, 0, 0.06);
   font-family: var(--ff-font-sans);
-  font-size: 13px;
-  line-height: 1.42;
+  font-size: 12.5px;
+  line-height: 1.38;
   font-weight: 500;
   color: #111111;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
-  text-align: center;
+  text-align: left;
+}
+
+.fold-intro-icon {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #24262B 0%, #0E0F12 100%);
+  color: #FFFFFF;
+  font-family: var(--ff-font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  box-shadow:
+    0 4px 10px -3px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.fold-intro-text {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .fold-intro-glass::before {
