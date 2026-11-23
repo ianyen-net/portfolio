@@ -274,9 +274,6 @@ body.is-fold-mode .leo-work-meta-line,
 body.is-fold-mode .proto-portal-desc,
 body.is-fold-mode .about-bio-copy p,
 body.is-fold-mode .leo-nav-link,
-body[data-theme="light"] .theme-toggle-thumb {
-  background: #111111;
-}
 body.is-fold-mode .leo-nav-cta {
   font-family: var(--ff-font-sans);
   font-variation-settings: normal;
