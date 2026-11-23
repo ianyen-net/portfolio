@@ -1329,22 +1329,34 @@ body[data-theme="light"] .hero-fraunces-title .text-accent {
 
 .hero-o-avatar {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  width: 0.96em;
-  height: 0.96em;
+  width: 0.86em;
+  height: 0.86em;
+  border-radius: 50%;
+  overflow: hidden;
   vertical-align: baseline;
   position: relative;
-  top: 0.13em;
-  margin: 0 -0.06em;
+  top: 0.08em;
+  margin: 0 0.02em;
   pointer-events: none;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.24));
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  background:
+    radial-gradient(65% 90% at 50% 0%, rgba(134, 168, 207, 0.14) 0%, rgba(28, 51, 75, 0.1) 52%, transparent 80%),
+    rgba(6, 13, 26, 0.94);
+  border: 2px solid var(--border-strong);
+  box-shadow: 0 10px 26px -8px rgba(0, 0, 0, 0.45), var(--card-inner-shadow);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease, border-color 0.35s ease;
+}
+
+body[data-theme="light"] .hero-o-avatar {
+  background: #FFFFFF;
+  border: 2px solid var(--border-strong);
+  box-shadow: 0 10px 26px -8px rgba(14, 31, 47, 0.16), var(--card-inner-shadow);
 }
 
 .hero-o-avatar-img {
-  width: 100%;
-  height: 100%;
+  width: 96%;
+  height: 96%;
   object-fit: contain;
   display: block;
 }
