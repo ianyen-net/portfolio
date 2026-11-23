@@ -830,20 +830,20 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 24px 24px;
+  padding: 26px 24px 20px;
   overflow: hidden;
 }
 
-/* Full-bleed backlit side-profile portrait matching foldfolio.framer.website */
+/* Full-bleed backlit side-profile portrait — positioned so chin sits cleanly above the intro banner */
 .fold-lock-portrait-full {
   position: absolute;
   left: 0;
   right: 0;
-  top: 138px;
+  top: 92px;
   width: 100%;
-  height: calc(100% - 138px);
+  height: calc(100% - 92px);
   object-fit: cover;
-  object-position: 50% 18%;
+  object-position: 50% 10%;
   z-index: 1;
   pointer-events: none;
 }
@@ -852,8 +852,8 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   position: absolute;
   left: 0;
   right: 0;
-  top: 136px;
-  height: 54px;
+  top: 90px;
+  height: 48px;
   background: linear-gradient(180deg, #F4F5F4 0%, rgba(244, 245, 244, 0) 100%);
   z-index: 2;
   pointer-events: none;
@@ -1152,7 +1152,7 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-icon-btn {
 .fold-lock-time {
   font-family: var(--ff-font-cond);
   font-weight: 800;
-  font-size: 112px;
+  font-size: 102px;
   line-height: 0.84;
   letter-spacing: -0.015em;
   color: #111111;
