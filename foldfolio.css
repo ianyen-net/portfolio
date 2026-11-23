@@ -1474,7 +1474,7 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
 .fold-closing-inside-right {
   width: 100%;
   height: 100%;
-  background: #EEF0F4;
+  background: var(--bg-page, #F8F7F6);
   color: var(--text-primary, #111111);
   padding: 64px 38px 40px;
   display: flex;
@@ -1484,15 +1484,22 @@ body.is-fold-mode[data-theme="dark"] .fold-projects-pill:hover {
 }
 
 .fold-closing-inside-right {
-  background: #E8EBF0;
+  background: var(--bg-page, #F8F7F6);
   border-left: none;
   justify-content: center;
 }
 
-body.is-fold-mode[data-theme="dark"] .fold-closing-inside-left {
+/* Apply subtle device-screen tint only once the bezel has framed the device for the 3D fold */
+.fold-runway.is-footer-runway.is-folding-shut .fold-closing-inside-left {
+  background: #EEF0F4;
+}
+.fold-runway.is-footer-runway.is-folding-shut .fold-closing-inside-right {
+  background: #E8EBF0;
+}
+body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-shut .fold-closing-inside-left {
   background: #16181E;
 }
-body.is-fold-mode[data-theme="dark"] .fold-closing-inside-right {
+body.is-fold-mode[data-theme="dark"] .fold-runway.is-footer-runway.is-folding-shut .fold-closing-inside-right {
   background: #1A1D24;
 }
 
