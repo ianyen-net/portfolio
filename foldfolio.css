@@ -2508,3 +2508,11 @@ body.case-study-body[data-theme="dark"] .case-password-submit {
 body.case-study-body[data-theme="dark"] .case-password-submit:hover {
   background: #E2E4E8;
 }
+
+/* Center-align Expectation vs Reality phone mocks on desktop (ignoring left-side callout annotations) */
+@media (min-width: 961px) {
+  body.case-study-body .frameless-mock.is-expectation-reality {
+    position: relative;
+    left: -12.8%;
+  }
+}
