@@ -509,6 +509,16 @@ body.case-study-body[data-theme="dark"] .leo-nav-progress-bar {
   box-shadow: 0 0 10px rgba(49, 134, 255, 0.55);
 }
 
+.leo-nav-home-icon {
+  padding: 7px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.leo-nav-home-icon svg {
+  display: block;
+}
+
 .case-study-wordmark {
   position: absolute;
   left: 28px;
