@@ -93,6 +93,7 @@
     }
 
     const connectBtn = document.getElementById('fold-connect-btn');
+    const closingProcessOverlay = document.getElementById('process');
     if (connectBtn) {
       connectBtn.addEventListener('click', () => {
         window.scrollTo({
@@ -336,10 +337,15 @@
         const footChromeAlpha = clamp((zoomOutT - 0.45) * 2.0, 0, 1);
         if (footChromeTop) footChromeTop.style.opacity = footChromeAlpha.toFixed(3);
 
-        // "Scroll to connect" pill visible only while closing spread is flat (glides out before 3D flap swings forward)
+        // "Scroll to connect" pill & centered "PROTOTYPE. MEASURE. SHIP." visible while closing spread is flat
         if (connectBtn) {
           const showConnect = pFoot >= 0.02 && foldCloseT <= 0.015;
           connectBtn.classList.toggle('is-visible', showConnect);
+        }
+        if (closingProcessOverlay) {
+          const processAlpha = clamp(1 - foldCloseT * 6, 0, 1);
+          closingProcessOverlay.style.opacity = processAlpha.toFixed(3);
+          closingProcessOverlay.style.pointerEvents = processAlpha > 0.2 ? 'auto' : 'none';
         }
 
         if (footPortal) {

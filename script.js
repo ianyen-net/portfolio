@@ -778,6 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animatedSelectors = [
       '.leo-process-title',
+      '.fold-process-word',
       '.process-hand-arrow',
       '.ship-launch-smoke',
       '.ship-rocket-launch',
