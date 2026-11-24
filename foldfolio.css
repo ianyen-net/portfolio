@@ -2550,3 +2550,63 @@ body[data-theme="dark"] .aurora-chip-bg {
 body[data-theme="dark"] .aurora-chip-text {
   fill: #E8F1FF;
 }
+
+/* Pure CSS keyframe motion along each ecosystem curve (universal Chrome/Safari/Firefox support) */
+.aurora-data-chip {
+  will-change: transform, opacity;
+}
+.aurora-data-chip.is-chip-lt { animation: chipFlowLT 4.6s cubic-bezier(0.35, 0, 0.25, 1) -0.4s infinite; }
+.aurora-data-chip.is-chip-lm { animation: chipFlowLM 4.6s cubic-bezier(0.35, 0, 0.25, 1) -1.9s infinite; }
+.aurora-data-chip.is-chip-lb { animation: chipFlowLB 4.6s cubic-bezier(0.35, 0, 0.25, 1) -3.4s infinite; }
+.aurora-data-chip.is-chip-rt { animation: chipFlowRT 4.6s cubic-bezier(0.35, 0, 0.25, 1) -1.1s infinite; }
+.aurora-data-chip.is-chip-rm { animation: chipFlowRM 4.6s cubic-bezier(0.35, 0, 0.25, 1) -2.6s infinite; }
+.aurora-data-chip.is-chip-rb { animation: chipFlowRB 4.6s cubic-bezier(0.35, 0, 0.25, 1) -4.0s infinite; }
+
+@keyframes chipFlowLT {
+  0%   { transform: translate(230px, 102px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(285px, 114px) scale(1);    opacity: 1; }
+  50%  { transform: translate(360px, 152px) scale(1);    opacity: 1; }
+  78%  { transform: translate(432px, 194px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(478px, 208px) scale(0.76); opacity: 0; }
+  100% { transform: translate(478px, 208px) scale(0.76); opacity: 0; }
+}
+@keyframes chipFlowLM {
+  0%   { transform: translate(185px, 210px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(240px, 210px) scale(1);    opacity: 1; }
+  50%  { transform: translate(335px, 210px) scale(1);    opacity: 1; }
+  78%  { transform: translate(422px, 210px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(472px, 210px) scale(0.76); opacity: 0; }
+  100% { transform: translate(472px, 210px) scale(0.76); opacity: 0; }
+}
+@keyframes chipFlowLB {
+  0%   { transform: translate(230px, 318px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(285px, 306px) scale(1);    opacity: 1; }
+  50%  { transform: translate(360px, 268px) scale(1);    opacity: 1; }
+  78%  { transform: translate(432px, 226px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(478px, 212px) scale(0.76); opacity: 0; }
+  100% { transform: translate(478px, 212px) scale(0.76); opacity: 0; }
+}
+@keyframes chipFlowRT {
+  0%   { transform: translate(770px, 102px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(715px, 114px) scale(1);    opacity: 1; }
+  50%  { transform: translate(640px, 152px) scale(1);    opacity: 1; }
+  78%  { transform: translate(568px, 194px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(522px, 208px) scale(0.76); opacity: 0; }
+  100% { transform: translate(522px, 208px) scale(0.76); opacity: 0; }
+}
+@keyframes chipFlowRM {
+  0%   { transform: translate(815px, 210px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(760px, 210px) scale(1);    opacity: 1; }
+  50%  { transform: translate(665px, 210px) scale(1);    opacity: 1; }
+  78%  { transform: translate(578px, 210px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(528px, 210px) scale(0.76); opacity: 0; }
+  100% { transform: translate(528px, 210px) scale(0.76); opacity: 0; }
+}
+@keyframes chipFlowRB {
+  0%   { transform: translate(770px, 318px) scale(0.84); opacity: 0; }
+  16%  { transform: translate(715px, 306px) scale(1);    opacity: 1; }
+  50%  { transform: translate(640px, 268px) scale(1);    opacity: 1; }
+  78%  { transform: translate(568px, 226px) scale(0.96); opacity: 1; }
+  96%  { transform: translate(522px, 212px) scale(0.76); opacity: 0; }
+  100% { transform: translate(522px, 212px) scale(0.76); opacity: 0; }
+}
