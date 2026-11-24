@@ -1960,43 +1960,26 @@ body.is-fold-mode[data-theme="dark"] .fold-call-screen {
 }
 
 .fold-call-name {
-  font-family: var(--ff-font-cond);
+  font-family: 'Google Sans Flex', var(--ff-font-sans), sans-serif;
   font-weight: 900;
-  font-size: 82px;
-  line-height: 0.86;
-  letter-spacing: 0.01em;
+  font-size: 58px;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
+  color: #1F3B9B;
   margin: 0;
-  color: transparent;
-  background-image: linear-gradient(110deg, #1F3B9B 0%, #1F3B9B 36%, #5A82F0 50%, #1F3B9B 64%, #1F3B9B 100%);
-  background-size: 260% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation:
-    ffConnectSheen 5.2s ease-in-out infinite,
-    ffConnectFloat 6.2s ease-in-out infinite;
-  will-change: background-position, transform;
+  font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'slnt' 0, 'ROND' 85;
+  animation: aiWordShapeMorph 4.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transition: color 0.35s ease;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-name {
-  background-image: linear-gradient(110deg, #3186FF 0%, #3186FF 36%, #BFE3FF 50%, #3186FF 64%, #3186FF 100%);
-}
-
-@keyframes ffConnectSheen {
-  0%   { background-position: 100% 50%; }
-  50%  { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-@keyframes ffConnectFloat {
-  0%, 100% { transform: translate3d(0, 0px, 0); }
-  50%      { transform: translate3d(0, -4px, 0); }
+  color: #3186FF;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fold-call-name {
     animation: none;
-    background-position: 50% 50%;
   }
 }
 
