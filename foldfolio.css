@@ -510,6 +510,13 @@ body[data-theme="dark"] .leo-nav-progress-bar {
   box-shadow: 0 0 10px rgba(49, 134, 255, 0.55);
 }
 
+.leo-nav-monogram {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  padding: 7px 11px;
+}
+
 .leo-nav-home-icon {
   padding: 7px 10px;
   display: inline-flex;

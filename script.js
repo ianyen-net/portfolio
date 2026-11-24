@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navSectionPairs = Array.from(nav.querySelectorAll('.leo-nav-link[href^="#"]'))
       .map((link) => {
         const id = link.getAttribute('href').slice(1);
-        const section = id ? document.getElementById(id) : null;
+        const section = id && id !== 'top' ? document.getElementById(id) : null;
         return section ? { link, section } : null;
       })
       .filter(Boolean);
