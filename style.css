@@ -7951,24 +7951,6 @@ body[data-theme="light"] .proto-code-terminal {
 
 .proto-fan-device.is-single-phone .proto-device-phone {
   animation: none;
-  aspect-ratio: 9 / 19.5;
-}
-
-.proto-fan-device.is-single-phone .proto-device-phone::after {
-  display: none;
-}
-
-.proto-fan-device.is-single-phone .proto-device-phone .proto-device-screen {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-body[data-theme="light"] .proto-fan-device.is-single-phone .proto-device-phone .proto-device-screen {
-  border-color: rgba(17, 17, 17, 0.12);
 }
 
 .proto-directory-portal:hover .proto-fan-device.is-single-phone {
