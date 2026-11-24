@@ -34,7 +34,7 @@
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=236">
-  <link rel="stylesheet" href="foldfolio.css?v=292">
+  <link rel="stylesheet" href="foldfolio.css?v=293">
 </head>
 <body data-theme="dark">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -46,13 +46,24 @@
   <header class="leo-nav-wrapper jd-appear-nav">
     <nav class="leo-nav" aria-label="Primary Navigation">
       <div class="leo-nav-highlight" aria-hidden="true"></div>
-      <span class="leo-nav-progress-bar" aria-hidden="true"></span>
 
-      <a href="#top" class="leo-nav-link leo-nav-monogram" data-nav-hover aria-label="Back to hero">
-        <span class="slot-text-wrap">
-          <span class="slot-text-primary">IY</span>
-          <span class="slot-text-clone" aria-hidden="true">IY</span>
-        </span>
+      <!-- Scroll-Progress Ring Logo (Gradient Stroke Matching Case Study Progress Bar) -->
+      <a href="#top" class="leo-nav-logo" data-nav-hover aria-label="Back to hero">
+        <svg class="leo-nav-logo-ring" width="34" height="34" viewBox="0 0 34 34">
+          <defs>
+            <linearGradient id="iyRingGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#192967"/>
+              <stop offset="100%" stop-color="#1F3B9B"/>
+            </linearGradient>
+            <linearGradient id="iyRingGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3186FF"/>
+              <stop offset="100%" stop-color="#9DD2FF"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-track" cx="17" cy="17" r="15"></circle>
+          <circle class="ring-progress" cx="17" cy="17" r="15"></circle>
+        </svg>
+        <span class="leo-nav-logo-inner">IY</span>
       </a>
 
       <span class="leo-nav-divider" aria-hidden="true"></span>

@@ -485,6 +485,14 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   margin-left: 1px;
 }
 
+body.is-fold-mode[data-theme="light"] .leo-nav-logo-ring circle.ring-progress {
+  stroke: url(#iyRingGradLight);
+}
+body.is-fold-mode[data-theme="dark"] .leo-nav-logo-ring circle.ring-progress {
+  stroke: url(#iyRingGradDark);
+  filter: drop-shadow(0 0 4px rgba(49, 134, 255, 0.55));
+}
+
 body.is-fold-mode .leo-nav,
 body.case-study-body .leo-nav {
   overflow: hidden;
