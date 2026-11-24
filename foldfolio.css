@@ -1187,13 +1187,13 @@ body.is-fold-mode[data-theme="dark"] .fold-screen {
   justify-content: flex-start;
   gap: 20px;
   padding: 104px 38px 40px;
-  background: #EEF0F4;
+  background: #E4E8F0;
   border-left: none;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel,
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
-  background: #16181E;
+  background: #1C2029;
   border-left: none;
 }
 
