@@ -2678,3 +2678,61 @@ body.is-fold-mode[data-theme="dark"] .fold-half.is-close-flap .fold-face.is-insi
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, transparent 100%);
   border-left: 1px solid rgba(157, 210, 255, 0.16);
 }
+
+/* Horizontal divider line under About section matching other sections */
+body.is-fold-mode #about {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 96px;
+}
+
+/* Remove vertical center divider/crease between the three words & Let's Build Something Good in BOTH themes */
+#fold-footer-runway .fold-half.is-left .fold-face.is-inside .fold-screen::after,
+#fold-footer-runway .fold-half.is-close-flap .fold-face.is-inside-back .fold-screen::before,
+body.is-fold-mode[data-theme="dark"] #fold-footer-runway .fold-half.is-left .fold-face.is-inside .fold-screen::after,
+body.is-fold-mode[data-theme="dark"] #fold-footer-runway .fold-half.is-close-flap .fold-face.is-inside-back .fold-screen::before {
+  display: none;
+  background: none;
+  border: none;
+}
+
+/* Allow the Ship rocket to blast vertically out of the left panel while zoomed in */
+#fold-footer-runway:not(.is-folding-shut) .fold-bezel,
+#fold-footer-runway:not(.is-folding-shut) .fold-screen {
+  overflow: visible;
+}
+
+/* Horizontal flat layout for PROTOTYPE. MEASURE. SHIP. + Rocket Launch interaction */
+.fold-process-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 14px;
+}
+.fold-process-word {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ff-font-cond);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 0.95;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.fold-process-word.is-ship-word {
+  position: relative;
+  padding-right: 4px;
+}
+.fold-process-word.is-ship-word .rocket-relaunch-btn {
+  left: calc(100% + 6px);
+  top: 50%;
+}
+#fold-footer-runway .hero-torch-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
