@@ -34,7 +34,7 @@
   <link rel="preload" as="image" href="assets/memoji_about_bust.gif?v=202" fetchpriority="high">
   <link rel="preload" as="image" href="assets/avatar_real_photo.jpg?v=153" fetchpriority="high">
   <link rel="stylesheet" href="style.css?v=236">
-  <link rel="stylesheet" href="foldfolio.css?v=302">
+  <link rel="stylesheet" href="foldfolio.css?v=308">
 </head>
 <body data-theme="dark">
   <!-- Viewport-Wrapping Device Frame Bezel (Active When Zoomed Inside Opened Foldable Phone) -->
@@ -262,17 +262,16 @@
                           </ul>
                         </div>
                       </div>
-
-                      <div class="fold-inside-ctas" style="margin-top: 10px;">
-                        <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-dark">View Resume ↗</a>
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button type="button" class="fold-unfold-pill fold-projects-pill" id="fold-projects-btn">Scroll to projects</button>
+            <div class="fold-projects-stack" id="fold-resume-bottom-actions">
+              <a href="assets/Ian_Yen_Resume.pdf?v=236" target="_blank" rel="noopener noreferrer" class="fold-cta-dark">View Resume ↗</a>
+              <button type="button" class="fold-unfold-pill fold-projects-pill is-in-stack" id="fold-projects-btn">Scroll to projects</button>
+            </div>
           </div>
           </div>
           </div>
@@ -663,6 +662,6 @@
   </main>
 
   <script src="script.js?v=225"></script>
-  <script src="foldfolio.js?v=265"></script>
+  <script src="foldfolio.js?v=266"></script>
 </body>
 </html>

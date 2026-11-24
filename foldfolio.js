@@ -81,6 +81,7 @@
       });
     }
 
+    const resumeBottomActions = document.getElementById('fold-resume-bottom-actions');
     const projectsBtn = document.getElementById('fold-projects-btn');
     if (projectsBtn) {
       projectsBtn.addEventListener('click', () => {
@@ -248,8 +249,11 @@
       if (heroChromeTop) heroChromeTop.style.opacity = heroChromeAlpha.toFixed(3);
       if (heroFinishPill) heroFinishPill.style.opacity = heroChromeAlpha.toFixed(3);
 
-      // "Scroll to see projects" pill glides in cleanly only once the 3D fold is completely flat (prevents Z-clipping)
-      if (projectsBtn) {
+      // "View Resume" + "Scroll to projects" stack glides in cleanly once 3D fold is completely flat
+      if (resumeBottomActions) {
+        const showProjects = unfoldT >= 0.96 && zoomInT <= 0.08;
+        resumeBottomActions.classList.toggle('is-visible', showProjects);
+      } else if (projectsBtn) {
         const showProjects = unfoldT >= 0.96 && zoomInT <= 0.08;
         projectsBtn.classList.toggle('is-visible', showProjects);
       }
