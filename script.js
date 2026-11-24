@@ -92,19 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
      3. TOP PILL NAV BAR (`U(e)`): SCROLL-PROGRESS RING, SPRING HIGHLIGHT & NYC CLOCK
      ========================================================================== */
   const progressCircle = document.querySelector('.ring-progress');
+  const navProgressBar = document.querySelector('.leo-nav-progress-bar');
   const circumference = 2 * Math.PI * 15; // r = 15 => 94.2477
 
   const updateScrollRing = () => {
-    if (!progressCircle) return;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = Math.max(
       1,
       document.documentElement.scrollHeight - window.innerHeight
     );
     const progress = Math.min(1, Math.max(0, scrollTop / docHeight));
-    const offset = circumference * (1 - progress);
-    progressCircle.style.strokeDasharray = `${circumference}`;
-    progressCircle.style.strokeDashoffset = `${offset}`;
+    if (progressCircle) {
+      const offset = circumference * (1 - progress);
+      progressCircle.style.strokeDasharray = `${circumference}`;
+      progressCircle.style.strokeDashoffset = `${offset}`;
+    }
+    if (navProgressBar) {
+      navProgressBar.style.transform = `scaleX(${progress.toFixed(4)})`;
+    }
   };
 
   window.addEventListener('scroll', updateScrollRing, { passive: true });

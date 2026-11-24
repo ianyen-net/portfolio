@@ -29,7 +29,7 @@
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansFlex-Variable.ttf" crossorigin>
   <link rel="preload" as="font" type="font/ttf" href="assets/fonts/GoogleSansMono-Variable.ttf" crossorigin>
   <link rel="stylesheet" href="style.css?v=234">
-  <link rel="stylesheet" href="foldfolio.css?v=283">
+  <link rel="stylesheet" href="foldfolio.css?v=287">
 </head>
 <body data-theme="dark" id="top" class="case-study-body is-locked">
   <script>if(sessionStorage.getItem('ian-case-auth')==='208984112481814036c6a8fb96017106d2c7ba8bf1b64c2ae5b44a5d7b283cec'){document.body.classList.remove('is-locked');}</script>
@@ -41,16 +41,7 @@
   <a href="index.html" class="fold-wordmark case-study-wordmark">YEN<sup>&reg;</sup></a>
   <nav class="leo-nav" aria-label="Case Study Navigation">
     <div class="leo-nav-highlight" aria-hidden="true"></div>
-
-    <a href="index.html" class="leo-nav-logo" data-nav-hover aria-label="Home">
-      <svg class="leo-nav-logo-ring" width="34" height="34" viewBox="0 0 34 34">
-        <circle class="ring-track" cx="17" cy="17" r="15"></circle>
-        <circle class="ring-progress" cx="17" cy="17" r="15"></circle>
-      </svg>
-      <span class="leo-nav-logo-inner">IY</span>
-    </a>
-
-    <span class="leo-nav-divider" aria-hidden="true"></span>
+    <span class="leo-nav-progress-bar" aria-hidden="true"></span>
 
     <a href="index.html" class="leo-nav-link" data-nav-hover>
       <span>←</span>
@@ -60,31 +51,40 @@
       </span>
     </a>
 
-    <a href="ai-in-contacts.html" class="leo-nav-link " data-nav-hover>
+    <span class="leo-nav-divider" aria-hidden="true"></span>
+
+    <a href="#problem" class="leo-nav-link" data-nav-hover>
       <span class="slot-text-wrap">
-        <span class="slot-text-primary">01 · AI Contacts</span>
-        <span class="slot-text-clone" aria-hidden="true">01 · AI Contacts</span>
+        <span class="slot-text-primary">Problem</span>
+        <span class="slot-text-clone" aria-hidden="true">Problem</span>
       </span>
     </a>
 
-    <a href="sharing-design-system.html" class="leo-nav-link active" data-nav-hover>
+    <a href="#research" class="leo-nav-link" data-nav-hover>
       <span class="slot-text-wrap">
-        <span class="slot-text-primary">02 · ShareKit</span>
-        <span class="slot-text-clone" aria-hidden="true">02 · ShareKit</span>
+        <span class="slot-text-primary">Research</span>
+        <span class="slot-text-clone" aria-hidden="true">Research</span>
       </span>
     </a>
 
-    <a href="google-contacts.html" class="leo-nav-link " data-nav-hover>
+    <a href="#system" class="leo-nav-link" data-nav-hover>
       <span class="slot-text-wrap">
-        <span class="slot-text-primary">03 · Editor</span>
-        <span class="slot-text-clone" aria-hidden="true">03 · Editor</span>
+        <span class="slot-text-primary">System</span>
+        <span class="slot-text-clone" aria-hidden="true">System</span>
       </span>
     </a>
 
-    <a href="sonicare.html" class="leo-nav-link " data-nav-hover>
+    <a href="#adoption" class="leo-nav-link" data-nav-hover>
       <span class="slot-text-wrap">
-        <span class="slot-text-primary">04 · Sonicare</span>
-        <span class="slot-text-clone" aria-hidden="true">04 · Sonicare</span>
+        <span class="slot-text-primary">Adoption</span>
+        <span class="slot-text-clone" aria-hidden="true">Adoption</span>
+      </span>
+    </a>
+
+    <a href="#learnings" class="leo-nav-link" data-nav-hover>
+      <span class="slot-text-wrap">
+        <span class="slot-text-primary">Learnings</span>
+        <span class="slot-text-clone" aria-hidden="true">Learnings</span>
       </span>
     </a>
 
@@ -164,7 +164,7 @@
     </section>
 
     <!-- Section: Overview -->
-    <section class="case-section framer-reveal">
+    <section class="case-section framer-reveal" id="problem">
       <div class="case-container">
         <p class="case-eyebrow">OVERVIEW</p>
         <h2 class="case-h2">The Problem</h2>
@@ -217,7 +217,7 @@
     </section>
 
     <!-- Section: What the Research Showed -->
-    <section class="case-section alt-bg framer-reveal">
+    <section class="case-section alt-bg framer-reveal" id="research">
       <div class="case-container">
         <p class="case-eyebrow">WHAT THE RESEARCH SHOWED</p>
         <h2 class="case-h2">The Sharing Journey</h2>
@@ -283,7 +283,7 @@
     </section>
 
     <!-- Section: A Modular Turn-Key Approach -->
-    <section class="case-section framer-reveal">
+    <section class="case-section framer-reveal" id="system">
       <div class="case-container">
         <p class="case-eyebrow">A MODULAR TURN-KEY APPROACH</p>
         <h2 class="case-h2">ShareKit</h2>
@@ -794,7 +794,7 @@
     </section>
 
     <!-- Section: Adoption -->
-    <section class="case-section framer-reveal">
+    <section class="case-section framer-reveal" id="adoption">
       <div class="case-container">
         <p class="case-eyebrow">ADOPTION</p>
         <h2 class="case-h2">First Party Apps That Prove</h2>
@@ -1119,7 +1119,7 @@
     </section>
 
     <!-- Section: Reflection (Slide 103 Content & Speaker Notes) -->
-    <section class="case-section framer-reveal">
+    <section class="case-section framer-reveal" id="learnings">
       <div class="case-container">
         <p class="case-eyebrow">REFLECTION</p>
         <h2 class="case-h2">Learnings</h2>
@@ -1155,6 +1155,6 @@
   </footer>
 
 
-  <script src="script.js?v=215"></script>
+  <script src="script.js?v=224"></script>
 </body>
 </html>
