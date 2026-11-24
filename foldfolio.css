@@ -1211,7 +1211,7 @@ body.is-fold-mode[data-theme="dark"] .fold-lock-time {
   color: #F6F6F5;
 }
 body.is-fold-mode[data-theme="dark"] .fold-lock-sub {
-  color: #F6F6F5;
+  color: #9DD2FF;
 }
 body.is-fold-mode[data-theme="dark"] .fold-intro-glass {
   background: linear-gradient(
@@ -1294,7 +1294,7 @@ body.is-fold-mode[data-theme="dark"] .fold-history-co-dates {
   font-family: var(--ff-font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: #111111;
+  color: #192967;
   letter-spacing: -0.005em;
 }
 
@@ -1709,6 +1709,56 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill.is-vis
   text-transform: uppercase;
   color: #111111;
   margin: 0;
+}
+
+.fold-inside-name .fold-name-line {
+  display: block;
+  will-change: transform, color;
+  animation: ffResumeTitleWaveLight 5.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.fold-inside-name .fold-name-line:nth-child(1) { animation-delay: 0s; }
+.fold-inside-name .fold-name-line:nth-child(2) { animation-delay: 0.34s; }
+.fold-inside-name .fold-name-line:nth-child(3) { animation-delay: 0.68s; }
+
+body.is-fold-mode[data-theme="dark"] .fold-inside-name .fold-name-line {
+  animation-name: ffResumeTitleWaveDark;
+}
+
+@keyframes ffResumeTitleWaveLight {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    color: #111111;
+  }
+  16% {
+    transform: translate3d(5px, -1.5px, 0);
+    color: #1F3B9B;
+  }
+  34% {
+    transform: translate3d(0, 0, 0);
+    color: #111111;
+  }
+}
+
+@keyframes ffResumeTitleWaveDark {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    color: #F6F6F5;
+  }
+  16% {
+    transform: translate3d(5px, -1.5px, 0);
+    color: #9DD2FF;
+  }
+  34% {
+    transform: translate3d(0, 0, 0);
+    color: #F6F6F5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fold-inside-name .fold-name-line {
+    animation: none;
+  }
 }
 
 .fold-inside-tagline {
