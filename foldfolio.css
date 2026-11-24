@@ -1959,13 +1959,13 @@ body.is-fold-mode[data-theme="dark"] .fold-call-screen {
   line-height: 0.86;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: #192967;
+  color: #1F3B9B;
   margin: 0;
   transition: color 0.35s ease;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-name {
-  color: #9DD2FF;
+  color: #3186FF;
 }
 
 .fold-call-sub {
