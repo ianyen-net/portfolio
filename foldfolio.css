@@ -2670,13 +2670,13 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill.is-in-
   z-index: 10;
 }
 body.is-fold-mode[data-theme="dark"] .fold-half.is-left .fold-face.is-inside .fold-screen::after {
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.025) 100%);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.018) 100%);
+  border-right: none;
 }
 body.is-fold-mode[data-theme="dark"] .fold-half.is-right .fold-screen::before,
 body.is-fold-mode[data-theme="dark"] .fold-half.is-close-flap .fold-face.is-inside-back .fold-screen::before {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0%, transparent 100%);
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0%, transparent 100%);
+  border-left: none;
 }
 
 /* Horizontal divider line under About section matching other sections */
