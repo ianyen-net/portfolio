@@ -485,6 +485,7 @@ body[data-fold-bg="orbit"] .fold-ambient-orbit { opacity: 1; }
   margin-left: 1px;
 }
 
+body.is-fold-mode .leo-nav,
 body.case-study-body .leo-nav {
   overflow: hidden;
   padding: 5px;
@@ -504,7 +505,7 @@ body.case-study-body .leo-nav {
   will-change: transform;
 }
 
-body.case-study-body[data-theme="dark"] .leo-nav-progress-bar {
+body[data-theme="dark"] .leo-nav-progress-bar {
   background: linear-gradient(90deg, #3186FF 0%, #9DD2FF 100%);
   box-shadow: 0 0 10px rgba(49, 134, 255, 0.55);
 }
