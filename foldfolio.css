@@ -1173,9 +1173,9 @@ body.is-fold-mode[data-theme="dark"] .fold-screen {
 .fold-inside-right-panel.is-history-panel {
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
-  padding: 64px 38px 40px;
+  padding: 104px 38px 40px;
   background: #E8EBF0;
   border-left: none;
 }
