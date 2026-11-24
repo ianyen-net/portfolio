@@ -1967,18 +1967,18 @@ body.is-fold-mode[data-theme="dark"] .fold-call-screen {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: #1F3B9B;
-  text-shadow: 0 12px 26px rgba(31, 59, 155, 0.28);
+  text-shadow: none;
   margin: 0;
   display: inline-block;
   transform: translateY(-8px) scale(1.07) rotate(1.5deg);
   animation: aiFrozenSubtleFloat 3.4s ease-in-out infinite;
   will-change: transform;
-  transition: color 0.35s ease, text-shadow 0.35s ease;
+  transition: color 0.35s ease;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-name {
   color: #3186FF;
-  text-shadow: 0 14px 32px rgba(49, 134, 255, 0.36);
+  text-shadow: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
