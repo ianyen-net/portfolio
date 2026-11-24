@@ -530,6 +530,17 @@ body[data-theme="dark"] .leo-nav-progress-bar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: #1F3B9B;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.leo-nav-home-icon:hover {
+  color: #192967;
+}
+body.case-study-body[data-theme="dark"] .leo-nav-home-icon {
+  color: #3186FF;
+}
+body.case-study-body[data-theme="dark"] .leo-nav-home-icon:hover {
+  color: #9DD2FF;
 }
 .leo-nav-home-icon svg {
   display: block;
