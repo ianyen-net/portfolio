@@ -2730,11 +2730,15 @@ body.is-fold-mode[data-theme="dark"] #fold-footer-runway .fold-half.is-close-fla
   left: calc(100% + 6px);
   top: 50%;
 }
-#fold-footer-runway .hero-torch-flash {
+#fold-footer-runway .hero-top-torch-flash {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 34vh;
+  min-height: 240px;
   pointer-events: none;
-  z-index: 50;
+  z-index: 60;
 }
 
 /* Centered horizontal PROTOTYPE. MEASURE. SHIP. across the full closing spread */
