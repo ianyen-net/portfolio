@@ -2792,15 +2792,20 @@ body.is-fold-mode[data-theme="light"] #process.is-rocket-launched .fold-process-
   animation-duration: 2.3s;
 }
 
-/* Guarantee rocket stage is crisp, prominent, and never clipped inside the centered overlay */
+/* Guarantee rocket stage is crisp, well-spaced, and never clipped inside the centered overlay */
 .fold-process-center-overlay .ship-rocket-stage {
-  left: calc(100% + 26px);
+  left: calc(100% + 42px);
   z-index: 80;
 }
 .fold-process-center-overlay .ship-rocket-launch {
-  width: 58px;
-  height: 108px;
-  top: -80px;
+  width: 49px;
+  height: 92px;
+  top: -68px;
+}
+.fold-process-center-overlay .ship-launch-smoke {
+  width: 82px;
+  height: 31px;
+  top: -15px;
 }
 .fold-process-center-overlay .rocket-relaunch-btn {
   width: 36px;
