@@ -1960,26 +1960,31 @@ body.is-fold-mode[data-theme="dark"] .fold-call-screen {
 }
 
 .fold-call-name {
-  font-family: 'Google Sans Flex', var(--ff-font-sans), sans-serif;
+  font-family: var(--ff-font-cond);
   font-weight: 900;
-  font-size: 58px;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  font-size: 84px;
+  line-height: 0.88;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: #1F3B9B;
+  text-shadow: 0 12px 26px rgba(31, 59, 155, 0.28);
   margin: 0;
-  font-variation-settings: 'opsz' 120, 'wght' 900, 'wdth' 96, 'slnt' 0, 'ROND' 85;
-  animation: aiWordShapeMorph 4.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-  transition: color 0.35s ease;
+  display: inline-block;
+  transform: translateY(-8px) scale(1.07) rotate(1.5deg);
+  animation: aiFrozenSubtleFloat 3.4s ease-in-out infinite;
+  will-change: transform;
+  transition: color 0.35s ease, text-shadow 0.35s ease;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-call-name {
   color: #3186FF;
+  text-shadow: 0 14px 32px rgba(49, 134, 255, 0.36);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fold-call-name {
     animation: none;
+    transform: rotate(1.5deg);
   }
 }
 
