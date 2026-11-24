@@ -514,15 +514,34 @@ body.case-study-body[data-theme="dark"] .leo-nav-progress-bar {
   left: 28px;
   top: 50%;
   transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   pointer-events: auto;
   z-index: 1001;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.case-study-wordmark svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.case-study-wordmark:hover {
+  color: var(--accent);
+}
+.case-study-wordmark:hover svg {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 body.case-study-body[data-theme="dark"] .case-study-wordmark {
   color: #F6F6F5;
 }
-@media (max-width: 960px) {
+body.case-study-body[data-theme="dark"] .case-study-wordmark:hover {
+  color: #9DD2FF;
+}
+@media (max-width: 760px) {
   .case-study-wordmark {
-    display: none;
+    left: 16px;
   }
 }
 
