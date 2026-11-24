@@ -2655,3 +2655,26 @@ body.is-fold-mode[data-theme="dark"] .fold-unfold-pill.fold-projects-pill.is-in-
   color: #FFFFFF;
   box-shadow: 0 10px 24px -6px rgba(25, 41, 103, 0.45);
 }
+
+/* Crisp foldable OLED center divider/crease on closing spread & dark theme */
+.fold-half.is-close-flap .fold-face.is-inside-back .fold-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 18px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.055) 0%, transparent 100%);
+  border-left: 1px solid rgba(17, 17, 17, 0.08);
+  pointer-events: none;
+  z-index: 10;
+}
+body.is-fold-mode[data-theme="dark"] .fold-half.is-left .fold-face.is-inside .fold-screen::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.07) 100%);
+  border-right: 1px solid rgba(157, 210, 255, 0.16);
+}
+body.is-fold-mode[data-theme="dark"] .fold-half.is-right .fold-screen::before,
+body.is-fold-mode[data-theme="dark"] .fold-half.is-close-flap .fold-face.is-inside-back .fold-screen::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, transparent 100%);
+  border-left: 1px solid rgba(157, 210, 255, 0.16);
+}
