@@ -2754,38 +2754,57 @@ body.is-fold-mode[data-theme="dark"] #fold-footer-runway .fold-half.is-close-fla
 }
 .fold-process-center-overlay .fold-process-row {
   justify-content: center;
-  gap: 28px;
+  gap: 22px;
 }
 .fold-process-center-overlay .fold-process-word {
-  font-size: 76px;
+  font-size: 54px;
+  color: var(--text-primary);
+  opacity: 0.28;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+body.is-fold-mode[data-theme="dark"] .fold-process-center-overlay .fold-process-word {
+  color: #FFFFFF;
 }
 
-/* Left-to-right sequential highlight sweep on PROTOTYPE. -> MEASURE. -> SHIP. before rocket liftoff at 2.5s */
-.fold-process-center-overlay .fold-process-word {
-  opacity: 0.34;
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
+/* Fast left-to-right crisp white highlight sweep before early rocket liftoff (~1.2s) */
 #process.is-rocket-launched .fold-process-word:nth-child(1) {
-  animation: foldWordHighlight 4.5s ease-out 0.10s 1 forwards;
+  animation: foldWordHighlightWhite 2.4s ease-out 0.05s 1 forwards;
 }
 #process.is-rocket-launched .fold-process-word:nth-child(2) {
-  animation: foldWordHighlight 4.5s ease-out 0.85s 1 forwards;
+  animation: foldWordHighlightWhite 2.4s ease-out 0.38s 1 forwards;
 }
 #process.is-rocket-launched .fold-process-word:nth-child(3) {
-  animation: foldWordHighlightShip 4.5s ease-out 1.60s 1 forwards;
+  animation: foldWordHighlightWhite 2.4s ease-out 0.72s 1 forwards;
 }
 
-@keyframes foldWordHighlight {
-  0%   { opacity: 0.34; transform: scale(1); text-shadow: none; }
-  8%   { opacity: 1;    transform: scale(1.06); text-shadow: 0 0 24px rgba(49, 134, 255, 0.45); }
-  20%  { opacity: 1;    transform: scale(1);    text-shadow: 0 0 10px rgba(49, 134, 255, 0.22); }
+@keyframes foldWordHighlightWhite {
+  0%   { opacity: 0.28; transform: scale(1); text-shadow: none; }
+  12%  { opacity: 1;    transform: scale(1.06); text-shadow: 0 0 22px rgba(255, 255, 255, 0.55); }
+  28%  { opacity: 1;    transform: scale(1);    text-shadow: 0 0 8px rgba(255, 255, 255, 0.20); }
   100% { opacity: 1;    transform: scale(1);    text-shadow: none; }
 }
-@keyframes foldWordHighlightShip {
-  0%   { opacity: 0.34; transform: scale(1); text-shadow: none; }
-  10%  { opacity: 1;    transform: scale(1.08); text-shadow: 0 0 28px rgba(49, 134, 255, 0.55); }
-  24%  { opacity: 1;    transform: scale(1);    text-shadow: 0 0 12px rgba(49, 134, 255, 0.26); }
-  100% { opacity: 1;    transform: scale(1);    text-shadow: none; }
+body.is-fold-mode[data-theme="light"] #process.is-rocket-launched .fold-process-word:nth-child(1) {
+  animation: foldWordHighlightLight 2.4s ease-out 0.05s 1 forwards;
+}
+body.is-fold-mode[data-theme="light"] #process.is-rocket-launched .fold-process-word:nth-child(2) {
+  animation: foldWordHighlightLight 2.4s ease-out 0.38s 1 forwards;
+}
+body.is-fold-mode[data-theme="light"] #process.is-rocket-launched .fold-process-word:nth-child(3) {
+  animation: foldWordHighlightLight 2.4s ease-out 0.72s 1 forwards;
+}
+@keyframes foldWordHighlightLight {
+  0%   { opacity: 0.28; transform: scale(1); }
+  12%  { opacity: 1;    transform: scale(1.06); }
+  28%  { opacity: 1;    transform: scale(1); }
+  100% { opacity: 1;    transform: scale(1); }
+}
+
+/* Speed up rocket launch & smoke by ~1.5s so liftoff happens right after SHIP. lights up */
+#process.is-rocket-launched .ship-launch-smoke,
+#process.is-rocket-launched .ship-rocket-launch,
+#process.is-rocket-launched .rocket-side-booster-left,
+#process.is-rocket-launched .rocket-side-booster-right {
+  animation-duration: 2.3s;
 }
 
 /* Guarantee rocket stage is crisp, prominent, and never clipped inside the centered overlay */
