@@ -122,7 +122,7 @@ body.is-fold-mode[data-theme="dark"] .fold-swatch.is-active {
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-left-panel {
-  background: #16181E;
+  background: #0B0C0F;
 }
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-name,
@@ -1193,7 +1193,7 @@ body.is-fold-mode[data-theme="dark"] .fold-screen {
 
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel,
 body.is-fold-mode[data-theme="dark"] .fold-inside-right-panel.is-history-panel {
-  background: #1C2029;
+  background: #12141A;
   border-left: none;
 }
 

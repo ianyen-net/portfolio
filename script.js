@@ -823,15 +823,23 @@ document.addEventListener('DOMContentLoaded', () => {
     { passive: true }
   );
 
-  // Start the rocket in position as soon as the user sees the three words (and lifts off 2.7s after the words are seen)
+  // Auto-launch the rocket & L->R highlight every time the user enters the PROTOTYPE. MEASURE. SHIP. section
   const processSectionEl = document.getElementById('process');
   const processTrayEl = document.querySelector('.leo-process-tray');
+  let wasInProcessSection = false;
 
   const checkAndLaunchProcessRocket = () => {
-    if (rocketTorchScheduled || !processSectionEl || !processTrayEl) return;
+    if (!processSectionEl || !processTrayEl) return;
     const trayRect = processTrayEl.getBoundingClientRect();
-    if (trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60) {
+    const opacity = parseFloat(window.getComputedStyle(processSectionEl).opacity || '1');
+    const inView = opacity > 0.5 && trayRect.top < window.innerHeight - 20 && trayRect.bottom > 60;
+
+    if (inView && !wasInProcessSection) {
+      wasInProcessSection = true;
       relaunchProcessRocket();
+    } else if (!inView && wasInProcessSection) {
+      wasInProcessSection = false;
+      processSectionEl.classList.remove('is-rocket-launched');
     }
   };
 
