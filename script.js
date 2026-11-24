@@ -904,7 +904,6 @@ document.addEventListener('DOMContentLoaded', () => {
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
           </div>
-          <div class="case-password-kicker">Protected Case Study</div>
           <h2 class="case-password-title" id="case-gate-title">Good stuff ahead</h2>
           <p class="case-password-desc">Enter the password to continue</p>
           <form class="case-password-form" id="case-password-form" autocomplete="off">
